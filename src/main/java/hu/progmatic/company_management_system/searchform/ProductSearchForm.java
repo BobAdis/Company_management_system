@@ -21,4 +21,6 @@ public class ProductSearchForm {
     public void setSerialNumber(int serialNumber) {
         this.serialNumber = serialNumber;
     }
+
+    //valami
 }
