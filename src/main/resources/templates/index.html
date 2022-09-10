@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<li sec:authorize="isAuthenticated()">
+    <a data-th-href="@{/logout}">Logout</a>
+</li>
+<li sec:authorize="!isAuthenticated()">
+    <a data-th-href="@{/login}">Login</a>
+</li>
+<li>
+    <a data-th-href="@{/register}">Registry</a>
+</li>
+<h1>Legjobb ERP</h1>
+</body>
+</html>

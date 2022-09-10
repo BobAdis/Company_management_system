@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+</head>
+
+<body>
+<li sec:authorize="isAuthenticated()">
+    <a data-th-href="@{/logout}">Logout</a>
+</li>
+<li sec:authorize="!isAuthenticated()">
+    <a data-th-href="@{/login}">Login</a>
+</li>
+
+    <div class="form">
+        <h1>New user</h1>
+        <form class="form" data-th-action="@{/register}" method="post" data-th-object="${user}">
+            <input type="text" data-th-field="*{username}" placeholder="username">
+            <input type="password" data-th-field="*{password}" placeholder="password">
+            <select name="task">
+                <option data-th-each="taskOpt : ${T(hu.progmatic.company_management_system.models.Task).values()}"
+                data-th-value="${taskOpt}" data-th-text="${taskOpt}"></option>
+            </select>
+            <input class="send_button" type="submit" value="Send">
+        </form>
+    </div>
+
+</body>
+
+</html>
