@@ -45,4 +45,8 @@ public class ProductService {
         return productRepo.findByWarehouseEquals(Warehouse.REJECT);
     }
 
+    public void saveProduct(Product product) {
+        productRepo.save(product);
+    }
+
 }

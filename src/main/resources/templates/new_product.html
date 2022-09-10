@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new product</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="form">
+        <h1>Create new product</h1>
+        <form class="form" data-th-action="@{/newproduct}" data-th-object="${product}" method="post">
+            <input placeholder="name" type="text" data-th-field="*{name}"/>
+            <input placeholder="serial number" type="number" data-th-field="*{serialNumber}"/>
+            <input placeholder="unit price" type="number" data-th-field="*{unitPrice}"/>
+            <textarea placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
+            <select data-th-field="*{productCondition}">
+                <option data-th-each="condition : ${productConditions}"
+                        data-th-value="${condition}"
+                        data-th-text="${condition}">
+                </option>
+            </select>
+            <select data-th-field="*{warehouse}">
+                <option data-th-each="w : ${warehouse}"
+                        data-th-value="${w}"
+                        data-th-text="${w}">
+                </option>
+            </select>
+            <button class="send_button">Create</button>
+        </form>
+    </div>
+</body>
+</html>

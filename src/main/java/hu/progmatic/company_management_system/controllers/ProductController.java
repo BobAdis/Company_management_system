@@ -1,10 +1,13 @@
 package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.Product;
+import hu.progmatic.company_management_system.models.ProductCondition;
+import hu.progmatic.company_management_system.models.Warehouse;
 import hu.progmatic.company_management_system.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -70,6 +73,23 @@ public class ProductController {
         model.addAttribute("products", reject);
         model.addAttribute("page", "Reject Warehouse");
         return "products";
+    }
+
+    @GetMapping(value = {"/newproduct"})
+    public String getNewProductForm(Model model) {
+        Product product = new Product();
+        model.addAttribute("product", product);
+        model.addAttribute("productConditions", ProductCondition.values());
+        model.addAttribute("warehouse", Warehouse.values());
+
+        return "new_product";
+    }
+
+    @PostMapping(value = {"/newproduct"})
+    public String addNewProduct(Product product) {
+        productService.saveProduct(product);
+
+        return "redirect:/newproduct";
     }
 
 }
