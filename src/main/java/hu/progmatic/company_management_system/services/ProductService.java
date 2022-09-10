@@ -4,14 +4,19 @@ import hu.progmatic.company_management_system.models.Product;
 import hu.progmatic.company_management_system.models.ProductCondition;
 import hu.progmatic.company_management_system.models.Warehouse;
 import hu.progmatic.company_management_system.repositories.ProductRepo;
+
+import hu.progmatic.company_management_system.searchform.ProductSearchForm;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ProductService {
 
     private final ProductRepo productRepo;
+
+
 
     public ProductService(ProductRepo productRepo) {
         this.productRepo = productRepo;
@@ -49,4 +54,22 @@ public class ProductService {
         productRepo.save(product);
     }
 
+    public List<Product> getByForm(ProductSearchForm form) {
+        List<Product> result = new ArrayList<>();
+
+        for (Product product : getAllProduct()) {
+
+            if (form.getName() != null && !product.getName().contains(form.getName())) {
+                continue;
+            }
+
+            if (form.getSerialNumber() != 0 && product.getSerialNumber() != form.getSerialNumber()) {
+                continue;
+            }
+
+            result.add(product);
+        }
+
+        return result;
+    }
 }

@@ -7,24 +7,20 @@
 </head>
 <body>
 <p data-th-text="${page}"></p>
-<!--<form data-th-action="@{/rawmaterials}" method="post" data-th-object="${newShip}">
+
+
+<!--<form data-th-action="@{/}" data-th-object="${form}" method="post">
     <table>
         <tr>
-            <select data-th-field="*{spaceShipClass}">
-                <option data-th-each="shipClass : ${shipClasses}"
-                        data-th-value="${shipClass}"
-                        data-th-text="${shipClass}">
-                </option>
-            </select>
+            <th>Search by name:</th>
+            <td><input type="text" data-th-field="*{name}" /></td>
         </tr>
         <tr>
-            <input type="text" data-th-field="*{name}" placeholder="Name">
+            <th>Search by serialnumber:</th>
+            <td><input type="text" data-th-field="*{serialNumber}" /></td>
         </tr>
         <tr>
-            <input type="checkbox" data-th-field="*{active}">
-        </tr>
-        <tr>
-            <td colspan="2"><button type="submit">Keresés</button></td>
+            <td colspan="2"><button type="submit">Search</button></td>
         </tr>
     </table>
 </form>-->

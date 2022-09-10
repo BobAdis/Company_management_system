@@ -3,6 +3,7 @@ package hu.progmatic.company_management_system.controllers;
 import hu.progmatic.company_management_system.models.Product;
 import hu.progmatic.company_management_system.models.ProductCondition;
 import hu.progmatic.company_management_system.models.Warehouse;
+import hu.progmatic.company_management_system.searchform.ProductSearchForm;
 import hu.progmatic.company_management_system.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,10 +31,21 @@ public class ProductController {
     @GetMapping(value = {"/finishedproducts"})
     public String getFinishedProductsPage(Model model) {
         List<Product> finished = productService.getAllFinishedProducts();
-        model.addAttribute("products", finished);
         model.addAttribute("page", "Finished Products");
+      //  model.addAttribute("endpoint", "finishedproducts");
+      //  model.addAttribute("form", new ProductSearchForm());
+        model.addAttribute("products", finished);
         return "products";
     }
+
+   /* @PostMapping("/finishedproducts")
+    public String displaySearchResults(ProductSearchForm form, Model model) {
+        List<Product> products = productService.getByForm(form);
+        model.addAttribute("form", form);
+        model.addAttribute("products", products);
+
+        return "products";
+    }*/
 
     @GetMapping(value = {"/rawmaterials"})
     public String getRawMaterialsPage(Model model) {
@@ -91,5 +103,6 @@ public class ProductController {
 
         return "redirect:/newproduct";
     }
+
 
 }
