@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<p data-th-text="${page}"></p>
 <!--<form data-th-action="@{/rawmaterials}" method="post" data-th-object="${newShip}">
     <table>
         <tr>
@@ -27,6 +28,22 @@
         </tr>
     </table>
 </form>-->
-<p>Products page</p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>SN</th>
+        <th>Unit price</th>
+        <th>Description</th>
+
+    </tr>
+    <tr data-th-each="product: ${products}">
+        <td data-th-text="${product.name}"></td>
+        <td data-th-text="${product.serialNumber}"></td>
+        <td data-th-text="${product.unitPrice}"></td>
+        <td data-th-text="${product.description}"></td>
+    </tr>
+</table>
+
 </body>
 </html>
