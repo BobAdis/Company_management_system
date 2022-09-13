@@ -17,10 +17,10 @@ public class PartnerService {
     }
 
     public List<Partner> getAllCustomers () {
-        return partnerRepo.findByPartnerTypeEquals(PartnerType.valueOf("Customer"));
+        return partnerRepo.findByPartnerTypeEquals(PartnerType.COSTUMER);
     }
 
     public List<Partner> getAllSupplier () {
-        return partnerRepo.findByPartnerTypeEquals(PartnerType.valueOf("Supplier"));
+        return partnerRepo.findByPartnerTypeEquals(PartnerType.SUPPLIER);
     }
 }

@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<p data-th-text="${page}"></p>
+<h1 data-th-text="${page}"></h1>
 
 
-<!--<form data-th-action="@{/}" data-th-object="${form}" method="post">
+<form data-th-action="@{/}+${endpoint}" data-th-object="${form}" method="post">
     <table>
         <tr>
             <th>Search by name:</th>
@@ -23,7 +23,7 @@
             <td colspan="2"><button type="submit">Search</button></td>
         </tr>
     </table>
-</form>-->
+</form>
 
 <table>
     <tr>

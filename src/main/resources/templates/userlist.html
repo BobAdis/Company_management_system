@@ -16,13 +16,11 @@
     <tr>
         <th>Id</th>
         <th>Username</th>
-        <th>Password</th>
         <th>Task</th>
     </tr>
     <tr data-th-each="user: ${users}">
         <td data-th-text="${user.id}"></td>
         <td data-th-text="${user.username}"></td>
-        <td data-th-text="${user.password}"></td>
         <td data-th-text="${user.task}"></td>
     </tr>
 </table>

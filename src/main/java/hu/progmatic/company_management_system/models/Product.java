@@ -2,7 +2,8 @@ package hu.progmatic.company_management_system.models;
 
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Product {
@@ -10,6 +11,8 @@ public class Product {
     @GeneratedValue
     private Long id;
 
+/*    @NotNull
+    @Size(min=2, max=30)*/
     private String name;
 
     private int serialNumber;
@@ -21,20 +24,18 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductCondition productCondition;
 
-    private Warehouse warehouse;
-
 
     public Product() {
     }
 
-    public Product(String name, int serialNumber, double unitPrice, String description, ProductCondition productCondition, Warehouse warehouse) {
+    public Product(String name, int serialNumber, double unitPrice, String description, ProductCondition productCondition) {
         this.name = name;
         this.serialNumber = serialNumber;
         this.unitPrice = unitPrice;
         this.description = description;
         this.productCondition = productCondition;
-        this.warehouse = warehouse;
     }
+
 
     public void setId(Long id) {
         this.id = id;
@@ -82,13 +83,5 @@ public class Product {
 
     public void setProductCondition(ProductCondition productCondition) {
         this.productCondition = productCondition;
-    }
-
-    public Warehouse getWarehouse() {
-        return warehouse;
-    }
-
-    public void setWarehouse(Warehouse warehouse) {
-        this.warehouse = warehouse;
     }
 }

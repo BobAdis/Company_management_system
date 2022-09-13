@@ -63,4 +63,6 @@ public class UserService implements UserDetailsService {
 
         return new ArrayList<>((Collection) userRepository.findAll());
     }
+
+
 }

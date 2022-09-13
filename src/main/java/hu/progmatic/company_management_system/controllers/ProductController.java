@@ -7,9 +7,11 @@ import hu.progmatic.company_management_system.searchform.ProductSearchForm;
 import hu.progmatic.company_management_system.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -31,59 +33,40 @@ public class ProductController {
     @GetMapping(value = {"/finishedproducts"})
     public String getFinishedProductsPage(Model model) {
         List<Product> finished = productService.getAllFinishedProducts();
-        model.addAttribute("page", "Finished Products");
-      //  model.addAttribute("endpoint", "finishedproducts");
-      //  model.addAttribute("form", new ProductSearchForm());
         model.addAttribute("products", finished);
+        model.addAttribute("page", "Finished Products");
+        model.addAttribute("endpoint", "finishedproducts");
+        model.addAttribute("form", new Product());
         return "products";
     }
 
-   /* @PostMapping("/finishedproducts")
-    public String displaySearchResults(ProductSearchForm form, Model model) {
-        List<Product> products = productService.getByForm(form);
-        model.addAttribute("form", form);
+    @PostMapping("/finishedproducts")
+    public String displayFinishedSearchResults(ProductSearchForm form, Model model) {
+        List<Product> products = productService.getFinishedByForm(form);
         model.addAttribute("products", products);
-
+        model.addAttribute("page", "Finished Products");
+        model.addAttribute("endpoint", "finishedproducts");
+        model.addAttribute("form", form);
         return "products";
-    }*/
+    }
 
     @GetMapping(value = {"/rawmaterials"})
     public String getRawMaterialsPage(Model model) {
         List<Product> raws = productService.getAllRawMaterialProducts();
         model.addAttribute("products", raws);
         model.addAttribute("page", "Raw Materials");
+        model.addAttribute("endpoint", "rawmaterials");
+        model.addAttribute("form", new Product());
         return "products";
     }
 
-    @GetMapping(value = {"/inboundwarehouse"})
-    public String getInboundWarehousePage(Model model) {
-        List<Product> inbound = productService.getAllInboundWarehouseProducts();
-        model.addAttribute("products", inbound);
-        model.addAttribute("page", "Inbound Warehouse");
-        return "products";
-    }
-
-    @GetMapping(value = {"/outboundwarehouse"})
-    public String getOutboundWarehousePage(Model model) {
-        List<Product> outbound = productService.getAllOutboundWarehouseProducts();
-        model.addAttribute("products", outbound);
-        model.addAttribute("page", "Outbound Warehouse");
-        return "products";
-    }
-
-    @GetMapping(value = {"/workstationstorage"})
-    public String getWorkstationStoragePage(Model model) {
-        List<Product> workstation = productService.getAllWorkstationStorageProducts();
-        model.addAttribute("products", workstation);
-        model.addAttribute("page", "Workstation Storage");
-        return "products";
-    }
-
-    @GetMapping(value = {"/rejectwarehouse"})
-    public String getRejectWarehouse(Model model) {
-        List<Product> reject = productService.getAllRejectWarehouseProducts();
-        model.addAttribute("products", reject);
-        model.addAttribute("page", "Reject Warehouse");
+    @PostMapping("/rawmaterials")
+    public String displayRawSearchResults(ProductSearchForm form, Model model) {
+        List<Product> products = productService.getRawByForm(form);
+        model.addAttribute("products", products);
+        model.addAttribute("page", "Raw Materials");
+        model.addAttribute("endpoint", "rawmaterials");
+        model.addAttribute("form", form);
         return "products";
     }
 

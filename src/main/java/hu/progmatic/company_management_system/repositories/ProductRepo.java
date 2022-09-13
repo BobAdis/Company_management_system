@@ -10,6 +10,5 @@ import java.util.List;
 public interface ProductRepo extends CrudRepository<Product, Long> {
 
     List<Product> findByProductConditionEquals(ProductCondition productCondition);
-    List<Product> findByWarehouseEquals(Warehouse warehouse);
     List<Product> findAll();
 }
