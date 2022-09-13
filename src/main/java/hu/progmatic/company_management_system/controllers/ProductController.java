@@ -70,12 +70,24 @@ public class ProductController {
         return "products";
     }
 
-    @GetMapping(value = {"/newproduct"})
+    @GetMapping(value = {"/newrawmaterial"})
+    public String getNewRawMaterialForm(Model model) {
+        Product product = new Product();
+
+        model.addAttribute("product", product);
+        model.addAttribute("productCondition", ProductCondition.RAWMATERIAL);
+        model.addAttribute("material", "Raw Material");
+
+        return "new_product";
+    }
+
+    @GetMapping(value = {"/newfinishedmaterial"})
     public String getNewProductForm(Model model) {
         Product product = new Product();
+
         model.addAttribute("product", product);
-        model.addAttribute("productConditions", ProductCondition.values());
-        model.addAttribute("warehouse", Warehouse.values());
+        model.addAttribute("productCondition", ProductCondition.FINISHED);
+        model.addAttribute("material", "Finished Material");
 
         return "new_product";
     }
@@ -84,7 +96,12 @@ public class ProductController {
     public String addNewProduct(Product product) {
         productService.saveProduct(product);
 
-        return "redirect:/newproduct";
+        if(product.getProductCondition().equals(ProductCondition.RAWMATERIAL)) {
+            return "redirect:/rawmaterials";
+        } else {
+            return "redirect:/finishedproducts";
+        }
+
     }
 
 
