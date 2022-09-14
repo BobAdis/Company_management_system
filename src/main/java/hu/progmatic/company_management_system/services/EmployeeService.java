@@ -22,4 +22,8 @@ public class EmployeeService {
         return employees;
     }
 
+    public Employee getEmployeeByTaxNumber (String taxNumber) {
+        return employeeRepo.findByTaxNumber(taxNumber);
+    }
+
 }

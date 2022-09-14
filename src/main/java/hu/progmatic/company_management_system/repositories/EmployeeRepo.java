@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeRepo extends CrudRepository<Employee, String> {
 
-
+ Employee findByTaxNumber(String taxNumber);
 
 }

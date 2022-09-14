@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 @Entity
 public class Employee {
