@@ -13,7 +13,7 @@
             <input placeholder="serial number" type="number" data-th-field="*{serialNumber}"/>
             <input placeholder="unit price" type="number" data-th-field="*{unitPrice}"/>
             <textarea placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
-            <select data-th-field="*{productCondition}">
+            <select style="display: none" data-th-field="*{productCondition}">
                 <option data-th-value="${productCondition}" data-th-text="${productCondition}"></option>
             </select>
             <button class="send_button">Create</button>
