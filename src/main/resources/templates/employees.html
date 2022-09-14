@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<p>Employee data sheet</p>
+
+
+<table>
+    <tr>
+        <th>Tax Number</th>
+        <th>Name</th>
+        <th>Maiden Name</th>
+        <th>Social Security Number</th>
+        <th>Place of Birth</th>
+        <th>Date of Birth</th>
+        <th>Mother name</th>
+        <th>Address</th>
+        <th>Personnel Group</th>
+        <th>Role</th>
+        <th>Position</th>
+        <th>Start of employment</th>
+        <th>HSCO (FEOR)</th>
+        <th>Working hours</th>
+        <th>Gross salary</th>
+    </tr>
+
+    <tr data-th-each="e : ${employees}">
+        <td data-th-text="${e.taxNumber}"></td>
+        <td data-th-text="${e.name}"></td>
+        <td data-th-text="${e.maidenName}"></td>
+        <td data-th-text="${e.socialSecurityNumber}"></td>
+        <td data-th-text="${e.placeOfBirth}"></td>
+        <td data-th-text="${e.dateOfBirth}"></td>
+        <td data-th-text="${e.motherName}"></td>
+        <td data-th-text="${e.address}"></td>
+        <td data-th-text="${e.personnelGroup}"></td>
+        <td data-th-text="${e.personnelTask}"></td>
+        <td data-th-text="${e.startOfEmployment}"></td>
+        <td data-th-text="${e.HSCO}"></td>
+        <td data-th-text="${e.workingHours}"></td>
+        <td data-th-text="${e.grossSalary}"></td>
+
+    </tr>
+</table>
+
+<form data-th-action="@{form-handler}" method="get">
+    <input type="text" data-th-name="taxNumber">
+    <input type="text" data-th-name="name">
+    <input type="text" data-th-name="maidenName">
+    <input type="text" data-th-name="socialSecurityNumber">
+    <input type="text" data-th-name="placeOfBirth">
+    <input type="text" data-th-name="dateOfBirth">
+    <input type="text" data-th-name="motherName">
+    <input type="text" data-th-name="address">
+    <input type="text" data-th-name="personnelGroup">
+    <input type="text" data-th-name="personnelTask">
+    <input type="text" data-th-name="startOfEmployment">
+    <input type="text" data-th-name="HSCO">
+    <input type="text" data-th-name="workingHours">
+    <input type="text" data-th-name="grossSalary">
+
+    <input type="submit" value="Save">
+</form>
+
+
+</body>
+</html>
