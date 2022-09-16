@@ -26,4 +26,8 @@ public class EmployeeService {
         return employeeRepo.findByTaxNumber(taxNumber);
     }
 
+    public void save(Employee employee) {
+        employeeRepo.save(employee);
+    }
+
 }

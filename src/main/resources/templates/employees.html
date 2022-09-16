@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Employee</title>
     <link rel="stylesheet" href="/style.css">
+    <style>
+        a {
+            text-decoration: none;
+            color: var(--blue);
+        }
+
+        a:hover {
+            color: var(--yellow);
+        }
+    </style>
 </head>
 
 <body>
@@ -48,28 +58,6 @@
 -->
     </tr>
 </table>
-
-<form data-th-action="@{form-handler}" method="get">
-    <input type="text" data-th-name="taxNumber">
-    <input type="text" data-th-name="name">
-    <input type="text" data-th-name="maidenName">
-    <input type="text" data-th-name="socialSecurityNumber">
-    <input type="text" data-th-name="placeOfBirth">
-    <input type="text" data-th-name="dateOfBirth">
-    <input type="text" data-th-name="motherName">
-    <input type="text" data-th-name="address">
-    <input type="text" data-th-name="personnelGroup">
-    <input type="text" data-th-name="personnelTask">
-    <input type="text" data-th-name="startOfEmployment">
-    <input type="text" data-th-name="HSCO">
-    <input type="text" data-th-name="workingHours">
-    <input type="text" data-th-name="grossSalary">
-
-    <input type="submit" value="Save">
-</form>
-
-
-
 
 </body>
 </html>

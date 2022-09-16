@@ -21,7 +21,7 @@ public class Employee {
     private String motherName;
     private String address;
     private String personnelGroup;
-    @Enumerated
+    @Enumerated // STRING KELL
     private Task personnelTask;
     private LocalDate startOfEmployment;
     private String HSCO;
