@@ -1,8 +1,10 @@
 package hu.progmatic.company_management_system.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import java.time.LocalDate;
@@ -17,12 +19,14 @@ public class Employee {
     private String maidenName;
     private String socialSecurityNumber;
     private String placeOfBirth;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
     private String motherName;
     private String address;
     private String personnelGroup;
-    @Enumerated // STRING KELL
+    @Enumerated(EnumType.STRING)
     private Task personnelTask;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startOfEmployment;
     private String HSCO;
     private int workingHours;
