@@ -15,35 +15,40 @@
         <th>Tax Number</th>
         <th>Name</th>
         <th>Maiden Name</th>
-         <th>Social Security Number</th>
-         <th>Place of Birth</th>
-         <th>Date of Birth</th>
-         <th>Mother name</th>
-         <th>Address</th>
-         <th>Personnel Group</th>
-         <th>Role</th>
-         <th>Start of employment</th>
-         <th>HSCO (FEOR)</th>
-         <th>Working hours</th>
-         <th>Gross salary</th>
+        <th>Social Security Number</th>
+        <th>Place of Birth</th>
+        <th>Date of Birth</th>
+        <th>Mother name</th>
     </tr>
 
     <tr>
         <td data-th-text="${oneEmployee.taxNumber}"></td>
         <td data-th-text="${oneEmployee.name}"></td>
         <td data-th-text="${oneEmployee.maidenName}"></td>
-         <td data-th-text="${oneEmployee.socialSecurityNumber}"></td>
-         <td data-th-text="${oneEmployee.placeOfBirth}"></td>
-         <td data-th-text="${oneEmployee.dateOfBirth}"></td>
-         <td data-th-text="${oneEmployee.motherName}"></td>
-         <td data-th-text="${oneEmployee.address}"></td>
-         <td data-th-text="${oneEmployee.personnelGroup}"></td>
-         <td data-th-text="${oneEmployee.personnelTask}"></td>
-         <td data-th-text="${oneEmployee.startOfEmployment}"></td>
-         <td data-th-text="${oneEmployee.HSCO}"></td>
-         <td data-th-text="${oneEmployee.workingHours}"></td>
-         <td data-th-text="${oneEmployee.grossSalary}"></td>
-
+        <td data-th-text="${oneEmployee.socialSecurityNumber}"></td>
+        <td data-th-text="${oneEmployee.placeOfBirth}"></td>
+        <td data-th-text="${oneEmployee.dateOfBirth}"></td>
+        <td data-th-text="${oneEmployee.motherName}"></td>
+    </tr>
+</table>
+<table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+    <tr>
+        <th>Address</th>
+        <th>Personnel Group</th>
+        <th>Role</th>
+        <th>Start of employment</th>
+        <th>HSCO (FEOR)</th>
+        <th>Working hours</th>
+        <th>Gross salary</th>
+    </tr>
+    <tr>
+        <td data-th-text="${oneEmployee.address}"></td>
+        <td data-th-text="${oneEmployee.personnelGroup}"></td>
+        <td data-th-text="${oneEmployee.personnelTask}"></td>
+        <td data-th-text="${oneEmployee.startOfEmployment}"></td>
+        <td data-th-text="${oneEmployee.HSCO}"></td>
+        <td data-th-text="${oneEmployee.workingHours}"></td>
+        <td data-th-text="${oneEmployee.grossSalary}"></td>
     </tr>
 </table>
 
