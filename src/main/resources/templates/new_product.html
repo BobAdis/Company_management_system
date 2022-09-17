@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <title>Add new product</title>
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .form {gap: 0}
+        label {margin-bottom: 10px; margin-top: 25px}
+        .send_button { margin-top: 25px}
+    </style>
 </head>
 <body>
     <div class="form">
         <h1 data-th-text="'Create new ' + ${material}"></h1>
         <form class="form" data-th-action="@{/newproduct}" data-th-object="${product}" method="post">
-            <input placeholder="name" type="text" data-th-field="*{name}"/>
-            <input placeholder="serial number" type="number" data-th-field="*{serialNumber}"/>
-            <input placeholder="unit price" type="number" data-th-field="*{unitPrice}"/>
-            <textarea placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
+            <label for="name">Name</label>
+            <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+            <label for="serialnumber">Serial number</label>
+            <input id="serialnumber" placeholder="serial number" type="number" data-th-field="*{serialNumber}"/>
+            <label for="unitprice">Unit Price</label>
+            <input id="unitprice" placeholder="unit price" type="number" data-th-field="*{unitPrice}"/>
+            <label for="description">Description</label>
+            <textarea id="description" placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
             <select style="display: none" data-th-field="*{productCondition}">
                 <option data-th-value="${productCondition}" data-th-text="${productCondition}"></option>
             </select>
