@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shippings page</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1 data-th-text="${page}"></h1>
+
+
+<!--<form data-th-action="@{/ingredients}" data-th-object="${form}" method="post">
+  <table>
+    <tr>
+      <th>Search by name:</th>
+      <td><input type="text" data-th-field="*{name}" /></td>
+    </tr>
+    <tr>
+      <th>Search by product name:</th>
+      <td><input type="text" data-th-field="*{bomList}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><button type="submit">Search</button></td>
+    </tr>
+  </table>
+</form>-->
+
+<table>
+  <tr>
+    <th>Buyer</th>
+    <th>Seller</th>
+    <th>Raw materials</th>
+    <th>Date</th>
+  </tr>
+  <th:block data-th-each="shipping: ${shippings}">
+    <tr data-th-each="raws: ${shipping.rawMaterials}">
+      <td data-th-text="${shipping.buyer}"></td>
+      <td data-th-text="${shipping.seller}"></td>
+      <td data-th-text="${raws.ingredient.name}"></td>
+      <td data-th-text="${shipping.localDate}"></td>
+    </tr>
+  </th:block>
+</table>
+
+</body>
+</html>

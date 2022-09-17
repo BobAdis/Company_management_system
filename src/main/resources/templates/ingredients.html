@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredients page</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1 data-th-text="${page}"></h1>
+
+
+<form data-th-action="@{/ingredients}" data-th-object="${form}" method="post">
+    <table>
+        <tr>
+            <th>Search by name:</th>
+            <td><input type="text" data-th-field="*{name}" /></td>
+        </tr>
+        <tr>
+            <th>Search by BOM list:</th>
+            <td><input type="text" data-th-field="*{bomList}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Search</button></td>
+        </tr>
+    </table>
+</form>
+
+<table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>BOM List</th>
+        <th>SARZS Number</th>
+        <th>Quantity</th>
+        <th>Unit</th>
+    </tr>
+    <th:block data-th-each="ingredient: ${ingredients}">
+    <tr data-th-each="raws: ${ingredient.rawMaterial}">
+        <td data-th-text="${ingredient.name}"></td>
+        <td data-th-text="${ingredient.description}"></td>
+        <td data-th-text="${ingredient.bomList.name}"></td>
+        <td data-th-text="${raws.SARZSNumber}"></td>
+        <td data-th-text="${raws.quantity}"></td>
+        <td data-th-text="${ingredient.unit}"></td>
+    </tr>
+    </th:block>
+</table>
+
+</body>
+</html>

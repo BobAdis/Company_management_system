@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Raw material page</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1 data-th-text="${page}"></h1>
+
+
+<form data-th-action="@{/rawmaterials}" data-th-object="${form}" method="post">
+  <table>
+    <tr>
+      <th>Search by name:</th>
+      <td><input type="text" data-th-field="*{ingredient}" /></td>
+    </tr>
+    <tr>
+      <th>Search by SARZS Number:</th>
+      <td><input type="text" data-th-field="*{SARZSNumber}" /></td>
+    </tr>
+    <tr>
+      <th>Search by shipping date:</th>
+      <td><input type="text" data-th-field="*{shipping}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><button type="submit">Search</button></td>
+    </tr>
+  </table>
+</form>
+
+<table>
+  <tr>
+    <th>Ingredient</th>
+    <th>SARZS Number</th>
+    <th>Shipping date</th>
+    <th>Unit price</th>
+    <th>Quantity</th>
+    <th>Warehouse</th>
+  </tr>
+  <tr data-th-each="rawMaterial: ${rawMaterials}">
+    <td data-th-text="${rawMaterial.ingredient.name}"></td>
+    <td data-th-text="${rawMaterial.SARZSNumber}"></td>
+    <td data-th-text="${rawMaterial.shipping.localDate}"></td>
+    <td data-th-text="${rawMaterial.unitPrice}"></td>
+    <td data-th-text="${rawMaterial.quantity}"></td>
+    <td data-th-text="${rawMaterial.warehouse}"></td>
+  </tr>
+</table>
+
+</body>
+</html>

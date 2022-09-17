@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BOMLists page</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1 data-th-text="${page}"></h1>
+
+
+<!--<form data-th-action="@{/ingredients}" data-th-object="${form}" method="post">
+  <table>
+    <tr>
+      <th>Search by name:</th>
+      <td><input type="text" data-th-field="*{name}" /></td>
+    </tr>
+    <tr>
+      <th>Search by product name:</th>
+      <td><input type="text" data-th-field="*{bomList}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><button type="submit">Search</button></td>
+    </tr>
+  </table>
+</form>-->
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Ingredient</th>
+  </tr>
+  <th:block data-th-each="bomlist : ${bomlists}">
+    <tr data-th-each="ingredient: ${bomlist.ingredients}">
+      <td data-th-text="${bomlist.name}"></td>
+      <td data-th-text="${bomlist.product.name}"></td>
+      <td data-th-text="${ingredient.name}"></td>
+    </tr>
+  </th:block>
+</table>
+
+</body>
+</html>
