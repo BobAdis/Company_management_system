@@ -169,6 +169,10 @@ public class Employee {
         this.grossSalary = grossSalary;
     }
 
+    public int setNetSalary(int grossSalary) {
+        return grossSalary * 665 /1000;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +

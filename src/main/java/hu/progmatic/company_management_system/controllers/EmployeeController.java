@@ -50,4 +50,10 @@ public class EmployeeController {
         return "redirect:/employee";
     }
 
+    @GetMapping("/payroll")
+    public String getPayrollPage (Model model) {
+        model.addAttribute("employees", employeeService.getEmployees());
+        return "payroll";
+    }
+
 }

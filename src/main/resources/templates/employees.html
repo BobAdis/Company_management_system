@@ -25,37 +25,13 @@
     <tr>
         <th>Tax Number</th>
         <th>Name</th>
-       <!-- <th>Maiden Name</th>
-        <th>Social Security Number</th>
-        <th>Place of Birth</th>
-        <th>Date of Birth</th>
-        <th>Mother name</th>
-        <th>Address</th>
-        <th>Personnel Group</th>
-        <th>Role</th>
-        <th>Position</th>
-        <th>Start of employment</th>
-        <th>HSCO (FEOR)</th>
-        <th>Working hours</th>
-        <th>Gross salary</th>-->
+
     </tr>
 
     <tr data-th-each="e : ${employees}">
         <td ><a data-th-text="${e.taxNumber}" data-th-href="@{/employee/{taxnumber}(taxnumber=${e.taxNumber})}"></a></td>
         <td data-th-text="${e.name}"></td>
-       <!-- <td data-th-text="${e.maidenName}"></td>
-        <td data-th-text="${e.socialSecurityNumber}"></td>
-        <td data-th-text="${e.placeOfBirth}"></td>
-        <td data-th-text="${e.dateOfBirth}"></td>
-        <td data-th-text="${e.motherName}"></td>
-        <td data-th-text="${e.address}"></td>
-        <td data-th-text="${e.personnelGroup}"></td>
-        <td data-th-text="${e.personnelTask}"></td>
-        <td data-th-text="${e.startOfEmployment}"></td>
-        <td data-th-text="${e.HSCO}"></td>
-        <td data-th-text="${e.workingHours}"></td>
-        <td data-th-text="${e.grossSalary}"></td>
--->
+
     </tr>
 </table>
 
