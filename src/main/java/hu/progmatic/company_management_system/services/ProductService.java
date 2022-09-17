@@ -1,7 +1,6 @@
 package hu.progmatic.company_management_system.services;
 
 import hu.progmatic.company_management_system.models.Product;
-import hu.progmatic.company_management_system.models.ProductCondition;
 import hu.progmatic.company_management_system.repositories.ProductRepo;
 
 import hu.progmatic.company_management_system.searchform.ProductSearchForm;
@@ -21,57 +20,28 @@ public class ProductService {
         this.productRepo = productRepo;
     }
 
-    public Iterable<Product> getAllProduct() {
+    public List<Product> getAllProduct() {
         return productRepo.findAll();
-    }
-
-    public List<Product> getAllRawMaterialProducts () {
-        return productRepo.findByProductConditionEquals(ProductCondition.RAWMATERIAL);
-    }
-
-    public List<Product> getAllFinishedProducts () {
-        return productRepo.findByProductConditionEquals(ProductCondition.FINISHED);
     }
 
     public void saveProduct(Product product) {
         productRepo.save(product);
     }
 
-    public List<Product> getRawByForm(ProductSearchForm form) {
+    public List<Product> getByForm(ProductSearchForm form) {
         List<Product> result = new ArrayList<>();
 
         for (Product product : getAllProduct()) {
-            if (product.getProductCondition().equals(ProductCondition.RAWMATERIAL)) {
                 if (form.getName() != null && !product.getName().contains(form.getName())) {
                     continue;
                 }
 
-                if (form.getSerialNumber() != 0 && product.getSerialNumber() != form.getSerialNumber()) {
+                if (form.getSerialNumber() != null && product.getSerialNumber().toString().contains(form.getSerialNumber().toString())) {
                     continue;
                 }
 
                 result.add(product);
             }
-        }
-        return result;
-    }
-
-    public List<Product> getFinishedByForm(ProductSearchForm form) {
-        List<Product> result = new ArrayList<>();
-
-        for (Product product : getAllProduct()) {
-            if (form.getProductCondition().equals(ProductCondition.FINISHED)) {
-                if (form.getName() != null && !product.getName().contains(form.getName())) {
-                    continue;
-                }
-
-                if (form.getSerialNumber() != 0 && product.getSerialNumber() != form.getSerialNumber()) {
-                    continue;
-                }
-
-                result.add(product);
-            }
-        }
         return result;
     }
 }

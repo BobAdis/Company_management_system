@@ -17,16 +17,6 @@ public class PartnerController {
         this.partnerService = partnerService;
     }
 
-
-    /*@GetMapping(value = {"/rawmaterials"})
-    public String saveNewSpaceShip(Model model) {
-        model.addAttribute("newShip", new SpaceShip());
-        model.addAttribute("shipClasses", SpaceShipClass.values());
-        model.addAttribute("shipClasses", SpaceShipClass.values());
-
-        return "products";
-    }*/
-
     @GetMapping(value = {"/suppliers"})
     public String getSuppliersPage(Model model) {
         List<Partner> suppliers = partnerService.getAllSupplier();

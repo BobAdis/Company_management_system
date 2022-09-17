@@ -1,14 +1,10 @@
 package hu.progmatic.company_management_system.searchform;
 
-import hu.progmatic.company_management_system.models.ProductCondition;
-
 public class ProductSearchForm {
 
     private String name;
 
     private Integer serialNumber;
-
-    private ProductCondition productCondition;
 
     public String getName() {
         return name;
@@ -18,19 +14,11 @@ public class ProductSearchForm {
         this.name = name;
     }
 
-    public int getSerialNumber() {
+    public Integer getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialNumber(int serialNumber) {
+    public void setSerialNumber(Integer serialNumber) {
         this.serialNumber = serialNumber;
-    }
-
-    public ProductCondition getProductCondition() {
-        return productCondition;
-    }
-
-    public void setProductCondition(ProductCondition productCondition) {
-        this.productCondition = productCondition;
     }
 }

@@ -1,6 +1,6 @@
 package hu.progmatic.company_management_system.models;
 
-public enum Task {
+public enum Position {
 
     WAREHOUSEWORKER,
     PRODUCTIONMANAGER,

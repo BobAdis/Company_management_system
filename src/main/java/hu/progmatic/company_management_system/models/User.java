@@ -23,7 +23,7 @@ public class User implements UserDetails {
 
     private boolean isEnabled;
     @Enumerated(EnumType.STRING)
-    private Task task;
+    private Position position;
 
     private boolean admin;
 
@@ -35,9 +35,9 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public User(String username, String password, Task task, boolean admin) {
+    public User(String username, String password, Position position, boolean admin) {
         this(username, password);
-        this.task = task;
+        this.position = position;
         this.admin = admin;
     }
 
@@ -104,12 +104,12 @@ public class User implements UserDetails {
         isEnabled = enabled;
     }
 
-    public Task getTask() {
-        return task;
+    public Position getTask() {
+        return position;
     }
 
-    public void setTask(Task task) {
-        this.task = task;
+    public void setTask(Position position) {
+        this.position = position;
     }
 
     public boolean isAdmin() {

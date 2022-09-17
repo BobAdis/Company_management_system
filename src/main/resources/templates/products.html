@@ -9,7 +9,7 @@
 <h1 data-th-text="${page}"></h1>
 
 
-<form data-th-action="@{/}+${endpoint}" data-th-object="${form}" method="post">
+<form data-th-action="@{/products}" data-th-object="${form}" method="post">
     <table>
         <tr>
             <th>Search by name:</th>
@@ -29,15 +29,12 @@
     <tr>
         <th>Name</th>
         <th>SN</th>
-        <th>Unit price</th>
-        <th>Description</th>
-
+        <th>Price</th>
     </tr>
     <tr data-th-each="product: ${products}">
         <td data-th-text="${product.name}"></td>
         <td data-th-text="${product.serialNumber}"></td>
-        <td data-th-text="${product.unitPrice}"></td>
-        <td data-th-text="${product.description}"></td>
+        <td data-th-text="${product.Price}"></td>
     </tr>
 </table>
 

@@ -20,7 +20,7 @@
         <form class="form" data-th-action="@{/register}" method="post" data-th-object="${user}">
             <input type="text" data-th-field="*{username}" placeholder="username">
             <input type="password" data-th-field="*{password}" placeholder="password">
-            <select name="task">
+            <select name="position">
                 <option data-th-each="taskOpt : ${T(hu.progmatic.company_management_system.models.Task).values()}"
                 data-th-value="${taskOpt}" data-th-text="${taskOpt}"></option>
             </select>

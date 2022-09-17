@@ -1,9 +1,6 @@
 package hu.progmatic.company_management_system.models;
 
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Product {
@@ -11,38 +8,32 @@ public class Product {
     @GeneratedValue
     private Long id;
 
-/*    @NotNull
-    @Size(min=2, max=30)*/
     private String name;
 
-    private int serialNumber;
+    private Integer serialNumber;
 
-    private double unitPrice;
+    private Integer Price;
 
-    private String description;
+    @OneToOne
+    private BOMList bomList;
 
-    @Enumerated(EnumType.STRING)
-    private ProductCondition productCondition;
 
 
     public Product() {
     }
 
-    public Product(String name, int serialNumber, double unitPrice, String description, ProductCondition productCondition) {
+    public Product(String name, Integer serialNumber, Integer price) {
         this.name = name;
         this.serialNumber = serialNumber;
-        this.unitPrice = unitPrice;
-        this.description = description;
-        this.productCondition = productCondition;
-    }
-
-
-    public void setId(Long id) {
-        this.id = id;
+        Price = price;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -53,35 +44,19 @@ public class Product {
         this.name = name;
     }
 
-    public int getSerialNumber() {
+    public Integer getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialNumber(int serialNumber) {
+    public void setSerialNumber(Integer serialNumber) {
         this.serialNumber = serialNumber;
     }
 
-    public double getUnitPrice() {
-        return unitPrice;
+    public Integer getPrice() {
+        return Price;
     }
 
-    public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public ProductCondition getProductCondition() {
-        return productCondition;
-    }
-
-    public void setProductCondition(ProductCondition productCondition) {
-        this.productCondition = productCondition;
+    public void setPrice(Integer price) {
+        Price = price;
     }
 }
