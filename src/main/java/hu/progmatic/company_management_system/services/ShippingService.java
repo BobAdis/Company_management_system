@@ -1,6 +1,9 @@
 package hu.progmatic.company_management_system.services;
 
+import hu.progmatic.company_management_system.models.Ingredient;
+import hu.progmatic.company_management_system.models.RawMaterial;
 import hu.progmatic.company_management_system.models.Shipping;
+import hu.progmatic.company_management_system.repositories.RawMaterialRepo;
 import hu.progmatic.company_management_system.repositories.ShippingRepo;
 import hu.progmatic.company_management_system.searchform.ShippnigSearchForm;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,9 @@ public class ShippingService {
         List<Shipping> result = new ArrayList<>();
 
         for (Shipping shipping : getAllShipping()) {
+            if (form.getBuyer() != null && !shipping.getBuyer().getPartnerName().contains(form.getBuyer())) {
+                continue;
+            }
             if (form.getSeller() != null && !shipping.getSeller().getPartnerName().contains(form.getSeller())) {
                 continue;
             }
@@ -40,6 +46,11 @@ public class ShippingService {
     }
 
     public boolean isRawMaterialContains(ShippnigSearchForm form, Shipping shipping) {
-        return shipping.getRawMaterials().stream().filter(s ->s.getIngredient().getName().contains(form.getRawMaterialName())).isParallel();
+        for (RawMaterial rawMaterial : shipping.getRawMaterials()) {
+            if (rawMaterial.getIngredient().getName().contains(form.getRawMaterialName())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

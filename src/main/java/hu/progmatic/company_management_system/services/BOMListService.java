@@ -47,7 +47,12 @@ public class BOMListService {
     }
 
     public boolean isIngredientContains(BOMListSearchForm form, BOMList bomList) {
-        return bomList.getIngredients().stream().filter(s ->s.getName().contains(form.getIngredient())).isParallel();
+        for (Ingredient ingredient : bomList.getIngredients()) {
+            if (ingredient.getName().contains(form.getIngredient())) {
+                return true;
+            }
+        }
+        return false;
     }
 
    /* public List<Product> ria(ProductCondition condition, ProductSearchForm form) {

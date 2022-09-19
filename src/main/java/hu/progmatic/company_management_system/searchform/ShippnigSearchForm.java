@@ -1,13 +1,25 @@
 package hu.progmatic.company_management_system.searchform;
 
+import hu.progmatic.company_management_system.models.Partner;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class ShippnigSearchForm {
 
+    private String buyer;
     private String seller;
     private String rawMaterialName;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate localDate;
+
+    public String getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(String buyer) {
+        this.buyer = buyer;
+    }
 
     public String getSeller() {
         return seller;

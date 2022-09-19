@@ -26,7 +26,7 @@ public class BOMListController {
         List<BOMList> bomlists = bomListService.getAllBOMList();
         model.addAttribute("bomlists", bomlists);
         model.addAttribute("page", "BOM lists");
-        model.addAttribute("form", new BOMList());
+        model.addAttribute("form", new BOMListSearchForm());
         return "bomlists";
     }
 

@@ -1,5 +1,7 @@
 package hu.progmatic.company_management_system.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,6 +18,7 @@ public class Shipping {
     private Partner seller;
     @OneToMany (mappedBy = "shipping")
     private List<RawMaterial> rawMaterials;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate localDate;
 
     public void getxyz (List<RawMaterial> rawMaterial) {

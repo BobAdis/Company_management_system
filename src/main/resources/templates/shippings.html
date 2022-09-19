@@ -9,37 +9,44 @@
 <h1 data-th-text="${page}"></h1>
 
 
-<!--<form data-th-action="@{/ingredients}" data-th-object="${form}" method="post">
+<form data-th-action="@{/shippings}" data-th-object="${form}" method="post">
   <table>
     <tr>
-      <th>Search by name:</th>
-      <td><input type="text" data-th-field="*{name}" /></td>
+      <th>Search by Buyer name:</th>
+      <td><input type="text" data-th-field="*{buyer}" /></td>
     </tr>
     <tr>
-      <th>Search by product name:</th>
-      <td><input type="text" data-th-field="*{bomList}" /></td>
+      <th>Search by Seller name:</th>
+      <td><input type="text" data-th-field="*{seller}" /></td>
+    </tr>
+    <tr>
+      <th>Search by rawMaterial:</th>
+      <td><input type="text" data-th-field="*{rawMaterialName}" /></td>
+    </tr>
+    <tr>
+      <th>Search by Date:</th>
+      <td><input type="date" data-th-field="*{localDate}" /></td>
     </tr>
     <tr>
       <td colspan="2"><button type="submit">Search</button></td>
     </tr>
   </table>
-</form>-->
+</form>
 
 <table>
   <tr>
     <th>Buyer</th>
     <th>Seller</th>
-    <th>Raw materials</th>
     <th>Date</th>
+    <th>Raw materials</th>
   </tr>
-  <th:block data-th-each="shipping: ${shippings}">
-    <tr data-th-each="raws: ${shipping.rawMaterials}">
-      <td data-th-text="${shipping.buyer}"></td>
-      <td data-th-text="${shipping.seller}"></td>
-      <td data-th-text="${raws.ingredient.name}"></td>
+  <tr data-th-each="shipping: ${shippings}">
+      <td data-th-text="${shipping.buyer.partnerName}"></td>
+      <td data-th-text="${shipping.seller.partnerName}"></td>
       <td data-th-text="${shipping.localDate}"></td>
-    </tr>
-  </th:block>
+      <td><ul data-th-each="raws: ${shipping.rawMaterials}">
+      <li data-th-text="${raws.ingredient.name}"></li></ul></td>
+  </tr>
 </table>
 
 </body>

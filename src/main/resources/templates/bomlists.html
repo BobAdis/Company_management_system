@@ -9,7 +9,7 @@
 <h1 data-th-text="${page}"></h1>
 
 
-<!--<form data-th-action="@{/ingredients}" data-th-object="${form}" method="post">
+<form data-th-action="@{/bomlists}" data-th-object="${form}" method="post">
   <table>
     <tr>
       <th>Search by name:</th>
@@ -17,26 +17,30 @@
     </tr>
     <tr>
       <th>Search by product name:</th>
-      <td><input type="text" data-th-field="*{bomList}" /></td>
+      <td><input type="text" data-th-field="*{product}" /></td>
+    </tr>
+    <tr>
+      <th>Search by ingredient:</th>
+      <td><input type="text" data-th-field="*{ingredient}" /></td>
     </tr>
     <tr>
       <td colspan="2"><button type="submit">Search</button></td>
     </tr>
   </table>
-</form>-->
+</form>
 
 <table>
   <tr>
+    <th>Bomlist name</th>
     <th>Product</th>
     <th>Ingredient</th>
   </tr>
-  <th:block data-th-each="bomlist : ${bomlists}">
-    <tr data-th-each="ingredient: ${bomlist.ingredients}">
+    <tr data-th-each="bomlist: ${bomlists}">
       <td data-th-text="${bomlist.name}"></td>
       <td data-th-text="${bomlist.product.name}"></td>
-      <td data-th-text="${ingredient.name}"></td>
+      <td><ul data-th-each="ingredient: ${bomlist.ingredients}">
+      <li data-th-text="${ingredient.name}"></li></ul></td>
     </tr>
-  </th:block>
 </table>
 
 </body>

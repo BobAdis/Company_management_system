@@ -26,7 +26,7 @@ public class ShippingController {
         List<Shipping> shippings = shippingService.getAllShipping();
         model.addAttribute("shippings", shippings);
         model.addAttribute("page", "Shippings");
-        model.addAttribute("form", new Shipping());
+        model.addAttribute("form", new ShippnigSearchForm());
         return "shippings";
     }
 
