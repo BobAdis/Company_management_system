@@ -3,11 +3,9 @@ package hu.progmatic.company_management_system.models;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -31,6 +29,9 @@ public class Employee {
     private String HSCO;
     private int workingHours;
     private int grossSalary;
+
+    @OneToMany
+    private List<MonthlyData> monthlyData;
 
     public Employee() {
     }
@@ -169,9 +170,7 @@ public class Employee {
         this.grossSalary = grossSalary;
     }
 
-    public int setNetSalary(int grossSalary) {
-        return grossSalary * 665 /1000;
-    }
+
 
     @Override
     public String toString() {

@@ -56,4 +56,10 @@ public class EmployeeController {
         return "payroll";
     }
 
+    @GetMapping("/january")
+    public String getJanuaryPage (Model model) {
+        model.addAttribute("employees", employeeService.getEmployees());
+        return "january";
+    }
+
 }
