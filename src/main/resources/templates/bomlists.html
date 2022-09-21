@@ -16,8 +16,8 @@
       <td><input type="text" data-th-field="*{name}" /></td>
     </tr>
     <tr>
-      <th>Search by product name:</th>
-      <td><input type="text" data-th-field="*{product}" /></td>
+      <th>Search by producedProduct name:</th>
+      <td><input type="text" data-th-field="*{producedProduct}" /></td>
     </tr>
     <tr>
       <th>Search by ingredient:</th>
@@ -37,7 +37,7 @@
   </tr>
     <tr data-th-each="bomlist: ${bomlists}">
       <td data-th-text="${bomlist.name}"></td>
-      <td data-th-text="${bomlist.product.name}"></td>
+      <td data-th-text="${bomlist.producedProduct.name}"></td>
       <td><ul data-th-each="ingredient: ${bomlist.ingredients}">
       <li data-th-text="${ingredient.name}"></li></ul></td>
     </tr>

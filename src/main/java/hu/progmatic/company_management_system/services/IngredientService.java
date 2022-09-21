@@ -1,11 +1,8 @@
 package hu.progmatic.company_management_system.services;
 
 import hu.progmatic.company_management_system.models.Ingredient;
-import hu.progmatic.company_management_system.models.Product;
 import hu.progmatic.company_management_system.repositories.IngredientRepo;
 import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
-import hu.progmatic.company_management_system.searchform.ProductSearchForm;
-import net.bytebuddy.description.type.TypeList;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

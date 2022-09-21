@@ -16,28 +16,34 @@ public class DBRunner implements CommandLineRunner {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final ProductRepo productRepo;
+    private final ProducedProductRepo producedProductRepo;
 
     private final PartnerRepo partnerRepo;
 
     private final BOMListRepo bomListRepo;
 
-    private final ShippingRepo shippingRepo;
+    private final ShippingInRepo shippingInRepo;
+
+    private final ShippingOutRepo shippingOutRepo;
 
     private final IngredientRepo ingredientRepo;
 
     private final RawMaterialRepo rawMaterialRepo;
 
+    private final EndProductRepo endProductRepo;
 
-    public DBRunner(UserRepository userRepository, PasswordEncoder passwordEncoder, ProductRepo productRepo, PartnerRepo partnerRepo, BOMListRepo bomListRepo, ShippingRepo shippingRepo, IngredientRepo ingredientRepo, RawMaterialRepo rawMaterialRepo) {
+
+    public DBRunner(UserRepository userRepository, PasswordEncoder passwordEncoder, ProducedProductRepo producedProductRepo, PartnerRepo partnerRepo, BOMListRepo bomListRepo, ShippingInRepo shippingInRepo, ShippingOutRepo shippingOutRepo, IngredientRepo ingredientRepo, RawMaterialRepo rawMaterialRepo, EndProductRepo endProductRepo) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.productRepo = productRepo;
+        this.producedProductRepo = producedProductRepo;
         this.partnerRepo = partnerRepo;
         this.bomListRepo = bomListRepo;
-        this.shippingRepo = shippingRepo;
+        this.shippingInRepo = shippingInRepo;
+        this.shippingOutRepo = shippingOutRepo;
         this.ingredientRepo = ingredientRepo;
         this.rawMaterialRepo = rawMaterialRepo;
+        this.endProductRepo = endProductRepo;
     }
 
     @Override
@@ -55,44 +61,49 @@ public class DBRunner implements CommandLineRunner {
         partnerRepo.save(partner2);
         System.out.println("Partners generated.");
 
-        Product product1 = new Product("Motorblokk", 5990035, 1500000);
+        ProducedProduct producedProduct1 = new ProducedProduct("Motorblokk");
         System.out.println("Products generated.");
 
         Ingredient ingredient1 = new Ingredient("A alapanyag", "A hozzávaló","m");
         Ingredient ingredient2 = new Ingredient("B alapanyag", "B hozzávaló","kg");
-        BOMList bomList1 = new BOMList("Így készül a motorblokk",product1, List.of(ingredient1, ingredient2));
+        BOMList bomList1 = new BOMList("Így készül a motorblokk", producedProduct1, List.of(ingredient1, ingredient2));
         ingredient1.setBomList(bomList1);
         ingredient2.setBomList(bomList1);
-        productRepo.save(product1);
+        producedProductRepo.save(producedProduct1);
         bomListRepo.save(bomList1);
         ingredientRepo.save(ingredient1);
         ingredientRepo.save(ingredient2);
 
-        Product product2 = new Product("Cserebogár", 5990099, 4200000);
+        ProducedProduct producedProduct2 = new ProducedProduct("Cserebogár");
         Ingredient ingredient3 = new Ingredient("C alapanyag", "C hozzávaló","m");
         Ingredient ingredient4 = new Ingredient("D alapanyag", "D hozzávaló","kg");
-        BOMList bomList2 = new BOMList("Így készül a cserebogár",product2, List.of(ingredient3, ingredient4));
+        BOMList bomList2 = new BOMList("Így készül a cserebogár", producedProduct2, List.of(ingredient3, ingredient4));
         ingredient3.setBomList(bomList2);
         ingredient4.setBomList(bomList2);
-        productRepo.save(product2);
+        producedProductRepo.save(producedProduct2);
         bomListRepo.save(bomList2);
         ingredientRepo.save(ingredient3);
         ingredientRepo.save(ingredient4);
         System.out.println("BOMLlists and Ingredients generated.");
 
-        Shipping shipping1 = new Shipping(partner1,partner2, LocalDate.now(),List.of());
-        shippingRepo.save(shipping1);
-        RawMaterial rawMaterial1 = new RawMaterial(ingredient1, 20223010,1200,10, shipping1, Warehouse.INBOUND);
+        ShippingIn shippingIn1 = new ShippingIn(partner1, LocalDate.now(),List.of());
+        shippingInRepo.save(shippingIn1);
+        RawMaterial rawMaterial1 = new RawMaterial(ingredient1, 20223010,1200,10, shippingIn1, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial1);
-        RawMaterial rawMaterial2 = new RawMaterial(ingredient2, 21223010,1200,10, shipping1, Warehouse.INBOUND);
+        RawMaterial rawMaterial2 = new RawMaterial(ingredient2, 21223010,1200,10, shippingIn1, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial2);
 
-        Shipping shipping2 = new Shipping(partner2,partner1, LocalDate.of(2022, 9,20),List.of());
-        shippingRepo.save(shipping2);
-        RawMaterial rawMaterial3 = new RawMaterial(ingredient3, 20223010,1200,10, shipping2, Warehouse.INBOUND);
+        ShippingIn shippingIn2 = new ShippingIn(partner2, LocalDate.of(2022, 9,20),List.of());
+        shippingInRepo.save(shippingIn2);
+        RawMaterial rawMaterial3 = new RawMaterial(ingredient3, 20223010,1200,10, shippingIn2, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial3);
-        RawMaterial rawMaterial4 = new RawMaterial(ingredient4, 21223010,1200,10, shipping2, Warehouse.INBOUND);
+        RawMaterial rawMaterial4 = new RawMaterial(ingredient4, 21223010,1200,10, shippingIn2, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial4);
-        System.out.println("Shippings and Rawmaterials generated.");
+        System.out.println("Shipping ins and Rawmaterials generated.");
+
+        ShippingOut shippingOut1 = new ShippingOut(partner1,LocalDate.now(),List.of());
+        shippingOutRepo.save(shippingOut1);
+        EndProduct endProduct1 = new EndProduct(producedProduct1, 5990075,80000,10,shippingOut1);
+        endProductRepo.save(endProduct1);
     }
 }

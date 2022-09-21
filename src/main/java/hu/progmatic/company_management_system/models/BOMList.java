@@ -11,16 +11,16 @@ public class BOMList {
     private Long id;
     private String name;
     @OneToOne
-    private Product product;
+    private ProducedProduct producedProduct;
     @OneToMany(mappedBy = "bomList")
     private List<Ingredient> ingredients;
 
     public BOMList() {
     }
 
-    public BOMList(String name, Product product, List<Ingredient> ingredients) {
+    public BOMList(String name, ProducedProduct producedProduct, List<Ingredient> ingredients) {
         this.name = name;
-        this.product = product;
+        this.producedProduct = producedProduct;
         this.ingredients = ingredients;
     }
 
@@ -40,12 +40,12 @@ public class BOMList {
         this.name = name;
     }
 
-    public Product getProduct() {
-        return product;
+    public ProducedProduct getProduct() {
+        return producedProduct;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProduct(ProducedProduct producedProduct) {
+        this.producedProduct = producedProduct;
     }
 
     public List<Ingredient> getIngredients() {

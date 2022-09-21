@@ -20,8 +20,8 @@
       <td><input type="text" data-th-field="*{SARZSNumber}" /></td>
     </tr>
     <tr>
-      <th>Search by shipping date:</th>
-      <td><input type="text" data-th-field="*{shipping}" /></td>
+      <th>Search by shippingIn date:</th>
+      <td><input type="text" data-th-field="*{shippingIn}" /></td>
     </tr>
     <tr>
       <td colspan="2"><button type="submit">Search</button></td>
@@ -41,7 +41,7 @@
   <tr data-th-each="rawMaterial: ${rawMaterials}">
     <td data-th-text="${rawMaterial.ingredient.name}"></td>
     <td data-th-text="${rawMaterial.SARZSNumber}"></td>
-    <td data-th-text="${rawMaterial.shipping.localDate}"></td>
+    <td data-th-text="${rawMaterial.shippingIn.localDate}"></td>
     <td data-th-text="${rawMaterial.unitPrice}"></td>
     <td data-th-text="${rawMaterial.quantity}"></td>
     <td data-th-text="${rawMaterial.warehouse}"></td>

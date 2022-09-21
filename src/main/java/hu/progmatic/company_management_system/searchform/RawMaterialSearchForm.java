@@ -1,13 +1,13 @@
 package hu.progmatic.company_management_system.searchform;
 
 import hu.progmatic.company_management_system.models.Ingredient;
-import hu.progmatic.company_management_system.models.Shipping;
+import hu.progmatic.company_management_system.models.ShippingIn;
 
 public class RawMaterialSearchForm {
 
     private Ingredient ingredient;
     private Integer SARZSNumber;
-    private Shipping shipping;
+    private ShippingIn shippingIn;
 
     public Ingredient getIngredient() {
         return ingredient;
@@ -25,11 +25,11 @@ public class RawMaterialSearchForm {
         this.SARZSNumber = SARZSNumber;
     }
 
-    public Shipping getShipping() {
-        return shipping;
+    public ShippingIn getShipping() {
+        return shippingIn;
     }
 
-    public void setShipping(Shipping shipping) {
-        this.shipping = shipping;
+    public void setShipping(ShippingIn shippingIn) {
+        this.shippingIn = shippingIn;
     }
 }

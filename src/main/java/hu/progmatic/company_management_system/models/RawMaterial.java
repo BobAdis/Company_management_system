@@ -15,18 +15,18 @@ public class RawMaterial {
     private Integer unitPrice;
     private Integer quantity;
     @ManyToOne
-    private Shipping shipping;
+    private ShippingIn shippingIn;
     private Warehouse warehouse;
 
     public RawMaterial() {
     }
 
-    public RawMaterial(Ingredient ingredient, Integer SARZSNumber, Integer unitPrice, Integer quantity, Shipping shipping, Warehouse warehouse) {
+    public RawMaterial(Ingredient ingredient, Integer SARZSNumber, Integer unitPrice, Integer quantity, ShippingIn shippingIn, Warehouse warehouse) {
         this.ingredient = ingredient;
         this.SARZSNumber = SARZSNumber;
         this.unitPrice = unitPrice;
         this.quantity = quantity;
-        this.shipping = shipping;
+        this.shippingIn = shippingIn;
         this.warehouse = warehouse;
     }
 
@@ -70,12 +70,12 @@ public class RawMaterial {
         this.quantity = quantity;
     }
 
-    public Shipping getShipping() {
-        return shipping;
+    public ShippingIn getShipping() {
+        return shippingIn;
     }
 
-    public void setShipping(Shipping shipping) {
-        this.shipping = shipping;
+    public void setShipping(ShippingIn shippingIn) {
+        this.shippingIn = shippingIn;
     }
 
     public Warehouse getWarehouse() {

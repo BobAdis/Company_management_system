@@ -4,35 +4,24 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-public class Shipping {
+public class ShippingIn {
     @Id
     @GeneratedValue
     private Long id;
     @OneToOne
-    private Partner buyer;
-    @OneToOne
     private Partner seller;
-    @OneToMany (mappedBy = "shipping")
+    @OneToMany (mappedBy = "shippingIn")
     private List<RawMaterial> rawMaterials;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate localDate;
 
-    public void getxyz (List<RawMaterial> rawMaterial) {
-        for (RawMaterial rawMaterial1 : rawMaterial) {
-            String name = rawMaterial1.getIngredient().getName();
-            System.out.println(name);
-        }
+    public ShippingIn() {
     }
 
-    public Shipping() {
-    }
-
-    public Shipping(Partner buyer, Partner seller, LocalDate localDate, List<RawMaterial> rawMaterials) {
-        this.buyer = buyer;
+    public ShippingIn(Partner seller, LocalDate localDate, List<RawMaterial> rawMaterials) {
         this.seller = seller;
         this.localDate = localDate;
         this.rawMaterials = rawMaterials;
@@ -44,14 +33,6 @@ public class Shipping {
 
     public Long getId() {
         return id;
-    }
-
-    public Partner getBuyer() {
-        return buyer;
-    }
-
-    public void setBuyer(Partner buyer) {
-        this.buyer = buyer;
     }
 
     public Partner getSeller() {

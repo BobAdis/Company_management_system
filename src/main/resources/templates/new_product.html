@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add new product</title>
+    <title>Add new producedProduct</title>
     <link rel="stylesheet" href="/style.css">
     <style>
         .form {gap: 0}
@@ -13,7 +13,7 @@
 <body>
     <div class="form">
         <h1 data-th-text="'Create new ' + ${material}"></h1>
-        <form class="form" data-th-action="@{/newproduct}" data-th-object="${product}" method="post">
+        <form class="form" data-th-action="@{/newproduct}" data-th-object="${producedProduct}" method="post">
             <label for="name">Name</label>
             <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
             <label for="serialnumber">Serial number</label>
