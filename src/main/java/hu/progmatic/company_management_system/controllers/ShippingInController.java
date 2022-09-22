@@ -1,6 +1,5 @@
 package hu.progmatic.company_management_system.controllers;
 
-import hu.progmatic.company_management_system.models.BOMList;
 import hu.progmatic.company_management_system.models.Partner;
 import hu.progmatic.company_management_system.models.ShippingIn;
 import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;

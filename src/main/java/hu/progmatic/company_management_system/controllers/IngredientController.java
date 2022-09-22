@@ -2,7 +2,6 @@ package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.BOMList;
 import hu.progmatic.company_management_system.models.Ingredient;
-import hu.progmatic.company_management_system.models.ProducedProduct;
 import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
 import hu.progmatic.company_management_system.services.BOMListService;
 import hu.progmatic.company_management_system.services.IngredientService;
@@ -47,7 +46,6 @@ public class IngredientController {
     public String getNewIngredientForm(Model model) {
         Ingredient ingredient = new Ingredient();
         List<BOMList> bomLists = bomListService.getAllBOMList();
-
         model.addAttribute("ingredient", ingredient);
         model.addAttribute("bomlists", bomLists);
         model.addAttribute("productName", "Ingredient");

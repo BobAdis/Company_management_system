@@ -3,9 +3,6 @@ package hu.progmatic.company_management_system.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.nio.MappedByteBuffer;
-import java.util.List;
 
 @Entity
 public class Partner {

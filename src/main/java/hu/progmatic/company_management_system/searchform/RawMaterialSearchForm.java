@@ -1,7 +1,5 @@
 package hu.progmatic.company_management_system.searchform;
 
-import hu.progmatic.company_management_system.models.Ingredient;
-import hu.progmatic.company_management_system.models.ShippingIn;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
