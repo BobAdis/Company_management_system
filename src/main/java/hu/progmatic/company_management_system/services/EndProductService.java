@@ -1,10 +1,8 @@
 package hu.progmatic.company_management_system.services;
 
 import hu.progmatic.company_management_system.models.EndProduct;
-import hu.progmatic.company_management_system.models.RawMaterial;
 import hu.progmatic.company_management_system.repositories.EndProductRepo;
 import hu.progmatic.company_management_system.searchform.EndProductSearchForm;
-import hu.progmatic.company_management_system.searchform.RawMaterialSearchForm;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

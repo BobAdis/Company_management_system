@@ -1,10 +1,8 @@
 package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.BOMList;
-import hu.progmatic.company_management_system.models.Ingredient;
 import hu.progmatic.company_management_system.models.ProducedProduct;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
-import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
 import hu.progmatic.company_management_system.services.BOMListService;
 import hu.progmatic.company_management_system.services.IngredientService;
 import hu.progmatic.company_management_system.services.ProducedProductService;

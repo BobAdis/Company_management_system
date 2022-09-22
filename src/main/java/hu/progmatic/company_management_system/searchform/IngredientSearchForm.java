@@ -1,7 +1,5 @@
 package hu.progmatic.company_management_system.searchform;
 
-import hu.progmatic.company_management_system.models.BOMList;
-
 public class IngredientSearchForm {
 
     private String name;

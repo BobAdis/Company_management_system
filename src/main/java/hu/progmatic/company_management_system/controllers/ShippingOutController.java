@@ -1,9 +1,7 @@
 package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.Partner;
-import hu.progmatic.company_management_system.models.ShippingIn;
 import hu.progmatic.company_management_system.models.ShippingOut;
-import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;
 import hu.progmatic.company_management_system.searchform.ShippingOutSearchForm;
 import hu.progmatic.company_management_system.services.PartnerService;
 import hu.progmatic.company_management_system.services.ShippingOutService;
