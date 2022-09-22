@@ -6,6 +6,7 @@ import hu.progmatic.company_management_system.models.ProducedProduct;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
 import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
 import hu.progmatic.company_management_system.services.BOMListService;
+import hu.progmatic.company_management_system.services.IngredientService;
 import hu.progmatic.company_management_system.services.ProducedProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +20,12 @@ public class BOMListController {
 
     private final BOMListService bomListService;
     private final ProducedProductService producedProductService;
+    private final IngredientService ingredientService;
 
-    public BOMListController(BOMListService bomListService, ProducedProductService producedProductService) {
+    public BOMListController(BOMListService bomListService, ProducedProductService producedProductService, IngredientService ingredientService) {
         this.bomListService = bomListService;
         this.producedProductService = producedProductService;
+        this.ingredientService = ingredientService;
     }
 
     @GetMapping(value = {"/bomlists"})
@@ -47,9 +50,11 @@ public class BOMListController {
     public String getNewBomListForm(Model model) {
         BOMList bomList = new BOMList();
         List<ProducedProduct> producedProducts = producedProductService.getAllProduct();
+        //List<Ingredient> ingredients = ingredientService.getAllIngredient();
 
         model.addAttribute("bomlist", bomList);
         model.addAttribute("producedProducts", producedProducts);
+        //model.addAttribute("ingredients", ingredients);
         model.addAttribute("productName", "BomList");
 
         return "new_bomlist";

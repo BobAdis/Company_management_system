@@ -45,10 +45,8 @@ public class ProducedProductController {
     @GetMapping(value = {"/newproducedproduct"})
     public String getNewProducedProductForm(Model model) {
         ProducedProduct product = new ProducedProduct();
-        List<BOMList> bomLists = bomListService.getAllBOMList();
 
         model.addAttribute("producedProduct", product);
-        model.addAttribute("bomlists", bomLists);
         model.addAttribute("productName", "Produced Product");
 
         return "new_producedproduct";

@@ -18,13 +18,6 @@
     <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
     <label for="unit">Unit</label>
     <input id="unit" placeholder="unit" type="text" data-th-field="*{unit}"/>
-    <label for="bomlist">BomList</label>
-    <select id="bomlist" data-th-field="*{bomList}">
-      <option data-th-each="bomlist: ${bomlists}"
-              data-th-value="${bomlist}"
-              data-th-text="${bomlist.name}">
-      </option>
-    </select>
     <label for="description">Description</label>
     <textarea id="description" placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
     <button class="send_button">Create</button>

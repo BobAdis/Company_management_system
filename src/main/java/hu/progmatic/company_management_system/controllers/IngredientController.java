@@ -46,10 +46,8 @@ public class IngredientController {
     @GetMapping(value = {"/newingredient"})
     public String getNewIngredientForm(Model model) {
         Ingredient ingredient = new Ingredient();
-        List<BOMList> bomLists = bomListService.getAllBOMList();
 
         model.addAttribute("ingredient", ingredient);
-        model.addAttribute("bomlists", bomLists);
         model.addAttribute("productName", "Ingredient");
 
         return "new_ingredient";
