@@ -10,7 +10,7 @@ public class BOMList {
     @GeneratedValue
     private Long id;
     private String name;
-    @OneToOne
+    @OneToOne (mappedBy = "bomList")
     private ProducedProduct producedProduct;
     @OneToMany(mappedBy = "bomList")
     private List<Ingredient> ingredients;

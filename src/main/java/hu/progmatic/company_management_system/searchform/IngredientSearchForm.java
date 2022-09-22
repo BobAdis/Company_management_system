@@ -6,7 +6,7 @@ public class IngredientSearchForm {
 
     private String name;
 
-    private BOMList bomList;
+    private String bomList;
 
 
     public String getName() {
@@ -17,13 +17,11 @@ public class IngredientSearchForm {
         this.name = name;
     }
 
-    public BOMList getBomList() {
+    public String getBomList() {
         return bomList;
     }
 
-    public void setBomList(BOMList bomList) {
+    public void setBomList(String bomList) {
         this.bomList = bomList;
     }
-
-
 }

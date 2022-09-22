@@ -2,18 +2,22 @@ package hu.progmatic.company_management_system.searchform;
 
 import hu.progmatic.company_management_system.models.Ingredient;
 import hu.progmatic.company_management_system.models.ShippingIn;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 public class RawMaterialSearchForm {
 
-    private Ingredient ingredient;
+    private String ingredient;
     private Integer SARZSNumber;
-    private ShippingIn shippingIn;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate shippingIn;
 
-    public Ingredient getIngredient() {
+    public String getIngredient() {
         return ingredient;
     }
 
-    public void setIngredient(Ingredient ingredient) {
+    public void setIngredient(String ingredient) {
         this.ingredient = ingredient;
     }
 
@@ -25,11 +29,11 @@ public class RawMaterialSearchForm {
         this.SARZSNumber = SARZSNumber;
     }
 
-    public ShippingIn getShippingIn() {
+    public LocalDate getShippingIn() {
         return shippingIn;
     }
 
-    public void setShippingIn(ShippingIn shippingIn) {
+    public void setShippingIn(LocalDate shippingIn) {
         this.shippingIn = shippingIn;
     }
 }

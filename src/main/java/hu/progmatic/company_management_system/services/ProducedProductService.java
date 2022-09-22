@@ -35,10 +35,9 @@ public class ProducedProductService {
             if (form.getName() != null && !producedProduct.getName().contains(form.getName())) {
                 continue;
             }
-            if (form.getBomList() != null && !producedProduct.getBomList().getProducedProduct().getName().contains(form.getBomList())) {
+            if (form.getBomList() != null && !producedProduct.getBomList().getName().contains(form.getBomList())) {
                 continue;
             }
-
                 result.add(producedProduct);
             }
         return result;

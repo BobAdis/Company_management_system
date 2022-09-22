@@ -69,10 +69,12 @@ public class DBRunner implements CommandLineRunner {
         BOMList bomList1 = new BOMList("Így készül a motorblokk", producedProduct1, List.of(ingredient1, ingredient2));
         ingredient1.setBomList(bomList1);
         ingredient2.setBomList(bomList1);
+        producedProduct1.setBomList(bomList1);
         producedProductRepo.save(producedProduct1);
         bomListRepo.save(bomList1);
         ingredientRepo.save(ingredient1);
         ingredientRepo.save(ingredient2);
+        System.out.println("BOMList1 garanted.");
 
         ProducedProduct producedProduct2 = new ProducedProduct("Cserebogár");
         Ingredient ingredient3 = new Ingredient("C alapanyag", "C hozzávaló","m");
@@ -80,6 +82,7 @@ public class DBRunner implements CommandLineRunner {
         BOMList bomList2 = new BOMList("Így készül a cserebogár", producedProduct2, List.of(ingredient3, ingredient4));
         ingredient3.setBomList(bomList2);
         ingredient4.setBomList(bomList2);
+        producedProduct2.setBomList(bomList2);
         producedProductRepo.save(producedProduct2);
         bomListRepo.save(bomList2);
         ingredientRepo.save(ingredient3);
@@ -105,6 +108,6 @@ public class DBRunner implements CommandLineRunner {
         shippingOutRepo.save(shippingOut1);
         EndProduct endProduct1 = new EndProduct(producedProduct1, 5990075,80000,10,shippingOut1);
         endProductRepo.save(endProduct1);
-        // shippingOut1.setEndProducts(List.of(endProduct1));
+        System.out.println("Shipping outs and Endproducts generated.");
     }
 }

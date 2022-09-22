@@ -11,7 +11,8 @@ public class ProducedProduct {
 
     private String name;
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name = "bomList_id", referencedColumnName = "id")
     private BOMList bomList;
     @OneToMany(mappedBy = "producedProduct")
     private List<EndProduct> endProduct;

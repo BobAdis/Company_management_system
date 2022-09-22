@@ -27,13 +27,13 @@ public class RawMaterinalService {
         List<RawMaterial> result = new ArrayList<>();
 
         for (RawMaterial rawMaterial : getAllRawMaterial()) {
-            if (form.getIngredient() != null && !rawMaterial.getIngredient().getName().contains(form.getIngredient().getName())) {
+            if (form.getIngredient() != null && !rawMaterial.getIngredient().getName().contains(form.getIngredient())) {
                 continue;
             }
             if (form.getSARZSNumber() != null && !rawMaterial.getSARZSNumber().toString().contains(form.getSARZSNumber().toString())) {
                 continue;
             }
-            if (form.getShippingIn() != null && !rawMaterial.getShippingIn().getLocalDate().equals(form.getShippingIn().getLocalDate())) {
+            if (form.getShippingIn() != null && !rawMaterial.getShippingIn().getLocalDate().equals(form.getShippingIn())) {
                 continue;
             }
             result.add(rawMaterial);
