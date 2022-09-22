@@ -21,6 +21,7 @@ public class MonthlyData {
     private int sickLeave;
     private int illnessBenefit;
 
+
     @ManyToOne
     private Employee employee;
 
@@ -60,8 +61,8 @@ public class MonthlyData {
     }
 
     public int setNetSalary(int workingDays, int paidLeave, int sickLeave, int illnessBenefit) {
-        return (employee.getGrossSalary() / 31 * workingDays) + (employee.getGrossSalary() / 31 * paidLeave) +
-                ((employee.getGrossSalary() / 31 * sickLeave) /7 * 10);
+        return ((employee.getGrossSalary() / 31 * workingDays) + (employee.getGrossSalary() / 31 * paidLeave) +
+                ((employee.getGrossSalary() / 31 * sickLeave) /10 * 7) /1000 * 665);
     }
 
     @Override

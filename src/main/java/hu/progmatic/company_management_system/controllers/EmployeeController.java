@@ -2,6 +2,7 @@ package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.*;
 import hu.progmatic.company_management_system.services.EmployeeService;
+import hu.progmatic.company_management_system.services.MonthlyDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +16,12 @@ import java.util.List;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+    private final MonthlyDataService monthlyDataService;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService) {
+    public EmployeeController(EmployeeService employeeService, MonthlyDataService monthlyDataService) {
         this.employeeService = employeeService;
+        this.monthlyDataService = monthlyDataService;
     }
 
     @GetMapping("/employee")
@@ -43,6 +46,7 @@ public class EmployeeController {
         model.addAttribute("tasks", Task.values());
         return "new_employee";
     }
+
     @PostMapping("/newemployee")
     public String addNewEmployee(Employee employee) {
         employeeService.save(employee);
@@ -51,15 +55,22 @@ public class EmployeeController {
     }
 
     @GetMapping("/payroll")
-    public String getPayrollPage (Model model) {
+    public String getPayrollPage(Model model) {
         model.addAttribute("employees", employeeService.getEmployees());
         return "payroll";
     }
 
-    @GetMapping("/january")
-    public String getJanuaryPage (Model model) {
-        model.addAttribute("employees", employeeService.getEmployees());
-        return "january";
+    @GetMapping("/netSalary")
+    public String getNetSalaryPage(Model model) {
+
+        List<Employee> employees = employeeService.getEmployees();
+
+        model.addAttribute("employees", employees);
+
+        monthlyDataService.getMonthlyData();
+        return "netSalary";
     }
+
+
 
 }
