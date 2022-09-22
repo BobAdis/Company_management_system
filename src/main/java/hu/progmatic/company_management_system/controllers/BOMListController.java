@@ -2,9 +2,11 @@ package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.BOMList;
 import hu.progmatic.company_management_system.models.Ingredient;
+import hu.progmatic.company_management_system.models.ProducedProduct;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
 import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
 import hu.progmatic.company_management_system.services.BOMListService;
+import hu.progmatic.company_management_system.services.ProducedProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +18,11 @@ import java.util.List;
 public class BOMListController {
 
     private final BOMListService bomListService;
+    private final ProducedProductService producedProductService;
 
-    public BOMListController(BOMListService bomListService) {
+    public BOMListController(BOMListService bomListService, ProducedProductService producedProductService) {
         this.bomListService = bomListService;
+        this.producedProductService = producedProductService;
     }
 
     @GetMapping(value = {"/bomlists"})
@@ -42,8 +46,10 @@ public class BOMListController {
     @GetMapping(value = {"/newbomlist"})
     public String getNewBomListForm(Model model) {
         BOMList bomList = new BOMList();
+        List<ProducedProduct> producedProducts = producedProductService.getAllProduct();
 
         model.addAttribute("bomlist", bomList);
+        model.addAttribute("producedProducts", producedProducts);
         model.addAttribute("productName", "BomList");
 
         return "new_bomlist";

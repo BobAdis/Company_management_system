@@ -1,8 +1,10 @@
 package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.BOMList;
+import hu.progmatic.company_management_system.models.Partner;
 import hu.progmatic.company_management_system.models.ShippingIn;
 import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;
+import hu.progmatic.company_management_system.services.PartnerService;
 import hu.progmatic.company_management_system.services.ShippingInService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +17,11 @@ import java.util.List;
 public class ShippingInController {
 
     private final ShippingInService shippingInService;
+    private final PartnerService partnerService;
 
-    public ShippingInController(ShippingInService shippingInService) {
+    public ShippingInController(ShippingInService shippingInService, PartnerService partnerService) {
         this.shippingInService = shippingInService;
+        this.partnerService = partnerService;
     }
 
     @GetMapping(value = {"/shippingins"})
@@ -39,17 +43,19 @@ public class ShippingInController {
     }
 
     @GetMapping(value = {"/newshippingin"})
-    public String getNewBomListForm(Model model) {
+    public String getNewShippingInForm(Model model) {
         ShippingIn shippingIn = new ShippingIn();
+        List<Partner> partners = partnerService.getAllSupplier();
 
         model.addAttribute("shippingin", shippingIn);
+        model.addAttribute("partners", partners);
         model.addAttribute("productName", "Shipping in");
 
         return "new_shippingin";
     }
 
     @PostMapping(value = {"/newshippingin"})
-    public String addNewBomList(ShippingIn shippingIn) {
+    public String addShippingInList(ShippingIn shippingIn) {
         shippingInService.saveShippingIn(shippingIn);
 
         return "redirect:/shippingins";

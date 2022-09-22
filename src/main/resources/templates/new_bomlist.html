@@ -16,6 +16,13 @@
   <form class="form" data-th-action="@{/newbomlist}" data-th-object="${bomlist}" method="post">
     <label for="name">Name</label>
     <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+    <label for="producedproduct">BomList</label>
+    <select id="producedproduct" data-th-field="*{producedProduct}">
+      <option data-th-each="product: ${producedProducts}"
+              data-th-value="${product}"
+              data-th-text="${product.name}">
+      </option>
+    </select>
     <button class="send_button">Create</button>
   </form>
 </div>

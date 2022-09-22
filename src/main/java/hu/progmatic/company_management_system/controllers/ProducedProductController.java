@@ -1,8 +1,10 @@
 package hu.progmatic.company_management_system.controllers;
 
+import hu.progmatic.company_management_system.models.BOMList;
 import hu.progmatic.company_management_system.models.ProducedProduct;
 import hu.progmatic.company_management_system.models.ProductCondition;
 import hu.progmatic.company_management_system.searchform.ProducedProductSearchForm;
+import hu.progmatic.company_management_system.services.BOMListService;
 import hu.progmatic.company_management_system.services.ProducedProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +17,11 @@ import java.util.List;
 public class ProducedProductController {
 
     private final ProducedProductService producedProductService;
+    private final BOMListService bomListService;
 
-    public ProducedProductController(ProducedProductService producedProductService) {
+    public ProducedProductController(ProducedProductService producedProductService, BOMListService bomListService) {
         this.producedProductService = producedProductService;
+        this.bomListService = bomListService;
     }
 
 
@@ -41,8 +45,10 @@ public class ProducedProductController {
     @GetMapping(value = {"/newproducedproduct"})
     public String getNewProducedProductForm(Model model) {
         ProducedProduct product = new ProducedProduct();
+        List<BOMList> bomLists = bomListService.getAllBOMList();
 
         model.addAttribute("producedProduct", product);
+        model.addAttribute("bomlists", bomLists);
         model.addAttribute("productName", "Produced Product");
 
         return "new_producedproduct";
