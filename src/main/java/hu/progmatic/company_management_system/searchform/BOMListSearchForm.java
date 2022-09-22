@@ -1,9 +1,11 @@
 package hu.progmatic.company_management_system.searchform;
 
+
 public class BOMListSearchForm {
 
     private String name;
-    private String product;
+
+    private String producedProduct;
     private String ingredient;
 
     public String getName() {
@@ -14,12 +16,12 @@ public class BOMListSearchForm {
         this.name = name;
     }
 
-    public String getProduct() {
-        return product;
+    public String getProducedProduct() {
+        return producedProduct;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setProducedProduct(String producedProduct) {
+        this.producedProduct = producedProduct;
     }
 
     public String getIngredient() {
@@ -29,4 +31,5 @@ public class BOMListSearchForm {
     public void setIngredient(String ingredient) {
         this.ingredient = ingredient;
     }
+
 }

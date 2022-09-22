@@ -20,8 +20,6 @@ public class ProducedProduct {
     public ProducedProduct() {
     }
 
-
-
     public ProducedProduct(String name) {
         this.name = name;
     }

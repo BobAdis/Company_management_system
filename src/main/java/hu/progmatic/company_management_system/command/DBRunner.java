@@ -105,5 +105,6 @@ public class DBRunner implements CommandLineRunner {
         shippingOutRepo.save(shippingOut1);
         EndProduct endProduct1 = new EndProduct(producedProduct1, 5990075,80000,10,shippingOut1);
         endProductRepo.save(endProduct1);
+        // shippingOut1.setEndProducts(List.of(endProduct1));
     }
 }

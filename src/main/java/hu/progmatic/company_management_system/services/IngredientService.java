@@ -28,7 +28,7 @@ public class IngredientService {
             if (form.getName() != null && !ingredient.getName().contains(form.getName())) {
                 continue;
             }
-            if (form.getBomList() != null && !ingredient.getBomList().getProduct().getName().contains(form.getBomList().getProduct().getName())) {
+            if (form.getBomList() != null && !ingredient.getBomList().getName().contains(form.getBomList().getName())) {
                 continue;
             }
             result.add(ingredient);

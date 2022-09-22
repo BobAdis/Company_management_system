@@ -4,7 +4,6 @@ import hu.progmatic.company_management_system.models.BOMList;
 import hu.progmatic.company_management_system.models.Ingredient;
 import hu.progmatic.company_management_system.repositories.BOMListRepo;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
-import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ public class BOMListService {
             if (form.getName() != null && !bomList.getName().contains(form.getName())) {
                 continue;
             }
-            if (form.getProduct() != null && !bomList.getProduct().getName().contains(form.getProduct())) {
+            if (form.getProducedProduct() != null && !bomList.getProducedProduct().getName().contains(form.getProducedProduct())) {
                 continue;
             }
             if (form.getIngredient() != null && !isIngredientContains(form, bomList)) {

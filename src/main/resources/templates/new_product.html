@@ -19,12 +19,12 @@
             <label for="serialnumber">Serial number</label>
             <input id="serialnumber" placeholder="serial number" type="number" data-th-field="*{serialNumber}"/>
             <label for="unitprice">Unit Price</label>
-            <input id="unitprice" placeholder="unit price" type="number" data-th-field="*{unitPrice}"/>
-            <label for="description">Description</label>
-            <textarea id="description" placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
-            <select style="display: none" data-th-field="*{productCondition}">
+            <input id="unitprice" placeholder="unit price" type="number" data-th-field="*{Price}"/>
+            <label >Description</label>
+            <textarea  placeholder="description" rows="4" cols="50" data-th-field="*{bomList.name}"></textarea>
+           <!-- <select style="display: none" data-th-field="*{productCondition}">
                 <option data-th-value="${productCondition}" data-th-text="${productCondition}"></option>
-            </select>
+            </select>-->
             <button class="send_button">Create</button>
         </form>
     </div>

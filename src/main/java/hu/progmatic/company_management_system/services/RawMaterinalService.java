@@ -33,6 +33,9 @@ public class RawMaterinalService {
             if (form.getSARZSNumber() != null && !rawMaterial.getSARZSNumber().toString().contains(form.getSARZSNumber().toString())) {
                 continue;
             }
+            if (form.getShippingIn() != null && !rawMaterial.getShippingIn().getLocalDate().equals(form.getShippingIn().getLocalDate())) {
+                continue;
+            }
             result.add(rawMaterial);
         }
         return result;
