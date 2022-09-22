@@ -2,6 +2,7 @@ package hu.progmatic.company_management_system.services;
 
 import hu.progmatic.company_management_system.models.Employee;
 import hu.progmatic.company_management_system.repositories.EmployeeRepo;
+import hu.progmatic.company_management_system.repositories.MonthlyDataRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.List;
 public class EmployeeService {
 
     private EmployeeRepo employeeRepo;
+
 
     @Autowired
     public EmployeeService(EmployeeRepo employeeRepo) {
@@ -29,5 +31,6 @@ public class EmployeeService {
     public void save(Employee employee) {
         employeeRepo.save(employee);
     }
+
 
 }

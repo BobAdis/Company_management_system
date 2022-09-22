@@ -71,6 +71,12 @@ public class EmployeeController {
         return "netSalary";
     }
 
-
+    @PostMapping("/netSalary")
+    public String calculateNetSalary(Model model) {
+        int netsalary = monthlyDataService.setNetSalary(1,5,7,0,0);
+        model.addAttribute("netSalary", netsalary);
+        System.out.println(netsalary);
+        return "netSalary";
+    }
 
 }
