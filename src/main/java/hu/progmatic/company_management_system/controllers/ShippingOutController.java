@@ -1,9 +1,11 @@
 package hu.progmatic.company_management_system.controllers;
 
+import hu.progmatic.company_management_system.models.Partner;
 import hu.progmatic.company_management_system.models.ShippingIn;
 import hu.progmatic.company_management_system.models.ShippingOut;
 import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;
 import hu.progmatic.company_management_system.searchform.ShippingOutSearchForm;
+import hu.progmatic.company_management_system.services.PartnerService;
 import hu.progmatic.company_management_system.services.ShippingOutService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +18,11 @@ import java.util.List;
 public class ShippingOutController {
 
     private final ShippingOutService shippingOutService;
+    private final PartnerService partnerService;
 
-    public ShippingOutController(ShippingOutService shippingOutService) {
+    public ShippingOutController(ShippingOutService shippingOutService, PartnerService partnerService) {
         this.shippingOutService = shippingOutService;
+        this.partnerService = partnerService;
     }
 
     @GetMapping(value = {"/shippingouts"})
@@ -40,17 +44,19 @@ public class ShippingOutController {
     }
 
     @GetMapping(value = {"/newshippingout"})
-    public String getNewBomListForm(Model model) {
+    public String getNewShippingOutForm(Model model) {
         ShippingOut shippingOut = new ShippingOut();
+        List<Partner> partners = partnerService.getAllCustomers();
 
         model.addAttribute("shippingout", shippingOut);
+        model.addAttribute("partners", partners);
         model.addAttribute("productName", "Shipping out");
 
         return "new_shippingout";
     }
 
     @PostMapping(value = {"/newshippingout"})
-    public String addNewBomList(ShippingOut shippingOut) {
+    public String addNewShippingOut(ShippingOut shippingOut) {
         shippingOutService.saveShippingOut(shippingOut);
 
         return "redirect:/shippingouts";
