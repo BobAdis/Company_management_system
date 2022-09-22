@@ -38,4 +38,21 @@ public class BOMListController {
         model.addAttribute("form", form);
         return "bomlists";
     }
+
+    @GetMapping(value = {"/newbomlist"})
+    public String getNewBomListForm(Model model) {
+        BOMList bomList = new BOMList();
+
+        model.addAttribute("bomlist", bomList);
+        model.addAttribute("productName", "BomList");
+
+        return "new_bomlist";
+    }
+
+    @PostMapping(value = {"/newbomlist"})
+    public String addNewBomList(BOMList bomList) {
+        bomListService.saveBomList(bomList);
+
+        return "redirect:/bomlists";
+    }
 }

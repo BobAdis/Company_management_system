@@ -49,4 +49,8 @@ public class ShippingOutService {
         }
         return false;
     }
+
+    public void saveShippingOut(ShippingOut shippingOut) {
+        shippingOutRepo.save(shippingOut);
+    }
 }

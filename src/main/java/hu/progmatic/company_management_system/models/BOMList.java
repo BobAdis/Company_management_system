@@ -40,11 +40,11 @@ public class BOMList {
         this.name = name;
     }
 
-    public ProducedProduct getProduct() {
+    public ProducedProduct getProducedProduct() {
         return producedProduct;
     }
 
-    public void setProduct(ProducedProduct producedProduct) {
+    public void setProducedProduct(ProducedProduct producedProduct) {
         this.producedProduct = producedProduct;
     }
 

@@ -38,4 +38,21 @@ public class ShippingOutController {
         model.addAttribute("form", form);
         return "shippingouts";
     }
+
+    @GetMapping(value = {"/newshippingout"})
+    public String getNewBomListForm(Model model) {
+        ShippingOut shippingOut = new ShippingOut();
+
+        model.addAttribute("shippingout", shippingOut);
+        model.addAttribute("productName", "Shipping out");
+
+        return "new_shippingout";
+    }
+
+    @PostMapping(value = {"/newshippingout"})
+    public String addNewBomList(ShippingOut shippingOut) {
+        shippingOutService.saveShippingOut(shippingOut);
+
+        return "redirect:/shippingouts";
+    }
 }

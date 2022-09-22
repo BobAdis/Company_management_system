@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title data-th-text="'Add new ' + ${productName}"></title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .form {gap: 0}
+    label {margin-bottom: 10px; margin-top: 25px}
+    .send_button { margin-top: 25px}
+  </style>
+</head>
+<body>
+<div class="form">
+  <h1 data-th-text="'Create new ' + ${productName}"></h1>
+  <form class="form" data-th-action="@{/newshippingin}" data-th-object="${shippingin}" method="post">
+    <label for="date">Date</label>
+    <input id="date" placeholder="date" type="date" data-th-field="*{localDate}"/>
+    <button class="send_button">Create</button>
+  </form>
+</div>
+</body>
+</html>

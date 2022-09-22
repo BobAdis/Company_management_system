@@ -1,6 +1,7 @@
 package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.Ingredient;
+import hu.progmatic.company_management_system.models.ProducedProduct;
 import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
 import hu.progmatic.company_management_system.services.IngredientService;
 import org.springframework.stereotype.Controller;
@@ -36,5 +37,22 @@ public class IngredientController {
         model.addAttribute("page", "Ingredients");
         model.addAttribute("form", form);
         return "ingredients";
+    }
+
+    @GetMapping(value = {"/newingredient"})
+    public String getNewIngredientForm(Model model) {
+        Ingredient ingredient = new Ingredient();
+
+        model.addAttribute("ingredient", ingredient);
+        model.addAttribute("productName", "Ingredient");
+
+        return "new_ingredient";
+    }
+
+    @PostMapping(value = {"/newingredient"})
+    public String addNewIngredient(Ingredient ingredient) {
+        ingredientService.saveIngredient(ingredient);
+
+        return "redirect:/ingredients";
     }
 }

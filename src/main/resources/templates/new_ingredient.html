@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title data-th-text="'Add new ' + ${productName}"></title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .form {gap: 0}
+    label {margin-bottom: 10px; margin-top: 25px}
+    .send_button { margin-top: 25px}
+  </style>
+</head>
+<body>
+<div class="form">
+  <h1 data-th-text="'Create new ' + ${productName}"></h1>
+  <form class="form" data-th-action="@{/newingredient}" data-th-object="${ingredient}" method="post">
+    <label for="name">Name</label>
+    <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+    <label for="unit">Unit</label>
+    <input id="unit" placeholder="unit" type="text" data-th-field="*{unit}"/>
+    <label for="description">Description</label>
+    <textarea id="description" placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
+    <button class="send_button">Create</button>
+  </form>
+</div>
+</body>
+</html>

@@ -31,7 +31,7 @@ public class BOMListService {
             if (form.getName() != null && !bomList.getName().contains(form.getName())) {
                 continue;
             }
-            if (form.getProduct() != null && !bomList.getProduct().getName().contains(form.getProduct())) {
+            if (form.getProducedProduct() != null && !bomList.getProducedProduct().getName().contains(form.getProducedProduct())) {
                 continue;
             }
             if (form.getIngredient() != null && !isIngredientContains(form, bomList)) {
@@ -53,6 +53,10 @@ public class BOMListService {
             }
         }
         return false;
+    }
+
+    public void saveBomList(BOMList bomList) {
+        bomListRepo.save(bomList);
     }
 
    /* public List<Product> ria(ProductCondition condition, ProductSearchForm form) {

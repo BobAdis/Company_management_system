@@ -37,4 +37,22 @@ public class ProducedProductController {
         model.addAttribute("form", form);
         return "producedproducts";
     }
+
+    @GetMapping(value = {"/newproducedproduct"})
+    public String getNewProducedProductForm(Model model) {
+        ProducedProduct product = new ProducedProduct();
+
+        model.addAttribute("producedProduct", product);
+        model.addAttribute("productName", "Produced Product");
+
+        return "new_producedproduct";
+    }
+
+    @PostMapping(value = {"/newproducedproduct"})
+    public String addNewProducedProduct(ProducedProduct product) {
+        producedProductService.saveProduct(product);
+
+        return "redirect:/producedproducts";
+    }
+
 }

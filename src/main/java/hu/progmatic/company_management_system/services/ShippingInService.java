@@ -48,4 +48,8 @@ public class ShippingInService {
         }
         return false;
     }
+
+    public void saveShippingIn(ShippingIn shippingIn) {
+        shippingInRepo.save(shippingIn);
+    }
 }
