@@ -4,7 +4,6 @@ import hu.progmatic.company_management_system.models.BOMList;
 import hu.progmatic.company_management_system.models.Ingredient;
 import hu.progmatic.company_management_system.repositories.BOMListRepo;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
-import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

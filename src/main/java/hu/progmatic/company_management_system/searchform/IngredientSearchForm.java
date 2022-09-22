@@ -5,6 +5,7 @@ import hu.progmatic.company_management_system.models.BOMList;
 public class IngredientSearchForm {
 
     private String name;
+
     private BOMList bomList;
 
 
@@ -23,4 +24,6 @@ public class IngredientSearchForm {
     public void setBomList(BOMList bomList) {
         this.bomList = bomList;
     }
+
+
 }

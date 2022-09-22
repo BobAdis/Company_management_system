@@ -3,6 +3,7 @@ package hu.progmatic.company_management_system.services;
 import hu.progmatic.company_management_system.models.User;
 import hu.progmatic.company_management_system.repositories.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,8 +30,9 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
         Optional<User> userOptional = userRepository.findByUsername(username);
-        User userData = userOptional.orElseThrow(() -> new UsernameNotFoundException("User not found."));
+        User userData =  userOptional.orElseThrow(() -> new UsernameNotFoundException("User not found."));
 
 
         if (userData.isAdmin()) {
@@ -51,6 +53,10 @@ public class UserService implements UserDetailsService {
                     )
             );
         }
+    }
+
+    public User getLoggedInUser() {
+        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
     @Transactional

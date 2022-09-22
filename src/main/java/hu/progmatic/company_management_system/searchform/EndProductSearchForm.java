@@ -3,11 +3,13 @@ package hu.progmatic.company_management_system.searchform;
 import hu.progmatic.company_management_system.models.ProducedProduct;
 import hu.progmatic.company_management_system.models.ShippingOut;
 
+import java.time.LocalDate;
+
 public class EndProductSearchForm {
 
     private String producedProduct;
     private Integer serialNumber;
-    private ShippingOut shippingOut;
+    private LocalDate shippingOut;
 
     public String getProducedProduct() {
         return producedProduct;
@@ -25,11 +27,11 @@ public class EndProductSearchForm {
         this.serialNumber = serialNumber;
     }
 
-    public ShippingOut getShippingOut() {
+    public LocalDate getShippingOut() {
         return shippingOut;
     }
 
-    public void setShippingOut(ShippingOut shippingOut) {
+    public void setShippingOut(LocalDate shippingOut) {
         this.shippingOut = shippingOut;
     }
 }

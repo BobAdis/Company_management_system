@@ -31,6 +31,9 @@ public class EndProductService {
             if (form.getSerialNumber() != null && !endProduct.getSerialNumber().toString().contains(form.getSerialNumber().toString())) {
                 continue;
             }
+            if (form.getShippingOut() != null && !endProduct.getShippingOut().getLocalDate().equals(form.getShippingOut())) {
+                continue;
+            }
             result.add(endProduct);
         }
         return result;

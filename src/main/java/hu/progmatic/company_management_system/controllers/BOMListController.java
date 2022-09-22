@@ -31,7 +31,7 @@ public class BOMListController {
     }
 
     @PostMapping("/bomlists")
-    public String displayShippingSearchResults(BOMListSearchForm form, Model model) {
+    public String displayBomlistSearchResults(BOMListSearchForm form, Model model) {
         List<BOMList> bomlists = bomListService.getByForm(form);
         model.addAttribute("bomlists", bomlists);
         model.addAttribute("page", "BOM lists");

@@ -25,11 +25,11 @@ public class RawMaterialSearchForm {
         this.SARZSNumber = SARZSNumber;
     }
 
-    public ShippingIn getShipping() {
+    public ShippingIn getShippingIn() {
         return shippingIn;
     }
 
-    public void setShipping(ShippingIn shippingIn) {
+    public void setShippingIn(ShippingIn shippingIn) {
         this.shippingIn = shippingIn;
     }
 }
