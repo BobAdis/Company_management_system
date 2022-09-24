@@ -15,9 +15,9 @@
   <h1 data-th-text="'Create new ' + ${productName}"></h1>
   <form class="form" data-th-action="@{/newshippingout}" data-th-object="${shippingout}" method="post">
     <label for="buyer">Supplier</label>
-    <select id="buyer" data-th-field="*{buyer}">
+    <select id="buyer" name="partnerId">
       <option data-th-each="partner: ${partners}"
-              data-th-value="${partner}"
+              data-th-value="${partner.id}"
               data-th-text="${partner.partnerName}">
       </option>
     </select>

@@ -23,4 +23,12 @@ public class PartnerService {
     public List<Partner> getAllSupplier () {
         return partnerRepo.findByPartnerTypeEquals(PartnerType.SUPPLIER);
     }
+
+    public Partner getCustomerById(long id) {
+        return partnerRepo.findByPartnerTypeEqualsAndIdEquals(PartnerType.COSTUMER, id);
+    }
+
+    public Partner getSupplierById(long id) {
+        return partnerRepo.findByPartnerTypeEqualsAndIdEquals(PartnerType.SUPPLIER, id);
+    }
 }

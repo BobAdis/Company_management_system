@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -54,7 +55,9 @@ public class ShippingOutController {
     }
 
     @PostMapping(value = {"/newshippingout"})
-    public String addNewShippingOut(ShippingOut shippingOut) {
+    public String addNewShippingOut(ShippingOut shippingOut, @RequestParam(name = "partnerId") long partnerId) {
+        Partner partner = partnerService.getCustomerById(partnerId);
+        shippingOut.setBuyer(partner);
         shippingOutService.saveShippingOut(shippingOut);
 
         return "redirect:/shippingouts";
