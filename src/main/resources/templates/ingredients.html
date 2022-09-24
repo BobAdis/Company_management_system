@@ -34,16 +34,16 @@
         <th>Quantity</th>
         <th>Unit</th>
     </tr>
-    <th:block data-th-each="ingredient: ${ingredients}">
-    <tr data-th-each="raws: ${ingredient.rawMaterial}">
+    <tr data-th-each="ingredient: ${ingredients}">
         <td data-th-text="${ingredient.name}"></td>
         <td data-th-text="${ingredient.description}"></td>
-        <td data-th-text="${ingredient.bomList.name}"></td>
-        <td data-th-text="${raws.SARZSNumber}"></td>
-        <td data-th-text="${raws.quantity}"></td>
+        <td data-th-if="${ingredient.bomList} != null" data-th-text="${ingredient.bomList.name}"></td>
+        <th:block data-th-each="raws: ${ingredient.rawMaterial}">
+            <td data-th-text="${raws.SARZSNumber}"></td>
+            <td data-th-text="${raws.quantity}"></td>
+        </th:block>
         <td data-th-text="${ingredient.unit}"></td>
     </tr>
-    </th:block>
 </table>
 
 </body>
