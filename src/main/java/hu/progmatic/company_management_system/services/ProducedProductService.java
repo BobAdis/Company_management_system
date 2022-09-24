@@ -42,4 +42,12 @@ public class ProducedProductService {
             }
         return result;
     }
+
+    public ProducedProduct getById(long id) {
+        return producedProductRepo.findById(id).orElseThrow();
+    }
+
+    public List<ProducedProduct> getWhereBomListIsNull() {
+        return producedProductRepo.findAllByBomListNull();
+    }
 }

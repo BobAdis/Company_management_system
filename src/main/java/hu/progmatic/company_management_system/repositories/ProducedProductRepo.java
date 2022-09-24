@@ -8,4 +8,6 @@ import java.util.List;
 public interface ProducedProductRepo extends CrudRepository<ProducedProduct, Long> {
 
     List<ProducedProduct> findAll();
+
+    List<ProducedProduct> findAllByBomListNull();
 }

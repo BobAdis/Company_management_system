@@ -9,7 +9,9 @@ import hu.progmatic.company_management_system.services.ProducedProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -47,7 +49,7 @@ public class BOMListController {
     @GetMapping(value = {"/newbomlist"})
     public String getNewBomListForm(Model model) {
         BOMList bomList = new BOMList();
-        List<ProducedProduct> producedProducts = producedProductService.getAllProduct();
+        List<ProducedProduct> producedProducts = producedProductService.getWhereBomListIsNull();
         //List<Ingredient> ingredients = ingredientService.getAllIngredient();
 
         model.addAttribute("bomlist", bomList);
@@ -59,7 +61,11 @@ public class BOMListController {
     }
 
     @PostMapping(value = {"/newbomlist"})
-    public String addNewBomList(BOMList bomList) {
+    public String addNewBomList(BOMList bomList, @RequestParam(name = "productId") long productId) {
+        ProducedProduct producedProduct = producedProductService.getById(productId);
+        bomList.setProducedProduct(producedProduct);
+        producedProduct.setBomList(bomList);
+        //producedProductService.saveProduct(producedProduct);
         bomListService.saveBomList(bomList);
 
         return "redirect:/bomlists";
