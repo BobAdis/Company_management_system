@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div th:fragment="navigation">
+    <div id="menubar">
+        <ul style="display: flex; gap: 5px; list-style: none;">
+            <li><a data-th-href="@{/}">Home</a></li>
+            <li><a data-th-href="@{/rawmaterials}">RawMaterials</a></li>
+            <li><a data-th-href="@{/producedproducts}">Produced Products</a></li>
+            <li><a data-th-href="@{/ingredients}">Ingredients</a></li>
+            <li><a data-th-href="@{/bomlists}">Bomlists</a></li>
+            <li><a data-th-href="@{/endproducts}">Endproducts</a></li>
+            <li><a data-th-href="@{/suppliers}">Suppliers</a></li>
+            <li><a data-th-href="@{/customers}">Customers</a></li>
+            <li><a data-th-href="@{/shippingins}">ShippingIns</a></li>
+            <li><a data-th-href="@{/shippingouts}">ShippingOuts</a></li>
+            <li><a data-th-href="@{/newproducedproduct}">NEW Produced Product</a></li>
+            <li><a data-th-href="@{/newingredient}">NEW Ingredient</a></li>
+            <li><a data-th-href="@{/newbomlist}">NEW Bomlists</a></li>
+            <li><a data-th-href="@{/newshippingin}">NEW ShippingIns</a></li>
+            <li><a data-th-href="@{/newshippingout}">NEW ShippingOut</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

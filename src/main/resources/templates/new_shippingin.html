@@ -11,20 +11,23 @@
   </style>
 </head>
 <body>
-<div class="form">
-  <h1 data-th-text="'Create new ' + ${productName}"></h1>
-  <form class="form" data-th-action="@{/newshippingin}" data-th-object="${shippingin}" method="post">
-    <label for="seller">Supplier</label>
-    <select id="seller" name="partnerId">
-      <option data-th-each="partner: ${partners}"
-              data-th-value="${partner.id}"
-              data-th-text="${partner.partnerName}">
-      </option>
-    </select>
-    <label for="date">Date</label>
-    <input id="date" placeholder="date" type="date" data-th-field="*{localDate}"/>
-    <button class="send_button">Create</button>
-  </form>
-</div>
+  <header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+  </header>
+  <div class="form">
+    <h1 data-th-text="'Create new ' + ${productName}"></h1>
+    <form class="form" data-th-action="@{/newshippingin}" data-th-object="${shippingin}" method="post">
+      <label for="seller">Supplier</label>
+      <select id="seller" name="partnerId">
+        <option data-th-each="partner: ${partners}"
+                data-th-value="${partner.id}"
+                data-th-text="${partner.partnerName}">
+        </option>
+      </select>
+      <label for="date">Date</label>
+      <input id="date" placeholder="date" type="date" data-th-field="*{localDate}"/>
+      <button class="send_button">Create</button>
+    </form>
+  </div>
 </body>
 </html>
