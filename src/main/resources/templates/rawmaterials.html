@@ -37,6 +37,7 @@
       <th>Shipping date</th>
       <th>Unit price</th>
       <th>Quantity</th>
+      <th>Unit</th>
       <th>Warehouse</th>
     </tr>
     <tr data-th-each="rawMaterial: ${rawMaterials}">
@@ -45,6 +46,7 @@
       <td data-th-text="${rawMaterial.shippingIn.localDate}"></td>
       <td data-th-text="${rawMaterial.unitPrice}"></td>
       <td data-th-text="${rawMaterial.quantity}"></td>
+      <td data-th-text="${rawMaterial.ingredient.unit}"></td>
       <td data-th-text="${rawMaterial.warehouse}"></td>
     </tr>
   </table>
