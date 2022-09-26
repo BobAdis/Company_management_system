@@ -6,25 +6,25 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <header>
-        <div th:replace="~{fragments/navigation :: navigation}"></div>
-    </header>
-    <h1 data-th-text="${page}"></h1>
-    <form data-th-action="@{/ingredients}" data-th-object="${form}" method="post">
-        <table>
-            <tr>
-                <th>Search by name:</th>
-                <td><input type="text" data-th-field="*{name}" /></td>
-            </tr>
-            <tr>
-                <th>Search by BOM list:</th>
-                <td><input type="text" data-th-field="*{bomList}" /></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button type="submit">Search</button></td>
-            </tr>
-        </table>
-    </form>
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+<h1 data-th-text="${page}"></h1>
+<form data-th-action="@{/ingredients}" data-th-object="${form}" method="post">
+    <table>
+        <tr>
+            <th>Search by name:</th>
+            <td><input type="text" data-th-field="*{name}" /></td>
+        </tr>
+        <tr>
+            <th>Search by BOM list:</th>
+            <td><input type="text" data-th-field="*{bomList}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Search</button></td>
+        </tr>
+    </table>
+</form>
 
 <table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
     <tr>
