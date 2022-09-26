@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add ingredients to BomList</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+
+<div class="form">
+    <h1 data-th-text="'Add ingredient to BomList'"></h1>
+
+    <form class="form" action="#" data-th-action="@{/addingredient}" data-th-object="${bomlist}" method="post">
+        <fieldset>
+            <label for="ingredient">Ingredient</label>
+            <select id="ingredient" name="ingredientId">
+                <option data-th-each="ingredient: ${ingredients}"
+                        data-th-value="${ingredient.id}"
+                        data-th-text="${ingredient.name}">
+                </option>
+            </select>
+        </fieldset>
+        <input style="display: none;" name="bomlistId" data-th-value="${bomlist.id}"/>
+        <input type="submit" id="submitButton" th:value="Add">
+    </form>
+
+    <p>BOMList current ingredients:</p>
+    <ul data-th-each="ingredient: ${bomlist.ingredients}">
+        <li data-th-text="${ingredient.name}"></li>
+    </ul>
+
+</div>
+</body>
+</html>

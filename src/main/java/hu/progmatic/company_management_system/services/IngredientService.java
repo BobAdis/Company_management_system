@@ -39,4 +39,8 @@ public class IngredientService {
     public void saveIngredient(Ingredient ingredient) {
         ingredientRepo.save(ingredient);
     }
+
+    public Ingredient getById(long id) {
+        return ingredientRepo.findById(id).orElseThrow();
+    }
 }

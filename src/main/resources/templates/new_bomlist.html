@@ -14,7 +14,9 @@
   <header>
     <div th:replace="~{fragments/navigation :: navigation}"></div>
   </header>
+
   <div class="form">
+
     <h1 data-th-text="'Create new ' + ${productName}"></h1>
     <form class="form" data-th-action="@{/newbomlist}" data-th-object="${bomlist}" method="post">
       <label for="name">Name</label>

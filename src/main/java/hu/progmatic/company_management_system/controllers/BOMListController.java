@@ -1,6 +1,7 @@
 package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.BOMList;
+import hu.progmatic.company_management_system.models.Ingredient;
 import hu.progmatic.company_management_system.models.ProducedProduct;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
 import hu.progmatic.company_management_system.services.BOMListService;
@@ -8,11 +9,9 @@ import hu.progmatic.company_management_system.services.IngredientService;
 import hu.progmatic.company_management_system.services.ProducedProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -50,11 +49,9 @@ public class BOMListController {
     public String getNewBomListForm(Model model) {
         BOMList bomList = new BOMList();
         List<ProducedProduct> producedProducts = producedProductService.getWhereBomListIsNull();
-        //List<Ingredient> ingredients = ingredientService.getAllIngredient();
 
         model.addAttribute("bomlist", bomList);
         model.addAttribute("producedProducts", producedProducts);
-        //model.addAttribute("ingredients", ingredients);
         model.addAttribute("productName", "BomList");
 
         return "new_bomlist";
@@ -65,9 +62,37 @@ public class BOMListController {
         ProducedProduct producedProduct = producedProductService.getById(productId);
         bomList.setProducedProduct(producedProduct);
         producedProduct.setBomList(bomList);
-        //producedProductService.saveProduct(producedProduct);
+
         bomListService.saveBomList(bomList);
 
-        return "redirect:/bomlists";
+        return "redirect:/addingredient/" + bomList.getId();
+    }
+
+    @GetMapping(value = {"/addingredient/{id}"})
+    public String addIngredientsToBomlistForm(@PathVariable long id, Model model) {
+        BOMList bomList = bomListService.getBOMListById(id);
+
+        List<Ingredient> ingredients = ingredientService.getAllIngredient();
+
+        model.addAttribute("bomlist", bomList);
+        model.addAttribute("ingredients", ingredients);
+
+        return "addingredientstobomlist";
+    }
+
+    @PostMapping(value = {"/addingredient"})
+    public String addIngredientsToBomList(@RequestParam(name = "bomlistId") long bomlistId, @RequestParam(name = "ingredientId") long ingredientId) {
+        BOMList bomList = bomListService.getBOMListById(bomlistId);
+
+        List<Ingredient> ingredients = new ArrayList<>();
+        Ingredient ingredient = ingredientService.getById(ingredientId);
+        ingredients.add(ingredient);
+
+        bomList.setIngredients(ingredients);
+        ingredient.setBomList(bomList);
+
+        bomListService.saveBomList(bomList);
+
+        return "redirect:/addingredient/" + bomList.getId();
     }
 }

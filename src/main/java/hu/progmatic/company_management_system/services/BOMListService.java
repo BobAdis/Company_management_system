@@ -58,6 +58,10 @@ public class BOMListService {
         bomListRepo.save(bomList);
     }
 
+    public BOMList getBOMListById(long id) {
+        return bomListRepo.findById(id).orElseThrow();
+    }
+
    /* public List<Product> ria(ProductCondition condition, ProductSearchForm form) {
         return ((List<Product>) getAllProduct()).stream()
                 .filter(product ->
