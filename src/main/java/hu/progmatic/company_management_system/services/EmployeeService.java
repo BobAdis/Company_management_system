@@ -20,8 +20,7 @@ public class EmployeeService {
     }
 
     public List<Employee> getEmployees(){
-        List<Employee> employees = (List<Employee>) employeeRepo.findAll();
-        return employees;
+        return (List<Employee>) employeeRepo.findAll();
     }
 
     public Employee getEmployeeByTaxNumber (String taxNumber) {

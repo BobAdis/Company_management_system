@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualnetsalary</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<p>Employee data sheet</p>
+
+<form class="form" form data-th-action="@{/actualnetsalary/{taxnumber}(taxnumber=${e.taxNumber})}" method="post">
+
+    <table>
+
+        <tr>
+            <th>Working days</th>
+            <th>Paid leave</th>
+            <th>Sick leave</th>
+            <th>Illness benefit</th>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="number" data-th-name="workingDays"></td>
+            <td>
+                <input type="number" data-th-name="paidLeave"> </td>
+            <td>
+                <input type="number" data-th-name="sickLeave"> </td>
+            <td>
+                <input type="number" data-th-name="illnessBenefit"> </td>
+            <td>
+                <input type="submit" value="Calculate net salary"> </td>
+            <td data-th-text="${money}"></td>
+
+
+        </tr>
+
+    </table>
+
+
+</form>
+
+
+
+
+</body>
+</html>
