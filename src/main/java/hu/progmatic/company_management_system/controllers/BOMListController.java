@@ -72,7 +72,7 @@ public class BOMListController {
     public String addIngredientsToBomlistForm(@PathVariable long id, Model model) {
         BOMList bomList = bomListService.getBOMListById(id);
 
-        List<Ingredient> ingredients = ingredientService.getAllIngredient();
+        List<Ingredient> ingredients = ingredientService.getWhereBomListIsNull();
 
         model.addAttribute("bomlist", bomList);
         model.addAttribute("ingredients", ingredients);

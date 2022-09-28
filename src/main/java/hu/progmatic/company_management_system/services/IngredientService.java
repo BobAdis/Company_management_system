@@ -43,4 +43,7 @@ public class IngredientService {
     public Ingredient getById(long id) {
         return ingredientRepo.findById(id).orElseThrow();
     }
+    public List<Ingredient> getWhereBomListIsNull() {
+        return ingredientRepo.findAllByBomListNull();
+    }
 }

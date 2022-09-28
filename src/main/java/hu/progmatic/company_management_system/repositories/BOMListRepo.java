@@ -9,4 +9,5 @@ import java.util.List;
 public interface BOMListRepo extends CrudRepository<BOMList, Long> {
 
     List<BOMList> findAll();
+
 }

@@ -8,4 +8,6 @@ import java.util.List;
 public interface IngredientRepo extends CrudRepository<Ingredient, Long> {
 
     List<Ingredient> findAll();
+
+    List<Ingredient> findAllByBomListNull();
 }
