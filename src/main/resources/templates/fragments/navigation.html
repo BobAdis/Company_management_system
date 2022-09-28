@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div th:fragment="navigation">
+    <div id="menubar">
+        <ul style="display: flex; gap: 5px; list-style: none;">
+            <li><a data-th-href="@{/}">Home</a></li>
+            <li><a data-th-href="@{/actualEmployee}">ActualEmployee</a></li>
+            <li><a data-th-href="@{/actualnetsalary}">Actualnetsalary</a></li>
+            <li><a data-th-href="@{/customers}">customers</a></li>
+            <li><a data-th-href="@{/employees}">employees</a></li>
+            <li><a data-th-href="@{/finance}">Finance</a></li>
+            <li><a data-th-href="@{/january}">january</a></li>
+          <!--  <li><a data-th-href="@{/login}">Login</a></li>-->
+            <li><a data-th-href="@{/netsalary}">Netsalary</a></li>
+           <!-- <li><a data-th-href="@{/new_employee}">New_employee</a></li>
+            <li><a data-th-href="@{/new_product}">NEW Product</a></li>-->
+            <li><a data-th-href="@{/payroll}">Payroll</a></li>
+            <!--<li><a data-th-href="@{/products}">products</a></li>-->
+           <!-- <li><a data-th-href="@{/saveUser}">SaveUser</a></li>
+            <li><a data-th-href="@{/userlist}">Userlist</a></li>-->
+        </ul>
+    </div>
+</div>
+</body>
+</html>

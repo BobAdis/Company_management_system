@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
     <div class="form">
         <h1>Create new product</h1>
         <form class="form" data-th-action="@{/newproduct}" data-th-object="${product}" method="post">

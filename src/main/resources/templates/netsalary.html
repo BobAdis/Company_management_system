@@ -12,7 +12,9 @@
 
 </head>
 <body>
-
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
 <form class="form" form data-th-action="@{/netsalary/}" method="post" data-th-object="${netsalary}">
 
     <table>

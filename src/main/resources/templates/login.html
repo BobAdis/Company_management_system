@@ -8,6 +8,9 @@
 </head>
 
 <body>
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
 <li sec:authorize="isAuthenticated()">
     <a data-th-href="@{/logout}">Logout</a>
 </li>
