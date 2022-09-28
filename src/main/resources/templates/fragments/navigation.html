@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div th:fragment="navigation">
+    <div class="vertical-menu">
+        <ul>
+            <a class="active" data-th-href="@{/main}">Home</a>
+            <a data-th-href="@{/rawmaterials}">RawMaterials</a>
+            <a data-th-href="@{/producedproducts}">Produced Products</a>
+            <ul>
+                <a data-th-href="@{/newproducedproduct}">NEW Produced Product</a>
+            </ul>
+            <a data-th-href="@{/ingredients}">Ingredients</a>
+            <ul>
+                <a data-th-href="@{/newingredient}">NEW Ingredient</a>
+            </ul>
+            <a data-th-href="@{/bomlists}">Bomlists</a>
+            <ul>
+                <a data-th-href="@{/newbomlist}">NEW Bomlists</a>
+            </ul>
+            <a data-th-href="@{/endproducts}">Endproducts</a>
+            <a data-th-href="@{/suppliers}">Suppliers</a>
+            <a data-th-href="@{/customers}">Customers</a>
+            <a>Shipping</a>
+            <ul>
+                <a data-th-href="@{/shippingins}">ShippingIns</a>
+                <a data-th-href="@{/shippingouts}">ShippingOuts</a>
+                <a data-th-href="@{/newshippingin}">NEW ShippingIns</a>
+                <a data-th-href="@{/newshippingout}">NEW ShippingOut</a>
+            </ul>
+            <a data-th-href="@{/logout}">Logout</a>
+
+
+        </ul>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("mySearch");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myMenu");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
