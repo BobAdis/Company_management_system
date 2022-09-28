@@ -6,45 +6,56 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<h1 data-th-text="${page}"></h1>
+  <header>
+    <h2 data-th-text="${page}"></h2>
+  </header>
 
+    <div class="row">
+      <div class="vertical-menu">
+        <div class="left">
+          <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+      </div>
+      <div class="right">
 
-<form data-th-action="@{/endproducts}" data-th-object="${form}" method="post">
-  <table>
-    <tr>
-      <th>Search by product name:</th>
-      <td><input type="text" data-th-field="*{producedProduct}" /></td>
-    </tr>
-    <tr>
-      <th>Search by serial Number:</th>
-      <td><input type="text" data-th-field="*{serialNumber}" /></td>
-    </tr>
-    <tr>
-      <th>Search by shipping out date:</th>
-      <td><input type="date" data-th-field="*{shippingOut}" /></td>
-    </tr>
-    <tr>
-      <td colspan="2"><button type="submit">Search</button></td>
-    </tr>
-  </table>
-</form>
+        <form data-th-action="@{/endproducts}" data-th-object="${form}" method="post">
+          <table>
+            <tr>
+              <th>Search by product name:</th>
+              <td><input type="text" data-th-field="*{producedProduct}" /></td>
+            </tr>
+            <tr>
+              <th>Search by serial Number:</th>
+              <td><input type="text" data-th-field="*{serialNumber}" /></td>
+            </tr>
+            <tr>
+              <th>Search by shipping out date:</th>
+              <td><input type="date" data-th-field="*{shippingOut}" /></td>
+            </tr>
+            <tr>
+              <td colspan="2"><button type="submit">Search</button></td>
+            </tr>
+          </table>
+        </form>
 
-<table>
-  <tr>
-    <th>Produced Product</th>
-    <th>Serial Number</th>
-    <th>Shipping date</th>
-    <th>Unit price</th>
-    <th>Quantity</th>
-  </tr>
-  <tr data-th-each="endProduct: ${endProducts}">
-    <td data-th-text="${endProduct.producedProduct.name}"></td>
-    <td data-th-text="${endProduct.serialNumber}"></td>
-    <td data-th-text="${endProduct.shippingOut.localDate}"></td>
-    <td data-th-text="${endProduct.unitPrice}"></td>
-    <td data-th-text="${endProduct.quantity}"></td>
-  </tr>
-</table>
+        <table>
+          <tr>
+            <th>Produced Product</th>
+            <th>Serial Number</th>
+            <th>Shipping date</th>
+            <th>Unit price</th>
+            <th>Quantity</th>
+          </tr>
+          <tr data-th-each="endProduct: ${endProducts}">
+            <td data-th-text="${endProduct.producedProduct.name}"></td>
+            <td data-th-text="${endProduct.serialNumber}"></td>
+            <td data-th-text="${endProduct.shippingOut.localDate}"></td>
+            <td data-th-text="${endProduct.unitPrice}"></td>
+            <td data-th-text="${endProduct.quantity}"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
 </body>
 </html>

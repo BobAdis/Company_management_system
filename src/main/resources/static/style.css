@@ -134,3 +134,60 @@ th {
 tr:nth-child(odd) {
     background-color: var(--mid_gray);
 }
+
+
+.vertical-menu {
+    width: 200px;
+}
+
+.vertical-menu a {
+    background-color: #4B67C4;
+    color: black;
+    display: flex;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+
+.vertical-menu a.active {
+    background-color: #E92323;
+    color: white;
+}
+
+body {
+    background-color: #4B67C4;
+}
+
+header {
+    background-color: #4B67C4;
+    padding: 25px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+/* Create a column layout with Flexbox */
+.row {
+    display: flex;
+}
+
+/* Left column (menu) */
+.left {
+    flex: 15%;
+    padding: 5px 0;
+    background-color:#4B67C4;
+}
+
+.left h2 {
+    padding-left: 8px;
+}
+
+/* Right column (page content) */
+.right {
+    flex: 85%;
+    padding: 10px;
+    background-color:#ddd;
+}

@@ -6,42 +6,51 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<h1 data-th-text="${page}"></h1>
+<header>
+  <h2 data-th-text="${page}"></h2>
+</header>
+  <div class="row">
+    <div class="vertical-menu">
+      <div class="left">
+        <div th:replace="~{fragments/navigation :: navigation}"></div>
+      </div>
+    </div>
+    <div class="right">
 
+        <form data-th-action="@{/bomlists}" data-th-object="${form}" method="post">
+          <table>
+            <tr>
+              <th>Search by name:</th>
+              <td><input type="text" data-th-field="*{name}" /></td>
+            </tr>
+            <tr>
+              <th>Search by produced product name:</th>
+              <td><input type="text" data-th-field="*{producedProduct}" /></td>
+            </tr>
+            <tr>
+              <th>Search by ingredient:</th>
+              <td><input type="text" data-th-field="*{ingredient}" /></td>
+            </tr>
+            <tr>
+              <td colspan="2"><button type="submit">Search</button></td>
+            </tr>
+          </table>
+        </form>
 
-<form data-th-action="@{/bomlists}" data-th-object="${form}" method="post">
-  <table>
-    <tr>
-      <th>Search by name:</th>
-      <td><input type="text" data-th-field="*{name}" /></td>
-    </tr>
-    <tr>
-      <th>Search by produced product name:</th>
-      <td><input type="text" data-th-field="*{producedProduct}" /></td>
-    </tr>
-    <tr>
-      <th>Search by ingredient:</th>
-      <td><input type="text" data-th-field="*{ingredient}" /></td>
-    </tr>
-    <tr>
-      <td colspan="2"><button type="submit">Search</button></td>
-    </tr>
-  </table>
-</form>
-
-<table>
-  <tr>
-    <th>Bomlist name</th>
-    <th>Product</th>
-    <th>Ingredient</th>
-  </tr>
-    <tr data-th-each="bomlist: ${bomlists}">
-      <td data-th-text="${bomlist.name}"></td>
-      <td data-th-text="${bomlist.producedProduct.name}"></td>
-      <td><ul data-th-each="ingredient: ${bomlist.ingredients}">
-      <li data-th-text="${ingredient.name}"></li></ul></td>
-    </tr>
-</table>
-
+        <table>
+          <tr>
+            <th>Bomlist name</th>
+            <th>Product</th>
+            <th>Ingredient</th>
+          </tr>
+            <tr data-th-each="bomlist: ${bomlists}">
+              <td data-th-text="${bomlist.name}"></td>
+              <td data-th-text="${bomlist.producedProduct.name}"></td>
+              <td><ul data-th-each="ingredient: ${bomlist.ingredients}">
+              <li data-th-text="${ingredient.name}"></li></ul></td>
+            </tr>
+        </table>
+      </div>
+    </div>
 </body>
 </html>
