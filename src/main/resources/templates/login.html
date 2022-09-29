@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/login_style.css">
 </head>
 
 <body>
+
+
 <li sec:authorize="isAuthenticated()">
     <a data-th-href="@{/logout}">Logout</a>
 </li>
@@ -17,18 +19,20 @@
 <li>
     <a data-th-href="@{/register}">Registry</a>
 </li>
-    <div class="form">
-        <h1>Login :)</h1>
-        <p data-th-if="${loginError}" class="error">Bad username or password.</p>
 
-
-        <form class="form" data-th-action="@{/login}" method="post">
-            <input type="text" data-th-name="username" placeholder="username">
-            <input type="password" data-th-name="password" placeholder="password">
-            <input class="send_button" type="submit" value="Send">
-        </form>
-    </div>
-
+        <div class="rectangleDarkBlue">
+            <div class="rectangleRed">
+                <h1>Login :)</h1>
+                <p data-th-if="${loginError}" class="error">Bad username or password.</p>
+            </div>
+            <div class="form">
+                <form class="form" data-th-action="@{/login}" method="post">
+                    <input type="text" data-th-name="username" placeholder="username">
+                    <input type="password" data-th-name="password" placeholder="password">
+                    <input class="send_button" type="submit" value="Send">
+                </form>
+             </div>
+        </div>
 
 </body>
 
