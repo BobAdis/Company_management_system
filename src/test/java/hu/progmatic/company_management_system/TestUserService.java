@@ -1,4 +1,4 @@
-package hu.progmatic.company_management_system.service;
+package hu.progmatic.company_management_system;
 
 import hu.progmatic.company_management_system.models.User;
 import hu.progmatic.company_management_system.repositories.UserRepository;
