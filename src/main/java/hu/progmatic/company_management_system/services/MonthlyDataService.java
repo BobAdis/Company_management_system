@@ -29,9 +29,7 @@ public class MonthlyDataService {
         monthlyDataRepo.save(monthlyData);
     }
 
-    public void calculate(MonthlyData monthlyData) {
 
-    }
 
     public int setNetSalary(int grossSalary, int workingDays, int paidLeave, int sickLeave, int illnessBenefit) {
         return ((grossSalary / 31 * workingDays) + (grossSalary/ 31 * paidLeave) +
