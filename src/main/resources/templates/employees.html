@@ -31,7 +31,7 @@
     </tr>
 
     <tr data-th-each="e : ${employees}">
-        <td ><a data-th-text="${e.taxNumber}" data-th-href="@{/employee/{taxnumber}(taxnumber=${e.taxNumber})}"></a></td>
+        <td ><a data-th-text="${e.taxNumber}" data-th-href="@{/employees/{taxnumber}(taxnumber=${e.taxNumber})}"></a></td>
         <td data-th-text="${e.name}"></td>
 
     </tr>
