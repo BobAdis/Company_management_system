@@ -25,7 +25,7 @@ public class EmployeeController {
         this.monthlyDataService = monthlyDataService;
     }
 
-    @GetMapping("/employee")
+    @GetMapping("/employees")
     public String getEmployeePage(Model model) {
         List<Employee> employees = employeeService.getEmployees();
 
@@ -33,7 +33,7 @@ public class EmployeeController {
         return "employees";
     }
 
-    @GetMapping("/employee/{taxnumber}")
+    @GetMapping("/employees/{taxnumber}")
     public String getOneEmployee(@PathVariable String taxnumber, Model model) {
         Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
         model.addAttribute("oneEmployee", e1);
