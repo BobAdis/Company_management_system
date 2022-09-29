@@ -52,7 +52,7 @@ public class EmployeeController {
     public String addNewEmployee(Employee employee) {
         employeeService.save(employee);
 
-        return "redirect:/employee";
+        return "redirect:/employees";
     }
 
     @GetMapping("/payroll")
