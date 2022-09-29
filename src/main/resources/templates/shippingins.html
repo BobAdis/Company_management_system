@@ -6,45 +6,56 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<h1 data-th-text="${page}"></h1>
+    <header>
+        <h2 data-th-text="${page}"></h2>
+    </header>
 
+    <div class="row">
+        <div class="vertical-menu">
+            <div class="left">
+                <div th:replace="~{fragments/navigation :: navigation}"></div>
+            </div>
+        </div>
+        <div class="right">
 
-<form data-th-action="@{/shippingins}" data-th-object="${form}" method="post">
-  <table>
-    <tr>
-      <th>Search by Seller name:</th>
-      <td><input type="text" data-th-field="*{seller}" /></td>
-    </tr>
-    <tr>
-      <th>Search by rawMaterial:</th>
-      <td><input type="text" data-th-field="*{rawMaterialName}" /></td>
-    </tr>
-    <tr>
-      <th>Search by Date:</th>
-      <td><input type="date" data-th-field="*{localDate}" /></td>
-    </tr>
-    <tr>
-      <td colspan="2"><button type="submit">Search</button></td>
-    </tr>
-  </table>
-</form>
+            <form data-th-action="@{/shippingins}" data-th-object="${form}" method="post">
+              <table>
+                <tr>
+                  <th>Search by Seller name:</th>
+                  <td><input type="text" data-th-field="*{seller}" /></td>
+                </tr>
+                <tr>
+                  <th>Search by rawMaterial:</th>
+                  <td><input type="text" data-th-field="*{rawMaterialName}" /></td>
+                </tr>
+                <tr>
+                  <th>Search by Date:</th>
+                  <td><input type="date" data-th-field="*{localDate}" /></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><button type="submit">Search</button></td>
+                </tr>
+              </table>
+            </form>
 
-<table>
-  <tr>
-    <th>Seller</th>
-    <th>Date</th>
-    <th>Raw materials</th>
-  </tr>
-  <tr data-th-each="shippingIn: ${shippingIns}">
-      <td data-th-text="${shippingIn.seller.partnerName}"></td>
-      <td data-th-text="${shippingIn.localDate}"></td>
-      <td><ul data-th-each="raws: ${shippingIn.rawMaterials}">
-      <li data-th-text="${raws.ingredient.name}"></li>
-      <li data-th-text="${raws.quantity}"></li>
-      <li data-th-text="${raws.ingredient.unit}"></li>
-      </ul></td>
-  </tr>
-</table>
+            <table>
+              <tr>
+                <th>Seller</th>
+                <th>Date</th>
+                <th>Raw materials</th>
+              </tr>
+              <tr data-th-each="shippingIn: ${shippingIns}">
+                  <td data-th-text="${shippingIn.seller.partnerName}"></td>
+                  <td data-th-text="${shippingIn.localDate}"></td>
+                  <td><ul data-th-each="raws: ${shippingIn.rawMaterials}">
+                  <li data-th-text="${raws.ingredient.name}"></li>
+                  <li data-th-text="${raws.quantity}"></li>
+                  <li data-th-text="${raws.ingredient.unit}"></li>
+                  </ul></td>
+              </tr>
+            </table>
+        </div>
+    </div>
 
 </body>
 </html>

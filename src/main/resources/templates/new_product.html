@@ -11,22 +11,37 @@
     </style>
 </head>
 <body>
-    <div class="form">
-        <h1 data-th-text="'Create new ' + ${productName}"></h1>
-        <form class="form" data-th-action="@{/newproduct}" data-th-object="${producedProduct}" method="post">
-            <label for="name">Name</label>
-            <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
-            <label for="serialnumber">Serial number</label>
-            <input id="serialnumber" placeholder="serial number" type="number" data-th-field="*{serialNumber}"/>
-            <label for="unitprice">Unit Price</label>
-            <input id="unitprice" placeholder="unit price" type="number" data-th-field="*{Price}"/>
-            <label >Description</label>
-            <textarea  placeholder="description" rows="4" cols="50" data-th-field="*{bomList.name}"></textarea>
-           <!-- <select style="display: none" data-th-field="*{productCondition}">
-                <option data-th-value="${productCondition}" data-th-text="${productCondition}"></option>
-            </select>-->
-            <button class="send_button">Create</button>
-        </form>
+    <header>
+        <h2 data-th-text="${page}"></h2>
+    </header>
+
+    <div class="row">
+        <div class="vertical-menu">
+            <div class="left">
+                <div th:replace="~{fragments/navigation :: navigation}"></div>
+            </div>
+        </div>
+        <div class="right">
+
+            <div class="form">
+                <h1 data-th-text="'Create new ' + ${productName}"></h1>
+                <form class="form" data-th-action="@{/newproduct}" data-th-object="${producedProduct}" method="post">
+                    <label for="name">Name</label>
+                    <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+                    <label for="serialnumber">Serial number</label>
+                    <input id="serialnumber" placeholder="serial number" type="number" data-th-field="*{serialNumber}"/>
+                    <label for="unitprice">Unit Price</label>
+                    <input id="unitprice" placeholder="unit price" type="number" data-th-field="*{Price}"/>
+                    <label >Description</label>
+                    <textarea  placeholder="description" rows="4" cols="50" data-th-field="*{bomList.name}"></textarea>
+                   <!-- <select style="display: none" data-th-field="*{productCondition}">
+                        <option data-th-value="${productCondition}" data-th-text="${productCondition}"></option>
+                    </select>-->
+                    <button class="send_button">Create</button>
+                </form>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>

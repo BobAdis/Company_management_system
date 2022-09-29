@@ -163,9 +163,9 @@ body {
 
 header {
     background-color: #4B67C4;
-    padding: 25px;
+    padding: 5px;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
 }
 
@@ -189,5 +189,5 @@ header {
 .right {
     flex: 85%;
     padding: 10px;
-    background-color:#ddd;
+    background-color:#6381CC;
 }

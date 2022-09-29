@@ -11,20 +11,35 @@
   </style>
 </head>
 <body>
-<div class="form">
-  <h1 data-th-text="'Create new ' + ${productName}"></h1>
-  <form class="form" data-th-action="@{/newbomlist}" data-th-object="${bomlist}" method="post">
-    <label for="name">Name</label>
-    <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
-    <label for="producedproduct">Produced product</label>
-    <select id="producedproduct" name="productId">
-      <option data-th-each="product: ${producedProducts}"
-              data-th-value="${product.id}"
-              data-th-text="${product.name}">
-      </option>
-    </select>
-    <button class="send_button">Create</button>
-  </form>
-</div>
+  <header>
+    <h2 data-th-text="'Create new ' + ${productName}"></h2>
+  </header>
+
+  <div class="row">
+    <div class="vertical-menu">
+      <div class="left">
+        <div th:replace="~{fragments/navigation :: navigation}"></div>
+      </div>
+    </div>
+    <div class="right">
+
+      <div class="form">
+
+        <form class="form" data-th-action="@{/newbomlist}" data-th-object="${bomlist}" method="post">
+          <label for="name">Name</label>
+          <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+          <label for="producedproduct">Produced product</label>
+          <select id="producedproduct" name="productId">
+            <option data-th-each="product: ${producedProducts}"
+                    data-th-value="${product.id}"
+                    data-th-text="${product.name}">
+            </option>
+          </select>
+          <button class="send_button">Create</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>

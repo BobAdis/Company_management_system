@@ -6,44 +6,55 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<h1 data-th-text="${page}"></h1>
+  <header>
+    <h2 data-th-text="${page}"></h2>
+  </header>
 
+  <div class="row">
+    <div class="vertical-menu">
+      <div class="left">
+        <div th:replace="~{fragments/navigation :: navigation}"></div>
+      </div>
+    </div>
+    <div class="right">
 
-<form data-th-action="@{/shippingouts}" data-th-object="${form}" method="post">
-  <table>
-    <tr>
-      <th>Search by buyer name:</th>
-      <td><input type="text" data-th-field="*{buyer}" /></td>
-    </tr>
-    <tr>
-      <th>Search by End product:</th>
-      <td><input type="text" data-th-field="*{endProductName}" /></td>
-    </tr>
-    <tr>
-      <th>Search by Date:</th>
-      <td><input type="date" data-th-field="*{localDate}" /></td>
-    </tr>
-    <tr>
-      <td colspan="2"><button type="submit">Search</button></td>
-    </tr>
-  </table>
-</form>
+      <form data-th-action="@{/shippingouts}" data-th-object="${form}" method="post">
+        <table>
+          <tr>
+            <th>Search by buyer name:</th>
+            <td><input type="text" data-th-field="*{buyer}" /></td>
+          </tr>
+          <tr>
+            <th>Search by End product:</th>
+            <td><input type="text" data-th-field="*{endProductName}" /></td>
+          </tr>
+          <tr>
+            <th>Search by Date:</th>
+            <td><input type="date" data-th-field="*{localDate}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">Search</button></td>
+          </tr>
+        </table>
+      </form>
 
-<table>
-  <tr>
-    <th>Buyer</th>
-    <th>Date</th>
-    <th>End products</th>
-  </tr>
-  <tr data-th-each="shippingOut: ${shippingOuts}">
-    <td data-th-text="${shippingOut.buyer.partnerName}"></td>
-    <td data-th-text="${shippingOut.localDate}"></td>
-    <td><ul data-th-each="epros: ${shippingOut.endProducts}">
-      <li data-th-text="${epros.producedProduct.name}"></li>
-      <li data-th-text="${epros.quantity}+' db'"></li>
-    </ul></td>
-  </tr>
-</table>
+      <table>
+        <tr>
+          <th>Buyer</th>
+          <th>Date</th>
+          <th>End products</th>
+        </tr>
+        <tr data-th-each="shippingOut: ${shippingOuts}">
+          <td data-th-text="${shippingOut.buyer.partnerName}"></td>
+          <td data-th-text="${shippingOut.localDate}"></td>
+          <td><ul data-th-each="epros: ${shippingOut.endProducts}">
+            <li data-th-text="${epros.producedProduct.name}"></li>
+            <li data-th-text="${epros.quantity}+' db'"></li>
+          </ul></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
 </body>
 </html>

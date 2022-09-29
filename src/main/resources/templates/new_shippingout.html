@@ -11,20 +11,35 @@
   </style>
 </head>
 <body>
-<div class="form">
-  <h1 data-th-text="'Create new ' + ${productName}"></h1>
-  <form class="form" data-th-action="@{/newshippingout}" data-th-object="${shippingout}" method="post">
-    <label for="buyer">Supplier</label>
-    <select id="buyer" name="partnerId">
-      <option data-th-each="partner: ${partners}"
-              data-th-value="${partner.id}"
-              data-th-text="${partner.partnerName}">
-      </option>
-    </select>
-    <label for="date">Name</label>
-    <input id="date" placeholder="name" type="date" data-th-field="*{localDate}"/>
-    <button class="send_button">Create</button>
-  </form>
-</div>
+  <header>
+    <h2 data-th-text="${page}"></h2>
+  </header>
+
+  <div class="row">
+    <div class="vertical-menu">
+      <div class="left">
+        <div th:replace="~{fragments/navigation :: navigation}"></div>
+      </div>
+    </div>
+    <div class="right">
+
+      <div class="form">
+        <h1 data-th-text="'Create new ' + ${productName}"></h1>
+        <form class="form" data-th-action="@{/newshippingout}" data-th-object="${shippingout}" method="post">
+          <label for="buyer">Supplier</label>
+          <select id="buyer" name="partnerId">
+            <option data-th-each="partner: ${partners}"
+                    data-th-value="${partner.id}"
+                    data-th-text="${partner.partnerName}">
+            </option>
+          </select>
+          <label for="date">Name</label>
+          <input id="date" placeholder="name" type="date" data-th-field="*{localDate}"/>
+          <button class="send_button">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

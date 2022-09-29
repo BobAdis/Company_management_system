@@ -11,17 +11,32 @@
   </style>
 </head>
 <body>
-<div class="form">
-  <h1 data-th-text="'Create new ' + ${productName}"></h1>
-  <form class="form" data-th-action="@{/newingredient}" data-th-object="${ingredient}" method="post">
-    <label for="name">Name</label>
-    <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
-    <label for="unit">Unit</label>
-    <input id="unit" placeholder="unit" type="text" data-th-field="*{unit}"/>
-    <label for="description">Description</label>
-    <textarea id="description" placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
-    <button class="send_button">Create</button>
-  </form>
-</div>
+  <header>
+    <h2 data-th-text="${page}"></h2>
+  </header>
+
+  <div class="row">
+    <div class="vertical-menu">
+      <div class="left">
+        <div th:replace="~{fragments/navigation :: navigation}"></div>
+      </div>
+    </div>
+    <div class="right">
+
+      <div class="form">
+        <h1 data-th-text="'Create new ' + ${productName}"></h1>
+        <form class="form" data-th-action="@{/newingredient}" data-th-object="${ingredient}" method="post">
+          <label for="name">Name</label>
+          <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+          <label for="unit">Unit</label>
+          <input id="unit" placeholder="unit" type="text" data-th-field="*{unit}"/>
+          <label for="description">Description</label>
+          <textarea id="description" placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
+          <button class="send_button">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
