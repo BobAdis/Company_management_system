@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        a {
+            text-decoration: none;
+            color: var(--blue);
+        }
+
+        a:hover {
+            color: var(--yellow);
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+<p>Employee data sheet</p>
+
+
+<table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+    <tr>
+        <th>Tax Number</th>
+        <th>Name</th>
+
+    </tr>
+
+    <tr data-th-each="e : ${employees}">
+        <td ><a data-th-text="${e.taxNumber}" data-th-href="@{/employees/{taxnumber}(taxnumber=${e.taxNumber})}"></a></td>
+        <td data-th-text="${e.name}"></td>
+
+    </tr>
+</table>
+
+<br/>
+<a data-th-href="@{/newemployee}"><button class="send_button">ADD NEW EMPLOYEE</button></a>
+
+</body>
+</html>

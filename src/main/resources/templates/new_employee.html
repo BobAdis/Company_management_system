@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New employee</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .form {gap: 0}
+        label {margin-bottom: 10px; margin-top: 25px}
+        .send_button { margin-top: 25px}
+    </style>
+</head>
+<body>
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+    <div class="form">
+        <h1>Save new employee</h1>
+        <form class="form" data-th-action="@{/newemployee}" data-th-object="${employee}" method="post">
+            <label for="taxNumber">Tax number</label>
+            <input id="taxNumber" placeholder="taxNumber" type="number" data-th-field="*{taxNumber}">
+            <label for="name">Name</label>
+            <input id="name" placeholder="name" type="text" data-th-field="*{name}">
+            <label for="maidenName">Maiden name</label>
+            <input id="maidenName" placeholder="maidenName" type="text" data-th-field="*{maidenName}">
+            <label for="socialSecurityNumber">Social security number</label>
+            <input id="socialSecurityNumber" placeholder="socialSecurityNumber" type="number" data-th-field="*{socialSecurityNumber}">
+            <label for="placeOfBirth">Place of birth</label>
+            <input id="placeOfBirth" placeholder="placeOfBirth" type="text" data-th-field="*{placeOfBirth}">
+            <label for="dateOfBirth">Date of birth</label>
+            <input id="dateOfBirth" placeholder="dateOfBirth" type="date" data-th-field="*{dateOfBirth}">
+            <label for="motherName">Mother's name</label>
+            <input  id="motherName" placeholder="motherName" type="text" data-th-field="*{motherName}">
+            <label for="address">Address</label>
+            <input id="address" placeholder="address" type="text" data-th-field="*{address}">
+            <label for="personnelGroup">Personnel group</label>
+            <input  id="personnelGroup" placeholder="personnelGroup" type="text" data-th-field="*{personnelGroup}">
+            <label for="personnelTask">Personnel task</label>
+            <select id="personnelTask" data-th-field="*{personnelTask}">
+                <option data-th-each="task : ${tasks}"
+                        data-th-value="${task}"
+                        data-th-text="${task}">
+                </option>
+            </select>
+            <label for="startOfEmployment">Start of employment</label>
+            <input id="startOfEmployment" placeholder="startOfEmployment" type="date" data-th-field="*{startOfEmployment}">
+            <label for="HSCO">HSCO</label>
+            <input id="HSCO" placeholder="HSCO" type="text" data-th-field="*{HSCO}">
+            <label for="workingHours">Working hours</label>
+            <input id="workingHours" placeholder="workingHours" type="text" data-th-field="*{workingHours}">
+            <label for="grossSalary">Gross salary</label>
+            <input id="grossSalary" placeholder="grossSalary" type="text" data-th-field="*{grossSalary}">
+
+            <button class="send_button" type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

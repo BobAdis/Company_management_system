@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payroll</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+<p>Payroll</p>
+
+
+
+
+    <a data-th-href="@{/january}"><button class="send_button">JANUARY</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">FEBRUARY</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">MARCH</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">APRIL</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">MAY</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">JUNE</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">JULY</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">AUGUST</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">SEPTEMBER</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">OCTOBER</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">NOVEMBER</button></a>
+    <a data-th-href="@{/netsalary}"><button class="send_button">DECEMBER</button></a>
+
+
+
+<!--<table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+    <tr>
+        <th>Tax Number</th>
+        <th>Name</th>
+        <th>Gross salary</th>
+        <th>Net salary</th>
+    </tr>
+
+
+    <tr data-th-each="e : ${employees}">
+        <td data-th-text="${e.taxNumber}"></td>
+        <td data-th-text="${e.name}"></td>
+        <td data-th-text="${e.grossSalary}"></td>
+        <td data-th-text="${e.setNetSalary(e.grossSalary)}"></td>
+    </tr>
+</table>-->
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>January</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+<p>Employee data sheet</p>
+
+
+<table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+  <tr>
+    <th>Tax Number</th>
+    <th>Name</th>
+
+  </tr>
+
+  <tr data-th-each="e : ${employees}">
+    <td ><a data-th-text="${e.taxNumber}" data-th-href="@{/actualnetsalary/{taxnumber}(taxnumber=${e.taxNumber})}"></a></td>
+    <td data-th-text="${e.name}"></td>
+
+  </tr>
+</table>
+
+</body>
+</html>
