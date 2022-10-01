@@ -54,6 +54,10 @@ public class ShippingInService {
         shippingInRepo.save(shippingIn);
     }
 
+    public ShippingIn getById(long id) {
+        return shippingInRepo.findById(id).orElseThrow();
+    }
+
     public void saveNewShippingIn(RawMaterial newRawMaterial, RawMaterial rawMaterial){
         if (rawMaterial.getIngredient().getName().equals(newRawMaterial.getIngredient().getName())){
             rawMaterial.setQuantity(rawMaterial.getQuantity() + newRawMaterial.getQuantity());

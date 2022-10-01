@@ -7,9 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-
 public interface RawMaterialRepo extends CrudRepository<RawMaterial, Long> {
 
     List<RawMaterial> findAll();
+
+    List<RawMaterial> findAllByShippingInNull();
     List<RawMaterial> getRawMaterialByWarehouse(Warehouse warehouse);
 }
