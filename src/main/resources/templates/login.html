@@ -17,7 +17,7 @@
     <li sec:authorize="!isAuthenticated()">
         <a data-th-href="@{/login}">Login</a>
     </li>
-    <li>
+    <li sec:authorize="hasRole('ROLE_ADMIN')">
         <a data-th-href="@{/register}">Registry</a>
     </li>
     <div class="form">
