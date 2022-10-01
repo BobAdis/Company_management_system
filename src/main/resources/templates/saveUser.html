@@ -24,8 +24,8 @@
                 <input type="text" data-th-field="*{username}" placeholder="username">
                 <input type="password" data-th-field="*{password}" placeholder="password">
                 <select name="position">
-                    <option data-th-each="taskOpt : ${T(hu.progmatic.company_management_system.models.Task).values()}"
-                    data-th-value="${taskOpt}" data-th-text="${taskOpt}"></option>
+                    <option data-th-each="positionOpt : ${T(hu.progmatic.company_management_system.models.Position).values()}"
+                    data-th-value="${positionOpt}" data-th-text="${positionOpt}"></option>
                 </select>
                 <input class="send_button" type="submit" value="Send">
             </form>

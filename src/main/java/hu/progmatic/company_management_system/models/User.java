@@ -104,11 +104,11 @@ public class User implements UserDetails {
         isEnabled = enabled;
     }
 
-    public Position getTask() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setTask(Position position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
