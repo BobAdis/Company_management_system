@@ -2,6 +2,7 @@ package hu.progmatic.company_management_system.services;
 
 import hu.progmatic.company_management_system.models.RawMaterial;
 import hu.progmatic.company_management_system.models.ShippingIn;
+import hu.progmatic.company_management_system.repositories.RawMaterialRepo;
 import hu.progmatic.company_management_system.repositories.ShippingInRepo;
 import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;
 import org.springframework.stereotype.Service;
@@ -55,5 +56,19 @@ public class ShippingInService {
 
     public ShippingIn getById(long id) {
         return shippingInRepo.findById(id).orElseThrow();
+    }
+
+    public void saveNewShippingIn(RawMaterial newRawMaterial, RawMaterial rawMaterial){
+        if (rawMaterial.getIngredient().getName().equals(newRawMaterial.getIngredient().getName())){
+            rawMaterial.setQuantity(rawMaterial.getQuantity() + newRawMaterial.getQuantity());
+        }
+    }
+    public void overwriteQuantity(List<RawMaterial> rawMaterials, RawMaterial rawMaterial, RawMaterialRepo rawMaterialRepo){
+        for (RawMaterial rawMaterial1 : rawMaterialRepo.findAll()){
+            if (rawMaterial.getIngredient().getName().equals(rawMaterial1.getIngredient().getName())){
+                rawMaterial.setQuantity(rawMaterial.getQuantity() + rawMaterial1.getQuantity());
+                rawMaterialRepo.save(rawMaterial);
+            }
+        }
     }
 }

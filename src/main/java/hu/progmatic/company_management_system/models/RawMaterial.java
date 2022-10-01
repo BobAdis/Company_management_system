@@ -16,6 +16,7 @@ public class RawMaterial {
     private Integer quantity;
     @ManyToOne
     private ShippingIn shippingIn;
+    @Enumerated(EnumType.STRING)
     private Warehouse warehouse;
 
     public RawMaterial() {

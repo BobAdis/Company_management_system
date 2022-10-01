@@ -93,14 +93,14 @@ public class DBRunner implements CommandLineRunner {
         shippingInRepo.save(shippingIn1);
         RawMaterial rawMaterial1 = new RawMaterial(ingredient1, 20223010,1200,10, shippingIn1, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial1);
-        RawMaterial rawMaterial2 = new RawMaterial(ingredient2, 21223010,1200,10, shippingIn1, Warehouse.INBOUND);
+        RawMaterial rawMaterial2 = new RawMaterial(ingredient2, 20223011,1200,10, shippingIn1, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial2);
 
         ShippingIn shippingIn2 = new ShippingIn(partner2, LocalDate.of(2022, 9,20),List.of());
         shippingInRepo.save(shippingIn2);
-        RawMaterial rawMaterial3 = new RawMaterial(ingredient3, 20223010,1200,10, shippingIn2, Warehouse.INBOUND);
+        RawMaterial rawMaterial3 = new RawMaterial(ingredient3, 20223012,1200,10, shippingIn2, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial3);
-        RawMaterial rawMaterial4 = new RawMaterial(ingredient4, 21223010,1200,10, shippingIn2, Warehouse.INBOUND);
+        RawMaterial rawMaterial4 = new RawMaterial(ingredient4, 20223013,1200,10, shippingIn2, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial4);
         System.out.println("Shipping ins and Rawmaterials generated.");
 

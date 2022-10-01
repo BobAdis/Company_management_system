@@ -34,4 +34,5 @@ public class RawMaterialSearchForm {
     public void setShippingIn(LocalDate shippingIn) {
         this.shippingIn = shippingIn;
     }
+
 }
