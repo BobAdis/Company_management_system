@@ -9,9 +9,10 @@
 <header>
     <div th:replace="~{fragments/navigation :: navigation}"></div>
 </header>
-<p>Employee data sheet</p>
 
-<form class="form" form data-th-action="@{/actualnetsalary/{taxnumber}(taxnumber=${e.taxNumber})}" method="post">
+<h1 data-th-text="${e.name}"></h1>
+
+<form class="form" data-th-action="@{/actualnetsalary/{taxnumber}(taxnumber=${e.taxNumber})}" data-th-object="${monthlyData}" method="post">
 
     <table>
 
@@ -24,15 +25,15 @@
 
         <tr>
             <td>
-                <input type="number" data-th-name="workingDays"></td>
+                <input type="number" data-th-field="*{workingDays}" required /></td>
             <td>
-                <input type="number" data-th-name="paidLeave"> </td>
+                <input type="number" data-th-field="*{paidLeave}" required /> </td>
             <td>
-                <input type="number" data-th-name="sickLeave"> </td>
+                <input type="number" data-th-field="*{sickLeave}" required /> </td>
             <td>
-                <input type="number" data-th-name="illnessBenefit"> </td>
+                <input type="number" data-th-field="*{illnessBenefit}" required /> </td>
             <td>
-                <input type="submit" value="Calculate net salary"> </td>
+                <input type="submit" value="Calculate net salary"/> </td>
             <td data-th-text="${#numbers.formatInteger(money,3,'WHITESPACE') + ' Ft '}"></td>
 
 

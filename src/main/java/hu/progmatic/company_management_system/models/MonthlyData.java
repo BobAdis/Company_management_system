@@ -21,11 +21,21 @@ public class MonthlyData {
     private int sickLeave;
     private int illnessBenefit;
 
+    private int netSalary;
+
 
     @ManyToOne
     private Employee employee;
 
     public MonthlyData() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public int getWorkingDays() {
@@ -60,8 +70,36 @@ public class MonthlyData {
         this.illnessBenefit = illnessBenefit;
     }
 
-    public int setNetSalary(int workingDays, int paidLeave, int sickLeave, int illnessBenefit) {
-        return ((employee.getGrossSalary() / 31 * workingDays) + (employee.getGrossSalary() / 31 * paidLeave) +
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public int getNetSalary() {
+        return netSalary;
+    }
+
+    public void setNetSalary(int workingDays, int paidLeave, int sickLeave, int illnessBenefit) {
+        this.netSalary = ((employee.getGrossSalary() / 31 * workingDays) + (employee.getGrossSalary() / 31 * paidLeave) +
                 ((employee.getGrossSalary() / 31 * sickLeave) /10 * 7) /1000 * 665);
     }
 

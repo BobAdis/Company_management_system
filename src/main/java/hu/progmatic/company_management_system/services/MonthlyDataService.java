@@ -29,10 +29,12 @@ public class MonthlyDataService {
         monthlyDataRepo.save(monthlyData);
     }
 
-
-
     public int setNetSalary(int grossSalary, int workingDays, int paidLeave, int sickLeave, int illnessBenefit) {
         return ((grossSalary / 31 * workingDays) + (grossSalary/ 31 * paidLeave) +
                 ((grossSalary / 31 * sickLeave) /10 * 7) /1000 * 665);
+    }
+
+    public MonthlyData getMonthlyDataByEmployee(Employee employee) {
+        return monthlyDataRepo.findMonthlyDataByEmployee(employee);
     }
 }

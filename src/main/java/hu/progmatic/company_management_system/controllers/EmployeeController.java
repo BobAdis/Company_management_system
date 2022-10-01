@@ -6,10 +6,7 @@ import hu.progmatic.company_management_system.services.MonthlyDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
@@ -137,11 +134,28 @@ public class EmployeeController {
     @GetMapping("/actualnetsalary/{taxnumber}")
     public String getActualNetSalaryPage(Model model, @PathVariable String taxnumber){
         Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
+        MonthlyData monthlyData = new MonthlyData();
+
+        model.addAttribute("monthlyData", monthlyData);
         model.addAttribute("e", e1);
         return "actualnetsalary";
     }
 
     @PostMapping("/actualnetsalary/{taxnumber}")
+    public String getActualNetSalaryCalculation(@PathVariable String taxnumber, @ModelAttribute(name = "monthlyData") MonthlyData monthlyData, Model model){
+        Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
+        monthlyData.setEmployee(e1);
+        monthlyData.setNetSalary(monthlyData.getWorkingDays(), monthlyData.getPaidLeave(), monthlyData.getSickLeave(), monthlyData.getIllnessBenefit());
+        monthlyDataService.save(monthlyData);
+
+        int money = monthlyData.getNetSalary();
+
+        model.addAttribute("monthlyData", monthlyData);
+        model.addAttribute("e", e1);
+        model.addAttribute("money", money);
+        return "actualnetsalary";
+    }
+    /*@PostMapping("/actualnetsalary/{taxnumber}")
         public String getActualNetSalaryCalculation(Model model, @PathVariable String taxnumber,
                                                     @RequestParam  int workingDays, @RequestParam int paidLeave, @RequestParam int sickLeave,
                                                     @RequestParam int illnessBenefit){
@@ -150,6 +164,6 @@ public class EmployeeController {
         int money = monthlyDataService.setNetSalary(e1.getGrossSalary(), workingDays, paidLeave, sickLeave, illnessBenefit);
         model.addAttribute("money", money);
         return "actualnetsalary";
-    }
+    }*/
 
 }
