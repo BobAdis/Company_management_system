@@ -8,12 +8,19 @@
 </head>
 <body>
 <header>
-    <div th:replace="~{fragments/navigation :: navigation}"></div>
+    <h2 data-th-text="${page}"></h2>
 </header>
-<p>FINANCE</p>
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
 
 <input type="submit" value="INCOME">
 <input type="submit" value="COST">
-
+    </div>
+</div>
 </body>
 </html>

@@ -7,9 +7,15 @@
 </head>
 <body>
 <header>
-    <div th:replace="~{fragments/navigation :: navigation}"></div>
+    <h2 data-th-text="${page}"></h2>
 </header>
-
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
 <h1 data-th-text="${e.name}"></h1>
 
 <form class="form" data-th-action="@{/actualnetsalary/{taxnumber}(taxnumber=${e.taxNumber})}" data-th-object="${monthlyData}" method="post">
@@ -46,6 +52,7 @@
 
 
 
-
+    </div>
+</div>
 </body>
 </html>

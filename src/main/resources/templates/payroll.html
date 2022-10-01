@@ -7,12 +7,15 @@
 </head>
 <body>
 <header>
-    <div th:replace="~{fragments/navigation :: navigation}"></div>
+    <h2 data-th-text="${page}"></h2>
 </header>
-<p>Payroll</p>
-
-
-
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
 
     <a data-th-href="@{/january}"><button class="send_button">JANUARY</button></a>
     <a data-th-href="@{/netsalary}"><button class="send_button">FEBRUARY</button></a>
@@ -45,5 +48,7 @@
         <td data-th-text="${e.setNetSalary(e.grossSalary)}"></td>
     </tr>
 </table>-->
+    </div>
+</div>
 </body>
 </html>

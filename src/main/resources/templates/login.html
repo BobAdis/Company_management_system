@@ -9,11 +9,6 @@
 
 <body>
 
-
-
-<header>
-    <div th:replace="~{fragments/navigation :: navigation}"></div>
-</header>
 <li sec:authorize="isAuthenticated()">
     <a data-th-href="@{/logout}">Logout</a>
 </li>
@@ -24,8 +19,6 @@
     <a data-th-href="@{/register}">Registry</a>
 </li>
 <div class="form">
-        <h1>Login :)</h1>
-        <p data-th-if="${loginError}" class="error">Bad username or password.</p>
 
 <header>
     <h2>Welcome to Progmatic's enterprise management system</h2>

@@ -18,8 +18,15 @@
 
 <body>
 <header>
-    <div th:replace="~{fragments/navigation :: navigation}"></div>
+    <h2 data-th-text="${page}"></h2>
 </header>
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
 <p>Employee data sheet</p>
 
 
@@ -39,6 +46,7 @@
 
 <br/>
 <a data-th-href="@{/newemployee}"><button class="send_button">ADD NEW EMPLOYEE</button></a>
-
+    </div>
+</div>
 </body>
 </html>
