@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add rawmaterials to ShippingIn</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+  <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+
+<div class="form">
+  <h1 data-th-text="'Add rawmaterials to ShippingIn'"></h1>
+
+  <form class="form" action="#" data-th-action="@{/addrawmaterial}" data-th-object="${shippingIn}" method="post">
+    <fieldset>
+      <label for="rawmaterial">Rawmaterial</label>
+      <select id="rawmaterial" name="rawmaterialId">
+        <option data-th-each="rawmaterial: ${rawMaterials}"
+                data-th-value="${rawmaterial.id}"
+                data-th-text="${rawmaterial.ingredient.name}">
+        </option>
+      </select>
+    </fieldset>
+    <input style="display: none;" name="shippingInId" data-th-value="${shippingIn.id}"/>
+    <input type="submit" id="submitButton" th:value="Add">
+  </form>
+
+  <p>Shipping in current rawmaterials:</p>
+  <ul data-th-each="rawmaterial: ${shippingIn.rawMaterials}">
+    <li data-th-text="${rawmaterial.ingredient.name}"></li>
+  </ul>
+
+</div>
+</body>
+</html>

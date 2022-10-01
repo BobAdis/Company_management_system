@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class RawMaterinalService {
+public class RawMaterialService {
 
     private final RawMaterialRepo rawMaterialRepo;
 
-    public RawMaterinalService(RawMaterialRepo rawMaterialRepo) {
+    public RawMaterialService(RawMaterialRepo rawMaterialRepo) {
         this.rawMaterialRepo = rawMaterialRepo;
     }
 
@@ -37,5 +37,13 @@ public class RawMaterinalService {
             result.add(rawMaterial);
         }
         return result;
+    }
+
+    public RawMaterial getById(long id) {
+        return rawMaterialRepo.findById(id).orElseThrow();
+    }
+
+    public List<RawMaterial> getWhereShippingInIsNull() {
+        return rawMaterialRepo.findAllByShippingInNull();
     }
 }

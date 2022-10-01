@@ -1,16 +1,18 @@
 package hu.progmatic.company_management_system.controllers;
 
-import hu.progmatic.company_management_system.models.Partner;
-import hu.progmatic.company_management_system.models.ShippingIn;
+import hu.progmatic.company_management_system.models.*;
 import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;
 import hu.progmatic.company_management_system.services.PartnerService;
+import hu.progmatic.company_management_system.services.RawMaterialService;
 import hu.progmatic.company_management_system.services.ShippingInService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,9 +21,12 @@ public class ShippingInController {
     private final ShippingInService shippingInService;
     private final PartnerService partnerService;
 
-    public ShippingInController(ShippingInService shippingInService, PartnerService partnerService) {
+    private final RawMaterialService rawMaterialService;
+
+    public ShippingInController(ShippingInService shippingInService, PartnerService partnerService, RawMaterialService rawMaterialService) {
         this.shippingInService = shippingInService;
         this.partnerService = partnerService;
+        this.rawMaterialService = rawMaterialService;
     }
 
     @GetMapping(value = {"/shippingins"})
@@ -60,6 +65,34 @@ public class ShippingInController {
         shippingIn.setSeller(partner);
         shippingInService.saveShippingIn(shippingIn);
 
-        return "redirect:/shippingins";
+        return "redirect:/addrawmaterial/" + shippingIn.getId();
+    }
+
+    @GetMapping(value = {"/addrawmaterial/{id}"})
+    public String addRawMaterialsToShippingInForm(@PathVariable long id, Model model) {
+        ShippingIn shippingIn = shippingInService.getById(id);
+
+        List<RawMaterial> rawMaterials = rawMaterialService.getWhereShippingInIsNull();
+
+        model.addAttribute("shippingIn", shippingIn);
+        model.addAttribute("rawMaterials", rawMaterials);
+
+        return "addrawmaterialstoshippingin";
+    }
+
+    @PostMapping(value = {"/addrawmaterial"})
+    public String addRawMaterialsToShippingIn(@RequestParam(name = "shippingInId") long shippingInId, @RequestParam(name = "rawmaterialId") long rawmaterialId) {
+        ShippingIn shippingIn = shippingInService.getById(shippingInId);
+
+        List<RawMaterial> rawMaterials = new ArrayList<>();
+        RawMaterial rawMaterial = rawMaterialService.getById(rawmaterialId);
+        rawMaterials.add(rawMaterial);
+
+        shippingIn.setRawMaterials(rawMaterials);
+        rawMaterial.setShippingIn(shippingIn);
+
+        shippingInService.saveShippingIn(shippingIn);
+
+        return "redirect:/addrawmaterial/" + shippingIn.getId();
     }
 }

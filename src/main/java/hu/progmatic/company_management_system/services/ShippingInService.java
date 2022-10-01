@@ -52,4 +52,8 @@ public class ShippingInService {
     public void saveShippingIn(ShippingIn shippingIn) {
         shippingInRepo.save(shippingIn);
     }
+
+    public ShippingIn getById(long id) {
+        return shippingInRepo.findById(id).orElseThrow();
+    }
 }
