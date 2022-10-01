@@ -15,7 +15,11 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 public class TestShippingOutService {
 
@@ -46,16 +50,20 @@ public class TestShippingOutService {
         partner2.setPartnerName("vasarlo2");
 
         ProducedProduct producedProduct = new ProducedProduct();
+        producedProduct.setId(1L);
         producedProduct.setName("termek");
 
         ProducedProduct producedProduct2 = new ProducedProduct();
-        producedProduct.setName("termek2");
+        producedProduct2.setId(2L);
+        producedProduct2.setName("termek2");
 
         EndProduct endProduct = new EndProduct();
+        endProduct.setId(1L);
         endProduct.setProducedProduct(producedProduct);
 
         EndProduct endProduct2 = new EndProduct();
-        endProduct.setProducedProduct(producedProduct2);
+        endProduct2.setId(2L);
+        endProduct2.setProducedProduct(producedProduct2);
 
         ShippingOut shippingOut1 = new ShippingOut();
         shippingOut1.setId(1L);
@@ -84,5 +92,11 @@ public class TestShippingOutService {
         List<ShippingOut> shippingOutList = List.of(
                 shippingOut1, shippingOut2, shippingOut3, shippingOut4
         );
+
+        when(shippingOutRepo.findAll()).thenReturn(shippingOutList);
+
+        List<ShippingOut> results = shippingOutService.getByForm(shippingOutSearchForm);
+
+        assertEquals(3, results.size());
     }
 }
