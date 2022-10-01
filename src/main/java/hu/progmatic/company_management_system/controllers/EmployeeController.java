@@ -42,7 +42,7 @@ public class EmployeeController {
     public String getNewEmployeeForm(Model model) {
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
-        model.addAttribute("tasks", Task.values());
+        model.addAttribute("tasks", Position.values());
         return "new_employee";
     }
 

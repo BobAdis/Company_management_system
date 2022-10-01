@@ -23,7 +23,7 @@ public class Employee {
     private String address;
     private String personnelGroup;
     @Enumerated(EnumType.STRING)
-    private Task personnelTask;
+    private Position personnelTask;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startOfEmployment;
     private String HSCO;
@@ -40,7 +40,7 @@ public class Employee {
 
     public Employee(String taxNumber, String name, String maidenName, String socialSecurityNumber,
                     String placeOfBirth, LocalDate dateOfBirth, String motherName, String address,
-                    String personnelGroup, Task personnelTask, LocalDate startOfEmployment,
+                    String personnelGroup, Position personnelTask, LocalDate startOfEmployment,
                     String HSCO, int workingHours, int grossSalary) {
         this.taxNumber = taxNumber;
         this.name = name;
@@ -130,11 +130,11 @@ public class Employee {
         this.personnelGroup = personnelGroup;
     }
 
-    public Task getPersonnelTask() {
+    public Position getPersonnelTask() {
         return personnelTask;
     }
 
-    public void setPersonnelTask(Task personnelTask) {
+    public void setPersonnelTask(Position personnelTask) {
         this.personnelTask = personnelTask;
     }
 

@@ -5,7 +5,7 @@ import hu.progmatic.company_management_system.models.RawMaterial;
 import hu.progmatic.company_management_system.models.ShippingIn;
 import hu.progmatic.company_management_system.repositories.RawMaterialRepo;
 import hu.progmatic.company_management_system.searchform.RawMaterialSearchForm;
-import hu.progmatic.company_management_system.services.RawMaterinalService;
+import hu.progmatic.company_management_system.services.RawMaterialService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -24,7 +24,7 @@ public class TestRawMaterialService {
     private RawMaterialRepo rawMaterialRepo;
 
     @InjectMocks
-    private RawMaterinalService rawMaterinalService;
+    private RawMaterialService rawMaterialService;
 
     @BeforeEach
     void setUp() {
@@ -85,7 +85,7 @@ public class TestRawMaterialService {
         form.setSARZSNumber(goodSARZSNumber);
         form.setShippingIn(goodShippingIn.getLocalDate());
 
-        List<RawMaterial> results = rawMaterinalService.getByForm(form);
+        List<RawMaterial> results = rawMaterialService.getByForm(form);
 
         assertEquals(1, results.size());
     }
