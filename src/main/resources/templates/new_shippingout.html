@@ -12,6 +12,7 @@
 </head>
 <body>
   <header>
+    <h2 data-th-text="'Create new ' + ${productName}"></h2>
     <h2 data-th-text="${page}"></h2>
   </header>
 
@@ -24,7 +25,7 @@
     <div class="right">
 
       <div class="form">
-        <h1 data-th-text="'Create new ' + ${productName}"></h1>
+
         <form class="form" data-th-action="@{/newshippingout}" data-th-object="${shippingout}" method="post">
           <label for="buyer">Supplier</label>
           <select id="buyer" name="partnerId">

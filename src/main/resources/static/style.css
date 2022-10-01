@@ -157,6 +157,11 @@ tr:nth-child(odd) {
     color: white;
 }
 
+.vertical-menu a.highlights {
+    background-color: #5177E0;
+    color: white;
+}
+
 body {
     background-color: #4B67C4;
 }

@@ -12,10 +12,19 @@
 </head>
 <body>
 <header>
-    <div th:replace="~{fragments/navigation :: navigation}"></div>
+    <h2>Save new employee</h2>
+    <h2 data-th-text="${page}"></h2>
 </header>
+
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
     <div class="form">
-        <h1>Save new employee</h1>
+
         <form class="form" data-th-action="@{/newemployee}" data-th-object="${employee}" method="post">
             <label for="taxNumber">Tax number</label>
             <input id="taxNumber" placeholder="taxNumber" type="number" data-th-field="*{taxNumber}">
@@ -54,5 +63,7 @@
             <button class="send_button" type="submit">Save</button>
         </form>
     </div>
+    </div>
+</div>
 </body>
 </html>
