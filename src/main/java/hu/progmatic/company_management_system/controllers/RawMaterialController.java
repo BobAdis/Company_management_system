@@ -51,10 +51,6 @@ public class RawMaterialController {
 
     @PostMapping (value = {"/transfer"})
     public String postTransferPage(Model model, @RequestParam Integer sarzsN, @RequestParam int quantity, @RequestParam Warehouse warehouseout, @RequestParam Warehouse warehousein) {
-       /* List<RawMaterial> rawmaterials = rawMaterinalService.getAllRawMaterial();
-        model.addAttribute("rawMaterials", rawmaterials);
-        model.addAttribute("page", "Transfer page");
-        model.addAttribute("warehouses", Warehouse.values());*/
         rawMaterinalService.transferData(sarzsN, quantity, warehouseout, warehousein);
         return "redirect:/transfer";
     }

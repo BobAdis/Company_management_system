@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class RawMaterinalService {
@@ -65,5 +66,24 @@ public class RawMaterinalService {
         transfered.setWarehouse(warehousein);
         rawMaterialRepo.save(transfered);
         return transfered;
+    }
+
+    public List<RawMaterial> getAllRawMaterialbySARZSbyWarehouse(Warehouse warehouse) {
+        List<RawMaterial> result = new ArrayList<>();
+        for (RawMaterial rawMaterial : rawMaterialRepo.getRawMaterialByWarehouse(warehouse)) {
+            if (result.isEmpty()) {
+                result.add(rawMaterial);
+                continue;
+            }
+            for(RawMaterial rawMaterial1 : result) {
+                if (rawMaterial.getSARZSNumber().equals(rawMaterial1.getSARZSNumber())) {
+                    rawMaterial1.setQuantity(rawMaterial1.getQuantity() + rawMaterial.getQuantity());
+                    break;
+                }
+                result.add(rawMaterial);
+                break;
+            }
+        }
+        return result;
     }
 }

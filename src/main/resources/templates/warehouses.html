@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warehouses page</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+<!--<h1 data-th-text="${page}"></h1>-->
+<form data-th-action="@{/warehouses}"  method="post">
+    <table>
+        <tr>
+            <th>Warehouses</th>
+        </tr>
+        <tr>
+            <td>
+                <select class="form-control" data-th-name="warehouse">
+                    <option data-th-each="warehouse: ${warehouses}"
+                            data-th-value="${warehouse}"
+                            data-th-text="${warehouse}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><button type="submit">Send</button></td>
+        </tr>
+    </table>
+</form>
+<h1> </h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>SARZSNumber</th>
+        <th>unitPrice</th>
+        <th>quantity</th>
+    </tr>
+    <tr data-th-each="rawMaterial: ${rawMaterials}">
+        <td data-th-text="${rawMaterial.ingredient.name}"></td>
+        <td data-th-text="${rawMaterial.SARZSNumber}"></td>
+        <td data-th-text="${rawMaterial.unitPrice}"></td>
+        <td data-th-text="${rawMaterial.quantity}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
