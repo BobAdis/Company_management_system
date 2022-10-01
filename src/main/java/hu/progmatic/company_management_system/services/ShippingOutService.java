@@ -53,4 +53,8 @@ public class ShippingOutService {
     public void saveShippingOut(ShippingOut shippingOut) {
         shippingOutRepo.save(shippingOut);
     }
+
+    public ShippingOut getById(long id) {
+        return shippingOutRepo.findById(id).orElseThrow();
+    }
 }

@@ -36,4 +36,12 @@ public class EndProductService {
         }
         return result;
     }
+
+    public EndProduct getById(long id) {
+        return endProductRepo.findById(id).orElseThrow();
+    }
+
+    public List<EndProduct> getEndProductWhereShippingOutIsNull() {
+        return endProductRepo.getEndProductByShippingOutNull();
+    }
 }

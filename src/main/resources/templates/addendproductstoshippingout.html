@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add endproducts to ShippingOut</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+  <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+
+<div class="form">
+  <h1 data-th-text="'Add endproducts to ShippingOut'"></h1>
+
+  <form class="form" action="#" data-th-action="@{/addendproduct}" data-th-object="${shippingOut}" method="post">
+    <fieldset>
+      <label for="endproduct">Endproduct</label>
+      <select id="endproduct" name="endproductId">
+        <option data-th-each="endproduct: ${endProducts}"
+                data-th-value="${endproduct.id}"
+                data-th-text="${endproduct.producedProduct.name}">
+        </option>
+      </select>
+    </fieldset>
+    <input style="display: none;" name="shippingOutId" data-th-value="${shippingOut.id}"/>
+    <input type="submit" id="submitButton" th:value="Add">
+  </form>
+
+  <p>Shipping out current endproducts:</p>
+  <ul data-th-each="endproduct: ${shippingOut.endProducts}">
+    <li data-th-text="${endproduct.producedProduct.name}"></li>
+  </ul>
+
+</div>
+</body>
+</html>

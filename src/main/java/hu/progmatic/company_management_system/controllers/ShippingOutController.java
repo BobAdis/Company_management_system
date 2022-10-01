@@ -1,16 +1,19 @@
 package hu.progmatic.company_management_system.controllers;
 
-import hu.progmatic.company_management_system.models.Partner;
-import hu.progmatic.company_management_system.models.ShippingOut;
+import hu.progmatic.company_management_system.models.*;
 import hu.progmatic.company_management_system.searchform.ShippingOutSearchForm;
+import hu.progmatic.company_management_system.services.EndProductService;
 import hu.progmatic.company_management_system.services.PartnerService;
+import hu.progmatic.company_management_system.services.RawMaterialService;
 import hu.progmatic.company_management_system.services.ShippingOutService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,9 +22,12 @@ public class ShippingOutController {
     private final ShippingOutService shippingOutService;
     private final PartnerService partnerService;
 
-    public ShippingOutController(ShippingOutService shippingOutService, PartnerService partnerService) {
+    private final EndProductService endProductService;
+
+    public ShippingOutController(ShippingOutService shippingOutService, PartnerService partnerService, EndProductService endProductService) {
         this.shippingOutService = shippingOutService;
         this.partnerService = partnerService;
+        this.endProductService = endProductService;
     }
 
     @GetMapping(value = {"/shippingouts"})
@@ -60,6 +66,34 @@ public class ShippingOutController {
         shippingOut.setBuyer(partner);
         shippingOutService.saveShippingOut(shippingOut);
 
-        return "redirect:/shippingouts";
+        return "redirect:/addendproduct/" + shippingOut.getId();
+    }
+
+    @GetMapping(value = {"/addendproduct/{id}"})
+    public String addEndProductToShippingOutForm(@PathVariable long id, Model model) {
+        ShippingOut shippingOut = shippingOutService.getById(id);
+
+        List<EndProduct> endProducts = endProductService.getEndProductWhereShippingOutIsNull();
+
+        model.addAttribute("shippingOut", shippingOut);
+        model.addAttribute("endProducts", endProducts);
+
+        return "addendproductstoshippingout";
+    }
+
+    @PostMapping(value = {"/addendproduct"})
+    public String addEndProductsToShippingOut(@RequestParam(name = "shippingOutId") long shippingOutId, @RequestParam(name = "endproductId") long endproductId) {
+        ShippingOut shippingOut = shippingOutService.getById(shippingOutId);
+
+        List<EndProduct> endProducts = new ArrayList<>();
+        EndProduct endProduct = endProductService.getById(endproductId);
+        endProducts.add(endProduct);
+
+        shippingOut.setEndProducts(endProducts);
+        endProduct.setShippingOut(shippingOut);
+
+        shippingOutService.saveShippingOut(shippingOut);
+
+        return "redirect:/addrawmaterial/" + shippingOut.getId();
     }
 }

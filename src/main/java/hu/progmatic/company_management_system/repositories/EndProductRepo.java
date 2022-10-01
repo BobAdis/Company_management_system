@@ -8,4 +8,6 @@ import java.util.List;
 public interface EndProductRepo extends CrudRepository<EndProduct, Long> {
 
     List<EndProduct> findAll();
+
+    List<EndProduct> getEndProductByShippingOutNull();
 }
