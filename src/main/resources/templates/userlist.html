@@ -7,26 +7,37 @@
 </head>
 <body>
     <header>
-        <div th:replace="~{fragments/navigation :: navigation}"></div>
+        <h2 data-th-text="${page}"></h2>
     </header>
-    <li sec:authorize="isAuthenticated()">
-        <a data-th-href="@{/logout}">Logout</a>
-    </li>
-    <li sec:authorize="!isAuthenticated()">
-        <a data-th-href="@{/login}">Login</a>
-    </li>
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Username</th>
-            <th>Task</th>
-        </tr>
-        <tr data-th-each="user: ${users}">
-            <td data-th-text="${user.id}"></td>
-            <td data-th-text="${user.username}"></td>
-            <td data-th-text="${user.position}"></td>
-        </tr>
-    </table>
+
+    <div class="row">
+        <div class="vertical-menu">
+            <div class="left">
+                <div th:replace="~{fragments/navigation :: navigation}"></div>
+            </div>
+        </div>
+        <div class="right">
+
+            <li sec:authorize="isAuthenticated()">
+                <a data-th-href="@{/logout}">Logout</a>
+            </li>
+            <li sec:authorize="!isAuthenticated()">
+                <a data-th-href="@{/login}">Login</a>
+            </li>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Task</th>
+                </tr>
+                <tr data-th-each="user: ${users}">
+                    <td data-th-text="${user.id}"></td>
+                    <td data-th-text="${user.username}"></td>
+                    <td data-th-text="${user.position}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
 </body>
 </html>

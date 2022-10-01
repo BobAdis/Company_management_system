@@ -16,54 +16,12 @@
     --red: #BC3F3C;
 }
 
+
+html,
 body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--dark_gray);
-    color: var(--light_gray);
-    font-family: 'JetBrains Mono', monospace;
+    height: 100%;
 }
 
-h1 {
-    color: var(--orange);
-}
-
-#container {
-    margin: 50px;
-    display: flex;
-    flex-direction: column;
-}
-
-#menubar {
-    border-bottom: 1px solid var(--light_gray);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1px;
-}
-
-#menubar a, #menubar p {
-    padding: 10px;
-    margin: 0;
-}
-
-#menubar p {
-    color: var(--light_gray);
-}
-
-#menubar a {
-    text-decoration: none;
-    background-color: var(--purple);
-    color: var(--dark_gray);
-}
-
-#menubar a:hover {
-    background-color: var(--green);
-}
-
-#menubar p:hover {
-    cursor: default;
-}
 
 #content {
     padding: 10px;
@@ -109,11 +67,11 @@ h1 {
 }
 
 .error {
-    color: var(--red);
+    color: white;
 }
 
 table {
-    width: 70%;
+    width: 50%;
     table-layout: fixed;
 }
 
@@ -123,7 +81,7 @@ table, th, td {
 }
 
 th, td {
-    padding: 5px;
+    padding: 3px;
     text-align: left;
 }
 
@@ -135,6 +93,52 @@ tr:nth-child(odd) {
     background-color: var(--mid_gray);
 }
 
+.form-position {
+    display: flex;
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.rectangleRed {
+    z-index: 1;
+    background: #E92323;
+    width:554px;
+    height: 190px;
+    position: absolute;
+    right: 50px;
+    top: -50px;
+}
+
+.rectangleDarkBlue {
+    z-index: 2;
+    background: #364F87;
+    width:657px;
+    height: 576px;
+    position: absolute;
+    right: 650px;
+    top: 200px;
+}
 
 .vertical-menu {
     width: 200px;
@@ -191,3 +195,12 @@ header {
     padding: 10px;
     background-color:#6381CC;
 }
+
+.div1 {
+    width: 500px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid blue;
+}
+
+

@@ -12,15 +12,28 @@
 </head>
 <body>
   <header>
-    <div th:replace="~{fragments/navigation :: navigation}"></div>
+    <h2 data-th-text="${page}"></h2>
   </header>
-  <div class="form">
-    <h1 data-th-text="'Create new ' + ${productName}"></h1>
-    <form class="form" data-th-action="@{/newproducedproduct}" data-th-object="${producedProduct}" method="post">
-      <label for="name">Name</label>
-      <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
-      <button class="send_button">Create</button>
-    </form>
+
+  <div class="row">
+    <div class="vertical-menu">
+      <div class="left">
+        <div th:replace="~{fragments/navigation :: navigation}"></div>
+      </div>
+    </div>
+    <div class="right">
+
+      <div class="form">
+        <h1 data-th-text="'Create new ' + ${productName}"></h1>
+        <form class="form" data-th-action="@{/newproducedproduct}" data-th-object="${producedProduct}" method="post">
+          <label for="name">Name</label>
+          <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+        </select>
+          <button class="send_button">Create</button>
+        </form>
+      </div>
+    </div>
   </div>
+
 </body>
 </html>

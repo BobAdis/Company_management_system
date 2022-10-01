@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="/main_style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <h2>Progmatic Company management system</h2>
+</header>
+
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
+        <a data-th-href="@{/partner}"><h1>Partners</h1></a>
+        <table>
+            <tr>
+                <th>Partner Name</th>
+                <th>Address</th>
+                <th>Contact Name</th>
+                <th>Email</th>
+                <th>Phone number</th>
+            </tr>
+            <tr data-th-each="partner: ${partners}">
+                <td data-th-text="${partner.partnerName}"></td>
+                <td data-th-text="${partner.address}"></td>
+                <td data-th-text="${partner.contactName}"></td>
+                <td data-th-text="${partner.email}"></td>
+                <td data-th-text="${partner.phoneNumber}"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <a data-th-href="@{/producedproducts}"><h1>Products</h1></a>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Bomlist name</th>
+            </tr>
+            <tr data-th-each="producedProduct: ${producedProducts}">
+                <td data-th-text="${producedProduct.name}"></td>
+                <td data-th-text="${producedProduct.bomList.name}"></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <a data-th-href="@{/bomlists}"><h1>BOMList</h1></a>
+        <table>
+            <tr>
+                <th>Bomlist name</th>
+                <th>Product</th>
+                <th>Ingredient</th>
+            </tr>
+            <tr data-th-each="bomlist: ${bomlists}">
+                <td data-th-text="${bomlist.name}"></td>
+                <td data-th-text="${bomlist.producedProduct.name}"></td>
+                <td><ul data-th-each="ingredient: ${bomlist.ingredients}">
+                    <li data-th-text="${ingredient.name}"></li></ul></td>
+            </tr>
+        </table>
+
+        <br />
+
+        <a data-th-href="@{/customers}"><h1>Customers</h1></a>
+        <table>
+            <tr>
+                <th>Partner Name</th>
+                <th>Address</th>
+                <th>Contact Name</th>
+                <th>Email</th>
+                <th>Phone number</th>
+            </tr>
+            <tr data-th-each="partner: ${partners}">
+                <td data-th-text="${partner.partnerName}"></td>
+                <td data-th-text="${partner.address}"></td>
+                <td data-th-text="${partner.contactName}"></td>
+                <td data-th-text="${partner.email}"></td>
+                <td data-th-text="${partner.phoneNumber}"></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>

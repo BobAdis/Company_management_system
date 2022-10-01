@@ -4,34 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/login_style.css">
 </head>
 
 <body>
-    <header>
-        <div th:replace="~{fragments/navigation :: navigation}"></div>
-    </header>
-    <li sec:authorize="isAuthenticated()">
-        <a data-th-href="@{/logout}">Logout</a>
-    </li>
-    <li sec:authorize="!isAuthenticated()">
-        <a data-th-href="@{/login}">Login</a>
-    </li>
-    <li sec:authorize="hasRole('ROLE_ADMIN')">
-        <a data-th-href="@{/register}">Registry</a>
-    </li>
-    <div class="form">
+
+
+
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+<li sec:authorize="isAuthenticated()">
+    <a data-th-href="@{/logout}">Logout</a>
+</li>
+<li sec:authorize="!isAuthenticated()">
+    <a data-th-href="@{/login}">Login</a>
+</li>
+<li sec:authorize="hasRole('ROLE_ADMIN')">
+    <a data-th-href="@{/register}">Registry</a>
+</li>
+<div class="form">
         <h1>Login :)</h1>
         <p data-th-if="${loginError}" class="error">Bad username or password.</p>
 
+<header>
+    <h2>Welcome to Progmatic's enterprise management system</h2>
+    <h2 data-th-if="${loginError}" class="error">Bad username or password.</h2>
+</header>
 
-        <form class="form" data-th-action="@{/login}" method="post">
-            <input type="text" data-th-name="username" placeholder="username">
-            <input type="password" data-th-name="password" placeholder="password">
-            <input class="send_button" type="submit" value="Send">
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form data-th-href="@{/register}">
+            <h1>Create Account</h1>
+            <input type="text" data-th-name="username" placeholder="Name" />
+            <input type="email" placeholder="Email" />
+            <input type="password" data-th-name="password" placeholder="Password" />
+            <button>Sign Up</button>
         </form>
     </div>
+    <div class="form-container sign-in-container">
 
+        <form data-th-action="@{/login}" method="post">
+            <h1>Sign in</h1>
+            <input type="text" data-th-name="username" placeholder="USERNAME" />
+            <input type="password" data-th-name="password" placeholder="Password" />
+            <button>Sign In</button>
+            <a data-th-href="@{/main}">Login - TESZT</a>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>
+        Created <i class="fa fa-heart"></i> by ERP Team - Progmatic
+    </p>
+</footer>
+
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+</script>
 
 </body>
 
