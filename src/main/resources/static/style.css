@@ -17,11 +17,7 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--dark_gray);
-    color: var(--light_gray);
-    font-family: 'JetBrains Mono', monospace;
+    background-color: #4B67C4;
 }
 
 h1 {
@@ -162,13 +158,9 @@ tr:nth-child(odd) {
     color: white;
 }
 
-body {
-    background-color: #4B67C4;
-}
-
 header {
     background-color: #4B67C4;
-    padding: 5px;
+    padding: 3px;
     text-align: center;
     font-size: 20px;
     color: white;
@@ -176,7 +168,10 @@ header {
 
 /* Create a column layout with Flexbox */
 .row {
+    width: 95%;
+    padding: 0rem;
     display: flex;
+    flex-direction: row;
 }
 
 /* Left column (menu) */
