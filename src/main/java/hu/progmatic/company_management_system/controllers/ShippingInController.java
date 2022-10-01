@@ -1,6 +1,7 @@
 package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.Partner;
+import hu.progmatic.company_management_system.models.RawMaterial;
 import hu.progmatic.company_management_system.models.ShippingIn;
 import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;
 import hu.progmatic.company_management_system.services.PartnerService;
@@ -55,11 +56,11 @@ public class ShippingInController {
     }
 
     @PostMapping(value = {"/newshippingin"})
-    public String addShippingInList(ShippingIn shippingIn, @RequestParam(name = "partnerId") long partnerId) {
+    public String addShippingInList(ShippingIn shippingIn, @RequestParam(name = "partnerId") long partnerId, RawMaterial rawMaterial) {
         Partner partner = partnerService.getSupplierById(partnerId);
         shippingIn.setSeller(partner);
         shippingInService.saveShippingIn(shippingIn);
-
+        //shippingInService.saveNewShippingIn(rawMaterial);
         return "redirect:/shippingins";
     }
 }

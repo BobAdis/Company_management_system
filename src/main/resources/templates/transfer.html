@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer page</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
+</header>
+
+<h1 data-th-text="${page}"></h1>
+<form data-th-action="@{/transfer}"  method="post">
+<table>
+    <tr>
+        <th>Rawmaterial SARZSNumber</th>
+        <th>Rawmaterial Quantity</th>
+        <th>Warehouse from</th>
+        <th>Warehouse to</th>
+    </tr>
+<td>
+    <select class="form-control" data-th-name="sarzsN">
+        <option data-th-each="rawmaterial: ${rawMaterials}"
+                data-th-value="${rawmaterial.SARZSNumber}"
+                data-th-text="${rawmaterial.SARZSNumber}">
+        </option>
+</td>
+<td>
+    <input type="number" data-th-text="quantity" name="quantity" required/>
+</td>
+<td>
+    <select class="form-control" data-th-name="warehouseout">
+        <option data-th-each="warehouse: ${warehouses}"
+                data-th-value="${warehouse}"
+                data-th-text="${warehouse}">
+        </option>
+    </select>
+</td>
+    <td>
+    <select class="form-control" data-th-name="warehousein">
+        <option data-th-each="warehouse: ${warehouses}"
+                data-th-value="${warehouse}"
+                data-th-text="${warehouse}">
+        </option>
+    </select>
+</td>
+    <tr>
+        <td colspan="2"><button type="submit">Send</button></td>
+    </tr>
+
+</table>
+</form>
+
+</body>
+</html>

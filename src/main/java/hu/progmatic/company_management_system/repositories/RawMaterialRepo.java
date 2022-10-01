@@ -9,4 +9,7 @@ import java.util.List;
 public interface RawMaterialRepo extends CrudRepository<RawMaterial, Long> {
 
     List<RawMaterial> findAll();
+
+    List<RawMaterial> getRawMaterialByWarehouse(String warehouse);
+
 }
