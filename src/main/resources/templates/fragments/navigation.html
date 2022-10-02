@@ -6,44 +6,7 @@
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<!--<body>
-<div th:fragment="navigation">
-    <div id="menubar">
-        <ul style="display: flex; gap: 5px; list-style: none;">
-            <li><a data-th-href="@{/}">Home</a></li>
-            <li><a data-th-href="@{/rawmaterials}">RawMaterials</a></li>
-            <li><a data-th-href="@{/producedproducts}">Produced Products</a></li>
-            <li><a data-th-href="@{/ingredients}">Ingredients</a></li>
-            <li><a data-th-href="@{/bomlists}">Bomlists</a></li>
-            <li><a data-th-href="@{/endproducts}">Endproducts</a></li>
-            <li><a data-th-href="@{/suppliers}">Suppliers</a></li>
-            <li><a data-th-href="@{/customers}">Customers</a></li>
-            <li><a data-th-href="@{/shippingins}">ShippingIns</a></li>
-            <li><a data-th-href="@{/shippingouts}">ShippingOuts</a></li>
-            <li><a data-th-href="@{/newproducedproduct}">NEW Produced Product</a></li>
-            <li><a data-th-href="@{/newingredient}">NEW Ingredient</a></li>
-            <li><a data-th-href="@{/newbomlist}">NEW Bomlists</a></li>
-            <li><a data-th-href="@{/newshippingin}">NEW ShippingIns</a></li>
-            <li><a data-th-href="@{/newshippingout}">NEW ShippingOut</a></li>
-            <li><a data-th-href="@{/transfer}">Transfer</a></li>
-            &lt;!&ndash; <li><a data-th-href="@{/}">Home</a></li>
-             <li><a data-th-href="@{/actualEmployee}">ActualEmployee</a></li>
-             <li><a data-th-href="@{/actualnetsalary}">Actualnetsalary</a></li>
-             <li><a data-th-href="@{/customers}">customers</a></li>&ndash;&gt;
-             <li><a data-th-href="@{/employees}">Employees</a></li>
-             <li><a data-th-href="@{/finance}">Finance</a></li>
-            &lt;!&ndash; <li><a data-th-href="@{/january}">january</a></li>
-                <li><a data-th-href="@{/login}">Login</a></li>
-            <li><a data-th-href="@{/netsalary}">Netsalary</a></li>&ndash;&gt;
-           &lt;!&ndash; <li><a data-th-href="@{/new_employee}">New_employee</a></li>
-            <li><a data-th-href="@{/new_product}">NEW Product</a></li>&ndash;&gt;
-            <li><a data-th-href="@{/payroll}">Payroll</a></li>
-            &lt;!&ndash;<li><a data-th-href="@{/products}">products</a></li>&ndash;&gt;
-           &lt;!&ndash; <li><a data-th-href="@{/saveUser}">SaveUser</a></li>
-            <li><a data-th-href="@{/userlist}">Userlist</a></li>&ndash;&gt;
-        </ul>
-    </div>
-</div>-->
+
 <body>
 <div th:fragment="navigation">
     <div class="vertical-menu">
@@ -53,6 +16,8 @@
             <ul>
                 <a data-th-href="@{/rawmaterials}">RawMaterials</a>
                 <a data-th-href="@{/producedproducts}">Produced Products</a>
+                <a data-th-href="@{/warehouses}">Warehouses</a>
+                <a data-th-href="@{/transfer}">Transfer</a>
             </ul>
             <a data-th-href="@{/ingredients}">Ingredients</a>
             <a data-th-href="@{/bomlists}">Bomlists</a>
@@ -71,7 +36,6 @@
                 <a data-th-href="@{/payroll}">Payroll</a>
             </ul>
             <a data-th-href="@{/login}">Logout</a>
-
         </ul>
     </div>
 </div>

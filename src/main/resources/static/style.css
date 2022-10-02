@@ -131,7 +131,6 @@ tr:nth-child(odd) {
     background-color: var(--mid_gray);
 }
 
-
 .vertical-menu {
     width: 200px;
 }
@@ -154,8 +153,8 @@ tr:nth-child(odd) {
 }
 
 .vertical-menu a.highlights {
-    background-color: #5177E0;
-    color: white;
+    padding: 8px;
+    border-bottom: 2px solid #5177E0;
 }
 
 header {
@@ -166,7 +165,6 @@ header {
     color: white;
 }
 
-/* Create a column layout with Flexbox */
 .row {
     width: 95%;
     padding: 0rem;
@@ -174,7 +172,6 @@ header {
     flex-direction: row;
 }
 
-/* Left column (menu) */
 .left {
     flex: 15%;
     padding: 5px 0;
@@ -185,7 +182,6 @@ header {
     padding-left: 8px;
 }
 
-/* Right column (page content) */
 .right {
     flex: 85%;
     padding: 10px;

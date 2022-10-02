@@ -16,13 +16,11 @@
     --red: #BC3F3C;
 }
 
-
 html,
 body {
     background-color: #4B67C4;
     height: 100%;
 }
-
 
 #content {
     padding: 10px;
@@ -121,26 +119,6 @@ tr:nth-child(odd) {
     border-top-right-radius: 0;
 }
 
-.rectangleRed {
-    z-index: 1;
-    background: #E92323;
-    width:554px;
-    height: 190px;
-    position: absolute;
-    right: 50px;
-    top: -50px;
-}
-
-.rectangleDarkBlue {
-    z-index: 2;
-    background: #364F87;
-    width:657px;
-    height: 576px;
-    position: absolute;
-    right: 650px;
-    top: 200px;
-}
-
 .vertical-menu {
     width: 200px;
 }
@@ -162,6 +140,11 @@ tr:nth-child(odd) {
     color: white;
 }
 
+.vertical-menu a.highlights {
+    padding: 8px;
+    border-bottom: 5px solid #5177E0;
+}
+
 header {
     background-color: #4B67C4;
     padding: 3px;
@@ -170,7 +153,6 @@ header {
     color: white;
 }
 
-/* Create a column layout with Flexbox */
 .row {
     width: 95%;
     padding: 0rem;
@@ -178,7 +160,6 @@ header {
     flex-direction: row;
 }
 
-/* Left column (menu) */
 .left {
     flex: 15%;
     padding: 5px 0;
@@ -189,7 +170,6 @@ header {
     padding-left: 8px;
 }
 
-/* Right column (page content) */
 .right {
     flex: 85%;
     padding: 10px;

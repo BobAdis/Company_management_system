@@ -7,8 +7,16 @@
 </head>
 <body>
 <header>
-    <div th:replace="~{fragments/navigation :: navigation}"></div>
+    <h2 data-th-text="${page}"></h2>
 </header>
+
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
 <!--<h1 data-th-text="${page}"></h1>-->
 <form data-th-action="@{/warehouses}"  method="post">
     <table>
@@ -45,6 +53,8 @@
         <td data-th-text="${rawMaterial.quantity}"></td>
     </tr>
 </table>
+    </div>
+</div>
 
 </body>
 </html>
