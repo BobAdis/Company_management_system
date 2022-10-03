@@ -20,6 +20,7 @@
     </div>
     <div class="right">
         <a data-th-href="@{/partner}"><h1>Partners</h1></a>
+        <h1>Customers</h1>
         <table>
             <tr>
                 <th>Partner Name</th>
@@ -28,7 +29,25 @@
                 <th>Email</th>
                 <th>Phone number</th>
             </tr>
-            <tr data-th-each="partner: ${partners}">
+            <tr data-th-each="partner: ${customers}">
+                <td data-th-text="${partner.partnerName}"></td>
+                <td data-th-text="${partner.address}"></td>
+                <td data-th-text="${partner.contactName}"></td>
+                <td data-th-text="${partner.email}"></td>
+                <td data-th-text="${partner.phoneNumber}"></td>
+            </tr>
+        </table>
+
+        <h1>Suppliers</h1>
+        <table>
+            <tr>
+                <th>Partner Name</th>
+                <th>Address</th>
+                <th>Contact Name</th>
+                <th>Email</th>
+                <th>Phone number</th>
+            </tr>
+            <tr data-th-each="partner: ${suppliers}">
                 <td data-th-text="${partner.partnerName}"></td>
                 <td data-th-text="${partner.address}"></td>
                 <td data-th-text="${partner.contactName}"></td>
@@ -67,27 +86,6 @@
                     <li data-th-text="${ingredient.name}"></li></ul></td>
             </tr>
         </table>
-
-        <br />
-
-        <a data-th-href="@{/customers}"><h1>Customers</h1></a>
-        <table>
-            <tr>
-                <th>Partner Name</th>
-                <th>Address</th>
-                <th>Contact Name</th>
-                <th>Email</th>
-                <th>Phone number</th>
-            </tr>
-            <tr data-th-each="partner: ${partners}">
-                <td data-th-text="${partner.partnerName}"></td>
-                <td data-th-text="${partner.address}"></td>
-                <td data-th-text="${partner.contactName}"></td>
-                <td data-th-text="${partner.email}"></td>
-                <td data-th-text="${partner.phoneNumber}"></td>
-            </tr>
-        </table>
-
     </div>
 </div>
 
