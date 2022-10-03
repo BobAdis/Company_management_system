@@ -41,7 +41,7 @@
                 </tr>
                 <tr data-th-each="producedProduct: ${producedProducts}">
                     <td data-th-text="${producedProduct.name}"></td>
-                    <td data-th-text="${producedProduct.bomList.name}"></td>
+                    <td data-th-if="${producedProduct.bomList} != null" data-th-text="${producedProduct.bomList.name}"></td>
                 </tr>
             </table>
             <button class="send_button">
