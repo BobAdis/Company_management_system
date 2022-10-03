@@ -26,61 +26,61 @@
 </header>
 
 <div class="container" id="container">
-    <div class="form-container sign-up-container">
-        <form data-th-href="@{/register}">
-            <h1>Create Account</h1>
-            <input type="text" data-th-name="username" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" data-th-name="password" placeholder="Password" />
-            <button>Sign Up</button>
-        </form>
-    </div>
-    <div class="form-container sign-in-container">
+    <!-- <div class="form-container sign-up-container">
+         <form data-th-href="@{/register}">
+             <h1>Create Account</h1>
+             <input type="text" data-th-name="username" placeholder="Name" />
+             <input type="email" placeholder="Email" />
+             <input type="password" data-th-name="password" placeholder="Password" />
+             <button>Sign Up</button>
+         </form>
+     </div>-->
+     <div class="form-container sign-in-container">
 
-        <form data-th-action="@{/login}" method="post">
-            <h1>Sign in</h1>
-            <input type="text" data-th-name="username" placeholder="USERNAME" />
-            <input type="password" data-th-name="password" placeholder="Password" />
-            <button>Sign In</button>
-            <a data-th-href="@{/main}">Login - TESZT</a>
-        </form>
-    </div>
-    <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
-            </div>
-        </div>
-    </div>
-</div>
+         <form data-th-action="@{/login}" method="post">
+             <h1>Sign in</h1>
+             <input type="text" data-th-name="username" placeholder="USERNAME" />
+             <input type="password" data-th-name="password" placeholder="Password" />
+             <button>Sign In</button>
+             <a data-th-href="@{/main}">Login - TESZT</a>
+         </form>
+     </div>
+     <div class="overlay-container">
+         <div class="overlay">
+             <div class="overlay-panel overlay-left">
+                 <h1>Welcome Back!</h1>
+                 <p>To keep connected with us please login with your personal info</p>
+                 <button class="ghost" id="signIn">Sign In</button>
+             </div>
+             <div class="overlay-panel overlay-right">
+                 <h1>Hello, Friend!</h1>
+                 <p>If you don't have a login ID yet, please find the company admin.</p>
+                 <button class="ghost" id="signUp">Cheers</button>
+             </div>
+         </div>
+     </div>
+ </div>
 
-<footer>
-    <p>
-        Created <i class="fa fa-heart"></i> by ERP Team - Progmatic
-    </p>
-</footer>
+ <footer>
+     <p>
+         Created <i class="fa fa-heart"></i> by ERP Team - Progmatic
+     </p>
+ </footer>
 
-<script>
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
+ <script>
+     const signUpButton = document.getElementById('signUp');
+     const signInButton = document.getElementById('signIn');
+     const container = document.getElementById('container');
 
-    signUpButton.addEventListener('click', () => {
-        container.classList.add("right-panel-active");
-    });
+     signUpButton.addEventListener('click', () => {
+         container.classList.add("right-panel-active");
+     });
 
-    signInButton.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
-    });
-</script>
+     signInButton.addEventListener('click', () => {
+         container.classList.remove("right-panel-active");
+     });
+ </script>
 
-</body>
+ </body>
 
-</html>
+ </html>
