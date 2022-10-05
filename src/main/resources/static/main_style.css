@@ -70,7 +70,7 @@ body {
 }
 
 table {
-    width: 50%;
+    width: 80%;
     table-layout: fixed;
 }
 
@@ -90,6 +90,14 @@ th {
 
 tr:nth-child(odd) {
     background-color: var(--mid_gray);
+}
+
+.box {
+    background-color: #4B67C4;
+    width: 70%;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .form-position {

@@ -19,8 +19,9 @@
         </div>
     </div>
     <div class="right">
-        <a data-th-href="@{/partner}"><h1>Partners</h1></a>
-        <h1>Customers</h1>
+        <div class="box">
+        <h1 align="center">Partners</h1>
+        <h2>Customers</h2>
         <table>
             <tr>
                 <th>Partner Name</th>
@@ -38,7 +39,7 @@
             </tr>
         </table>
 
-        <h1>Suppliers</h1>
+        <h2>Suppliers</h2>
         <table>
             <tr>
                 <th>Partner Name</th>
@@ -55,23 +56,24 @@
                 <td data-th-text="${partner.phoneNumber}"></td>
             </tr>
         </table>
-
+        </div>
         <br />
 
-        <a data-th-href="@{/producedproducts}"><h1>Products</h1></a>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Bomlist name</th>
-            </tr>
-            <tr data-th-each="producedProduct: ${producedProducts}">
-                <td data-th-text="${producedProduct.name}"></td>
-                <td data-th-text="${producedProduct.bomList.name}"></td>
-            </tr>
-        </table>
-
+        <div class="box">
+            <a data-th-href="@{/producedproducts}"><h1>Products</h1></a>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Bomlist name</th>
+                </tr>
+                <tr data-th-each="producedProduct: ${producedProducts}">
+                    <td data-th-text="${producedProduct.name}"></td>
+                    <td data-th-text="${producedProduct.bomList.name}"></td>
+                </tr>
+            </table>
+        </div>
         <br />
-
+        <div class="box">
         <a data-th-href="@{/bomlists}"><h1>BOMList</h1></a>
         <table>
             <tr>
@@ -86,6 +88,7 @@
                     <li data-th-text="${ingredient.name}"></li></ul></td>
             </tr>
         </table>
+        </div>
     </div>
 </div>
 
