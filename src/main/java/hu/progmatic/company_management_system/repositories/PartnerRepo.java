@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface PartnerRepo extends CrudRepository<Partner, Long> {
 
+    List<Partner> findAll();
+
     List<Partner> findByPartnerTypeEquals(PartnerType partnerType);
 
     Partner findByPartnerTypeEqualsAndIdEquals(PartnerType partnerType, long id);

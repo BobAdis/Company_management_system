@@ -65,7 +65,7 @@ public class DBRunner implements CommandLineRunner {
 
         Partner partner1 = new Partner("Mészáros és Mészáros Kft", PartnerType.SUPPLIER, "1000 BP Hősök tere 1.", "Lölő", "lölő@közpénz.hu", "0630123456789");
         partnerRepo.save(partner1);
-        Partner partner2 = new Partner("Mészáros és a Főni Kft", PartnerType.COSTUMER, "1000 BP Hősök tere 1.", "Főni", "lölő@közpénz.hu", "0630123456789");
+        Partner partner2 = new Partner("Mészáros és a Főni Kft", PartnerType.CUSTOMER, "1000 BP Hősök tere 1.", "Főni", "lölő@közpénz.hu", "0630123456789");
         partnerRepo.save(partner2);
         System.out.println("Partners generated.");
 

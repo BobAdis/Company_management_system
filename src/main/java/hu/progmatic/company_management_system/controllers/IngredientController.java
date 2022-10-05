@@ -24,7 +24,6 @@ public class IngredientController {
         this.bomListService = bomListService;
     }
 
-
     @GetMapping(value = {"/ingredients"})
     public String getIngredientsPage(Model model) {
         List<Ingredient> ingredients = ingredientService.getAllIngredient();
@@ -46,7 +45,6 @@ public class IngredientController {
     @GetMapping(value = {"/newingredient"})
     public String getNewIngredientForm(Model model) {
         Ingredient ingredient = new Ingredient();
-
         model.addAttribute("ingredient", ingredient);
         model.addAttribute("productName", "Ingredient");
 
