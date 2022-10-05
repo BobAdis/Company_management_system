@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suppliers page</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <h2 data-th-text="${page}"></h2>
+</header>
+
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
+
+        <form data-th-action="@{/customers}" data-th-object="${form}" method="post">
+            <table>
+                <tr>
+                    <th>Search by name:</th>
+                    <td><input type="text" data-th-field="*{name}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Search</button></td>
+                </tr>
+            </table>
+        </form>
+        <table>
+            <tr>
+                <th>Partner Name</th>
+                <th>Address</th>
+                <th>Contact Name</th>
+                <th>Email</th>
+                <th>Phone number</th>
+            </tr>
+            <tr data-th-each="partner: ${partners}">
+                <td data-th-text="${partner.partnerName}"></td>
+                <td data-th-text="${partner.address}"></td>
+                <td data-th-text="${partner.contactName}"></td>
+                <td data-th-text="${partner.email}"></td>
+                <td data-th-text="${partner.phoneNumber}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
