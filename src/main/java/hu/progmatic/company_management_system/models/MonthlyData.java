@@ -1,9 +1,6 @@
 package hu.progmatic.company_management_system.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class MonthlyData {
@@ -12,9 +9,11 @@ public class MonthlyData {
     @GeneratedValue
     private Long id;
 
-    private String month;
+    @Enumerated
+    private Month month;
 
-    private String year;
+    @Enumerated
+    private Year year;
 
     private int workingDays;
     private int paidLeave;
@@ -70,19 +69,19 @@ public class MonthlyData {
         this.illnessBenefit = illnessBenefit;
     }
 
-    public String getMonth() {
+    public Month getMonth() {
         return month;
     }
 
-    public void setMonth(String month) {
+    public void setMonth(Month month) {
         this.month = month;
     }
 
-    public String getYear() {
+    public Year getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(Year year) {
         this.year = year;
     }
 
