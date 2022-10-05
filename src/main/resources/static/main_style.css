@@ -85,7 +85,7 @@ th, td {
 }
 
 th {
-    background-color: var(--smooth_green);
+    background-color: #6381CC;
 }
 
 tr:nth-child(odd) {
