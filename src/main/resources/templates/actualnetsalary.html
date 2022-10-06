@@ -20,7 +20,7 @@
 
 <form class="form" data-th-action="@{/actualnetsalary/{taxnumber}(taxnumber=${e.taxNumber})}" data-th-object="${monthlyData}" method="post">
 
-    <table>
+    <table class="positionTHTD">
 
         <tr>
             <th>SELECT YEAR</th>
@@ -50,15 +50,15 @@
                 </select>
             </td>
             <td>
-                <input type="number" data-th-field="*{workingDays}" required /></td>
+                <input class="form-handler" type="number" data-th-field="*{workingDays}" required /></td>
             <td>
-                <input type="number" data-th-field="*{paidLeave}" required /> </td>
+                <input class="form-handler" type="number" data-th-field="*{paidLeave}" required /> </td>
             <td>
-                <input type="number" data-th-field="*{sickLeave}" required /> </td>
+                <input class="form-handler" type="number" data-th-field="*{sickLeave}" required /> </td>
             <td>
-                <input type="number" data-th-field="*{illnessBenefit}" required /> </td>
+                <input class="form-handler" type="number" data-th-field="*{illnessBenefit}" required /> </td>
             <td>
-                <input type="submit" value="Calculate net salary"/> </td>
+                <input class="form-handler"  type="submit" value="Calculate net salary"/> </td>
             <td data-th-text="${#numbers.formatInteger(money,3,'WHITESPACE') + ' Ft '}"></td>
 
 
