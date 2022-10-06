@@ -61,7 +61,10 @@ public class EmployeeController {
 
         model.addAttribute("employees", employees);
 
-        monthlyDataService.getMonthlyData();
+        List<MonthlyData> monthlyDataList = monthlyDataService.getMonthlyData();
+        model.addAttribute("monthlyDataList", monthlyDataList);
+        System.out.println(monthlyDataList);
+
         return "netsalary";
     }
 

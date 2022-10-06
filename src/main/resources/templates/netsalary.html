@@ -2,47 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>January payroll</title>
+    <title>Net salary list</title>
     <link rel="stylesheet" href="/style.css">
-    <style>
-        .form {gap: 0}
-        label {margin-bottom: 10px; margin-top: 25px}
-        .send_button { margin-top: 25px}
-    </style>
-
 </head>
 <body>
 <header>
-    <div th:replace="~{fragments/navigation :: navigation}"></div>
+    <h2 data-th-text="${page}"></h2>
 </header>
-<form class="form" form data-th-action="@{/netsalary/}" method="post" data-th-object="${netsalary}">
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
+<table>
 
-    <table>
+    <tr>
+        <th>Tax number</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Month</th>
+        <th>Net salary</th>
+    </tr>
 
-        <tr>
-            <th>Tax number</th>
-            <th>Name</th>
-            <th>Working days</th>
-            <th>Paid leave</th>
-            <th>Sick leave</th>
-            <th>Illness benefit</th>
+    <tr data-th-each="m : ${monthlyDataList}">
+        <td data-th-text="${m.employee.taxNumber}"></td>
+        <td data-th-text="${m.employee.name}"></td>
+        <td data-th-text="${m.year}"></td>
+        <td data-th-text="${m.month}"></td>
+        <td data-th-text="${#numbers.formatInteger(m.getNetSalary,3,'WHITESPACE') + ' Ft '}"></td>
 
-        </tr>
-
-        <tr>
-            <td ><a data-th-text="${oneEmployee.taxNumber}" data-th-href="@{/actualnetsalary/{taxnumber}(taxnumber=${oneEmployee.taxNumber})}"></a></td>
-            <td data-th-text="${oneEmployee.name}"></td>
-
-
-
-
-
-</tr>
+    </tr>
 
 </table>
-
-
-</form>
 
 
 
