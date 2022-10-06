@@ -19,7 +19,9 @@
         </div>
     </div>
     <div class="right">
-        <a data-th-href="@{/partner}"><h1>Partners</h1></a>
+        <div class="box">
+        <h1 align="center">Partners</h1>
+        <h2>Customers</h2>
         <table>
             <tr>
                 <th>Partner Name</th>
@@ -28,7 +30,7 @@
                 <th>Email</th>
                 <th>Phone number</th>
             </tr>
-            <tr data-th-each="partner: ${partners}">
+            <tr data-th-each="partner: ${customers}">
                 <td data-th-text="${partner.partnerName}"></td>
                 <td data-th-text="${partner.address}"></td>
                 <td data-th-text="${partner.contactName}"></td>
@@ -37,22 +39,41 @@
             </tr>
         </table>
 
-        <br />
-
-        <a data-th-href="@{/producedproducts}"><h1>Products</h1></a>
+        <h2>Suppliers</h2>
         <table>
             <tr>
-                <th>Name</th>
-                <th>Bomlist name</th>
+                <th>Partner Name</th>
+                <th>Address</th>
+                <th>Contact Name</th>
+                <th>Email</th>
+                <th>Phone number</th>
             </tr>
-            <tr data-th-each="producedProduct: ${producedProducts}">
-                <td data-th-text="${producedProduct.name}"></td>
-                <td data-th-text="${producedProduct.bomList.name}"></td>
+            <tr data-th-each="partner: ${suppliers}">
+                <td data-th-text="${partner.partnerName}"></td>
+                <td data-th-text="${partner.address}"></td>
+                <td data-th-text="${partner.contactName}"></td>
+                <td data-th-text="${partner.email}"></td>
+                <td data-th-text="${partner.phoneNumber}"></td>
             </tr>
         </table>
-
+        </div>
         <br />
 
+        <div class="box">
+            <a data-th-href="@{/producedproducts}"><h1>Products</h1></a>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Bomlist name</th>
+                </tr>
+                <tr data-th-each="producedProduct: ${producedProducts}">
+                    <td data-th-text="${producedProduct.name}"></td>
+                    <td data-th-text="${producedProduct.bomList.name}"></td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <div class="box">
         <a data-th-href="@{/bomlists}"><h1>BOMList</h1></a>
         <table>
             <tr>
@@ -67,31 +88,8 @@
                     <li data-th-text="${ingredient.name}"></li></ul></td>
             </tr>
         </table>
-
-        <br />
-
-        <a data-th-href="@{/customers}"><h1>Customers</h1></a>
-        <table>
-            <tr>
-                <th>Partner Name</th>
-                <th>Address</th>
-                <th>Contact Name</th>
-                <th>Email</th>
-                <th>Phone number</th>
-            </tr>
-            <tr data-th-each="partner: ${partners}">
-                <td data-th-text="${partner.partnerName}"></td>
-                <td data-th-text="${partner.address}"></td>
-                <td data-th-text="${partner.contactName}"></td>
-                <td data-th-text="${partner.email}"></td>
-                <td data-th-text="${partner.phoneNumber}"></td>
-            </tr>
-        </table>
-
+        </div>
     </div>
 </div>
-
-
-
 </body>
 </html>

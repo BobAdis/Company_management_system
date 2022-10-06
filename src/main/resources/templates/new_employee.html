@@ -27,23 +27,23 @@
 
         <form class="form" data-th-action="@{/newemployee}" data-th-object="${employee}" method="post">
             <label for="taxNumber">Tax number</label>
-            <input id="taxNumber" placeholder="taxNumber" type="number" data-th-field="*{taxNumber}">
+            <input id="taxNumber" placeholder="taxNumber" type="number" data-th-field="*{taxNumber}" required>
             <label for="name">Name</label>
-            <input id="name" placeholder="name" type="text" data-th-field="*{name}">
+            <input id="name" placeholder="name" type="text" data-th-field="*{name}" required>
             <label for="maidenName">Maiden name</label>
-            <input id="maidenName" placeholder="maidenName" type="text" data-th-field="*{maidenName}">
+            <input id="maidenName" placeholder="maidenName" type="text" data-th-field="*{maidenName}" required>
             <label for="socialSecurityNumber">Social security number</label>
-            <input id="socialSecurityNumber" placeholder="socialSecurityNumber" type="number" data-th-field="*{socialSecurityNumber}">
+            <input id="socialSecurityNumber" placeholder="socialSecurityNumber" type="number" data-th-field="*{socialSecurityNumber}" required>
             <label for="placeOfBirth">Place of birth</label>
-            <input id="placeOfBirth" placeholder="placeOfBirth" type="text" data-th-field="*{placeOfBirth}">
+            <input id="placeOfBirth" placeholder="placeOfBirth" type="text" data-th-field="*{placeOfBirth}" required>
             <label for="dateOfBirth">Date of birth</label>
-            <input id="dateOfBirth" placeholder="dateOfBirth" type="date" data-th-field="*{dateOfBirth}">
+            <input id="dateOfBirth" placeholder="dateOfBirth" type="date" data-th-field="*{dateOfBirth}" required>
             <label for="motherName">Mother's name</label>
-            <input  id="motherName" placeholder="motherName" type="text" data-th-field="*{motherName}">
+            <input  id="motherName" placeholder="motherName" type="text" data-th-field="*{motherName}" required>
             <label for="address">Address</label>
-            <input id="address" placeholder="address" type="text" data-th-field="*{address}">
+            <input id="address" placeholder="address" type="text" data-th-field="*{address}" required>
             <label for="personnelGroup">Personnel group</label>
-            <input  id="personnelGroup" placeholder="personnelGroup" type="text" data-th-field="*{personnelGroup}">
+            <input  id="personnelGroup" placeholder="personnelGroup" type="text" data-th-field="*{personnelGroup}" required>
             <label for="personnelTask">Personnel task</label>
             <select id="personnelTask" data-th-field="*{personnelTask}">
                 <option data-th-each="task : ${tasks}"
@@ -52,13 +52,13 @@
                 </option>
             </select>
             <label for="startOfEmployment">Start of employment</label>
-            <input id="startOfEmployment" placeholder="startOfEmployment" type="date" data-th-field="*{startOfEmployment}">
+            <input id="startOfEmployment" placeholder="startOfEmployment" type="date" data-th-field="*{startOfEmployment}" required>
             <label for="HSCO">HSCO</label>
-            <input id="HSCO" placeholder="HSCO" type="text" data-th-field="*{HSCO}">
+            <input id="HSCO" placeholder="HSCO" type="text" data-th-field="*{HSCO}" required>
             <label for="workingHours">Working hours</label>
-            <input id="workingHours" placeholder="workingHours" type="text" data-th-field="*{workingHours}">
+            <input id="workingHours" placeholder="workingHours" type="text" data-th-field="*{workingHours}" required>
             <label for="grossSalary">Gross salary</label>
-            <input id="grossSalary" placeholder="grossSalary" type="text" data-th-field="*{grossSalary}">
+            <input id="grossSalary" placeholder="grossSalary" type="text" data-th-field="*{grossSalary}" required>
 
             <button class="send_button" type="submit">Save</button>
         </form>

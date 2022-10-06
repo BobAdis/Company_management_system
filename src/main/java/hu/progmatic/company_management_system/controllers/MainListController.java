@@ -37,11 +37,11 @@ public class MainListController {
         model.addAttribute("form", new BOMListSearchForm());
 
         List<Partner> suppliers = partnerService.getAllSupplier();
-        model.addAttribute("partners", suppliers);
+        model.addAttribute("suppliers", suppliers);
         model.addAttribute("page", "Suppliers List");
 
         List<Partner> customers = partnerService.getAllCustomers();
-        model.addAttribute("partners", customers);
+        model.addAttribute("customers", customers);
         model.addAttribute("page", "Customer List");
 
         List<ProducedProduct> producedProducts = producedProductService.getAllProduct();

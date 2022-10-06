@@ -70,7 +70,7 @@ body {
 }
 
 table {
-    width: 50%;
+    width: 80%;
     table-layout: fixed;
 }
 
@@ -80,16 +80,25 @@ table, th, td {
 }
 
 th, td {
-    padding: 3px;
+    padding: 2px;
     text-align: left;
 }
 
 th {
-    background-color: var(--smooth_green);
+    background-color: #6381CC;
 }
 
 tr:nth-child(odd) {
     background-color: var(--mid_gray);
+}
+
+.box {
+    background-color: #4B67C4;
+    width: 70%;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius:10px;
 }
 
 .form-position {
@@ -127,17 +136,19 @@ tr:nth-child(odd) {
     background-color: #4B67C4;
     color: black;
     display: flex;
-    padding: 12px;
+    padding: 5px;
     text-decoration: none;
 }
 
 .vertical-menu a:hover {
     background-color: #ccc;
+    border-radius:5px;
 }
 
 .vertical-menu a.active {
     background-color: #E92323;
     color: white;
+    border-radius:5px;
 }
 
 .vertical-menu a.highlights {
@@ -174,13 +185,8 @@ header {
     flex: 85%;
     padding: 10px;
     background-color:#6381CC;
+    border-radius: 10px;
 }
 
-.div1 {
-    width: 500px;
-    height: 100px;
-    padding: 10px;
-    border: 1px solid blue;
-}
 
 
