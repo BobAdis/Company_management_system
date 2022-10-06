@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Work</title>
+</head>
+<body>
+    <h2 data-th-if="${bomlist} != null" data-th-text="${bomlist.name}"></h2>
+    <p data-th-if="${bomlist} != null" data-th-text="${bomlist.description}"></p>
+
+    <form data-th-action="@{/rm_workstation/{id}(id=${bomlist.id})}" method="post">
+        <label for="rawmaterials">Raw materials</label>
+        <select id="rawmaterials" name="rm_id">
+            <option data-th-each="rm: ${rawmaterials}"
+                    data-th-value="${rm.id}"
+                    data-th-text="${rm.ingredient.name}">
+            </option>
+        </select>
+        <label for="quantity"></label>
+        <input id="quantity" type="number" value="1" name="quantity" required />
+        <button type="submit">Use</button>
+    </form>
+
+    <p data-th-if="${rm_success} == true">Sikeres felhasználás!</p>
+    <p data-th-if="${rm_success} == false">Sikertelen felhasználás! Nem elég alapanyag!</p>
+
+    <p data-th-if="${rawmaterial} != null" data-th-text="'Rawmaterial = ' +  ${rawmaterial.ingredient.name}"></p>
+    <p data-th-if="${rawmaterial} != null" data-th-text="'Current quantity = ' + ${rawmaterial.quantity}"></p>
+
+    <form data-th-action="@{/ep_workstation/{id}(id=${bomlist.id})}" method="post">
+        <label for="endproducts">Endproducts</label>
+        <select id="endproducts" name="ep_id">
+            <option data-th-each="ep: ${endproducts}"
+                    data-th-value="${ep.id}"
+                    data-th-text="${ep.producedProduct.name}">
+            </option>
+        </select>
+        <label for="ep_quantity"></label>
+        <input id="ep_quantity" type="number" value="1" name="quantity" required />
+        <button type="submit">Add</button>
+    </form>
+
+    <p data-th-if="${ep_success} == true">Sikeres hozzáadás!</p>
+    <p data-th-if="${ep_success} == false">Hiba!</p>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package hu.progmatic.company_management_system.services;
 
 import hu.progmatic.company_management_system.models.EndProduct;
+import hu.progmatic.company_management_system.models.RawMaterial;
 import hu.progmatic.company_management_system.repositories.EndProductRepo;
 import hu.progmatic.company_management_system.searchform.EndProductSearchForm;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,14 @@ public class EndProductService {
 
     public List<EndProduct> getEndProductWhereShippingOutIsNull() {
         return endProductRepo.getEndProductByShippingOutNull();
+    }
+
+    public boolean addEndproduct(Long endProductId, int quantity) {
+        EndProduct endProduct = getById(endProductId);
+        int currentQuantity = endProduct.getQuantity();
+
+        endProduct.setQuantity(currentQuantity + quantity);
+        endProductRepo.save(endProduct);
+        return true;
     }
 }

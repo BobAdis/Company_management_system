@@ -28,6 +28,8 @@
         <form class="form" data-th-action="@{/newbomlist}" data-th-object="${bomlist}" method="post">
           <label for="name">Name</label>
           <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+          <label for="description">Description</label>
+          <textarea id="description" data-th-field="*{description}"></textarea>
           <label for="producedproduct">Produced product</label>
           <select id="producedproduct" name="productId">
             <option data-th-each="product: ${producedProducts}"

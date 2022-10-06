@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workstation</title>
+</head>
+<body>
+    <ul>
+        <div data-th-each="bl : ${bomlists}">
+            <li><a data-th-href="@{/workstation/{id}(id=${bl.id})}" data-th-text="${bl.name}"></a></li>
+        </div>
+    </ul>
+
+  <!--<script th:inline="javascript">
+      /*<![CDATA[*/
+      function showDescription() {
+          var bomlists = /*[[${bomlists}]]*/ 'null';
+          var selectedIndex = $("#bomlists option:selected").index();
+          var boml = bomlists[selectedIndex];
+          $("#mySelection").text(boml.description);
+      }
+      $(function() { showDescription(); });
+      /*]]>*/
+  </script>-->
+
+</body>
+</html>

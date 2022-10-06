@@ -15,6 +15,8 @@ public class BOMList {
     @OneToMany(mappedBy = "bomList")
     private List<Ingredient> ingredients;
 
+    private String description;
+
     public BOMList() {
     }
 
@@ -56,4 +58,11 @@ public class BOMList {
         this.ingredients = ingredients;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
