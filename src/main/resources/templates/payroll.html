@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-    <h2>Payroll</h2>
+    <h2>Employee data sheet</h2>
     <h2 data-th-text="${page}"></h2>
 </header>
 <div class="row">
@@ -18,37 +18,25 @@
     </div>
     <div class="right">
 
-    <a data-th-href="@{/january}"><button class="send_button">JANUARY</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">FEBRUARY</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">MARCH</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">APRIL</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">MAY</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">JUNE</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">JULY</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">AUGUST</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">SEPTEMBER</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">OCTOBER</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">NOVEMBER</button></a>
-    <a data-th-href="@{/netsalary}"><button class="send_button">DECEMBER</button></a>
+<table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+  <tr>
+    <th>Tax Number</th>
+    <th>Name</th>
+  </tr>
 
+  <tr data-th-each="e : ${employees}">
+    <td ><a data-th-text="${e.taxNumber}" data-th-href="@{/actualnetsalary/{taxnumber}(taxnumber=${e.taxNumber})}"></a></td>
+    <td data-th-text="${e.name}"></td>
 
+  </tr>
+</table>
+        <button class="send_button">
+            <a data-th-href="@{/payroll}">Back to Payroll</a>
+        </button>
+        <button class="send_button">
+            <a data-th-href="@{/netsalary}">Show net salary list</a>
+        </button>
 
-<!--<table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
-    <tr>
-        <th>Tax Number</th>
-        <th>Name</th>
-        <th>Gross salary</th>
-        <th>Net salary</th>
-    </tr>
-
-
-    <tr data-th-each="e : ${employees}">
-        <td data-th-text="${e.taxNumber}"></td>
-        <td data-th-text="${e.name}"></td>
-        <td data-th-text="${e.grossSalary}"></td>
-        <td data-th-text="${e.setNetSalary(e.grossSalary)}"></td>
-    </tr>
-</table>-->
     </div>
 </div>
 </body>

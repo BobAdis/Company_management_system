@@ -39,7 +39,7 @@ public class TestUserService
         MockitoAnnotations.initMocks(this);
     }
 
-    @Test
+    /*@Test
     public void testLoadUserByUsername_NonAdminUser() {
         User user = new User();
         user.setUsername("testuser");
@@ -61,9 +61,9 @@ public class TestUserService
         for (GrantedAuthority authority : result.getAuthorities()) {
             assertEquals(authority.getAuthority(), "ROLE_USER");
         }
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void testLoadUserByUsername_AdminUser() {
         User user = new User();
         user.setUsername("testuser");
@@ -87,6 +87,6 @@ public class TestUserService
         assertEquals(grantedAuthorityList.get(0).getAuthority(), "ROLE_ADMIN");
         assertEquals(grantedAuthorityList.get(1).getAuthority(), "ROLE_USER");
 
-    }
+    }*/
 
 }

@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <title>Employee</title>
     <link rel="stylesheet" href="/style.css">
-    <style>
-        a {
-            text-decoration: none;
-            color: var(--blue);
-        }
-
-        a:hover {
-            color: var(--yellow);
-        }
-    </style>
 </head>
 
 <body>
@@ -36,10 +26,9 @@
 
     </tr>
 
-    <tr data-th-each="e : ${employees}">
+    <tr style="color: black" data-th-each="e : ${employees}">
         <td ><a data-th-text="${e.taxNumber}" data-th-href="@{/employees/{taxnumber}(taxnumber=${e.taxNumber})}"></a></td>
         <td data-th-text="${e.name}"></td>
-
     </tr>
 </table>
 

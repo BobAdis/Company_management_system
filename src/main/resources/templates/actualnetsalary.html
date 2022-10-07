@@ -20,9 +20,11 @@
 
 <form class="form" data-th-action="@{/actualnetsalary/{taxnumber}(taxnumber=${e.taxNumber})}" data-th-object="${monthlyData}" method="post">
 
-    <table>
+    <table class="positionTHTD">
 
         <tr>
+            <th>SELECT YEAR</th>
+            <th>SELECT MONTH</th>
             <th>Working days</th>
             <th>Paid leave</th>
             <th>Sick leave</th>
@@ -31,15 +33,32 @@
 
         <tr>
             <td>
-                <input type="number" data-th-field="*{workingDays}" required /></td>
+                <select class="form-handler" data-th-name="year">
+                    <option data-th-each="year: ${years}"
+                            data-th-value="${year}"
+                            data-th-text="${year}">
+                    </option>
+                </select>
+            </td>
+
             <td>
-                <input type="number" data-th-field="*{paidLeave}" required /> </td>
+                <select class="form-handler" data-th-name="month">
+                    <option data-th-each="month: ${monthes}"
+                            data-th-value="${month}"
+                            data-th-text="${month}">
+                    </option>
+                </select>
+            </td>
             <td>
-                <input type="number" data-th-field="*{sickLeave}" required /> </td>
+                <input class="form-handler" type="number" data-th-field="*{workingDays}" required /></td>
             <td>
-                <input type="number" data-th-field="*{illnessBenefit}" required /> </td>
+                <input class="form-handler" type="number" data-th-field="*{paidLeave}" required /> </td>
             <td>
-                <input type="submit" value="Calculate net salary"/> </td>
+                <input class="form-handler" type="number" data-th-field="*{sickLeave}" required /> </td>
+            <td>
+                <input class="form-handler" type="number" data-th-field="*{illnessBenefit}" required /> </td>
+            <td>
+                <input class="form-handler"  type="submit" value="Calculate net salary"/> </td>
             <td data-th-text="${#numbers.formatInteger(money,3,'WHITESPACE') + ' Ft '}"></td>
 
 
@@ -47,10 +66,11 @@
 
     </table>
 
-
 </form>
-        <button class="send_button">
-            <a data-th-href="@{/january}">Back Employee data sheet</a>
+
+
+     <button class="send_button">
+            <a data-th-href="@{/payroll}">Back Employee data sheet</a>
         </button>
         <button class="send_button">
             <a data-th-href="@{/payroll}">Back payroll</a>

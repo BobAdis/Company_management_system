@@ -70,26 +70,36 @@ body {
 }
 
 table {
-    width: 50%;
-    table-layout: fixed;
+    width: 70%;
+    table-layout: auto;
 }
 
 table, th, td {
     border: 1px solid var(--gray);
     border-collapse: collapse;
+    pandding: 5px;
 }
 
 th, td {
-    padding: 3px;
+    padding: 2px;
     text-align: left;
 }
 
 th {
-    background-color: var(--smooth_green);
+    background-color: #4B67C4;
 }
 
 tr:nth-child(odd) {
-    background-color: var(--mid_gray);
+    background-color: #4B67C4;
+}
+
+.box {
+    width: 70%;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius:10px;
+    border: 2px solid var(--light_gray);
 }
 
 .form-position {
@@ -127,22 +137,35 @@ tr:nth-child(odd) {
     background-color: #4B67C4;
     color: black;
     display: flex;
-    padding: 12px;
+    padding: 5px;
     text-decoration: none;
 }
 
 .vertical-menu a:hover {
     background-color: #ccc;
+    border-radius:5px;
 }
 
 .vertical-menu a.active {
     background-color: #E92323;
     color: white;
+    border-radius:5px;
+}
+
+.vertical-menu a.activeLogout {
+    background-color: #9C2424;
+    color: white;
+    border-radius:5px;
 }
 
 .vertical-menu a.highlights {
     padding: 8px;
     border-bottom: 5px solid #5177E0;
+}
+
+.vertical-menu a.toplights {
+    padding: 8px;
+    border-top: 5px solid #5177E0;
 }
 
 header {
@@ -171,16 +194,14 @@ header {
 }
 
 .right {
-    flex: 85%;
+    display: flex;
+    justify-content: space-around;
     padding: 10px;
     background-color:#6381CC;
+    border-radius: 10px;
+    border-collapse: collapse;
 }
 
-.div1 {
-    width: 500px;
-    height: 100px;
-    padding: 10px;
-    border: 1px solid blue;
-}
+
 
 

@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Locale;
 
 @Controller
 public class EmployeeController {
@@ -53,12 +52,6 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @GetMapping("/payroll")
-    public String getPayrollPage(Model model) {
-        model.addAttribute("employees", employeeService.getEmployees());
-        return "payroll";
-    }
-
 
 
     @GetMapping("/netsalary")
@@ -68,7 +61,10 @@ public class EmployeeController {
 
         model.addAttribute("employees", employees);
 
-        monthlyDataService.getMonthlyData();
+        List<MonthlyData> monthlyDataList = monthlyDataService.getMonthlyData();
+        model.addAttribute("monthlyDataList", monthlyDataList);
+        System.out.println(monthlyDataList);
+
         return "netsalary";
     }
 
@@ -123,12 +119,12 @@ public class EmployeeController {
     }
 
 
-    @GetMapping("/january")
+    @GetMapping("/payroll")
     public String getJanuaryPage(Model model){
         List<Employee> employees = employeeService.getEmployees();
 
         model.addAttribute("employees", employees);
-        return "january";
+        return "payroll";
     }
 
     @GetMapping("/actualnetsalary/{taxnumber}")
@@ -138,6 +134,8 @@ public class EmployeeController {
 
         model.addAttribute("monthlyData", monthlyData);
         model.addAttribute("e", e1);
+        model.addAttribute("years", Year.values());
+        model.addAttribute("monthes", Month.values());
         return "actualnetsalary";
     }
 
@@ -153,6 +151,7 @@ public class EmployeeController {
         model.addAttribute("monthlyData", monthlyData);
         model.addAttribute("e", e1);
         model.addAttribute("money", money);
+
         return "actualnetsalary";
     }
     /*@PostMapping("/actualnetsalary/{taxnumber}")

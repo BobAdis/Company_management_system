@@ -1,10 +1,13 @@
 package hu.progmatic.company_management_system.controllers;
 
 import hu.progmatic.company_management_system.models.Partner;
+import hu.progmatic.company_management_system.models.PartnerType;
+import hu.progmatic.company_management_system.searchform.PartnerSearchForm;
 import hu.progmatic.company_management_system.services.PartnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -22,7 +25,18 @@ public class PartnerController {
         List<Partner> suppliers = partnerService.getAllSupplier();
         model.addAttribute("partners", suppliers);
         model.addAttribute("page", "Suppliers List");
-        return "partner";
+        model.addAttribute("form", new PartnerSearchForm());
+        return "suppliers";
+    }
+
+    @PostMapping("/suppliers")
+    public String displaySupplierSearchResults(PartnerSearchForm form, Model model) {
+        PartnerType partnerType = PartnerType.SUPPLIER;
+        List<Partner> partners = partnerService.getByForm(form, partnerType);
+        model.addAttribute("partners", partners);
+        model.addAttribute("page", "Suppliers List");
+        model.addAttribute("form", form);
+        return "suppliers";
     }
 
     @GetMapping(value = {"/customers"})
@@ -30,6 +44,18 @@ public class PartnerController {
         List<Partner> customers = partnerService.getAllCustomers();
         model.addAttribute("partners", customers);
         model.addAttribute("page", "Customer List");
-        return "partner";
+        model.addAttribute("form", new PartnerSearchForm());
+        return "customers";
     }
+
+    @PostMapping("/customers")
+    public String displayCustomersSearchResults(PartnerSearchForm form, Model model) {
+        PartnerType partnerType = PartnerType.CUSTOMER;
+        List<Partner> partners = partnerService.getByForm(form, partnerType);
+        model.addAttribute("partners", partners);
+        model.addAttribute("page", "Customer List");
+        model.addAttribute("form", form);
+        return "customers";
+    }
+
 }

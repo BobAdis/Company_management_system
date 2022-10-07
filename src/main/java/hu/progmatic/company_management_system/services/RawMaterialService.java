@@ -93,4 +93,18 @@ public class RawMaterialService {
     public List<RawMaterial> getWhereShippingInIsNull() {
         return rawMaterialRepo.findAllByShippingInNull();
     }
+
+    public boolean subtractRawMaterial(Long rawMaterialId, int quantity) {
+        RawMaterial rawMaterial = getById(rawMaterialId);
+        int currentQuantity = rawMaterial.getQuantity();
+
+        if(currentQuantity > 0 && currentQuantity >= quantity) {
+            rawMaterial.setQuantity(currentQuantity-quantity);
+
+            rawMaterialRepo.save(rawMaterial);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
