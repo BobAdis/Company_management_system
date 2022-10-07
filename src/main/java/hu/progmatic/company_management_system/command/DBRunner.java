@@ -5,6 +5,8 @@ import hu.progmatic.company_management_system.repositories.*;
 import hu.progmatic.company_management_system.repositories.EmployeeRepo;
 import hu.progmatic.company_management_system.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -57,11 +59,23 @@ public class DBRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        userRepository.save(new User("user", passwordEncoder.encode("password")));
-        System.out.println("User user generated.");
-
-        userRepository.save(new User("admin", passwordEncoder.encode("password"), Position.PRODUCTIONMANAGER, true));
+        userRepository.save(new User("admin", passwordEncoder.encode("password"), Position.ADMIN, true));
         System.out.println("Admin user generated.");
+
+        userRepository.save(new User("user", passwordEncoder.encode("password"), Position.WAREHOUSEWORKER, false));
+        System.out.println("Warehouse user generated.");
+
+        userRepository.save(new User("Gabi", passwordEncoder.encode("password"), Position.TRADE_MANAGER, false));
+        System.out.println("Trade-manager user generated.");
+
+        userRepository.save(new User("Zita", passwordEncoder.encode("password"), Position.FINANCE_STAFF, false));
+        System.out.println("Finance-staff user generated.");
+
+        userRepository.save(new User("Gyuri", passwordEncoder.encode("password"), Position.PRODUCTIONMANAGER, false));
+        System.out.println("Productionmanager user generated.");
+
+        userRepository.save(new User("Pisti", passwordEncoder.encode("password"), Position.CEO, false));
+        System.out.println("CEO user generated.");
 
         Partner partner1 = new Partner("Mészáros és Mészáros Kft", PartnerType.SUPPLIER, "1000 BP Hősök tere 1.", "Lölő", "lölő@közpénz.hu", "0630123456789");
         partnerRepo.save(partner1);

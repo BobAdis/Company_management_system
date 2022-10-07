@@ -1,7 +1,11 @@
 package hu.progmatic.company_management_system.services;
 
+import hu.progmatic.company_management_system.models.Position;
 import hu.progmatic.company_management_system.models.User;
 import hu.progmatic.company_management_system.repositories.UserRepository;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,15 +15,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService implements UserDetailsService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     private final PasswordEncoder encoder;
 
@@ -30,30 +31,9 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        Optional<User> userOptional = userRepository.findByUsername(username);
-        User userData =  userOptional.orElseThrow(() -> new UsernameNotFoundException("User not found."));
-
-
-        if (userData.isAdmin()) {
-            return new org.springframework.security.core.userdetails.User(
-                    userData.getUsername(),
-                    userData.getPassword(),
-                    List.of(
-                            new SimpleGrantedAuthority("ROLE_USER"),
-                            new SimpleGrantedAuthority("ROLE_ADMIN")
-                    )
-            );
-        } else {
-            return new org.springframework.security.core.userdetails.User(
-                    userData.getUsername(),
-                    userData.getPassword(),
-                    List.of(
-                            new SimpleGrantedAuthority("ROLE_USER")
-                    )
-            );
-        }
+        return userRepository.findByUsername(username).orElseThrow();
     }
+
 
     public User getLoggedInUser() {
         return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -68,6 +48,15 @@ public class UserService implements UserDetailsService {
     public List<User> getAllUser() {
 
         return new ArrayList<>((Collection) userRepository.findAll());
+    }
+
+    public boolean isAuthenticated() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || AnonymousAuthenticationToken.class.
+                isAssignableFrom(authentication.getClass())) {
+            return false;
+        }
+        return authentication.isAuthenticated();
     }
 
 

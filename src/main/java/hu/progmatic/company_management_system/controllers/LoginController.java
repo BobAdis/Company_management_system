@@ -23,6 +23,10 @@ public class LoginController {
 
     @GetMapping(value = {"/", "/home", "/login"})
     public String loginPage() {
+        if (userService.isAuthenticated()){
+            return "redirect:/main";
+        }
+
         return "login";
     }
 

@@ -1,8 +1,20 @@
 package hu.progmatic.company_management_system.models;
 
-public enum Position {
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+
+public enum Position implements GrantedAuthority{
 
     WAREHOUSEWORKER,
     PRODUCTIONMANAGER,
-    ACCOUNTANT
+    ACCOUNTANT,
+    ADMIN,
+    CEO,
+    FINANCE_STAFF,
+    TRADE_MANAGER;
+
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }

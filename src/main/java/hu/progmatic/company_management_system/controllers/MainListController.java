@@ -9,6 +9,7 @@ import hu.progmatic.company_management_system.searchform.ProducedProductSearchFo
 import hu.progmatic.company_management_system.services.BOMListService;
 import hu.progmatic.company_management_system.services.PartnerService;
 import hu.progmatic.company_management_system.services.ProducedProductService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +49,7 @@ public class MainListController {
         model.addAttribute("producedProducts", producedProducts);
         model.addAttribute("page", "Produced Products");
         model.addAttribute("form", new ProducedProductSearchForm());
-
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "main";
     }
 

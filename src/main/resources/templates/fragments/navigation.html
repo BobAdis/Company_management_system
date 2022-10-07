@@ -11,31 +11,47 @@
 <div th:fragment="navigation">
     <div class="vertical-menu">
         <ul>
-            <a class="active" data-th-href="@{/main}">Home</a>
-            <a class="highlights">Production</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_FINANCE_STAFF')"
+               class="active" data-th-href="@{/main}">Home</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER')"
+               class="highlights">Production</a>
             <ul>
-                <a data-th-href="@{/rawmaterials}">RawMaterials</a>
-                <a data-th-href="@{/producedproducts}">Produced Products</a>
-                <a data-th-href="@{/warehouses}">Warehouses</a>
-                <a data-th-href="@{/transfer}">Transfer</a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+                    data-th-href="@{/rawmaterials}">RawMaterials</a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+                   data-th-href="@{/producedproducts}">Produced Products</a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_TRADE_MANAGER')"
+                     data-th-href="@{/warehouses}">Warehouses</a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_CEO')"
+                   data-th-href="@{/transfer}">Transfer</a>
             </ul>
-            <a data-th-href="@{/ingredients}">Ingredients</a>
-            <a data-th-href="@{/bomlists}">Bomlists</a>
-            <a data-th-href="@{/endproducts}">Endproducts</a>
-            <a data-th-href="@{/suppliers}">Suppliers</a>
-            <a data-th-href="@{/customers}">Customers</a>
-            <a class="highlights">Shipping</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+               data-th-href="@{/ingredients}">Ingredients</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+               data-th-href="@{/bomlists}">Bomlists</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+               data-th-href="@{/endproducts}">Endproducts</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
+               data-th-href="@{/suppliers}">Suppliers</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
+               data-th-href="@{/customers}">Customers</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')" class="highlights">Shipping</a>
             <ul>
-                <a data-th-href="@{/shippingins}">ShippingIns</a>
-                <a data-th-href="@{/shippingouts}">ShippingOuts</a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
+                   data-th-href="@{/shippingins}">ShippingIns</a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
+                   data-th-href="@{/shippingouts}">ShippingOuts</a>
             </ul>
-            <a class="highlights">HR</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')" class="highlights">HR</a>
             <ul>
-                <a data-th-href="@{/employees}">Employees</a>
-                <a data-th-href="@{/finance}">Finance</a>
-                <a data-th-href="@{/payroll}">Payroll</a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
+                   data-th-href="@{/employees}">Employees</a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
+                   data-th-href="@{/finance}">Finance</a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
+                   data-th-href="@{/payroll}">Payroll</a>
             </ul>
-            <a data-th-href="@{/login}">Logout</a>
+            <a data-th-href="@{/logout}">Logout</a>
         </ul>
     </div>
 </div>
