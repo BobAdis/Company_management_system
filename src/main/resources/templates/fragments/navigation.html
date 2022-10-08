@@ -25,6 +25,8 @@
                 <a class="highlights" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_CEO')"
                    data-th-href="@{/transfer}"><li>Transfer</li></a>
                 <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+                   data-th-href="@{/workstation}"><li>Workstation</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
                        data-th-href="@{/producedproducts}"><li>Produced Products</li></a>
                 <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
                        data-th-href="@{/ingredients}"><li>Ingredients</li></a>
