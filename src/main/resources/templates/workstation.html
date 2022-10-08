@@ -2,10 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Workstation</title>
+    <title>Navigation</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-    <ul>
+<header>
+    <h2 data-th-text="${page}"></h2>
+</header>
+
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">    <ul>
         <div data-th-each="bl : ${bomlists}">
             <li><a data-th-href="@{/workstation/{id}(id=${bl.id})}" data-th-text="${bl.name}"></a></li>
         </div>
@@ -22,6 +35,7 @@
       $(function() { showDescription(); });
       /*]]>*/
   </script>-->
-
+    </div>
+</div>
 </body>
 </html>
