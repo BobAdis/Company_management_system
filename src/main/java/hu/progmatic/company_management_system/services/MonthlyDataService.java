@@ -4,9 +4,11 @@ import hu.progmatic.company_management_system.models.hr_accounting.Employee;
 import hu.progmatic.company_management_system.models.hr_accounting.MonthlyData;
 import hu.progmatic.company_management_system.repositories.EmployeeRepo;
 import hu.progmatic.company_management_system.repositories.MonthlyDataRepo;
+import hu.progmatic.company_management_system.searchform.NetSalarySearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,4 +39,17 @@ public class MonthlyDataService {
     public MonthlyData getMonthlyDataByEmployee(Employee employee) {
         return monthlyDataRepo.findMonthlyDataByEmployee(employee);
     }
+
+    public List<MonthlyData> getByForm(NetSalarySearchForm form) {
+        List<MonthlyData> result = new ArrayList<>();
+
+        for (MonthlyData monthlyData : getMonthlyData()) {
+            if (form.getYear() != null && !monthlyData.getYear().toString().contains(form.getYear().toString())) {
+                continue;
+            }
+            result.add(monthlyData);
+        }
+        return result;
+    }
 }
+

@@ -20,18 +20,10 @@
 
 <form class="form" data-th-action="@{/actualnetsalary/{taxnumber}(taxnumber=${e.taxNumber})}" data-th-object="${monthlyData}" method="post">
 
-    <table class="positionTHTD">
+    <table class="positionTHTD" style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
 
         <tr>
             <th>SELECT YEAR</th>
-            <th>SELECT MONTH</th>
-            <th>Working days</th>
-            <th>Paid leave</th>
-            <th>Sick leave</th>
-            <th>Illness benefit</th>
-        </tr>
-
-        <tr>
             <td>
                 <select class="form-handler" data-th-name="year">
                     <option data-th-each="year: ${years}"
@@ -41,6 +33,10 @@
                 </select>
             </td>
 
+        </tr>
+
+        <tr>
+            <th>SELECT MONTH</th>
             <td>
                 <select class="form-handler" data-th-name="month">
                     <option data-th-each="month: ${monthes}"
@@ -49,16 +45,39 @@
                     </option>
                 </select>
             </td>
+        </tr>
+
+        <tr>
+            <th>Working days</th>
             <td>
                 <input class="form-handler" type="number" data-th-field="*{workingDays}" required /></td>
+        </tr>
+
+        <tr>
+            <th>Paid leave</th>
             <td>
                 <input class="form-handler" type="number" data-th-field="*{paidLeave}" required /> </td>
+        </tr>
+
+        <tr>
+            <th>Sick leave</th>
             <td>
                 <input class="form-handler" type="number" data-th-field="*{sickLeave}" required /> </td>
+        </tr>
+
+        <tr>
+            <th>Illness benefit</th>
             <td>
                 <input class="form-handler" type="number" data-th-field="*{illnessBenefit}" required /> </td>
+        </tr>
+
+        <tr>
             <td>
                 <input class="form-handler"  type="submit" value="Calculate net salary"/> </td>
+        </tr>
+
+        <tr>
+            <th>Net salary</th>
             <td data-th-text="${#numbers.formatInteger(money,3,'WHITESPACE') + ' Ft '}"></td>
 
 
