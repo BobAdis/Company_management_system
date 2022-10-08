@@ -1,6 +1,6 @@
 package hu.progmatic.company_management_system.services;
 
-import hu.progmatic.company_management_system.models.Ingredient;
+import hu.progmatic.company_management_system.models.production.Ingredient;
 import hu.progmatic.company_management_system.repositories.IngredientRepo;
 import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
 import org.springframework.stereotype.Service;

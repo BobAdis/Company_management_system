@@ -1,6 +1,8 @@
-package hu.progmatic.company_management_system.controllers;
+package hu.progmatic.company_management_system.controllers.sales;
 
-import hu.progmatic.company_management_system.models.*;
+import hu.progmatic.company_management_system.models.production.RawMaterial;
+import hu.progmatic.company_management_system.models.sales.Partner;
+import hu.progmatic.company_management_system.models.sales.ShippingIn;
 import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;
 import hu.progmatic.company_management_system.services.PartnerService;
 import hu.progmatic.company_management_system.services.RawMaterialService;

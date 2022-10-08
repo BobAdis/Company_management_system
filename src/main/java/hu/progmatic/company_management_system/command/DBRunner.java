@@ -1,12 +1,16 @@
 package hu.progmatic.company_management_system.command;
 
 import hu.progmatic.company_management_system.models.*;
+import hu.progmatic.company_management_system.models.hr_accounting.Employee;
+import hu.progmatic.company_management_system.models.production.*;
+import hu.progmatic.company_management_system.models.sales.Partner;
+import hu.progmatic.company_management_system.models.sales.PartnerType;
+import hu.progmatic.company_management_system.models.sales.ShippingIn;
+import hu.progmatic.company_management_system.models.sales.ShippingOut;
 import hu.progmatic.company_management_system.repositories.*;
 import hu.progmatic.company_management_system.repositories.EmployeeRepo;
 import hu.progmatic.company_management_system.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 

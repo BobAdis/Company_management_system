@@ -1,7 +1,7 @@
 package hu.progmatic.company_management_system;
 
-import hu.progmatic.company_management_system.models.BOMList;
-import hu.progmatic.company_management_system.models.ProducedProduct;
+import hu.progmatic.company_management_system.models.production.BOMList;
+import hu.progmatic.company_management_system.models.production.ProducedProduct;
 import hu.progmatic.company_management_system.repositories.ProducedProductRepo;
 import hu.progmatic.company_management_system.searchform.ProducedProductSearchForm;
 import hu.progmatic.company_management_system.services.ProducedProductService;
@@ -11,7 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

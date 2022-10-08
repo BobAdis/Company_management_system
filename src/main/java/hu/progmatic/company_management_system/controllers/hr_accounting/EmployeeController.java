@@ -1,6 +1,10 @@
-package hu.progmatic.company_management_system.controllers;
+package hu.progmatic.company_management_system.controllers.hr_accounting;
 
 import hu.progmatic.company_management_system.models.*;
+import hu.progmatic.company_management_system.models.hr_accounting.Employee;
+import hu.progmatic.company_management_system.models.hr_accounting.Month;
+import hu.progmatic.company_management_system.models.hr_accounting.MonthlyData;
+import hu.progmatic.company_management_system.models.hr_accounting.Year;
 import hu.progmatic.company_management_system.services.EmployeeService;
 import hu.progmatic.company_management_system.services.MonthlyDataService;
 import org.springframework.beans.factory.annotation.Autowired;

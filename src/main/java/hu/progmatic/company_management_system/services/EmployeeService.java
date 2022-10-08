@@ -1,8 +1,7 @@
 package hu.progmatic.company_management_system.services;
 
-import hu.progmatic.company_management_system.models.Employee;
+import hu.progmatic.company_management_system.models.hr_accounting.Employee;
 import hu.progmatic.company_management_system.repositories.EmployeeRepo;
-import hu.progmatic.company_management_system.repositories.MonthlyDataRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

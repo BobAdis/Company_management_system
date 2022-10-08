@@ -1,6 +1,6 @@
-package hu.progmatic.company_management_system.models;
+package hu.progmatic.company_management_system.models.hr_accounting;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import hu.progmatic.company_management_system.models.Position;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

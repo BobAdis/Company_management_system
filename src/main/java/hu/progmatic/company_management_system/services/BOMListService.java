@@ -1,7 +1,7 @@
 package hu.progmatic.company_management_system.services;
 
-import hu.progmatic.company_management_system.models.BOMList;
-import hu.progmatic.company_management_system.models.Ingredient;
+import hu.progmatic.company_management_system.models.production.BOMList;
+import hu.progmatic.company_management_system.models.production.Ingredient;
 import hu.progmatic.company_management_system.repositories.BOMListRepo;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
 import org.springframework.stereotype.Service;

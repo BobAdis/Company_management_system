@@ -1,8 +1,8 @@
-package hu.progmatic.company_management_system.controllers;
+package hu.progmatic.company_management_system.controllers.production;
 
-import hu.progmatic.company_management_system.models.BOMList;
-import hu.progmatic.company_management_system.models.EndProduct;
-import hu.progmatic.company_management_system.models.RawMaterial;
+import hu.progmatic.company_management_system.models.production.BOMList;
+import hu.progmatic.company_management_system.models.production.EndProduct;
+import hu.progmatic.company_management_system.models.production.RawMaterial;
 import hu.progmatic.company_management_system.services.BOMListService;
 import hu.progmatic.company_management_system.services.EndProductService;
 import hu.progmatic.company_management_system.services.RawMaterialService;

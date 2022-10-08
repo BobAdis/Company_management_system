@@ -1,4 +1,7 @@
-package hu.progmatic.company_management_system.models;
+package hu.progmatic.company_management_system.models.production;
+
+import hu.progmatic.company_management_system.models.production.BOMList;
+import hu.progmatic.company_management_system.models.production.EndProduct;
 
 import javax.persistence.*;
 import java.util.List;

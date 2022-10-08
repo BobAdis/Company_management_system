@@ -1,8 +1,8 @@
-package hu.progmatic.company_management_system.controllers;
+package hu.progmatic.company_management_system.controllers.production;
 
-import hu.progmatic.company_management_system.models.BOMList;
-import hu.progmatic.company_management_system.models.Ingredient;
-import hu.progmatic.company_management_system.models.ProducedProduct;
+import hu.progmatic.company_management_system.models.production.BOMList;
+import hu.progmatic.company_management_system.models.production.Ingredient;
+import hu.progmatic.company_management_system.models.production.ProducedProduct;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
 import hu.progmatic.company_management_system.services.BOMListService;
 import hu.progmatic.company_management_system.services.IngredientService;
