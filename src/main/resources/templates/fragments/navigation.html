@@ -11,7 +11,7 @@
 <div th:fragment="navigation">
     <div class="vertical-menu">
         <ul>
-            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_FINANCE_STAFF', 'ROLE_MACHINE_OPERATOR')"
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_MACHINE_OPERATOR')"
                class="active" data-th-href="@{/main}">Home</a>
             <a sec:authorize="hasAnyRole('ROLE_ADMIN')"
                class="active" data-th-href="@{/register}">User registry</a>
