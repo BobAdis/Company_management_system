@@ -29,6 +29,9 @@ public class ProducedProductController {
         model.addAttribute("producedProducts", producedProducts);
         model.addAttribute("page", "Produced Products");
         model.addAttribute("form", new ProducedProductSearchForm());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Producedproducts");
         return "producedproducts";
     }
     @PostMapping("/producedproducts")
@@ -46,6 +49,9 @@ public class ProducedProductController {
 
         model.addAttribute("producedProduct", product);
         model.addAttribute("productName", "Produced Product");
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Producedproducts");
 
         return "new_producedproduct";
     }

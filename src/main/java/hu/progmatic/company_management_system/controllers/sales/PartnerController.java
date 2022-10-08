@@ -26,6 +26,9 @@ public class PartnerController {
         model.addAttribute("partners", suppliers);
         model.addAttribute("page", "Suppliers List");
         model.addAttribute("form", new PartnerSearchForm());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Suppliers");
         return "suppliers";
     }
 
@@ -45,6 +48,9 @@ public class PartnerController {
         model.addAttribute("partners", customers);
         model.addAttribute("page", "Customer List");
         model.addAttribute("form", new PartnerSearchForm());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Customers");
         return "customers";
     }
 

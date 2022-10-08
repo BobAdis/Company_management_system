@@ -25,6 +25,9 @@ public class EndProductController {
         model.addAttribute("endProducts", endProducts);
         model.addAttribute("page", "End Products");
         model.addAttribute("form", new EndProductSearchForm());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Endproducts");
         return "endproducts";
     }
 

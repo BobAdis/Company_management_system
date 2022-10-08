@@ -24,6 +24,9 @@ public class WarehousesController {
     @GetMapping(value = {"/warehouses"})
     public String getWarehousesPage(Model model) {
         model.addAttribute("warehouses", Warehouse.values());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Warehouses");
         return "warehouses";
     }
 

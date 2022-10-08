@@ -37,6 +37,9 @@ public class ShippingOutController {
         model.addAttribute("shippingOuts", shippingOuts);
         model.addAttribute("page", "Shipping Outs");
         model.addAttribute("form", new ShippingOutSearchForm());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Shippingouts");
         return "shippingouts";
     }
 
@@ -58,6 +61,9 @@ public class ShippingOutController {
         model.addAttribute("partners", partners);
         model.addAttribute("productName", "Shipping out");
 
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Shippingouts");
+
         return "new_shippingout";
     }
 
@@ -78,6 +84,9 @@ public class ShippingOutController {
 
         model.addAttribute("shippingOut", shippingOut);
         model.addAttribute("endProducts", endProducts);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Shippingouts");
 
         return "addendproductstoshippingout";
     }

@@ -163,3 +163,9 @@ header {
     border-collapse: collapse;
     border-radius: 10px;
 }
+
+a.selected {
+    background-color: #00a23c;
+    color: white;
+    border-radius:5px;
+}

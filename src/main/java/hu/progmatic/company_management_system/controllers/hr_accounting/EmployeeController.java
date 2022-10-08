@@ -31,6 +31,9 @@ public class EmployeeController {
         List<Employee> employees = employeeService.getEmployees();
 
         model.addAttribute("employees", employees);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Employees");
         return "employees";
     }
 
@@ -38,6 +41,9 @@ public class EmployeeController {
     public String getOneEmployee(@PathVariable String taxnumber, Model model) {
         Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
         model.addAttribute("oneEmployee", e1);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Employees");
         return "actualEmployee";
     }
 
@@ -46,6 +52,9 @@ public class EmployeeController {
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
         model.addAttribute("tasks", Position.values());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Employees");
         return "new_employee";
     }
 
@@ -69,6 +78,9 @@ public class EmployeeController {
         model.addAttribute("monthlyDataList", monthlyDataList);
         System.out.println(monthlyDataList);
 
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Netsalary");
+
         return "netsalary";
     }
 
@@ -76,6 +88,9 @@ public class EmployeeController {
     public String getOneEmployeeForNetSalary (@PathVariable String taxnumber, Model model) {
         Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
         model.addAttribute("oneEmployee", e1);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Netsalary");
         return "netsalary";
     }
 
@@ -128,6 +143,9 @@ public class EmployeeController {
         List<Employee> employees = employeeService.getEmployees();
 
         model.addAttribute("employees", employees);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Payroll");
         return "payroll";
     }
 
@@ -140,6 +158,9 @@ public class EmployeeController {
         model.addAttribute("e", e1);
         model.addAttribute("years", Year.values());
         model.addAttribute("monthes", Month.values());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Payroll");
         return "actualnetsalary";
     }
 

@@ -28,6 +28,9 @@ public class RawMaterialController {
         model.addAttribute("rawMaterials", rawmaterials);
         model.addAttribute("page", "Raw materials");
         model.addAttribute("form", new RawMaterial());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Rawmaterials");
         return "rawmaterials";
     }
 
@@ -46,6 +49,9 @@ public class RawMaterialController {
         model.addAttribute("rawMaterials", rawmaterials);
         model.addAttribute("page", "Transfer page");
         model.addAttribute("warehouses", Warehouse.values());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Transfer");
         return "transfer";
     }
 

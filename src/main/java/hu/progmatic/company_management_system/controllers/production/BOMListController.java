@@ -33,6 +33,9 @@ public class BOMListController {
         model.addAttribute("bomlists", bomlists);
         model.addAttribute("page", "BOM lists");
         model.addAttribute("form", new BOMListSearchForm());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Bomlists");
         return "bomlists";
     }
 
@@ -53,6 +56,9 @@ public class BOMListController {
         model.addAttribute("bomlist", bomList);
         model.addAttribute("producedProducts", producedProducts);
         model.addAttribute("productName", "BomList");
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Bomlists");
 
         return "new_bomlist";
     }
@@ -76,6 +82,9 @@ public class BOMListController {
 
         model.addAttribute("bomlist", bomList);
         model.addAttribute("ingredients", ingredients);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Bomlists");
 
         return "addingredientstobomlist";
     }

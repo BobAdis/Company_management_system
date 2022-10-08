@@ -34,6 +34,9 @@ public class WorkstationController {
 
         model.addAttribute("bomlists", bomLists);
 
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Workstation");
+
         return "workstation";
     }
 
@@ -48,6 +51,9 @@ public class WorkstationController {
         model.addAttribute("bomlist", bomList);
         model.addAttribute("rawmaterials", rawMaterials);
         model.addAttribute("endproducts", endProducts);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Workstation");
 
         return "work";
     }

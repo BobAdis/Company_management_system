@@ -37,6 +37,9 @@ public class ShippingInController {
         model.addAttribute("shippingIns", shippingIns);
         model.addAttribute("page", "Shipping Ins");
         model.addAttribute("form", new ShippingInSearchForm());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Shippingins");
         return "shippingins";
     }
 
@@ -58,6 +61,9 @@ public class ShippingInController {
         model.addAttribute("partners", partners);
         model.addAttribute("productName", "Shipping in");
 
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Shippingins");
+
         return "new_shippingin";
     }
 
@@ -78,6 +84,9 @@ public class ShippingInController {
 
         model.addAttribute("shippingIn", shippingIn);
         model.addAttribute("rawMaterials", rawMaterials);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Shippingins");
 
         return "addrawmaterialstoshippingin";
     }

@@ -28,6 +28,9 @@ public class IngredientController {
         model.addAttribute("ingredients", ingredients);
         model.addAttribute("page", "Ingredients");
         model.addAttribute("form", new Ingredient());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Ingredients");
         return "ingredients";
     }
 
@@ -45,6 +48,9 @@ public class IngredientController {
         Ingredient ingredient = new Ingredient();
         model.addAttribute("ingredient", ingredient);
         model.addAttribute("productName", "Ingredient");
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Ingredients");
 
         return "new_ingredient";
     }
