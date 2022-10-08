@@ -1,6 +1,6 @@
 package hu.progmatic.company_management_system.repositories;
 
-import hu.progmatic.company_management_system.models.ShippingOut;
+import hu.progmatic.company_management_system.models.sales.ShippingOut;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,7 +1,7 @@
-package hu.progmatic.company_management_system.controllers;
+package hu.progmatic.company_management_system.controllers.production;
 
-import hu.progmatic.company_management_system.models.RawMaterial;
-import hu.progmatic.company_management_system.models.Warehouse;
+import hu.progmatic.company_management_system.models.production.RawMaterial;
+import hu.progmatic.company_management_system.models.production.Warehouse;
 import hu.progmatic.company_management_system.searchform.RawMaterialSearchForm;
 import hu.progmatic.company_management_system.services.RawMaterialService;
 import org.springframework.stereotype.Controller;

@@ -1,9 +1,10 @@
 package hu.progmatic.company_management_system;
 
-import hu.progmatic.company_management_system.models.*;
+import hu.progmatic.company_management_system.models.production.EndProduct;
+import hu.progmatic.company_management_system.models.production.ProducedProduct;
+import hu.progmatic.company_management_system.models.sales.ShippingOut;
 import hu.progmatic.company_management_system.repositories.EndProductRepo;
 import hu.progmatic.company_management_system.searchform.EndProductSearchForm;
-import hu.progmatic.company_management_system.searchform.IngredientSearchForm;
 import hu.progmatic.company_management_system.services.EndProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

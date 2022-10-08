@@ -1,7 +1,10 @@
 package hu.progmatic.company_management_system;
 
 
-import hu.progmatic.company_management_system.models.*;
+import hu.progmatic.company_management_system.models.production.Ingredient;
+import hu.progmatic.company_management_system.models.production.RawMaterial;
+import hu.progmatic.company_management_system.models.sales.Partner;
+import hu.progmatic.company_management_system.models.sales.ShippingIn;
 import hu.progmatic.company_management_system.repositories.ShippingInRepo;
 import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;
 import hu.progmatic.company_management_system.services.ShippingInService;

@@ -1,4 +1,6 @@
-package hu.progmatic.company_management_system.models;
+package hu.progmatic.company_management_system.models.production;
+
+import hu.progmatic.company_management_system.models.sales.ShippingOut;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

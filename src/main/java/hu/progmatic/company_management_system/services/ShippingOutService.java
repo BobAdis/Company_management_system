@@ -1,7 +1,7 @@
 package hu.progmatic.company_management_system.services;
 
-import hu.progmatic.company_management_system.models.EndProduct;
-import hu.progmatic.company_management_system.models.ShippingOut;
+import hu.progmatic.company_management_system.models.production.EndProduct;
+import hu.progmatic.company_management_system.models.sales.ShippingOut;
 import hu.progmatic.company_management_system.repositories.ShippingOutRepo;
 import hu.progmatic.company_management_system.searchform.ShippingOutSearchForm;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,8 @@
 package hu.progmatic.company_management_system.controllers;
 
-import hu.progmatic.company_management_system.models.BOMList;
-import hu.progmatic.company_management_system.models.Partner;
-import hu.progmatic.company_management_system.models.ProducedProduct;
-import hu.progmatic.company_management_system.repositories.ProducedProductRepo;
+import hu.progmatic.company_management_system.models.production.BOMList;
+import hu.progmatic.company_management_system.models.sales.Partner;
+import hu.progmatic.company_management_system.models.production.ProducedProduct;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
 import hu.progmatic.company_management_system.searchform.ProducedProductSearchForm;
 import hu.progmatic.company_management_system.services.BOMListService;

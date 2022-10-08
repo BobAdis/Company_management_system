@@ -1,7 +1,7 @@
 package hu.progmatic.company_management_system.services;
 
-import hu.progmatic.company_management_system.models.RawMaterial;
-import hu.progmatic.company_management_system.models.Warehouse;
+import hu.progmatic.company_management_system.models.production.RawMaterial;
+import hu.progmatic.company_management_system.models.production.Warehouse;
 import hu.progmatic.company_management_system.repositories.RawMaterialRepo;
 import hu.progmatic.company_management_system.searchform.RawMaterialSearchForm;
 import org.springframework.stereotype.Service;

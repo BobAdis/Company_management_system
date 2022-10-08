@@ -1,9 +1,10 @@
 package hu.progmatic.company_management_system;
 
-import hu.progmatic.company_management_system.models.*;
+import hu.progmatic.company_management_system.models.production.BOMList;
+import hu.progmatic.company_management_system.models.production.Ingredient;
+import hu.progmatic.company_management_system.models.production.ProducedProduct;
 import hu.progmatic.company_management_system.repositories.BOMListRepo;
 import hu.progmatic.company_management_system.searchform.BOMListSearchForm;
-import hu.progmatic.company_management_system.searchform.EndProductSearchForm;
 import hu.progmatic.company_management_system.services.BOMListService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

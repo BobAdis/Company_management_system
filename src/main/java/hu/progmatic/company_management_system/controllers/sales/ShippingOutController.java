@@ -1,10 +1,11 @@
-package hu.progmatic.company_management_system.controllers;
+package hu.progmatic.company_management_system.controllers.sales;
 
-import hu.progmatic.company_management_system.models.*;
+import hu.progmatic.company_management_system.models.production.EndProduct;
+import hu.progmatic.company_management_system.models.sales.Partner;
+import hu.progmatic.company_management_system.models.sales.ShippingOut;
 import hu.progmatic.company_management_system.searchform.ShippingOutSearchForm;
 import hu.progmatic.company_management_system.services.EndProductService;
 import hu.progmatic.company_management_system.services.PartnerService;
-import hu.progmatic.company_management_system.services.RawMaterialService;
 import hu.progmatic.company_management_system.services.ShippingOutService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

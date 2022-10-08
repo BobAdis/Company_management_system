@@ -1,7 +1,7 @@
-package hu.progmatic.company_management_system.controllers;
+package hu.progmatic.company_management_system.controllers.sales;
 
-import hu.progmatic.company_management_system.models.Partner;
-import hu.progmatic.company_management_system.models.PartnerType;
+import hu.progmatic.company_management_system.models.sales.Partner;
+import hu.progmatic.company_management_system.models.sales.PartnerType;
 import hu.progmatic.company_management_system.searchform.PartnerSearchForm;
 import hu.progmatic.company_management_system.services.PartnerService;
 import org.springframework.stereotype.Controller;

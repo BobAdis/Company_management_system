@@ -1,6 +1,6 @@
 package hu.progmatic.company_management_system.services;
 
-import hu.progmatic.company_management_system.models.ProducedProduct;
+import hu.progmatic.company_management_system.models.production.ProducedProduct;
 import hu.progmatic.company_management_system.repositories.ProducedProductRepo;
 
 import hu.progmatic.company_management_system.searchform.ProducedProductSearchForm;

@@ -1,5 +1,6 @@
-package hu.progmatic.company_management_system.models;
+package hu.progmatic.company_management_system.models.sales;
 
+import hu.progmatic.company_management_system.models.production.RawMaterial;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

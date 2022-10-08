@@ -1,10 +1,10 @@
 package hu.progmatic.company_management_system;
 
 
-import hu.progmatic.company_management_system.models.EndProduct;
-import hu.progmatic.company_management_system.models.Partner;
-import hu.progmatic.company_management_system.models.ProducedProduct;
-import hu.progmatic.company_management_system.models.ShippingOut;
+import hu.progmatic.company_management_system.models.production.EndProduct;
+import hu.progmatic.company_management_system.models.sales.Partner;
+import hu.progmatic.company_management_system.models.production.ProducedProduct;
+import hu.progmatic.company_management_system.models.sales.ShippingOut;
 import hu.progmatic.company_management_system.repositories.ShippingOutRepo;
 import hu.progmatic.company_management_system.searchform.ShippingOutSearchForm;
 import hu.progmatic.company_management_system.services.ShippingOutService;
@@ -15,7 +15,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

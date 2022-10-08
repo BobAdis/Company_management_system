@@ -1,6 +1,6 @@
-package hu.progmatic.company_management_system.controllers;
+package hu.progmatic.company_management_system.controllers.production;
 
-import hu.progmatic.company_management_system.models.EndProduct;
+import hu.progmatic.company_management_system.models.production.EndProduct;
 import hu.progmatic.company_management_system.searchform.EndProductSearchForm;
 import hu.progmatic.company_management_system.services.EndProductService;
 import org.springframework.stereotype.Controller;
