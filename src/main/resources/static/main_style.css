@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-/*font-family: 'JetBrains Mono', monospace;*/
-/*JetBrains!!!*/
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+    * {
+        font-family: 'Montserrat', sans-serif;
+    }
 
 :root {
     --dark_gray: #2B2B2B;
@@ -46,8 +47,8 @@ body {
 }
 
 .form p, .form h1 {
-    padding: 0;
-    margin: 0;
+    padding: 2px;
+    margin: 2px;
 }
 
 .send_button {
@@ -71,7 +72,7 @@ body {
 
 table {
     width: 70%;
-    table-layout: auto;
+    table-layout: inherit;
 }
 
 table, th, td {

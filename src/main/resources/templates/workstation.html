@@ -9,7 +9,7 @@
 
 <body>
 <header>
-    <h2 data-th-text="${page}"></h2>
+    <h2>Workstation</h2>
 </header>
 
 <div class="row">
@@ -20,9 +20,10 @@
     </div>
     <div class="right">    <ul>
         <div data-th-each="bl : ${bomlists}">
-            <li><a data-th-href="@{/workstation/{id}(id=${bl.id})}" data-th-text="${bl.name}"></a></li>
+            <li><a class="link" data-th-href="@{/workstation/{id}(id=${bl.id})}" data-th-text="${bl.name}"></a></li>
         </div>
     </ul>
+
 
   <!--<script th:inline="javascript">
       /*<![CDATA[*/

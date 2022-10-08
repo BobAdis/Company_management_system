@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-/*font-family: 'JetBrains Mono', monospace;*/
-/*JetBrains!!!*/
+* {
+    font-family: 'Montserrat', sans-serif;
+}
 
 :root {
     --dark_gray: #2B2B2B;
@@ -102,6 +103,7 @@ tr:nth-child(odd) {
     display: flex;
     padding: 5px;
     text-decoration: none;
+
 }
 
 .vertical-menu a:hover {
@@ -165,7 +167,7 @@ header {
 }
 
 a.selected {
-    background-color: #00a23c;
+    background-color: #FF4B2B;
     color: white;
     border-radius:5px;
 }
