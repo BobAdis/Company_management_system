@@ -40,7 +40,7 @@ public class LoginController {
     public String logout(HttpServletRequest request){
         request.getSession(true).invalidate();
 
-        return "login";
+        return "redirect:/login";
     }
 
     @GetMapping(value = {"/register"})
