@@ -11,9 +11,11 @@
 <div th:fragment="navigation">
     <div class="vertical-menu">
         <ul>
-            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_FINANCE_STAFF')"
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_FINANCE_STAFF', 'ROLE_MACHINE_OPERATOR')"
                class="active" data-th-href="@{/main}">Home</a>
-            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER')"
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN')"
+               class="active" data-th-href="@{/register}">User registry</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_MACHINE_OPERATOR')"
                class="highlights">Production</a>
             <ul>
                 <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_TRADE_MANAGER', 'ROLE_CEO')"
@@ -24,7 +26,7 @@
                        data-th-href="@{/endproducts}"><li>Endproducts </li></a>
                 <a class="highlights" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_CEO')"
                    data-th-href="@{/transfer}"><li>Transfer</li></a>
-                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_MACHINE_OPERATOR')"
                    data-th-href="@{/workstation}"><li>Workstation</li></a>
                 <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
                        data-th-href="@{/producedproducts}"><li>Produced Products</li></a>

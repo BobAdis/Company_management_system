@@ -38,6 +38,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/", "/home", "/login", "/*.css", "/main", "/logout", "/login-error")
                 .permitAll()
 
+                .antMatchers("/register")
+                .hasRole("ADMIN")
+
+                .antMatchers("/workstation")
+                .hasAnyRole("PRODUCTIONMANAGER", "ADMIN", "CEO", "MACHINE_OPERATOR")
+
                 .antMatchers("/warehouses")
                 .hasAnyRole( "TRADE_MANAGER", "WAREHOUSEWORKER", "ADMIN", "CEO")
 
@@ -48,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .hasAnyRole("WAREHOUSEWORKER", "ADMIN", "CEO")
 
                 .antMatchers("/finance", "/employees", "/payroll")
-                .hasAnyRole("FINANCE_STAFF", "ADMIN", "CEO")
+                .hasAnyRole("FINANCE_STAFF", "ADMIN", "CEO", "ACCOUNTANT")
 
                 .antMatchers("/rawmaterials", "/producedproducts", "/ingredients", "/bomlists", "/endproducts")
                 .hasAnyRole("PRODUCTIONMANAGER", "ADMIN", "CEO");

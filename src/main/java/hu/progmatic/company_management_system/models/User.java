@@ -28,11 +28,13 @@ public class User implements UserDetails{
     private boolean admin;
 
     public User() {
+        isEnabled = true;
     }
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        isEnabled = true;
     }
 
     public User(String username, String password, Position position, boolean admin) {
@@ -100,6 +102,11 @@ public class User implements UserDetails{
         } else if (Position.TRADE_MANAGER == position) {
             SimpleGrantedAuthority auth6 = new SimpleGrantedAuthority("ROLE_TRADE_MANAGER");
             auths.add(auth6);
+        }
+
+        else if (Position.MACHINE_OPERATOR == position) {
+            SimpleGrantedAuthority auth7 = new SimpleGrantedAuthority("ROLE_MACHINE_OPERATOR");
+            auths.add(auth7);
         }
 
         return auths;

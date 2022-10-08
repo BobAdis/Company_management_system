@@ -77,6 +77,9 @@ public class DBRunner implements CommandLineRunner {
         userRepository.save(new User("Pisti", passwordEncoder.encode("password"), Position.CEO, false));
         System.out.println("CEO user generated.");
 
+        userRepository.save(new User("Janika", passwordEncoder.encode("password"), Position.MACHINE_OPERATOR, false));
+        System.out.println("Machine-operator user generated.");
+
         Partner partner1 = new Partner("Mészáros és Mészáros Kft", PartnerType.SUPPLIER, "1000 BP Hősök tere 1.", "Lölő", "lölő@közpénz.hu", "0630123456789");
         partnerRepo.save(partner1);
         Partner partner2 = new Partner("Mészáros és a Főni Kft", PartnerType.CUSTOMER, "1000 BP Hősök tere 1.", "Főni", "lölő@közpénz.hu", "0630123456789");

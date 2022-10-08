@@ -20,12 +20,12 @@
         </div>
         <div class="right">
 
-            <li sec:authorize="isAuthenticated()">
+           <!-- <li sec:authorize="isAuthenticated()">
                 <a data-th-href="@{/logout}">Logout</a>
             </li>
             <li sec:authorize="!isAuthenticated()">
                 <a data-th-href="@{/login}">Login</a>
-            </li>
+            </li>-->
 
         <div class="form">
             <h1>New user</h1>
@@ -35,6 +35,10 @@
                 <select name="position">
                     <option data-th-each="positionOpt : ${T(hu.progmatic.company_management_system.models.Position).values()}"
                     data-th-value="${positionOpt}" data-th-text="${positionOpt}"></option>
+                </select>
+                <select data-th-field="*{admin}">
+                    <option data-th-value="1" >true</option>
+                    <option data-th-value="0" >false</option>
                 </select>
                 <input class="send_button" type="submit" value="Send">
             </form>

@@ -11,7 +11,8 @@ public enum Position implements GrantedAuthority{
     ADMIN,
     CEO,
     FINANCE_STAFF,
-    TRADE_MANAGER;
+    TRADE_MANAGER,
+    MACHINE_OPERATOR;
 
     @Override
     public String getAuthority() {
