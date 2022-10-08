@@ -88,7 +88,7 @@ public class DBRunner implements CommandLineRunner {
 
         Ingredient ingredient1 = new Ingredient("A alapanyag", "A hozzávaló","m");
         Ingredient ingredient2 = new Ingredient("B alapanyag", "B hozzávaló","kg");
-        BOMList bomList1 = new BOMList("Így készül a motorblokk", producedProduct1, List.of(ingredient1, ingredient2));
+        BOMList bomList1 = new BOMList("Így készül a motorblokk", producedProduct1, List.of(ingredient1, ingredient2), "A alapanyag - 2, B alapanyag 3");
         ingredient1.setBomList(bomList1);
         ingredient2.setBomList(bomList1);
         producedProduct1.setBomList(bomList1);
@@ -101,7 +101,7 @@ public class DBRunner implements CommandLineRunner {
         ProducedProduct producedProduct2 = new ProducedProduct("Cserebogár");
         Ingredient ingredient3 = new Ingredient("C alapanyag", "C hozzávaló","m");
         Ingredient ingredient4 = new Ingredient("D alapanyag", "D hozzávaló","kg");
-        BOMList bomList2 = new BOMList("Így készül a cserebogár", producedProduct2, List.of(ingredient3, ingredient4));
+        BOMList bomList2 = new BOMList("Így készül a cserebogár", producedProduct2, List.of(ingredient3, ingredient4), "C alapanyag - 1, D alapanyag 4");
         ingredient3.setBomList(bomList2);
         ingredient4.setBomList(bomList2);
         producedProduct2.setBomList(bomList2);

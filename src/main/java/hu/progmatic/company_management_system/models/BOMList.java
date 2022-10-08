@@ -20,10 +20,11 @@ public class BOMList {
     public BOMList() {
     }
 
-    public BOMList(String name, ProducedProduct producedProduct, List<Ingredient> ingredients) {
+    public BOMList(String name, ProducedProduct producedProduct, List<Ingredient> ingredients, String description) {
         this.name = name;
         this.producedProduct = producedProduct;
         this.ingredients = ingredients;
+        this.description = description;
     }
 
     public void setId(Long id) {
