@@ -16,43 +16,43 @@
             <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER')"
                class="highlights">Production</a>
             <ul>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_TRADE_MANAGER', 'ROLE_CEO')"
-                       data-th-href="@{/warehouses}">Warehouses</a></li>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
-                       data-th-href="@{/rawmaterials}">RawMaterials</a></li>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
-                       data-th-href="@{/endproducts}">Endproducts</a></li>
-                <li><a class="highlights" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_CEO')"
-                       data-th-href="@{/transfer}">Transfer</a></li>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
-                       data-th-href="@{/producedproducts}">Produced Products</a></li>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
-                       data-th-href="@{/ingredients}">Ingredients</a></li>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
-                       data-th-href="@{/bomlists}">Bomlists</a></li>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_TRADE_MANAGER', 'ROLE_CEO')"
+                       data-th-href="@{/warehouses}"><li>Warehouses</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+                       data-th-href="@{/rawmaterials}"><li>RawMaterials</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+                       data-th-href="@{/endproducts}"><li>Endproducts </li></a>
+                <a class="highlights" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_CEO')"
+                   data-th-href="@{/transfer}"><li>Transfer</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+                       data-th-href="@{/producedproducts}"><li>Produced Products</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+                       data-th-href="@{/ingredients}"><li>Ingredients</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
+                       data-th-href="@{/bomlists}"><li>Bomlists</li></a>
             </ul>
             <a class="highlights" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')">Partners</a>
             <ul>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
-                       data-th-href="@{/suppliers}">Suppliers</a></li>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
-                       data-th-href="@{/customers}">Customers</a></li>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
+                       data-th-href="@{/suppliers}"><li>Suppliers</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
+                       data-th-href="@{/customers}"><li>Customers</li></a>
                 </ul>
             <a class="highlights" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')">Shipping</a>
             <ul>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
-                       data-th-href="@{/shippingins}">ShippingIns</a></li>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
-                       data-th-href="@{/shippingouts}">ShippingOuts</a></li>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
+                       data-th-href="@{/shippingins}"><li>ShippingIns</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
+                       data-th-href="@{/shippingouts}"><li>ShippingOuts</li></a>
             </ul>
             <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')" class="highlights">HR</a>
             <ul>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
-                       data-th-href="@{/employees}">Employees</a></li>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
-                       data-th-href="@{/finance}">Finance</a></li>
-                <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
-                       data-th-href="@{/payroll}">Payroll</a></li>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
+                       data-th-href="@{/employees}"><li>Employees</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
+                       data-th-href="@{/finance}"><li>Finance</li></a>
+                <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
+                       data-th-href="@{/payroll}"><li>Payroll</li></a>
             </ul>
             <a class="activeLogout" data-th-href="@{/logout}">Logout</a>
         </ul>
