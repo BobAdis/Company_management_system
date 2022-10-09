@@ -138,7 +138,7 @@ tr:nth-child(odd) {
     background-color: #4B67C4;
     color: black;
     display: flex;
-    padding: 5px;
+    padding: 8px;
     text-decoration: none;
 }
 
@@ -160,7 +160,7 @@ tr:nth-child(odd) {
 }
 
 .vertical-menu a.highlights {
-    padding: 8px;
+    padding: 12px;
     border-bottom: 5px solid #5177E0;
 }
 
