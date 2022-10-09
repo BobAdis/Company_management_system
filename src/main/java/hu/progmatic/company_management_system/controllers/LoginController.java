@@ -47,6 +47,8 @@ public class LoginController {
     public String saveUserPage(Model model) {
         model.addAttribute("user", new User());
 
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Register");
         return "saveUser";
     }
 

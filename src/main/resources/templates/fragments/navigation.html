@@ -13,10 +13,9 @@
         <ul>
             <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_MACHINE_OPERATOR')"
                class="active" data-th-href="@{/main}">Home</a>
-            <a sec:authorize="hasAnyRole('ROLE_ADMIN')"
-               class="active" data-th-href="@{/register}">User registry</a>
+            <a th:class="${selectedLocation == 'Register'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN')" data-th-href="@{/register}">User registry</a>
             <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_MACHINE_OPERATOR')"
-               class="highlights">Production</a>
+            class="highlights">Production</a>
             <ul>
                 <a th:class="${selectedLocation == 'Warehouses'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_WAREHOUSEWORKER', 'ROLE_TRADE_MANAGER', 'ROLE_CEO')"
                        data-th-href="@{/warehouses}"><li>Warehouses</li></a>

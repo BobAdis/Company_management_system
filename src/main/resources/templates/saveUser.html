@@ -9,7 +9,7 @@
 
 <body>
     <header>
-        <h2 data-th-text="${page}"></h2>
+        <h2>New user</h2>
     </header>
 
     <div class="row">
@@ -28,7 +28,6 @@
             </li>-->
 
         <div class="form">
-            <h1>New user</h1>
             <form class="form" data-th-action="@{/register}" method="post" data-th-object="${user}">
                 <input type="text" data-th-field="*{username}" placeholder="username">
                 <input type="password" data-th-field="*{password}" placeholder="password">

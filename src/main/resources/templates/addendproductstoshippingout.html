@@ -6,10 +6,16 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
 <header>
-  <div th:replace="~{fragments/navigation :: navigation}"></div>
+  <h2 data-th-text="Add endproducts to ShippingOut"></h2>
 </header>
+<div class="row">
+  <div class="vertical-menu">
+    <div class="left">
+      <div th:replace="~{fragments/navigation :: navigation}"></div>
+    </div>
+  </div>
+  <div class="right">
 
 <div class="form">
   <h1 data-th-text="'Add endproducts to ShippingOut'"></h1>
@@ -32,7 +38,8 @@
   <ul data-th-each="endproduct: ${shippingOut.endProducts}">
     <li data-th-text="${endproduct.producedProduct.name}"></li>
   </ul>
-
+</div>
+  </div>
 </div>
 </body>
 </html>
