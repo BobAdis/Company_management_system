@@ -5,6 +5,7 @@ import hu.progmatic.company_management_system.models.hr_accounting.Employee;
 import hu.progmatic.company_management_system.models.hr_accounting.Month;
 import hu.progmatic.company_management_system.models.hr_accounting.MonthlyData;
 import hu.progmatic.company_management_system.models.hr_accounting.Year;
+import hu.progmatic.company_management_system.searchform.EmployeeSearchForm;
 import hu.progmatic.company_management_system.searchform.NetSalarySearchForm;
 import hu.progmatic.company_management_system.services.EmployeeService;
 import hu.progmatic.company_management_system.services.MonthlyDataService;
@@ -34,7 +35,18 @@ public class EmployeeController {
         model.addAttribute("employees", employees);
 
         //CSS-hez th:class
-        model.addAttribute("selectedLocation", "Employees");
+       model.addAttribute("selectedLocation", "Employees");
+       model.addAttribute("form", new EmployeeSearchForm());
+        return "employees";
+    }
+
+    @PostMapping("/employees")
+    public String getEmployeeFromForm(EmployeeSearchForm form, Model model) {
+        List<Employee> employees = employeeService.getByForm(form);
+
+        model.addAttribute("employees", employees);
+        model.addAttribute("form", form);
+
         return "employees";
     }
 
@@ -67,6 +79,16 @@ public class EmployeeController {
     }
 
 
+    @GetMapping("/netsalary/{taxnumber}")
+    public String getOneEmployeeForNetSalary (@PathVariable String taxnumber, Model model) {
+        Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
+        model.addAttribute("oneEmployee", e1);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Netsalary");
+
+        return "netsalary";
+    }
 
     @GetMapping("/netsalary")
     public String getNetSalaryPage(Model model) {
@@ -81,30 +103,22 @@ public class EmployeeController {
 
         //CSS-hez th:class
         model.addAttribute("selectedLocation", "Netsalary");
-
         model.addAttribute("form", new NetSalarySearchForm());
-
+        model.addAttribute("years", Year.values());
+        model.addAttribute("months", Month.values());
         return "netsalary";
     }
 
-    @GetMapping("/netsalary/{taxnumber}")
-    public String getOneEmployeeForNetSalary (@PathVariable String taxnumber, Model model) {
-        Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
-        model.addAttribute("oneEmployee", e1);
-
-        //CSS-hez th:class
-        model.addAttribute("selectedLocation", "Netsalary");
-        return "netsalary";
-    }
 
     @PostMapping("/netsalary")
     public String calculateNetSalary(NetSalarySearchForm form, Model model) {
        List<MonthlyData> monthlyDataList = monthlyDataService.getByForm(form);
        model.addAttribute("monthlyDataList", monthlyDataList);
        model.addAttribute("form", form);
+       model.addAttribute("years", Year.values());
+       model.addAttribute("months", Month.values());
         return "netsalary";
     }
-
 
 
     @GetMapping("/payroll")
@@ -126,7 +140,7 @@ public class EmployeeController {
         model.addAttribute("monthlyData", monthlyData);
         model.addAttribute("e", e1);
         model.addAttribute("years", Year.values());
-        model.addAttribute("monthes", Month.values());
+        model.addAttribute("months", Month.values());
 
         //CSS-hez th:class
         model.addAttribute("selectedLocation", "Payroll");

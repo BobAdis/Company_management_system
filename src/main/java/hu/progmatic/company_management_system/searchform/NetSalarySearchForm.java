@@ -3,27 +3,38 @@ package hu.progmatic.company_management_system.searchform;
 
 public class NetSalarySearchForm {
 
-    private Integer year;
+    private String name;
+    private String year;
 
-    private Integer month;
+    private String month;
+
 
 
     public NetSalarySearchForm() {
     }
 
-    public Integer getYear() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
-    public Integer getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(Integer month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 }
+

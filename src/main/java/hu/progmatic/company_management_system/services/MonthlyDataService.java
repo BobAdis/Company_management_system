@@ -44,7 +44,13 @@ public class MonthlyDataService {
         List<MonthlyData> result = new ArrayList<>();
 
         for (MonthlyData monthlyData : getMonthlyData()) {
+            if (form.getName() != null && !monthlyData.getEmployee().getName().contains(form.getName())) {
+                continue;
+            }
             if (form.getYear() != null && !monthlyData.getYear().toString().contains(form.getYear().toString())) {
+                continue;
+            }
+            if (form.getMonth() != null && !monthlyData.getMonth().toString().contains(form.getMonth().toString())) {
                 continue;
             }
             result.add(monthlyData);

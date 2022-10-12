@@ -19,7 +19,33 @@
     </div>
     <div class="right">
 
-<table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+
+        <form data-th-action="@{/employees}" data-th-object="${form}" method="post">
+            <table>
+                <tr>
+                    <h2>Search</h2>
+                </tr>
+                <tr>
+                    <th>Search by taxnumber:</th>
+                    <td><input type="text" data-th-field="*{taxnumber}" /></td>
+                </tr>
+                <tr>
+                    <th>Search by name:</th>
+                    <td><input type="text" data-th-field="*{name}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Search</button></td>
+                </tr>
+            </table>
+        </form>
+
+        <p></p>
+
+
+        <table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+<tr>
+    <h2>List of employees</h2>
+</tr>
     <tr>
         <th>Tax Number</th>
         <th>Name</th>

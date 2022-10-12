@@ -22,8 +22,51 @@
         </div>
     </div>
     <div class="right">
-<table>
 
+</table>
+        <table>
+        <form data-th-action="@{/netsalary}" data-th-object="${form}" method="post">
+<tr>
+    <h2>Search</h2>
+</tr>
+                <tr>
+                    <th>Search by name:</th>
+                    <td><input type="text" data-th-field="*{name}" /></td>
+                </tr>
+
+                <tr>
+                    <th>Search by year:</th>
+                    <td><select class="form-handler" data-th-name="year">
+                        <option data-th-each="year: ${years}"
+                                data-th-value="${year}"
+                                data-th-text="${year}">
+                        </option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <th>Search by month:</th>
+                    <td><select class="form-handler" data-th-name="month">
+                        <option data-th-each="month: ${months}"
+                                data-th-value="${month}"
+                                data-th-text="${month}">
+                        </option>
+                    </select></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><button type="submit">Search</button></td>
+                </tr>
+
+        </form>
+</table>
+
+        <p></p>
+
+
+<table>
+ <tr>
+     <h2>List of net salaries</h2>
+ </tr>
     <tr>
         <th>Tax number</th>
         <th>Name</th>
@@ -43,23 +86,13 @@
 
 </table>
 
-        <form data-th-action="@{/netsalary}" data-th-object="${form}" method="post">
-            <table>
-                <tr>
-                    <th>Search by year:</th>
-                    <td><input type="text" data-th-field="*{year}" /></td>
-                </tr>
-                <tr>
-                    <th>Search by month:</th>
-                    <td><input type="text" data-th-field="*{month}" /></td>
-                </tr>
+        <a data-th-href="@{/payroll}"> <button  class="send_button">
+            Back to payroll
+        </button> </a>
 
-                <tr>
-                    <td colspan="2"><button type="submit">Search</button></td>
-                </tr>
-            </table>
-        </form>
-
+    </div>
+</div>
+</div>
 
 </body>
 </html>
