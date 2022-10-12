@@ -71,14 +71,16 @@ body {
 }
 
 table {
-    width: 70%;
+    width: 100%;
     table-layout: inherit;
+    border-collapse: collapse;
 }
 
 table, th, td {
     border: 1px solid var(--gray);
     border-collapse: collapse;
     pandding: 5px;
+
 }
 
 th, td {
@@ -94,13 +96,47 @@ tr:nth-child(odd) {
     background-color: #4B67C4;
 }
 
-.box {
-    width: 70%;
+.box1 {
+    width: 100%;
     padding-left: 30px;
     padding-bottom: 10px;
     padding-top: 10px;
     border-radius:10px;
     border: 2px solid var(--light_gray);
+}
+
+.box2 {
+    width: 100%;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius:10px;
+    border: 2px solid var(--light_gray);
+}
+
+.box3 {
+    width: 100%;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius:10px;
+    border: 2px solid var(--light_gray);
+}
+
+.box4 {
+    width: 100%;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius:10px;
+    border: 2px solid var(--light_gray);
+}
+
+.main-container {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .form-position {
@@ -202,6 +238,28 @@ header {
     border-radius: 10px;
     border-collapse: collapse;
 }
+
+
+    .vertical-menu span {
+        background-color: #6381CC;
+        color: black;
+        display: flex;
+        padding: 8px;
+        text-decoration: none;
+        border-radius:5px;
+    }
+
+    .vertical-menu span.highlights {
+        padding: 8px;
+        border-bottom: 5px solid #585899;
+    }
+
+    span.selected {
+        background-color: #E92323;
+        color: white;
+        border-radius:5px;
+    }
+
 
 
 

@@ -64,7 +64,7 @@ h1 {
 }
 
 table {
-    width: 70%;
+    width: 100%;
     table-layout: fixed;
 }
 
@@ -103,7 +103,6 @@ tr:nth-child(odd) {
     display: flex;
     padding: 8px;
     text-decoration: none;
-
 }
 
 .vertical-menu a:hover {
@@ -112,20 +111,20 @@ tr:nth-child(odd) {
 }
 
 .vertical-menu a.active {
-    background-color: #E92323;
+    background-color: #585899;
     color: white;
     border-radius:5px;
 }
 
 .vertical-menu a.activeLogout {
-    background-color: #9C2424;
+    background-color: #585899;
     color: white;
     border-radius:5px;
 }
 
 .vertical-menu a.highlights {
-    padding: 12px;
-    border-bottom: 5px solid #5177E0;
+    padding: 8px;
+    border-bottom: 5px solid #6381CC;
 }
 
 .vertical-menu a.toplights {
@@ -167,7 +166,31 @@ header {
 }
 
 a.selected {
-    background-color: #FF4B2B;
+    background-color: #E92323;
     color: white;
     border-radius:5px;
+}
+
+.vertical-menu span {
+    background-color: #6381CC;
+    color: black;
+    display: flex;
+    padding: 8px;
+    text-decoration: none;
+    border-radius:5px;
+}
+
+.vertical-menu span.highlights {
+    padding: 8px;
+    border-bottom: 5px solid #585899;
+}
+
+span.selected {
+    background-color: #E92323;
+    color: white;
+    border-radius:5px;
+}
+
+li {
+    padding-left: 2px;
 }
