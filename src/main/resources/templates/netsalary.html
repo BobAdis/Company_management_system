@@ -43,9 +43,22 @@
 
 </table>
 
+        <form data-th-action="@{/netsalary}" data-th-object="${form}" method="post">
+            <table>
+                <tr>
+                    <th>Search by year:</th>
+                    <td><input type="text" data-th-field="*{year}" /></td>
+                </tr>
+                <tr>
+                    <th>Search by month:</th>
+                    <td><input type="text" data-th-field="*{month}" /></td>
+                </tr>
 
-</form>
-
+                <tr>
+                    <td colspan="2"><button type="submit">Search</button></td>
+                </tr>
+            </table>
+        </form>
 
 
 </body>

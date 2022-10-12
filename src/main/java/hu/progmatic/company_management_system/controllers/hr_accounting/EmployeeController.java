@@ -5,6 +5,7 @@ import hu.progmatic.company_management_system.models.hr_accounting.Employee;
 import hu.progmatic.company_management_system.models.hr_accounting.Month;
 import hu.progmatic.company_management_system.models.hr_accounting.MonthlyData;
 import hu.progmatic.company_management_system.models.hr_accounting.Year;
+import hu.progmatic.company_management_system.searchform.NetSalarySearchForm;
 import hu.progmatic.company_management_system.services.EmployeeService;
 import hu.progmatic.company_management_system.services.MonthlyDataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +82,8 @@ public class EmployeeController {
         //CSS-hez th:class
         model.addAttribute("selectedLocation", "Netsalary");
 
+        model.addAttribute("form", new NetSalarySearchForm());
+
         return "netsalary";
     }
 
@@ -95,47 +98,13 @@ public class EmployeeController {
     }
 
     @PostMapping("/netsalary")
-    public String calculateNetSalary(Model model) {
-        int netsalary = monthlyDataService.setNetSalary(500000,25,6,0,0);
-        model.addAttribute("netsalary", netsalary);
-        System.out.println(netsalary);
+    public String calculateNetSalary(NetSalarySearchForm form, Model model) {
+       List<MonthlyData> monthlyDataList = monthlyDataService.getByForm(form);
+       model.addAttribute("monthlyDataList", monthlyDataList);
+       model.addAttribute("form", form);
         return "netsalary";
     }
 
-
-    @GetMapping("/form-handler")
-    public String getNetSalary(Model model){
-
-        return "netsalary";
-    }
-
-
-    @PostMapping("/form-handler")
-    public String getOneNetSalary(Model model){
-
-        return "netsalary";
-    }
-
-
-
-    @GetMapping("/workinghours")
-    public String getWorkinghoursPage(Model model){
-        Employee employees = employeeService.getEmployeeByTaxNumber("8369754421");
-        model.addAttribute("emplo", employees);
-        model.addAttribute("valami", new Employee());
-
-        return "workinghours";
-    }
-
-    @PostMapping("/workinghours")
-    public String getNewWorkingHours(Employee barmi) {
-
-        System.out.println(barmi.getName());
-        System.out.println(barmi.getWorkingHours());
-
-        System.out.println(barmi.getWorkingHours()+2);
-        return "redirect:/workinghours";
-    }
 
 
     @GetMapping("/payroll")
@@ -179,15 +148,5 @@ public class EmployeeController {
 
         return "actualnetsalary";
     }
-    /*@PostMapping("/actualnetsalary/{taxnumber}")
-        public String getActualNetSalaryCalculation(Model model, @PathVariable String taxnumber,
-                                                    @RequestParam  int workingDays, @RequestParam int paidLeave, @RequestParam int sickLeave,
-                                                    @RequestParam int illnessBenefit){
-        Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
-        model.addAttribute("e", e1);
-        int money = monthlyDataService.setNetSalary(e1.getGrossSalary(), workingDays, paidLeave, sickLeave, illnessBenefit);
-        model.addAttribute("money", money);
-        return "actualnetsalary";
-    }*/
 
 }

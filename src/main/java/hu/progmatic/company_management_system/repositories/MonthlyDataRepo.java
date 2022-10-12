@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface MonthlyDataRepo extends CrudRepository<MonthlyData, Long> {
 
 
+
         MonthlyData findMonthlyDataByEmployee(Employee employee);
 
 }
