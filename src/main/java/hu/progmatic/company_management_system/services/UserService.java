@@ -60,5 +60,12 @@ public class UserService implements UserDetailsService {
         return authentication.isAuthenticated();
     }
 
+    public User findEmployee(Employee e){
+        return userRepository.findByEmployee(e);
+    }
+
+    public void deleteUser(User user){
+        userRepository.delete(user);
+    }
 
 }

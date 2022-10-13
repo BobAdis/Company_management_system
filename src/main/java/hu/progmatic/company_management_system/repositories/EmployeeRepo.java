@@ -16,5 +16,6 @@ public interface EmployeeRepo extends CrudRepository<Employee, String> {
 
  List<Employee> findAllByPersonnelTaskIsNull();
  List<Employee> findAllByUserIsNull();
+ List<Employee> findAllByUserIsNotNull();
 
 }

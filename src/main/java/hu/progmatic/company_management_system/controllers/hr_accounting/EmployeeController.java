@@ -187,9 +187,11 @@ public class EmployeeController {
     public String getEmployeeWithoutUser(Model model) {
         List<Employee> employees = employeeService.getEmployeeUserNull();
         model.addAttribute("employees", employees);
+        List<Employee> allemployees = employeeService.getEmployeeUserNotNull();
+        model.addAttribute("allemployees", allemployees);
 
         //CSS-hez th:class
-        model.addAttribute("selectedLocation", "Employees");
+        model.addAttribute("selectedLocation", "Useroptions");
         return "useroptions";
     }
 
@@ -201,7 +203,7 @@ public class EmployeeController {
         model.addAttribute("taxnumber", taxnumber);
 
         //CSS-hez th:class
-        model.addAttribute("selectedLocation", "Employees");
+        model.addAttribute("selectedLocation", "Useroptions");
         return "saveUser";
     }
 

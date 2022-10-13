@@ -9,6 +9,7 @@
 <header>
     <h2>Employee data sheet</h2>
     <h2 data-th-text="${page}"></h2>
+
 </header>
 <div class="row">
     <div class="vertical-menu">
@@ -20,7 +21,27 @@
 
         <table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
             <tr>
-                <h2>List of employees</h2>
+                <h2>Employees without user</h2>
+            </tr>
+            <tr>
+                <th>Tax Number</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Register position</th>
+
+            </tr>
+
+            <tr style="color: black" data-th-each="e : ${employees}">
+                <td data-th-text="${e.taxNumber}"></td>
+                <td data-th-text="${e.name}"></td>
+                <td data-th-text="${e.personnelTask}" ></td>
+                <td><a data-th-href="@{/useroptions/{taxnumber}(taxnumber=${e.taxNumber})}"><button class="send_button" >register</button></a></td>
+            </tr>
+        </table>
+
+        <table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+            <tr>
+                <h2>Employees with user</h2>
             </tr>
             <tr>
                 <th>Tax Number</th>
@@ -30,7 +51,7 @@
 
             </tr>
 
-            <tr style="color: black" data-th-each="e : ${employees}">
+            <tr style="color: black" data-th-each="e : ${allemployees}">
                 <td data-th-text="${e.taxNumber}"></td>
                 <td data-th-text="${e.name}"></td>
                 <td data-th-text="${e.personnelTask}" ></td>

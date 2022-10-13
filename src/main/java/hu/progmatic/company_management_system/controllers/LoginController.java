@@ -48,24 +48,30 @@ public class LoginController {
         return "redirect:/login";
     }
 
-    @GetMapping(value = {"/register"})
-    public String saveUserPage(Model model) {
-        model.addAttribute("user", new User());
-        //CSS-hez th:class
-        model.addAttribute("selectedLocation", "Register");
-        return "saveUser";
-    }
 
     @PostMapping(value = {"/register"})
     public String saveUser(@ModelAttribute("user") User user, @RequestParam(name = "taxnumber") String taxnumber, @RequestParam(name = "position") Position position) {
         Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
-        user.setEmployee(e1);
-        e1.setUser(user);
-        e1.setPersonnelTask(position);
-        userService.saveUser(user);
-        employeeService.save(e1);
+        User user1 = userService.findEmployee(e1);
+        if (user1 != null) {
+            if (user1.getEmployee() != null) {
+                user1.setEmployee(e1);
+                user1.setUsername(user.getUsername());
+                user1.setPassword(user.getPassword());
+                user1.setPosition(user.getPosition());
+                e1.setPersonnelTask(position);
+                userService.saveUser(user1);
+                employeeService.save(e1);
+            }
+        }else {
+            user.setEmployee(e1);
+            e1.setUser(user);
+            e1.setPersonnelTask(position);
+            userService.saveUser(user);
+            employeeService.save(e1);
+        }
 
-        return "redirect:/main";
+        return "redirect:/useroptions";
     }
 
     @GetMapping(value = "/users")

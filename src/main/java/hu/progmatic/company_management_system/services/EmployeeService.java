@@ -46,8 +46,12 @@ public class EmployeeService {
         return employeeRepo.findAllByUserIsNull();
     }
 
+    public List<Employee> getEmployeeUserNotNull () {
+        return employeeRepo.findAllByUserIsNotNull();
+    }
 
-        public void save(Employee employee) {
+
+    public void save(Employee employee) {
         employeeRepo.save(employee);
     }
 
