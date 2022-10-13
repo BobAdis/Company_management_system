@@ -109,7 +109,6 @@ public class EmployeeController {
         return "netsalary";
     }
 
-
     @PostMapping("/netsalary")
     public String calculateNetSalary(NetSalarySearchForm form, Model model) {
        List<MonthlyData> monthlyDataList = monthlyDataService.getByForm(form);
@@ -118,6 +117,27 @@ public class EmployeeController {
        model.addAttribute("years", Year.values());
        model.addAttribute("months", Month.values());
         return "netsalary";
+    }
+
+
+
+    @GetMapping("/workinghours")
+    public String getWorkinghoursPage(Model model){
+        Employee employees = employeeService.getEmployeeByTaxNumber("8369754421");
+        model.addAttribute("emplo", employees);
+        model.addAttribute("valami", new Employee());
+
+        return "workinghours";
+    }
+
+    @PostMapping("/workinghours")
+    public String getNewWorkingHours(Employee barmi) {
+
+        System.out.println(barmi.getName());
+        System.out.println(barmi.getWorkingHours());
+
+        System.out.println(barmi.getWorkingHours()+2);
+        return "redirect:/workinghours";
     }
 
 
@@ -161,6 +181,28 @@ public class EmployeeController {
         model.addAttribute("money", money);
 
         return "actualnetsalary";
+    }
+
+    @GetMapping("/useroptions")
+    public String getEmployeeWithoutUser(Model model) {
+        List<Employee> employees = employeeService.getEmployeeUserNull();
+        model.addAttribute("employees", employees);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Employees");
+        return "useroptions";
+    }
+
+    @GetMapping("/useroptions/{taxnumber}")
+    public String getEmployeeWithoutUserOpt(@PathVariable String taxnumber, Model model) {
+        Employee employee = employeeService.getEmployeeByTaxNumber(taxnumber);
+        model.addAttribute("employee", employee);
+        model.addAttribute("user", new User());
+        model.addAttribute("taxnumber", taxnumber);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Employees");
+        return "saveUser";
     }
 
 }

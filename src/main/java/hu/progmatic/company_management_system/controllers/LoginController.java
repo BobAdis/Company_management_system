@@ -1,23 +1,28 @@
 package hu.progmatic.company_management_system.controllers;
 
+import hu.progmatic.company_management_system.models.Position;
 import hu.progmatic.company_management_system.models.User;
+import hu.progmatic.company_management_system.models.hr_accounting.Employee;
+import hu.progmatic.company_management_system.services.EmployeeService;
 import hu.progmatic.company_management_system.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class LoginController {
 
-    private UserService userService;
+    private final UserService userService;
+    private final EmployeeService employeeService;
 
-    public LoginController(UserService userService) {
+
+    public LoginController(UserService userService, EmployeeService employeeService) {
         this.userService = userService;
+        this.employeeService = employeeService;
     }
 
 
@@ -46,17 +51,21 @@ public class LoginController {
     @GetMapping(value = {"/register"})
     public String saveUserPage(Model model) {
         model.addAttribute("user", new User());
-
         //CSS-hez th:class
         model.addAttribute("selectedLocation", "Register");
         return "saveUser";
     }
 
     @PostMapping(value = {"/register"})
-    public String saveUser(User user) {
+    public String saveUser(@ModelAttribute("user") User user, @RequestParam(name = "taxnumber") String taxnumber, @RequestParam(name = "position") Position position) {
+        Employee e1 = employeeService.getEmployeeByTaxNumber(taxnumber);
+        user.setEmployee(e1);
+        e1.setUser(user);
+        e1.setPersonnelTask(position);
         userService.saveUser(user);
+        employeeService.save(e1);
 
-        return "redirect:/login";
+        return "redirect:/main";
     }
 
     @GetMapping(value = "/users")

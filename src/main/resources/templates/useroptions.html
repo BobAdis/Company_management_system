@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <h2>Employee data sheet</h2>
+    <h2 data-th-text="${page}"></h2>
+</header>
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
+
+        <table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+            <tr>
+                <h2>List of employees</h2>
+            </tr>
+            <tr>
+                <th>Tax Number</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Modify position</th>
+
+            </tr>
+
+            <tr style="color: black" data-th-each="e : ${employees}">
+                <td data-th-text="${e.taxNumber}"></td>
+                <td data-th-text="${e.name}"></td>
+                <td data-th-text="${e.personnelTask}" ></td>
+                <td><a data-th-href="@{/useroptions/{taxnumber}(taxnumber=${e.taxNumber})}"><button class="send_button" >modify</button></a></td>
+            </tr>
+        </table>
+
+
+    </div>
+</div>
+</body>
+</html>

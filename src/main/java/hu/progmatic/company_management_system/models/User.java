@@ -1,5 +1,6 @@
 package hu.progmatic.company_management_system.models;
 
+import hu.progmatic.company_management_system.models.hr_accounting.Employee;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,6 +27,9 @@ public class User implements UserDetails{
     private Position position;
 
     private boolean admin;
+
+    @OneToOne
+    private Employee employee;
 
     public User() {
         isEnabled = true;
@@ -152,5 +156,13 @@ public class User implements UserDetails{
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

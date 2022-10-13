@@ -20,6 +20,9 @@
         <form data-th-action="@{/bomlists}" data-th-object="${form}" method="post">
           <table>
             <tr>
+              <h2>Search</h2>
+            </tr>
+            <tr>
               <th>Search by name:</th>
               <td><input type="text" data-th-field="*{name}" /></td>
             </tr>
@@ -38,6 +41,9 @@
         </form>
 
         <table>
+          <tr>
+            <h2>List of bomlists</h2>
+          </tr>
           <tr>
             <th>Bomlist name</th>
             <th>Product</th>

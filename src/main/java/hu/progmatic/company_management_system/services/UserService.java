@@ -2,11 +2,11 @@ package hu.progmatic.company_management_system.services;
 
 import hu.progmatic.company_management_system.models.Position;
 import hu.progmatic.company_management_system.models.User;
+import hu.progmatic.company_management_system.models.hr_accounting.Employee;
+import hu.progmatic.company_management_system.repositories.EmployeeRepo;
 import hu.progmatic.company_management_system.repositories.UserRepository;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,11 +21,13 @@ import java.util.*;
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final EmployeeRepo employeeRepo;
 
     private final PasswordEncoder encoder;
 
-    public UserService(UserRepository userRepository, PasswordEncoder encoder) {
+    public UserService(UserRepository userRepository, EmployeeRepo employeeRepo, PasswordEncoder encoder) {
         this.userRepository = userRepository;
+        this.employeeRepo = employeeRepo;
         this.encoder = encoder;
     }
 
@@ -33,7 +35,6 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username).orElseThrow();
     }
-
 
     public User getLoggedInUser() {
         return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

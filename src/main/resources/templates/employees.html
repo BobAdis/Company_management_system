@@ -50,11 +50,13 @@
         <th>Tax Number</th>
         <th>Name</th>
 
+
     </tr>
 
     <tr style="color: black" data-th-each="e : ${employees}">
         <td ><a data-th-text="${e.taxNumber}" data-th-href="@{/employees/{taxnumber}(taxnumber=${e.taxNumber})}"></a></td>
         <td data-th-text="${e.name}"></td>
+
     </tr>
 </table>
 
