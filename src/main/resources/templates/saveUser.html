@@ -9,7 +9,7 @@
 
 <body>
     <header>
-        <h2 data-th-text="'Register user account for ' + ${employee.name} + ' ' + ${employee.personnelTask} "></h2>
+        <h2 data-th-text="'Register user account for ' + ${employee.name}"></h2>
 
     </header>
 
@@ -22,19 +22,32 @@
         <div class="right">
         <div class="form">
             <form class="form" data-th-action="@{/register}" method="post" data-th-object="${user}">
-
-                <label for="username">Username</label>
-                <input id="username" type="text" data-th-field="*{username}" placeholder="username">
-                <label for="password">Password</label>
-                <input id="password" type="password" data-th-field="*{password}" placeholder="password">
-                <input type="hidden" data-th-value="${employee.taxNumber}" name="taxnumber">
-                <label for="position">Position</label>
-                <select id="position" name="position">
-                    <option data-th-each="positionOpt : ${T(hu.progmatic.company_management_system.models.Position).values()}"
-                    data-th-value="${positionOpt}" data-th-text="${positionOpt}"></option>
-                </select>
-
-                <input class="send_button" type="submit" value="Modify">
+                <table>
+                    <tr>
+                        <th><label for="username">Username</label></th>
+                        <td><input id="username" type="text" data-th-field="*{username}" placeholder="username"><a data-th-if="${employee.user} != null" data-th-text="' ' + ${employee.user.username}"></a></td>
+                    </tr>
+                    <tr>
+                        <th><label for="password">Password</label></th>
+                        <td><input id="password" type="password" data-th-field="*{password}" placeholder="password"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="hidden" data-th-value="${employee.taxNumber}" name="taxnumber"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="position">Position</label></th>
+                        <td> <select id="position" name="position" >
+                            <option data-th-each="positionOpt : ${T(hu.progmatic.company_management_system.models.Position).values()}"
+                                    data-th-value="${positionOpt}" data-th-text="${positionOpt}"></option>
+                        </select>
+                            <a data-th-if="${employee.personnelTask} != null" data-th-text="' ' + ${employee.personnelTask}"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a data-th-href="@{/useroptions}"><button class="send_button" >back</button></a></th>
+                        <td><input class="send_button" type="submit" value="Modify"></td>
+                    </tr>
+                </table>
             </form>
         </div>
         </div>
