@@ -44,7 +44,7 @@ public class Employee {
 
     public Employee(String taxNumber, String name, String maidenName, String socialSecurityNumber,
                     String placeOfBirth, LocalDate dateOfBirth, String motherName, String address,
-                    String personnelGroup, Position personnelTask, LocalDate startOfEmployment,
+                    String personnelGroup, LocalDate startOfEmployment,
                     String HSCO, int workingHours, int grossSalary) {
         this.taxNumber = taxNumber;
         this.name = name;
@@ -55,7 +55,6 @@ public class Employee {
         this.motherName = motherName;
         this.address = address;
         this.personnelGroup = personnelGroup;
-        this.personnelTask = personnelTask;
         this.startOfEmployment = startOfEmployment;
         this.HSCO = HSCO;
         this.workingHours = workingHours;

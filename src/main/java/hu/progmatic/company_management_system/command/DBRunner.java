@@ -141,27 +141,27 @@ public class DBRunner implements CommandLineRunner {
 
         employeeRepo.save(new Employee("8312378998", "Hajdú Nikolett", "Hajdú Nikolett", "023546325",
                 "Eger", LocalDate.of(1980,12,13),
-                "Kiss Erika", "1022 Bp, Mogyoró u. 12.", "Alkalmazott", Position.PRODUCTIONMANAGER,
+                "Kiss Erika", "1022 Bp, Mogyoró u. 12.", "Alkalmazott",
                 LocalDate.of(2020,11,11), "3212", 8, 800000));
         employeeRepo.save(new Employee("8456987558", "Magyar Sándor", "Magyar Sándor", "312855423",
                 "Budapest", LocalDate.of(1993,10,3),
-                "Major Kinga", "1035 Bp, Vörösvári út 7.", "Alkalmazott", Position.WAREHOUSEWORKER,
+                "Major Kinga", "1035 Bp, Vörösvári út 7.", "Alkalmazott",
                 LocalDate.of(2021,4,5), "9310", 8, 500000));
         employeeRepo.save(new Employee("8369754421", "Kecskés Brigitta", "Nagy Brigitta", "045897645",
                 "Miskolc", LocalDate.of(1979,10,5),
-                "Kajer Anett", "1076 Bp, Péterfy Sándor utca 7.", "Alkalmazott", Position.ACCOUNTANT,
+                "Kajer Anett", "1076 Bp, Péterfy Sándor utca 7.", "Alkalmazott",
                 LocalDate.of(2020,11,11), "1411", 8, 800000));
         employeeRepo.save(new Employee("8313256455", "Laub János", "Laub János", "012554265",
                 "Nyíregyháza", LocalDate.of(1971,1,6),
-                "Balog Zsuzsanna", "2500 Esztergom, Vidám utca 2.", "Alkalmazott", Position.PRODUCTIONMANAGER,
+                "Balog Zsuzsanna", "2500 Esztergom, Vidám utca 2.", "Alkalmazott",
                 LocalDate.of(2020,12,1), "3212", 8, 900000));
         employeeRepo.save(new Employee("8475000253", "Héni Péter", "Héni Péter", "093366915",
                 "Székesfehérvár", LocalDate.of(1988,2,23),
-                "Ilik Marianna", "2360 Gyál, Táncsics Mihály utca 163.", "Alkalmazott", Position.WAREHOUSEWORKER,
+                "Ilik Marianna", "2360 Gyál, Táncsics Mihály utca 163.", "Alkalmazott",
                 LocalDate.of(2021,5,12), "9310", 6, 400000));
         employeeRepo.save(new Employee("8459658733", "Molnár Ödön", "Molnár Ödön", "022868276",
                 "Budapest", LocalDate.of(1985,7,7),
-                "Kun Izabella", "1161 Bp, Csillag utca 3.", "Alkalmazott", Position.WAREHOUSEWORKER,
+                "Kun Izabella", "1161 Bp, Csillag utca 3.", "Alkalmazott",
                 LocalDate.of(1980,1,17), "9310", 8, 500000));
     }
 }
