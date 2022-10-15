@@ -1,6 +1,7 @@
 package hu.progmatic.company_management_system.models.hr_accounting;
 
 import hu.progmatic.company_management_system.models.Position;
+import hu.progmatic.company_management_system.models.User;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -32,6 +33,9 @@ public class Employee {
 
     @OneToMany
     private List<MonthlyData> monthlyData;
+
+    @OneToOne
+    private User user;
 
     public Employee() {
     }
@@ -170,7 +174,13 @@ public class Employee {
         this.grossSalary = grossSalary;
     }
 
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public String toString() {

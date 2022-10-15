@@ -21,6 +21,9 @@
       <form data-th-action="@{/shippingouts}" data-th-object="${form}" method="post">
         <table>
           <tr>
+            <h2>Search</h2>
+          </tr>
+          <tr>
             <th>Search by buyer name:</th>
             <td><input type="text" data-th-field="*{buyer}" /></td>
           </tr>
@@ -39,6 +42,9 @@
       </form>
 
       <table>
+        <tr>
+          <h2>List of shipping outs</h2>
+        </tr>
         <tr>
           <th>Buyer</th>
           <th>Date</th>
