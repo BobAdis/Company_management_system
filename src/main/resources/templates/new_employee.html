@@ -25,46 +25,94 @@
     <div class="right">
     <div class="form">
 
+        <div class="divE">
         <form class="form" data-th-action="@{/newemployee}" data-th-object="${employee}" method="post">
-            <label for="taxNumber">Tax number</label>
-            <input id="taxNumber" placeholder="taxNumber" type="number" data-th-field="*{taxNumber}" required>
-            <label for="name">Name</label>
-            <input id="name" placeholder="name" type="text" data-th-field="*{name}" required>
-            <label for="maidenName">Maiden name</label>
-            <input id="maidenName" placeholder="maidenName" type="text" data-th-field="*{maidenName}" required>
-            <label for="socialSecurityNumber">Social security number</label>
-            <input id="socialSecurityNumber" placeholder="socialSecurityNumber" type="number" data-th-field="*{socialSecurityNumber}" required>
-            <label for="placeOfBirth">Place of birth</label>
-            <input id="placeOfBirth" placeholder="placeOfBirth" type="text" data-th-field="*{placeOfBirth}" required>
-            <label for="dateOfBirth">Date of birth</label>
-            <input id="dateOfBirth" placeholder="dateOfBirth" type="date" data-th-field="*{dateOfBirth}" required>
-            <label for="motherName">Mother's name</label>
-            <input  id="motherName" placeholder="motherName" type="text" data-th-field="*{motherName}" required>
-            <label for="address">Address</label>
-            <input id="address" placeholder="address" type="text" data-th-field="*{address}" required>
-            <label for="personnelGroup">Personnel group</label>
-            <input  id="personnelGroup" placeholder="personnelGroup" type="text" data-th-field="*{personnelGroup}" required>
-           <!-- <label for="personnelTask">Personnel task</label>
-            <select id="personnelTask" data-th-field="*{personnelTask}">
-                <option data-th-each="task : ${tasks}"
-                        data-th-value="${task}"
-                        data-th-text="${task}">
-                </option>
-            </select>-->
-            <label for="startOfEmployment">Start of employment</label>
-            <input id="startOfEmployment" placeholder="startOfEmployment" type="date" data-th-field="*{startOfEmployment}" required>
-            <label for="HSCO">HSCO</label>
-            <input id="HSCO" placeholder="HSCO" type="text" data-th-field="*{HSCO}" required>
-            <label for="workingHours">Working hours</label>
-            <input id="workingHours" placeholder="workingHours" type="text" data-th-field="*{workingHours}" required>
-            <label for="grossSalary">Gross salary</label>
-            <input id="grossSalary" placeholder="grossSalary" type="text" data-th-field="*{grossSalary}" required>
-
+            <table tyle="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+            <tr>
+                <td>
+                    <label for="taxNumber">Tax number</label>
+                    <input id="taxNumber" placeholder="taxNumber" type="number" data-th-field="*{taxNumber}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">Name</label>
+                    <input id="name" placeholder="name" type="text" data-th-field="*{name}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="maidenName">Maiden name</label>
+                    <input id="maidenName" placeholder="maidenName" type="text" data-th-field="*{maidenName}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="socialSecurityNumber">Social security number</label>
+                    <input id="socialSecurityNumber" placeholder="socialSecurityNumber" type="number" data-th-field="*{socialSecurityNumber}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="placeOfBirth">Place of birth</label>
+                    <input id="placeOfBirth" placeholder="placeOfBirth" type="text" data-th-field="*{placeOfBirth}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="dateOfBirth">Date of birth</label>
+                    <input id="dateOfBirth" placeholder="dateOfBirth" type="date" data-th-field="*{dateOfBirth}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="motherName">Mother's name</label>
+                    <input  id="motherName" placeholder="motherName" type="text" data-th-field="*{motherName}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="address">Address</label>
+                    <input id="address" placeholder="address" type="text" data-th-field="*{address}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="personnelGroup">Personnel group</label>
+                    <input  id="personnelGroup" placeholder="personnelGroup" type="text" data-th-field="*{personnelGroup}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="startOfEmployment">Start of employment</label>
+                    <input id="startOfEmployment" placeholder="startOfEmployment" type="date" data-th-field="*{startOfEmployment}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="HSCO">HSCO</label>
+                    <input id="HSCO" placeholder="HSCO" type="text" data-th-field="*{HSCO}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="workingHours">Working hours</label>
+                    <input id="workingHours" placeholder="workingHours" type="text" data-th-field="*{workingHours}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="grossSalary">Gross salary</label>
+                    <input id="grossSalary" placeholder="grossSalary" type="text" data-th-field="*{grossSalary}" required>
+                </td>
+            </tr>
+            </table>
             <button class="send_button" type="submit">Save</button>
         </form>
         <button class="send_button">
             <a data-th-href="@{/employees}">Back to Employees</a>
         </button>
+        </div>
     </div>
     </div>
 </div>

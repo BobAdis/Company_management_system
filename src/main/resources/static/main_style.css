@@ -131,6 +131,23 @@ tr:nth-child(odd) {
 }
 
 .box5 {
+    display: flex;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius:10px;
+    border: 2px solid var(--light_gray);
+}
+
+.box6 {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius:10px;
+    border: 2px solid var(--light_gray);
+}
+
+.box7 {
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 10px;

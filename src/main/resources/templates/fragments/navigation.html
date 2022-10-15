@@ -54,9 +54,9 @@
                 <a th:class="${selectedLocation == 'Payroll'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
                    data-th-href="@{/payroll}">Payroll</a>
                 <a th:class="${selectedLocation == 'Employees'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
-                   data-th-href="@{/employees}"><li>Employees</li></a>
+                   data-th-href="@{/employees}">Employees</a>
                 <a th:class="${selectedLocation == 'Useroptions'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN')"
-                   data-th-href="@{/useroptions}"><li>Employee options</li></a>
+                   data-th-href="@{/useroptions}">User options</a>
             </ul>
         <br />
             <a class="active" data-th-href="@{/logout}">Logout</a>

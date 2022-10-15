@@ -45,6 +45,24 @@ h1 {
     gap: 3px;
 }
 
+.formE {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.formE p, .form h1 {
+    padding: 2px;
+    margin: 2px;
+}
+
+.formE-handler{
+    padding: 5px;
+    margin: 0;
+    gap: 3px;
+}
+
 .send_button {
     min-width: 100px;
     padding: 10px;
