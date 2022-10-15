@@ -16,7 +16,7 @@
             <br />
             <span th:classappend="${selectedLocation == 'Warehouses' || selectedLocation == 'Rawmaterials' || selectedLocation == 'Endproducts' || selectedLocation == 'Transfer' ||
             selectedLocation == 'Workstation' || selectedLocation == 'Producedproducts' || selectedLocation == 'Ingredients' || selectedLocation == 'Bomlists'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_MACHINE_OPERATOR')"
-                  class="highlights">Produced product</span>
+                  class="highlights">Production</span>
             <ul>
                 <a th:class="${selectedLocation == 'Ingredients'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
                    data-th-href="@{/ingredients}">Ingredients</a>
