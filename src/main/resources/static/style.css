@@ -49,7 +49,7 @@ h1 {
     min-width: 100px;
     padding: 10px;
     font-size: 75%;
-    background-color: #4B67C4;
+    background-color: #E92323;
     border-radius: 5%;
     cursor: pointer;
 }
@@ -64,19 +64,20 @@ h1 {
 }
 
 table {
-    width: 100%;
-    table-layout: fixed;
+    width: 98%;
+    table-layout: inherit;
+    border: 1px solid var(--light_gray);
+    border-radius: 5px;
 }
 
 table, th, td {
-    border-collapse: collapse;
     pandding: 5px;
 }
 
 th, td {
-    padding: 10px;
+    padding: 2px;
     text-align: left;
-    padding-right: 5px;
+    border-radius: 5px;
 }
 
 .positionTHTD {

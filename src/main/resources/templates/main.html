@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="/main_style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <body>
 <header>
     <h2>Progmatic Company management system</h2>
+    <h1>Until the 3rd quarter of 2022</h1>
 </header>
 
 <div class="row">
@@ -20,9 +22,57 @@
     </div>
     <div class="right">
         <div class="main-container">
+
+            <div class="box5">
+                <h1>Sold products</h1>
+                <table>
+                    <tr>
+                        <th>Products name</th>
+                        <th>number of products sold</th>
+                    </tr>
+                    <tr data-th-each="producedProduct: ${producedProducts}">
+                        <td data-th-text="Motorblokk"></td>
+                        <td data-th-text="754"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <br />
+
+            <div class="box5">
+                <h1>Sold products</h1>
+                <table>
+                    <tr>
+                        <th>Products name</th>
+                        <th>number of products sold</th>
+                    </tr>
+                    <tr data-th-each="producedProduct: ${producedProducts}">
+                        <td data-th-text="Motorblokk"></td>
+                        <td data-th-text="754"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <br />
+
+            <div class="box5">
+                <h1>Sold products</h1>
+                <table>
+                    <tr>
+                        <th>Products name</th>
+                        <th>number of products sold</th>
+                    </tr>
+                    <tr data-th-each="producedProduct: ${producedProducts}">
+                        <td data-th-text="Motorblokk"></td>
+                        <td data-th-text="754"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <br />
+
         <div class="box1">
-            <h1 align="center">Partners</h1>
-            <h2>Customers</h2>
+            <h2>Revenue figures</h2>
             <table id="customers">
                 <tr>
                     <th>Partner Name</th>
@@ -40,24 +90,10 @@
                 </tr>
             </table>
 
-        <h2>Suppliers</h2>
-        <table>
-            <tr>
-                <th>Partner Name</th>
-                <th>Address</th>
-                <th>Contact Name</th>
-                <th>Email</th>
-                <th>Phone number</th>
-            </tr>
-            <tr data-th-each="partner: ${suppliers}">
-                <td data-th-text="${partner.partnerName}"></td>
-                <td data-th-text="${partner.address}"></td>
-                <td data-th-text="${partner.contactName}"></td>
-                <td data-th-text="${partner.email}"></td>
-                <td data-th-text="${partner.phoneNumber}"></td>
-            </tr>
-        </table>
+        <h2>Products sold</h2>
+            <canvas id="myChart" style="width:100%;max-width:600px;color:white"></canvas>
         </div>
+
         <br />
 
         <div class="box2">
@@ -73,7 +109,9 @@
                 </tr>
             </table>
         </div>
+
         <br />
+
         <div class="box3">
             <h1>Products</h1>
             <table>
@@ -87,6 +125,8 @@
                 </tr>
             </table>
         </div>
+
+            <br />
 
         <div class="box4">
        <h1>BOMList</h1>
@@ -107,5 +147,32 @@
         </div>
     </div>
 </div>
+
+<script>
+    Chart.defaults.global.defaultFontColor = "#000000";
+    var xValues = ["Motorblok", "Lábléc", "Kutyaház", "Tevepata", "Lónyál"];
+    var yValues = [55, 49, 44, 24, 15];
+    var barColors = ["red", "green","blue","orange","brown"];
+
+    new Chart("myChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+                display: true,
+                text: "Product sold 2022"
+            }
+        }
+    });
+</script>
+
+
 </body>
 </html>

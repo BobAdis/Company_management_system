@@ -38,24 +38,24 @@
             <span th:classappend="${selectedLocation == 'Suppliers' || selectedLocation == 'Customers'}? 'selected' " class="highlights" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')">Partners</span>
             <ul>
                 <a th:class="${selectedLocation == 'Suppliers'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
-                       data-th-href="@{/suppliers}"><li>Suppliers</li></a>
+                       data-th-href="@{/suppliers}">Suppliers</a>
                 <a th:class="${selectedLocation == 'Customers'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
-                       data-th-href="@{/customers}"><li>Customers</li></a>
+                       data-th-href="@{/customers}">Customers</a>
                 </ul>
             <span th:classappend="${selectedLocation == 'Shippingins' || selectedLocation == 'Shippingouts'}? 'selected' " class="highlights" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')">Shipping</span>
             <ul>
                 <a th:class="${selectedLocation == 'Shippingins'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
-                       data-th-href="@{/shippingins}"><li>ShippingIns</li></a>
+                       data-th-href="@{/shippingins}">ShippingIns</a>
                 <a th:class="${selectedLocation == 'Shippingouts'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
-                       data-th-href="@{/shippingouts}"><li>ShippingOuts</li></a>
+                       data-th-href="@{/shippingouts}">ShippingOuts</a>
             </ul>
             <span th:classappend="${selectedLocation == 'Employees' || selectedLocation == 'Finance' || selectedLocation == 'Payroll'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')" class="highlights">HR</span>
             <ul>
                 <a th:class="${selectedLocation == 'Payroll'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
-                   data-th-href="@{/payroll}"><li>Payroll</li></a>
+                   data-th-href="@{/payroll}">Payroll</a>
                 <a th:class="${selectedLocation == 'Employees'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
-                       data-th-href="@{/employees}"><li>Employees</li></a>
-                <a th:class="${selectedLocation == 'Register'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN')" data-th-href="@{/register}"><li>User registry</li></a>
+                       data-th-href="@{/employees}">Employees</a>
+                <a th:class="${selectedLocation == 'Register'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN')" data-th-href="@{/register}">User registry</a>
             </ul>
         <br />
             <a class="active" data-th-href="@{/logout}">Logout</a>

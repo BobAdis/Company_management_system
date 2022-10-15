@@ -11,11 +11,10 @@
     --blue: #287BDE;
     --orange: #CC7832;
     --yellow: #FFC66D;
-    --green: #629755;
-    --smooth_green: #485848;
     --purple: #9876AA;
     --red: #BC3F3C;
 }
+
 
 html,
 body {
@@ -71,21 +70,20 @@ body {
 }
 
 table {
-    width: 100%;
+    width: 98%;
     table-layout: inherit;
-    border-collapse: collapse;
+    border: 1px solid var(--light_gray);
+    border-radius: 5px;
 }
 
 table, th, td {
-    border: 1px solid var(--gray);
-    border-collapse: collapse;
     pandding: 5px;
-
 }
 
 th, td {
     padding: 2px;
     text-align: left;
+    border-radius: 5px;
 }
 
 th {
@@ -126,6 +124,14 @@ tr:nth-child(odd) {
 .box4 {
     width: 100%;
     padding-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius:10px;
+    border: 2px solid var(--light_gray);
+}
+
+.box5 {
+    padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
     border-radius:10px;
