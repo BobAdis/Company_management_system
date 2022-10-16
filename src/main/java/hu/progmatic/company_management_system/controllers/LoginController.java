@@ -5,11 +5,14 @@ import hu.progmatic.company_management_system.models.User;
 import hu.progmatic.company_management_system.models.hr_accounting.Employee;
 import hu.progmatic.company_management_system.services.EmployeeService;
 import hu.progmatic.company_management_system.services.UserService;
+import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.TransactionScoped;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
