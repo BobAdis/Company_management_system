@@ -19,10 +19,13 @@
                 <div th:replace="~{fragments/navigation :: navigation}"></div>
             </div>
         </div>
+
         <div class="right">
+
         <div class="form">
+            <table>
             <form class="form" data-th-action="@{/register}" method="post" data-th-object="${user}">
-                <table>
+
                     <tr>
                         <th><label for="username">Username</label></th>
                         <td><input id="username" type="text" data-th-field="*{username}" placeholder="username"><a data-th-if="${employee.user} != null" data-th-text="' ' + ${employee.user.username}"></a></td>
@@ -47,12 +50,14 @@
 
                         <td><input class="send_button" type="submit" value="Modify"></td>
                     </tr>
-            </table>
+
             </form>
-            <a data-th-href="@{/useroptions}"><button class="send_button">back</button></a>
+            <td><a data-th-href="@{/useroptions}"><button class="send_button">back</button></a></td>
+            </table>
+        </div>
 
         </div>
-        </div>
+
     </div>
 
 
