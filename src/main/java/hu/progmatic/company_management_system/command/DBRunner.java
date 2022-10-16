@@ -88,6 +88,10 @@ public class DBRunner implements CommandLineRunner {
         partnerRepo.save(partner1);
         Partner partner2 = new Partner("Mészáros és a Főni Kft", PartnerType.CUSTOMER, "1000 BP Hősök tere 1.", "Főni", "lölő@közpénz.hu", "0630123456789");
         partnerRepo.save(partner2);
+        Partner partner3 = new Partner("Vasbeton Bt", PartnerType.CUSTOMER, "2900 Komárom, Fuvaros köz 1.", "Csontos Veronika", "csontosveronika@vasbeton.hu", "0630123456789");
+        partnerRepo.save(partner3);
+        Partner partner4 = new Partner("Pick-Pack Kft", PartnerType.SUPPLIER, "1201 Budapest, Rózsa utca 7..", "Vadon Emil", "vadonemil@pickpack.hu", "06309876543");
+        partnerRepo.save(partner4);
         System.out.println("Partners generated.");
 
         ProducedProduct producedProduct1 = new ProducedProduct("Motorblokk");
@@ -95,6 +99,8 @@ public class DBRunner implements CommandLineRunner {
 
         Ingredient ingredient1 = new Ingredient("A alapanyag", "A hozzávaló","m");
         Ingredient ingredient2 = new Ingredient("B alapanyag", "B hozzávaló","kg");
+
+
         BOMList bomList1 = new BOMList("Így készül a motorblokk", producedProduct1, List.of(ingredient1, ingredient2), "A alapanyag - 2, B alapanyag 3");
         ingredient1.setBomList(bomList1);
         ingredient2.setBomList(bomList1);
@@ -106,20 +112,32 @@ public class DBRunner implements CommandLineRunner {
         System.out.println("BOMList1 garanted.");
 
         ProducedProduct producedProduct2 = new ProducedProduct("Cserebogár");
+        ProducedProduct producedProduct3 = new ProducedProduct("Radiátor");
         Ingredient ingredient3 = new Ingredient("C alapanyag", "C hozzávaló","m");
         Ingredient ingredient4 = new Ingredient("D alapanyag", "D hozzávaló","kg");
+        Ingredient ingredient5 = new Ingredient("Vas", "radiátor hozzávaló","kg");
+        Ingredient ingredient6 = new Ingredient("Csavar", "radiátor hozzávaló","db");
         BOMList bomList2 = new BOMList("Így készül a cserebogár", producedProduct2, List.of(ingredient3, ingredient4), "C alapanyag - 1, D alapanyag 4");
+        BOMList bomList3 = new BOMList("Így készül a radiátor", producedProduct3, List.of(ingredient5, ingredient6), "Vas - 15kg, Csavar - 22db");
         ingredient3.setBomList(bomList2);
         ingredient4.setBomList(bomList2);
+        ingredient5.setBomList(bomList3);
+        ingredient6.setBomList(bomList3);
         producedProduct2.setBomList(bomList2);
+        producedProduct3.setBomList(bomList3);
         producedProductRepo.save(producedProduct2);
+        producedProductRepo.save(producedProduct3);
         bomListRepo.save(bomList2);
+        bomListRepo.save(bomList3);
         ingredientRepo.save(ingredient3);
         ingredientRepo.save(ingredient4);
+        ingredientRepo.save(ingredient5);
+        ingredientRepo.save(ingredient6);
         System.out.println("BOMLlists and Ingredients generated.");
 
         ShippingIn shippingIn1 = new ShippingIn(partner1, LocalDate.now(),List.of());
         shippingInRepo.save(shippingIn1);
+
         RawMaterial rawMaterial1 = new RawMaterial(ingredient1, 20223010,1200,10, shippingIn1, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial1);
         RawMaterial rawMaterial2 = new RawMaterial(ingredient2, 20223011,1200,10, shippingIn1, Warehouse.INBOUND);
@@ -131,12 +149,25 @@ public class DBRunner implements CommandLineRunner {
         rawMaterialRepo.save(rawMaterial3);
         RawMaterial rawMaterial4 = new RawMaterial(ingredient4, 20223013,1200,10, shippingIn2, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial4);
+
+        ShippingIn shippingIn3 = new ShippingIn(partner3, LocalDate.of(2022, 10,15),List.of());
+        shippingInRepo.save(shippingIn3);
+        RawMaterial rawMaterial5 = new RawMaterial(ingredient5, 20224015,2000,20, shippingIn3 ,Warehouse.INBOUND);
+        rawMaterialRepo.save(rawMaterial5);
+        RawMaterial rawMaterial6 = new RawMaterial(ingredient6, 20224014,2150,20, shippingIn3, Warehouse.INBOUND);
+        rawMaterialRepo.save(rawMaterial6);
+
         System.out.println("Shipping ins and Rawmaterials generated.");
 
         ShippingOut shippingOut1 = new ShippingOut(partner1,LocalDate.now(),List.of());
         shippingOutRepo.save(shippingOut1);
         EndProduct endProduct1 = new EndProduct(producedProduct1, 5990075,80000,10,shippingOut1);
         endProductRepo.save(endProduct1);
+
+        ShippingOut shippingOut2 = new ShippingOut(partner3,LocalDate.now(),List.of());
+        shippingOutRepo.save(shippingOut2);
+        EndProduct endProduct2 = new EndProduct(producedProduct3, 5997789,100000,10,shippingOut2);
+        endProductRepo.save(endProduct2);
         System.out.println("Shipping outs and Endproducts generated.");
 
         employeeRepo.save(new Employee("8312378998", "Hajdú Nikolett", "Hajdú Nikolett", "023546325",

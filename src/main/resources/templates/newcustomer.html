@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New customer</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .form {gap: 0}
+        label {margin-bottom: 10px; margin-top: 25px}
+        .send_button { margin-top: 25px}
+    </style>
+</head>
+<body>
+<header>
+    <h2>Save new customer</h2>
+    <h2 data-th-text="${page}"></h2>
+</header>
+
+<div class="row">
+    <div class="vertical-menu">
+        <div class="left">
+            <div th:replace="~{fragments/navigation :: navigation}"></div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="form">
+
+            <div class="divE">
+                <form class="form" data-th-action="@{/newcustomer}" data-th-object="${partner}" method="post">
+                    <table tyle="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+                        <tr>
+                            <td>
+                                <label for="partnerName">Partner name</label>
+                                <input id="partnerName" placeholder="name" type="text" data-th-field="*{partnerName}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="display: none">
+                                <label for="partnerType">Partner type</label>
+                                <select id="partnerType" data-th-name="partnerType">
+                                    <option data-th-each="partnert: ${partnerType}"
+                                            data-th-value="${partnert}"
+                                            data-th-text="${partnert}">
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="address">Address</label>
+                                <input id="address" placeholder="address" type="text" data-th-field="*{address}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="contactName">Contact name</label>
+                                <input id="contactName" placeholder="contactName" type="text" data-th-field="*{contactName}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="email">Email</label>
+                                <input id="email" placeholder="email" type="text" data-th-field="*{email}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="phoneNumber">Phone number</label>
+                                <input id="phoneNumber" placeholder="phoneNumber" type="text" data-th-field="*{phoneNumber}" required>
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="send_button" type="submit">SAVE</button>
+                </form>
+                <button class="send_button">
+                    <a data-th-href="@{/customers}">BACK TO CUSTOMERS</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

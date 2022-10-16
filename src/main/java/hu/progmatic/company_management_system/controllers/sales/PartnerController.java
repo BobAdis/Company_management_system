@@ -1,5 +1,7 @@
 package hu.progmatic.company_management_system.controllers.sales;
 
+import hu.progmatic.company_management_system.models.Position;
+import hu.progmatic.company_management_system.models.hr_accounting.Employee;
 import hu.progmatic.company_management_system.models.sales.Partner;
 import hu.progmatic.company_management_system.models.sales.PartnerType;
 import hu.progmatic.company_management_system.searchform.PartnerSearchForm;
@@ -63,5 +65,37 @@ public class PartnerController {
         model.addAttribute("form", form);
         return "customers";
     }
+
+    @GetMapping(value = {"/newsupplier"})
+    public String getNewSupplierForm(Model model) {
+        Partner partner = new Partner();
+        model.addAttribute("partner", partner);
+        model.addAttribute("partnerType", PartnerType.SUPPLIER);
+
+        return "newsupplier";
+    }
+    @PostMapping("/newsupplier")
+    public String addNewSupplier(Partner partner) {
+        partnerService.save(partner);
+
+        return "redirect:/suppliers";
+    }
+
+    @GetMapping(value = {"/newcustomer"})
+    public String getNewCustomerForm(Model model) {
+        Partner partner = new Partner();
+        model.addAttribute("partner", partner);
+        model.addAttribute("partnerType", PartnerType.CUSTOMER);
+
+        return "newcustomer";
+    }
+    @PostMapping("/newcustomer")
+    public String addNewCustomer(Partner partner) {
+        partnerService.save(partner);
+
+        return "redirect:/customers";
+    }
+
+
 
 }

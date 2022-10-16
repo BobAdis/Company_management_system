@@ -1,8 +1,6 @@
 package hu.progmatic.company_management_system.models.sales;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Partner {
@@ -10,6 +8,7 @@ public class Partner {
     @GeneratedValue
     private Long id;
     private String partnerName;
+    @Enumerated(EnumType.STRING)
     private PartnerType partnerType;
     private String address;
     private String contactName;

@@ -1,5 +1,6 @@
 package hu.progmatic.company_management_system.services;
 
+import hu.progmatic.company_management_system.models.hr_accounting.Employee;
 import hu.progmatic.company_management_system.models.sales.Partner;
 import hu.progmatic.company_management_system.models.sales.PartnerType;
 import hu.progmatic.company_management_system.repositories.PartnerRepo;
@@ -49,5 +50,9 @@ public class PartnerService {
             result.add(partner);
         }
         return result;
+    }
+
+    public void save(Partner partner) {
+        partnerRepo.save(partner);
     }
 }
