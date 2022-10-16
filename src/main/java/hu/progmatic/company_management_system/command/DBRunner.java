@@ -84,14 +84,34 @@ public class DBRunner implements CommandLineRunner {
         userRepository.save(new User("Janika", passwordEncoder.encode("password"), Position.MACHINE_OPERATOR, false));
         System.out.println("Machine-operator user generated.");
 
-        Partner partner1 = new Partner("Mészáros és Mészáros Kft", PartnerType.SUPPLIER, "1000 BP Hősök tere 1.", "Lölő", "lölő@közpénz.hu", "0630123456789");
+        Partner partner1 = new Partner("Metal21 Kft.", PartnerType.SUPPLIER, "2600 VÁC, Köztársaság út 72.",
+                "Urbán Péter", "peter.urban@metal21.hu", "06306485687");
         partnerRepo.save(partner1);
-        Partner partner2 = new Partner("Mészáros és a Főni Kft", PartnerType.CUSTOMER, "1000 BP Hősök tere 1.", "Főni", "lölő@közpénz.hu", "0630123456789");
+        Partner partner2 = new Partner("Kis és Váradi Bt.", PartnerType.CUSTOMER, "1032 BP Naplemente utca 13.",
+                "Váradi Gábor", "vgabor@gmail.com", "06705568842");
         partnerRepo.save(partner2);
-        Partner partner3 = new Partner("Vasbeton Bt", PartnerType.CUSTOMER, "2900 Komárom, Fuvaros köz 1.", "Csontos Veronika", "csontosveronika@vasbeton.hu", "0630123456789");
+        Partner partner3 = new Partner("Vasbeton Bt", PartnerType.CUSTOMER, "2900 Komárom, Fuvaros köz 1.",
+                "Csontos Veronika", "csontosveronika@vasbeton.hu", "06301234567");
         partnerRepo.save(partner3);
-        Partner partner4 = new Partner("Pick-Pack Kft", PartnerType.SUPPLIER, "1201 Budapest, Rózsa utca 7..", "Vadon Emil", "vadonemil@pickpack.hu", "06309876543");
+        Partner partner4 = new Partner("Pick-Pack Kft", PartnerType.SUPPLIER, "1201 Budapest, Rózsa utca 7.",
+                "Vadon Emil", "vadonemil@pickpack.hu", "06309876543");
         partnerRepo.save(partner4);
+        Partner partner5 = new Partner("Alfa-Alu Kft.", PartnerType.SUPPLIER, "2730 Albertirsa, Dózsa György utca 41.",
+                "Pajor András", "pajora@alfaalu.hu", "06309956113");
+        partnerRepo.save(partner5);
+        Partner partner6 = new Partner("Ottó csavar Kft.", PartnerType.SUPPLIER, "2030 Érd, Alsó utca 79.",
+                "Koppány Balázs", "balazs.koppany@ottocsavar.hu", "06708659174");
+        partnerRepo.save(partner6);
+        Partner partner7 = new Partner("Kapu Center Kft.", PartnerType.CUSTOMER, "1188 Bp., Vasút utca 12.",
+                "Kosztka Andrea", "andrea.kosztka@kapucenter.hu", "06709736155");
+        partnerRepo.save(partner7);
+        Partner partner8 = new Partner("Iron2008 Bt.", PartnerType.SUPPLIER, "2119 Pécel, Hunyadi út 52.",
+                "Fekete Adrienn", "fekete.adrienn@iron.hu", "06708712153");
+        partnerRepo.save(partner8);
+        Partner partner9 = new Partner("Radiátor Mester Kft.", PartnerType.CUSTOMER, "1063 Bp., Major utca 2.",
+                "Lambert Emil", "emil.lambert@radiatormester.hu", "06702247469");
+        partnerRepo.save(partner9);
+
         System.out.println("Partners generated.");
 
         ProducedProduct producedProduct1 = new ProducedProduct("Motorblokk");
@@ -99,9 +119,16 @@ public class DBRunner implements CommandLineRunner {
 
         Ingredient ingredient1 = new Ingredient("A alapanyag", "A hozzávaló","m");
         Ingredient ingredient2 = new Ingredient("B alapanyag", "B hozzávaló","kg");
+        Ingredient ingredient3 = new Ingredient("Aluminium lemez", "lemezradiátor alapanyag","m");
+        Ingredient ingredient4 = new Ingredient("Golyóscsap", "lemezradiátor alapanyag","db");
+        Ingredient ingredient5 = new Ingredient("Imbusz csavar", "lemezradiátor alapanyag","db");
+        Ingredient ingredient6 = new Ingredient("Laposvas", "vaskapu alapanyag","m");
+        Ingredient ingredient7 = new Ingredient("Kapupánt csavar", "vaskapu alapanyag","db");
+        Ingredient ingredient8 = new Ingredient("Zártszelvény", "vaskapu alapanyag","mm2");
 
 
-        BOMList bomList1 = new BOMList("Így készül a motorblokk", producedProduct1, List.of(ingredient1, ingredient2), "A alapanyag - 2, B alapanyag 3");
+        BOMList bomList1 = new BOMList("Így készül a motorblokk", producedProduct1, List.of(ingredient1, ingredient2),
+                "A alapanyag - 2, B alapanyag 3");
         ingredient1.setBomList(bomList1);
         ingredient2.setBomList(bomList1);
         producedProduct1.setBomList(bomList1);
@@ -111,12 +138,14 @@ public class DBRunner implements CommandLineRunner {
         ingredientRepo.save(ingredient2);
         System.out.println("BOMList1 garanted.");
 
+
+
         ProducedProduct producedProduct2 = new ProducedProduct("Cserebogár");
         ProducedProduct producedProduct3 = new ProducedProduct("Radiátor");
-        Ingredient ingredient3 = new Ingredient("C alapanyag", "C hozzávaló","m");
-        Ingredient ingredient4 = new Ingredient("D alapanyag", "D hozzávaló","kg");
-        Ingredient ingredient5 = new Ingredient("Vas", "radiátor hozzávaló","kg");
-        Ingredient ingredient6 = new Ingredient("Csavar", "radiátor hozzávaló","db");
+        Ingredient ingredient9 = new Ingredient("C alapanyag", "C hozzávaló","m");
+        Ingredient ingredient10 = new Ingredient("D alapanyag", "D hozzávaló","kg");
+        Ingredient ingredient11 = new Ingredient("Vas", "radiátor hozzávaló","kg");
+        Ingredient ingredient12 = new Ingredient("Csavar", "radiátor hozzávaló","db");
         BOMList bomList2 = new BOMList("Így készül a cserebogár", producedProduct2, List.of(ingredient3, ingredient4), "C alapanyag - 1, D alapanyag 4");
         BOMList bomList3 = new BOMList("Így készül a radiátor", producedProduct3, List.of(ingredient5, ingredient6), "Vas - 15kg, Csavar - 22db");
         ingredient3.setBomList(bomList2);
@@ -143,19 +172,29 @@ public class DBRunner implements CommandLineRunner {
         RawMaterial rawMaterial2 = new RawMaterial(ingredient2, 20223011,1200,10, shippingIn1, Warehouse.INBOUND);
         rawMaterialRepo.save(rawMaterial2);
 
+        RawMaterial rawMaterial3 = new RawMaterial(ingredient3, 20223012,800,20);
+        rawMaterialRepo.save(rawMaterial3);
+        RawMaterial rawMaterial4 = new RawMaterial(ingredient4, 20223012,1500,30);
+        rawMaterialRepo.save(rawMaterial4);
+        RawMaterial rawMaterial5 = new RawMaterial(ingredient5, 20223012,1700,20);
+        rawMaterialRepo.save(rawMaterial5);
+        RawMaterial rawMaterial6 = new RawMaterial(ingredient6, 20223015,1700,20);
+        rawMaterialRepo.save(rawMaterial6);
+
+
         ShippingIn shippingIn2 = new ShippingIn(partner2, LocalDate.of(2022, 9,20),List.of());
         shippingInRepo.save(shippingIn2);
-        RawMaterial rawMaterial3 = new RawMaterial(ingredient3, 20223012,1200,10, shippingIn2, Warehouse.INBOUND);
-        rawMaterialRepo.save(rawMaterial3);
-        RawMaterial rawMaterial4 = new RawMaterial(ingredient4, 20223013,1200,10, shippingIn2, Warehouse.INBOUND);
-        rawMaterialRepo.save(rawMaterial4);
+        RawMaterial rawMaterial16 = new RawMaterial(ingredient3, 20223012,1200,10, shippingIn2, Warehouse.INBOUND);
+        rawMaterialRepo.save(rawMaterial16);
+        RawMaterial rawMaterial17 = new RawMaterial(ingredient4, 20223013,1200,10, shippingIn2, Warehouse.INBOUND);
+        rawMaterialRepo.save(rawMaterial17);
 
         ShippingIn shippingIn3 = new ShippingIn(partner3, LocalDate.of(2022, 10,15),List.of());
         shippingInRepo.save(shippingIn3);
-        RawMaterial rawMaterial5 = new RawMaterial(ingredient5, 20224015,2000,20, shippingIn3 ,Warehouse.INBOUND);
-        rawMaterialRepo.save(rawMaterial5);
-        RawMaterial rawMaterial6 = new RawMaterial(ingredient6, 20224014,2150,20, shippingIn3, Warehouse.INBOUND);
-        rawMaterialRepo.save(rawMaterial6);
+        RawMaterial rawMaterial8 = new RawMaterial(ingredient5, 20224015,2000,20, shippingIn3 ,Warehouse.INBOUND);
+        rawMaterialRepo.save(rawMaterial8);
+        RawMaterial rawMaterial9 = new RawMaterial(ingredient6, 20224014,2150,20, shippingIn3, Warehouse.INBOUND);
+        rawMaterialRepo.save(rawMaterial9);
 
         System.out.println("Shipping ins and Rawmaterials generated.");
 

@@ -24,6 +24,13 @@ public class RawMaterial {
     public RawMaterial() {
     }
 
+    public RawMaterial(Ingredient ingredient, Integer SARZSNumber, Integer unitPrice, Integer quantity) {
+        this.ingredient = ingredient;
+        this.SARZSNumber = SARZSNumber;
+        this.unitPrice = unitPrice;
+        this.quantity = quantity;
+    }
+
     public RawMaterial(Ingredient ingredient, Integer SARZSNumber, Integer unitPrice, Integer quantity, Warehouse warehouse) {
         this.ingredient = ingredient;
         this.SARZSNumber = SARZSNumber;
