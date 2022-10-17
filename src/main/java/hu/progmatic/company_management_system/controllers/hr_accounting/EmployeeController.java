@@ -180,6 +180,8 @@ public class EmployeeController {
         model.addAttribute("e", e1);
         model.addAttribute("money", money);
 
+        model.addAttribute("selectedLocation", "Payroll");
+
         return "actualnetsalary";
     }
 

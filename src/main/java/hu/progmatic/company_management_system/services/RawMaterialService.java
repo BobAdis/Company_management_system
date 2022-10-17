@@ -107,4 +107,12 @@ public class RawMaterialService {
             return false;
         }
     }
+
+    public List<RawMaterial> getRawMaterialWhereWarehouseIsWorkstation() {
+        return rawMaterialRepo.getRawMaterialByWarehouse(Warehouse.WORKSTATIONS);
+    }
+
+    public List<RawMaterial> getRawMaterialByWarehouse(Warehouse warehouse) {
+        return rawMaterialRepo.getRawMaterialByWarehouse(warehouse);
+    }
 }

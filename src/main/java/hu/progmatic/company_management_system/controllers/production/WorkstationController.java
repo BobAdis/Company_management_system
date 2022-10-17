@@ -45,7 +45,7 @@ public class WorkstationController {
 
         BOMList bomList = bomListService.getBOMListById(id);
 
-        List<RawMaterial> rawMaterials = rawMaterialService.getAllRawMaterial();
+        List<RawMaterial> rawMaterials = rawMaterialService.getRawMaterialWhereWarehouseIsWorkstation();
         List<EndProduct> endProducts = endProductService.getAllEndProduct();
 
         model.addAttribute("bomlist", bomList);
@@ -69,7 +69,7 @@ public class WorkstationController {
         boolean isSuccess = rawMaterialService.subtractRawMaterial(rm_id, quantity);
 
         List<BOMList> bomLists = bomListService.getAllBOMList();
-        List<RawMaterial> rawMaterials = rawMaterialService.getAllRawMaterial();
+        List<RawMaterial> rawMaterials = rawMaterialService.getRawMaterialWhereWarehouseIsWorkstation();
         List<EndProduct> endProducts = endProductService.getAllEndProduct();
 
         model.addAttribute("rm_success", isSuccess);
@@ -91,7 +91,7 @@ public class WorkstationController {
         boolean isSuccess = endProductService.addEndproduct(ep_id, quantity);
 
         List<BOMList> bomLists = bomListService.getAllBOMList();
-        List<RawMaterial> rawMaterials = rawMaterialService.getAllRawMaterial();
+        List<RawMaterial> rawMaterials = rawMaterialService.getRawMaterialWhereWarehouseIsWorkstation();
         List<EndProduct> endProducts = endProductService.getAllEndProduct();
 
         model.addAttribute("ep_success", isSuccess);

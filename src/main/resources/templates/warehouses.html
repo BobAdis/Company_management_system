@@ -17,42 +17,95 @@
         </div>
     </div>
     <div class="right">
-<!--<h1 data-th-text="${page}"></h1>-->
-<form data-th-action="@{/warehouses}"  method="post">
-    <table>
-        <tr>
-            <th>Warehouses</th>
-        </tr>
-        <tr>
-            <td>
-                <select class="form-control" data-th-name="warehouse">
-                    <option data-th-each="warehouse: ${warehouses}"
-                            data-th-value="${warehouse}"
-                            data-th-text="${warehouse}">
-                    </option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td><button type="submit">Send</button></td>
-        </tr>
-    </table>
-</form>
-<h1> </h1>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>SARZSNumber</th>
-        <th>unitPrice</th>
-        <th>quantity</th>
-    </tr>
-    <tr data-th-each="rawMaterial: ${rawMaterials}">
-        <td data-th-text="${rawMaterial.ingredient.name}"></td>
-        <td data-th-text="${rawMaterial.SARZSNumber}"></td>
-        <td data-th-text="${rawMaterial.unitPrice}"></td>
-        <td data-th-text="${rawMaterial.quantity}"></td>
-    </tr>
-</table>
+        <!--<h1 data-th-text="${page}"></h1>-->
+        <form data-th-action="@{/warehouses}"  method="post">
+            <table>
+                <tr>
+                    <th>Warehouses</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select class="form-control" data-th-name="warehouse">
+                            <option data-th-each="warehouse: ${warehouses}"
+                                    data-th-value="${warehouse}"
+                                    data-th-text="${warehouse}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Send</button></td>
+                </tr>
+            </table>
+        </form>
+        <div data-th-if="${warehouse == null OR warehouse.name() == 'INBOUND'}">
+            <h1>INBOUND</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>SARZSNumber</th>
+                    <th>unitPrice</th>
+                    <th>quantity</th>
+                </tr>
+                <tr data-th-each="rawMaterial: ${inbound}">
+                    <td data-th-text="${rawMaterial.ingredient.name}"></td>
+                    <td data-th-text="${rawMaterial.SARZSNumber}"></td>
+                    <td data-th-text="${rawMaterial.unitPrice}"></td>
+                    <td data-th-text="${rawMaterial.quantity}"></td>
+                </tr>
+            </table>
+        </div>
+        <div data-th-if="${warehouse == null OR warehouse.name() == 'OUTBOUND'}">
+            <h1>OUTBOUND</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>SARZSNumber</th>
+                    <th>unitPrice</th>
+                    <th>quantity</th>
+                </tr>
+                <tr data-th-each="rawMaterial: ${outbound}">
+                    <td data-th-text="${rawMaterial.ingredient.name}"></td>
+                    <td data-th-text="${rawMaterial.SARZSNumber}"></td>
+                    <td data-th-text="${rawMaterial.unitPrice}"></td>
+                    <td data-th-text="${rawMaterial.quantity}"></td>
+                </tr>
+            </table>
+        </div>
+        <div data-th-if="${warehouse == null OR warehouse.name() == 'WORKSTATIONS'}">
+            <h1>WORKSTATIONS</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>SARZSNumber</th>
+                    <th>unitPrice</th>
+                    <th>quantity</th>
+                </tr>
+                <tr data-th-each="rawMaterial: ${workstations}">
+                    <td data-th-text="${rawMaterial.ingredient.name}"></td>
+                    <td data-th-text="${rawMaterial.SARZSNumber}"></td>
+                    <td data-th-text="${rawMaterial.unitPrice}"></td>
+                    <td data-th-text="${rawMaterial.quantity}"></td>
+                </tr>
+            </table>
+        </div>
+        <div data-th-if="${warehouse == null OR warehouse.name() == 'REJECT'}">
+            <h1>REJECT</h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>SARZSNumber</th>
+                    <th>unitPrice</th>
+                    <th>quantity</th>
+                </tr>
+                <tr data-th-each="rawMaterial: ${reject}">
+                    <td data-th-text="${rawMaterial.ingredient.name}"></td>
+                    <td data-th-text="${rawMaterial.SARZSNumber}"></td>
+                    <td data-th-text="${rawMaterial.unitPrice}"></td>
+                    <td data-th-text="${rawMaterial.quantity}"></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 

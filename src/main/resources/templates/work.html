@@ -35,8 +35,8 @@
         <button type="submit">Use</button>
     </form>
 
-    <p data-th-if="${rm_success} == true">Sikeres felhasználás!</p>
-    <p data-th-if="${rm_success} == false">Sikertelen felhasználás! Nem elég alapanyag!</p>
+    <p data-th-if="${rm_success} == true">SUCCESS!</p>
+    <p data-th-if="${rm_success} == false">NOT ENOUGH MATERIAL!</p>
 
     <p data-th-if="${rawmaterial} != null" data-th-text="'Rawmaterial = ' +  ${rawmaterial.ingredient.name}"></p>
     <p data-th-if="${rawmaterial} != null" data-th-text="'Current quantity = ' + ${rawmaterial.quantity}"></p>
@@ -54,8 +54,8 @@
         <button type="submit">Add</button>
     </form>
 
-    <p data-th-if="${ep_success} == true">Sikeres hozzáadás!</p>
-    <p data-th-if="${ep_success} == false">Hiba!</p>
+    <p data-th-if="${ep_success} == true">SUCCESS!</p>
+    <p data-th-if="${ep_success} == false">ERROR!</p>
     </div>
 </div>
 </body>
