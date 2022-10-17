@@ -56,7 +56,7 @@
         <tr data-th-each="rawMaterial: ${rawMaterials}">
           <td data-th-text="${rawMaterial.ingredient.name}"></td>
           <td data-th-text="${rawMaterial.SARZSNumber}"></td>
-          <td data-th-text="${rawMaterial.shippingIn.localDate}"></td>
+          <td data-th-if="${shippingIn} != null" data-th-text="${rawMaterial.shippingIn.localDate}"></td>
           <td data-th-text="${rawMaterial.unitPrice}"></td>
           <td data-th-text="${rawMaterial.quantity}"></td>
           <td data-th-text="${rawMaterial.warehouse}"></td>
