@@ -27,137 +27,86 @@
         <div class="main-container">
 
             <div class="box5">
-                <h1>Sold products</h1>
+                <h2 class="hposi">Sold products</h2>
                 <table>
                     <tr>
                         <th>Products name</th>
-                        <th>number of products sold</th>
+                        <th>Number of products sold</th>
                     </tr>
-                    <tr data-th-each="producedProduct: ${producedProducts}">
                         <td data-th-text="Motorblokk"></td>
-                        <td data-th-text="1223"></td>
-                    </tr>
-                </table>
-            </div>
-            <div
-                    id="circleChart" style="width:100%; max-width:400px; height:250px;">
-            </div>
-            <br />
-
-            <div class="box6">
-                <h1>Sold products</h1>
-                <table>
+                        <td data-th-text="450"></td>
                     <tr>
-                        <th>Products name</th>
-                        <th>number of products sold</th>
+                        <td data-th-text="Bicikliváz"></td>
+                        <td data-th-text="500"></td>
                     </tr>
-                    <tr data-th-each="producedProduct: ${producedProducts}">
+                    <tr>
                         <td data-th-text="Lemezradiátor"></td>
-                        <td data-th-text="7540"></td>
+                        <td data-th-text="1500"></td>
                     </tr>
-                </table>
-            </div>
-
-            <br />
-
-            <div class="box7">
-                <h1>Sold products</h1>
-                <table>
                     <tr>
-                        <th>Products name</th>
-                        <th>number of products sold</th>
-                    </tr>
-                    <tr data-th-each="producedProduct: ${producedProducts}">
-                        <td data-th-text="Vakapu"></td>
-                        <td data-th-text="9886"></td>
+                        <td data-th-text="Vaskapu"></td>
+                        <td data-th-text="750"></td>
                     </tr>
                 </table>
             </div>
-
-            <br />
+            <div class="box5"
+                 id="circleChart" style="width:100%; max-width:500px; height:310px;">
+            </div>
 
         <div class="box1">
-            <h2>Revenue figures</h2>
+            <h2 class="hposi">Revenue figures</h2>
             <table id="customers">
                 <tr>
-                    <th>Partner Name</th>
-                    <th>Address</th>
-                    <th>Contact Name</th>
-                    <th>Email</th>
-                    <th>Phone number</th>
+                    <th>Product </th>
+                    <th>2019</th>
+                    <th>2020</th>
+                    <th>2021</th>
+                    <th>SUM</th>
+                        <tr>
+                            <td data-th-text="Motorblokk"></td>
+                            <td>10.000 euro</td>
+                            <td>20.000 euro</td>
+                            <td>35.000 euro</td>
+                            <td class="tdstyle">65.000 euro</td>
+                        </tr>
+                        <tr>
+                            <td data-th-text="Bicikliváz"></td>
+                            <td>5.000 euro</td>
+                            <td>10.000 euro</td>
+                            <td>19.000 euro</td>
+                            <td class="tdstyle">34.000 euro</td>
+                        </tr>
+                        <tr>
+                            <td data-th-text="Lemezradiátor"></td>
+                            <td>8.000 euro</td>
+                            <td>13.000 euro</td>
+                            <td>23.000 euro</td>
+                            <td class="tdstyle">44.000 euro</td>
+                        </tr>
+                        <tr>
+                            <td data-th-text="Vaskapu"></td>
+                            <td>9.000 euro</td>
+                            <td>15.000 euro</td>
+                            <td>25.000 euro</td>
+                            <td class="tdstyle">49.000 euro</td>
+                        </tr>
                 </tr>
-                <tr data-th-each="partner: ${customers}">
-                    <td data-th-text="${partner.partnerName}"></td>
-                    <td data-th-text="${partner.address}"></td>
-                    <td data-th-text="${partner.contactName}"></td>
-                    <td data-th-text="${partner.email}"></td>
-                    <td data-th-text="${partner.phoneNumber}"></td>
-                </tr>
+
             </table>
 
-        <h2>Products sold</h2>
+        </div>
             <canvas id="myChart" style="width:100%;max-width:600px;color:white"></canvas>
         </div>
 
-        <br />
-
-        <div class="box2">
-            <h1>Products</h1>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Bomlist name</th>
-                </tr>
-                <tr data-th-each="producedProduct: ${producedProducts}">
-                    <td data-th-text="${producedProduct.name}"></td>
-                    <td data-th-if="${producedProduct.bomList} != null" data-th-text="${producedProduct.bomList.name}"></td>
-                </tr>
-            </table>
-        </div>
-
-        <br />
-
-        <div class="box3">
-            <h1>Products</h1>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Bomlist name</th>
-                </tr>
-                <tr data-th-each="producedProduct: ${producedProducts}">
-                    <td data-th-text="${producedProduct.name}"></td>
-                    <td data-th-if="${producedProduct.bomList} != null" data-th-text="${producedProduct.bomList.name}"></td>
-                </tr>
-            </table>
-        </div>
-
-            <br />
-
-        <div class="box4">
-       <h1>BOMList</h1>
-        <table>
-            <tr>
-                <th>Bomlist name</th>
-                <th>Product</th>
-                <th>Ingredient</th>
-            </tr>
-            <tr data-th-each="bomlist: ${bomlists}">
-                <td data-th-text="${bomlist.name}"></td>
-                <td data-th-if="${bomlist.producedProduct} != null" data-th-text="${bomlist.producedProduct.name}"></td>
-                <td><ul data-th-each="ingredient: ${bomlist.ingredients}">
-                    <li data-th-text="${ingredient.name}"></li></ul></td>
-            </tr>
-        </table>
-        </div>
         </div>
     </div>
 </div>
 
 <script>
     Chart.defaults.global.defaultFontColor = "#000000";
-    var xValues = ["Motorblok", "Lemezradiátor", "Vakapu", "Hangfalállvány", "Villanypózna"];
-    var yValues = [55, 49, 44, 24, 15];
-    var barColors = ["red", "green","blue","orange","brown"];
+    var xValues = ["Motorblok", "Vaskapu", "Lemezradiátor", "Bicikliváz"];
+    var yValues = [65, 49, 44, 34];
+    var barColors = ["red", "green","blue","orange"];
 
     new Chart("myChart", {
         type: "bar",
@@ -172,7 +121,7 @@
             legend: {display: false},
             title: {
                 display: true,
-                text: "Product sold 2022"
+                text: "Revenue figures"
             }
         }
     });
@@ -185,15 +134,14 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Contry', 'Mhl'],
-            ['Italy',54.8],
-            ['France',48.6],
-            ['Spain',44.4],
-            ['USA',23.9],
-            ['Argentina',14.5]
+            ['Lemezradiátor',1500],
+            ['Vaskapu',750],
+            ['Bicikliváz',500],
+            ['Motorblokk',450]
         ]);
 
         var options = {
-            title:'World Wide Wine Production',
+            title:'Product sales percentage distribution',
             is3D:true
         };
 

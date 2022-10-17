@@ -21,7 +21,7 @@
     <div class="right">
         <ul>
         <div data-th-each="bl : ${bomlists}">
-            <li><a data-th-href="@{/workstation/{id}(id=${bl.id})}" data-th-text="${bl.name}"></a></li>
+            <a class="box1" data-th-href="@{/workstation/{id}(id=${bl.id})}" data-th-text="${bl.name}"></a>
         </div>
     </ul>
 

@@ -23,8 +23,10 @@ body {
 }
 
 h1 {
-    color: var(--orange);
+    color: white;
 }
+
+
 
 .form {
     display: flex;
@@ -68,6 +70,7 @@ h1 {
     padding: 10px;
     font-size: 75%;
     background-color: #E92323;
+    color: white;
     border-radius: 5%;
     cursor: pointer;
 }
@@ -75,6 +78,7 @@ h1 {
 .send_button:hover {
     background-color: var(--light_gray);
     border-radius: 5%;
+    color: white;
 }
 
 .error {
@@ -84,12 +88,18 @@ h1 {
 table {
     width: 98%;
     table-layout: inherit;
-    border: 1px solid var(--light_gray);
+    border: 1px solid #585899;
     border-radius: 5px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
 
 table, th, td {
     pandding: 5px;
+    border: 1px solid #585899;
+    margin-bottom: 10px;
 }
 
 th, td {
@@ -213,3 +223,19 @@ span.selected {
 li {
     padding-left: 2px;
 }
+
+.box1 {
+    display: flex;
+    border-radius:10px;
+    border: 2px solid #585899;
+    padding-bottom: 10px;
+    padding-top:10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    color: white;
+    text-transform:uppercase;
+    text-align: center;
+}
+
