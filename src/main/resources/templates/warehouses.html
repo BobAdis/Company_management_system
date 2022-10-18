@@ -17,7 +17,6 @@
         </div>
     </div>
     <div class="right">
-        <!--<h1 data-th-text="${page}"></h1>-->
         <form data-th-action="@{/warehouses}"  method="post">
             <table>
                 <tr>
@@ -38,6 +37,8 @@
                 </tr>
             </table>
         </form>
+        <br>
+        <a data-th-href="@{/transfer}"><button class="send_button">Transfer</button></a>
         <div>
             <h2 data-th-text="${warehouse} != null ? ${warehouse}: 'INBOUND'"></h2>
             <table>
