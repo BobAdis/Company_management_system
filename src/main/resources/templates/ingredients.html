@@ -35,7 +35,9 @@
                     </tr>
                 </table>
             </form>
-
+            <br>
+            <a data-th-href="@{/newingredient}"><button class="send_button">Create new Ingredient</button></a>
+            <a data-th-href="@{/bomlists}"><button class="send_button">Bomlists</button></a>
             <table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
                 <tr>
                     <h2>List of ingredients</h2>
@@ -62,8 +64,6 @@
                     <td data-th-text="${ingredient.unit}"></td>
                 </tr>
             </table>
-            <button class="send_button">
-                <a data-th-href="@{/newingredient}">Create new Ingredient</a></button>
         </div>
     </div>
 

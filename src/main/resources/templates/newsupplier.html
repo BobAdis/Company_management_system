@@ -24,15 +24,12 @@
   </div>
   <div class="right">
     <div class="form">
-
       <div class="divE">
         <form class="form" data-th-action="@{/newsupplier}" data-th-object="${partner}" method="post">
-          <table tyle="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
+          <table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
             <tr>
-              <td>
-                <label for="partnerName">Partner name</label>
-                <input id="partnerName" placeholder="name" type="text" data-th-field="*{partnerName}" autofocus required>
-              </td>
+              <th><label for="partnerName">Partner name</label></th>
+              <td><input id="partnerName" placeholder="name" type="text" data-th-field="*{partnerName}" required></td>
             </tr>
             <tr>
               <td style="display: none">
@@ -46,36 +43,26 @@
               </td>
             </tr>
             <tr>
-              <td>
-                <label for="address">Address</label>
-                <input id="address" placeholder="address" type="text" data-th-field="*{address}" required>
-              </td>
+              <th><label for="address">Address</label></th>
+              <td><input id="address" placeholder="address" type="text" data-th-field="*{address}" required></td>
             </tr>
             <tr>
-              <td>
-                <label for="contactName">Contact name</label>
-                <input id="contactName" placeholder="contactName" type="text" data-th-field="*{contactName}" required>
-              </td>
+              <th><label for="contactName">Contact name</label></th>
+              <td><input id="contactName" placeholder="contactName" type="text" data-th-field="*{contactName}" required></td>
             </tr>
             <tr>
-              <td>
-                <label for="email">Email</label>
-                <input id="email" placeholder="email" type="text" data-th-field="*{email}" required>
-              </td>
+              <th><label for="email">Email</label></th>
+              <td><input id="email" placeholder="email" type="text" data-th-field="*{email}" required></td>
             </tr>
             <tr>
-              <td>
-                <label for="phoneNumber">Phone number</label>
-                <input id="phoneNumber" placeholder="phoneNumber" type="text" data-th-field="*{phoneNumber}" required>
-              </td>
+              <th><label for="phoneNumber">Phone number</label></th>
+              <td><input id="phoneNumber" placeholder="phoneNumber" type="text" data-th-field="*{phoneNumber}" required></td>
             </tr>
           </table>
           <button class="send_button" type="submit">SAVE</button>
         </form>
-        <button class="send_button">
-          <a data-th-href="@{/suppliers}">BACK TO SUPPLIERS</a>
-        </button>
       </div>
+      <a data-th-href="@{/suppliers}"><button class="send_button">BACK TO SUPPLIERS</button></a>
     </div>
   </div>
 </div>

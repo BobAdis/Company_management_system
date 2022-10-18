@@ -36,7 +36,9 @@
                     </tr>
                 </table>
             </form>
-
+            <br>
+            <a data-th-href="@{/newproducedproduct}"><button class="send_button">NEW Produced Product</button></a>
+            <a data-th-href="@{/ingredients}"><button class="send_button">Ingredients</button></a>
             <table>
                 <tr>
                     <h2>List of produced products</h2>
@@ -50,8 +52,7 @@
                     <td data-th-if="${producedProduct.bomList} != null" data-th-text="${producedProduct.bomList.name}"></td>
                 </tr>
             </table>
-            <button class="send_button">
-                <a data-th-href="@{/newproducedproduct}">NEW Produced Product</a></button>
+
         </div>
     </div>
 

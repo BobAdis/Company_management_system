@@ -23,23 +23,27 @@
       </div>
     </div>
     <div class="right">
-
       <div class="form">
-
         <form class="form" data-th-action="@{/newshippingin}" data-th-object="${shippingin}" method="post">
-          <label for="seller">Supplier</label>
-          <select id="seller" name="partnerId" required>
-            <option data-th-each="partner: ${partners}"
+          <table>
+            <tr>
+             <th><label for="seller">Supplier</label></th>
+             <td><select id="seller" name="partnerId">
+                 <option data-th-each="partner: ${partners}"
                     data-th-value="${partner.id}"
                     data-th-text="${partner.partnerName}">
-            </option>
-          </select>
-          <label for="date">Date</label>
-          <input id="date" placeholder="date" type="date" data-th-field="*{localDate}" required/>
+                 </option>
+                 </select></td>
+            </tr>
+            <tr>
+              <th><label for="date">Date</label></th>
+              <td><input id="date" placeholder="date" type="date" data-th-field="*{localDate}"/></td>
+            </tr>
+          </table>
           <button class="send_button">Create</button>
         </form>
+        <a data-th-href="@{/shippingins}"><button class="send_button">Back to Shippingins</button></a>
       </div>
-      <a data-th-href="@{/shippingins}"><button class="send_button">Back to Shippingins</button></a>
     </div>
   </div>
 

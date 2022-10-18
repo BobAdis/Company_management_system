@@ -23,16 +23,17 @@
       </div>
     </div>
     <div class="right">
-
       <div class="form">
-
         <form class="form" data-th-action="@{/newproducedproduct}" data-th-object="${producedProduct}" method="post">
-          <label for="name">Name</label>
-          <input id="name" placeholder="name" type="text" data-th-field="*{name}" autofocus required/>
-          <button type="submit" class="send_button">Create</button>
+          <table>
+            <tr>
+              <th><label for="name">Name</label></th>
+              <td><input id="name" placeholder="name" type="text" data-th-field="*{name}"/></td>
+            </tr>
+          </table>
         </form>
+        <a data-th-href="@{/producedproducts}"><button class="send_button">Back to ProducedProducts</button></a>
       </div>
-      <a data-th-href="@{/producedproducts}"><button class="send_button">Back to ProducedProducts</button></a>
     </div>
   </div>
 
