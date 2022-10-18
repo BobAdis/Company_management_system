@@ -28,18 +28,18 @@
 
                     <tr>
                         <th><label for="username">Username</label></th>
-                        <td><input id="username" type="text" data-th-field="*{username}" placeholder="username"><a data-th-if="${employee.user} != null" data-th-text="' ' + ${employee.user.username}"></a></td>
+                        <td><input id="username" type="text" data-th-field="*{username}" placeholder="username" autofocus required><a data-th-if="${employee.user} != null" data-th-text="' ' + ${employee.user.username}"></a></td>
                     </tr>
                     <tr>
                         <th><label for="password">Password</label></th>
-                        <td><input id="password" type="password" data-th-field="*{password}" placeholder="password"></td>
+                        <td><input id="password" type="password" data-th-field="*{password}" placeholder="password" required></td>
                     </tr>
-                    <tr>
+                    <tr style="display: none">
                         <td><input type="hidden" data-th-value="${employee.taxNumber}" name="taxnumber"></td>
                     </tr>
                     <tr>
                         <th><label for="position">Position</label></th>
-                        <td><select id="position" name="position">
+                        <td><select id="position" name="position" required>
                             <option data-th-each="positionOpt : ${T(hu.progmatic.company_management_system.models.Position).values()}"
                                     data-th-value="${positionOpt}" data-th-text="${positionOpt}"></option>
                         </select>
@@ -47,12 +47,11 @@
                         </td>
                     </tr>
                     <tr>
-
-                        <td><input class="send_button" type="submit" value="Modify"></td>
+                        <td colspan="2"><button data-th-text="${employee.user} != null ? 'Modify':'Register'" class="send_button" type="submit"></button></td>
                     </tr>
 
             </form>
-            <td><a data-th-href="@{/useroptions}"><button class="send_button">back</button></a></td>
+            <td colspan="2"><a data-th-href="@{/useroptions}"><button class="send_button">Back</button></a></td>
             </table>
         </div>
 

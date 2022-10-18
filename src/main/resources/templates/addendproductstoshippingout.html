@@ -22,7 +22,7 @@
   <form class="form" action="#" data-th-action="@{/addendproduct}" data-th-object="${shippingOut}" method="post">
     <fieldset>
       <label for="endproduct">Endproduct</label>
-      <select id="endproduct" name="endproductId">
+      <select id="endproduct" name="endproductId" required>
         <option data-th-each="endproduct: ${endProducts}"
                 data-th-value="${endproduct.id}"
                 data-th-text="${endproduct.producedProduct.name}">
@@ -30,12 +30,14 @@
       </select>
     </fieldset>
     <input style="display: none;" name="shippingOutId" data-th-value="${shippingOut.id}"/>
-    <input type="submit" id="submitButton" th:value="Add">
+    <input class="add_button" type="submit" id="submitButton" th:value="Add">
   </form>
 
   <p>Shipping out current endproducts:</p>
-  <ul data-th-each="endproduct: ${shippingOut.endProducts}">
-    <li data-th-text="${endproduct.producedProduct.name}"></li>
+  <ul>
+    <div data-th-each="endproduct: ${shippingOut.endProducts}">
+      <li data-th-text="${endproduct.producedProduct.name}"></li>
+    </div>
   </ul>
 </div>
   </div>

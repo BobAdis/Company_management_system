@@ -1,18 +1,18 @@
 package hu.progmatic.company_management_system.controllers.sales;
 
+import hu.progmatic.company_management_system.models.production.Ingredient;
 import hu.progmatic.company_management_system.models.production.RawMaterial;
+import hu.progmatic.company_management_system.models.production.Warehouse;
 import hu.progmatic.company_management_system.models.sales.Partner;
 import hu.progmatic.company_management_system.models.sales.ShippingIn;
 import hu.progmatic.company_management_system.searchform.ShippingInSearchForm;
+import hu.progmatic.company_management_system.services.IngredientService;
 import hu.progmatic.company_management_system.services.PartnerService;
 import hu.progmatic.company_management_system.services.RawMaterialService;
 import hu.progmatic.company_management_system.services.ShippingInService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +24,13 @@ public class ShippingInController {
     private final PartnerService partnerService;
 
     private final RawMaterialService rawMaterialService;
+    private final IngredientService ingredientService;
 
-    public ShippingInController(ShippingInService shippingInService, PartnerService partnerService, RawMaterialService rawMaterialService) {
+    public ShippingInController(ShippingInService shippingInService, PartnerService partnerService, RawMaterialService rawMaterialService, IngredientService ingredientService) {
         this.shippingInService = shippingInService;
         this.partnerService = partnerService;
         this.rawMaterialService = rawMaterialService;
+        this.ingredientService = ingredientService;
     }
 
     @GetMapping(value = {"/shippingins"})
@@ -80,10 +82,11 @@ public class ShippingInController {
     public String addRawMaterialsToShippingInForm(@PathVariable long id, Model model) {
         ShippingIn shippingIn = shippingInService.getById(id);
 
-        List<RawMaterial> rawMaterials = rawMaterialService.getWhereShippingInIsNull();
+        List<Ingredient> ingredients = ingredientService.getAllIngredient();
 
         model.addAttribute("shippingIn", shippingIn);
-        model.addAttribute("rawMaterials", rawMaterials);
+        model.addAttribute("ingredients", ingredients);
+        model.addAttribute("rawMaterial", new RawMaterial());
 
         //CSS-hez th:class
         model.addAttribute("selectedLocation", "Shippingins");
@@ -92,17 +95,28 @@ public class ShippingInController {
     }
 
     @PostMapping(value = {"/addrawmaterial"})
-    public String addRawMaterialsToShippingIn(@RequestParam(name = "shippingInId") long shippingInId, @RequestParam(name = "rawmaterialId") long rawmaterialId) {
+    public String addRawMaterialsToShippingIn(@RequestParam(name = "shippingInId") long shippingInId,
+                                              @ModelAttribute("rawMaterial") RawMaterial rawMaterial,
+                                              @RequestParam(name = "ingredientId") long ingredientId) {
         ShippingIn shippingIn = shippingInService.getById(shippingInId);
+        Ingredient ingredient = ingredientService.getById(ingredientId);
 
-        List<RawMaterial> rawMaterials = new ArrayList<>();
-        RawMaterial rawMaterial = rawMaterialService.getById(rawmaterialId);
-        rawMaterials.add(rawMaterial);
+        rawMaterial.setIngredient(ingredient);
+        rawMaterial.setWarehouse(Warehouse.INBOUND);
 
-        shippingIn.setRawMaterials(rawMaterials);
-        rawMaterial.setShippingIn(shippingIn);
+        if(shippingIn.getRawMaterials().size() != 0) {
+            List<RawMaterial> rawMaterials = shippingIn.getRawMaterials();
+            rawMaterials.add(rawMaterial);
+            shippingIn.setRawMaterials(rawMaterials);
 
-        shippingInService.saveShippingIn(shippingIn);
+            rawMaterial.setShippingIn(shippingIn);
+            rawMaterialService.save(rawMaterial);
+        } else {
+            shippingIn.setRawMaterials(List.of(rawMaterial));
+
+            rawMaterial.setShippingIn(shippingIn);
+            rawMaterialService.save(rawMaterial);
+        }
 
         return "redirect:/addrawmaterial/" + shippingIn.getId();
     }

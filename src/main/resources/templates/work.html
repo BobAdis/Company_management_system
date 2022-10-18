@@ -19,43 +19,66 @@
         </div>
     </div>
     <div class="right">
-    <h2 data-th-if="${bomlist} != null" data-th-text="${bomlist.name}"></h2>
-    <p data-th-if="${bomlist} != null" data-th-text="${bomlist.description}"></p>
+        <h2 data-th-if="${bomlist} != null" data-th-text="${bomlist.name}"></h2>
+        <p data-th-if="${bomlist} != null" data-th-text="${bomlist.description}"></p>
 
-    <form data-th-action="@{/rm_workstation/{id}(id=${bomlist.id})}" method="post">
-        <label for="rawmaterials">Raw materials</label>
-        <select id="rawmaterials" name="rm_id">
-            <option data-th-each="rm: ${rawmaterials}"
-                    data-th-value="${rm.id}"
-                    data-th-text="${rm.ingredient.name}">
-            </option>
-        </select>
-        <label for="quantity"></label>
-        <input id="quantity" type="number" value="1" name="quantity" required />
-        <button type="submit">Use</button>
-    </form>
+            <h3 data-th-text="'Alapanyagok felhasználása'"></h3>
 
-    <p data-th-if="${rm_success} == true">SUCCESS!</p>
-    <p data-th-if="${rm_success} == false">NOT ENOUGH MATERIAL!</p>
+        <form data-th-action="@{/rm_workstation/{id}(id=${bomlist.id})}" method="post">
+            <table>
+                <tr data-th-if="${rawmaterial} != null">
+                    <th>Current Raw material</th>
+                    <td data-th-text="${rawmaterial.ingredient.name}"></td>
+                </tr>
+                <tr>
+                    <th><label for="rawmaterials">Raw materials</label></th>
+                    <td>
+                        <select id="rawmaterials" name="rm_id" required>
+                            <option data-th-each="rm: ${rawmaterials}"
+                                    data-th-value="${rm.id}"
+                                    data-th-text="${rm.ingredient.name}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr data-th-if="${rawmaterial} != null">
+                    <th>Current quantity</th>
+                    <td data-th-text="${rawmaterial.quantity}"></td>
+                </tr>
+                <tr>
+                    <th><label for="quantity">Quantity</label></th>
+                    <td><input id="quantity" type="number" value="1" name="quantity" required /></td>
+                </tr>
+            </table>
 
-    <p data-th-if="${rawmaterial} != null" data-th-text="'Rawmaterial = ' +  ${rawmaterial.ingredient.name}"></p>
-    <p data-th-if="${rawmaterial} != null" data-th-text="'Current quantity = ' + ${rawmaterial.quantity}"></p>
+            <div data-th-if="${rawmaterial} != null">
+                <h4 data-th-text="${rm_success} == true? 'SUCCESS!' : 'NOT ENOUGH MATERIAL!' "></h4>
+            </div>
 
-    <form data-th-action="@{/ep_workstation/{id}(id=${bomlist.id})}" method="post">
-        <label for="endproducts">Endproducts</label>
-        <select id="endproducts" name="ep_id">
-            <option data-th-each="ep: ${endproducts}"
-                    data-th-value="${ep.id}"
-                    data-th-text="${ep.producedProduct.name}">
-            </option>
-        </select>
-        <label for="ep_quantity"></label>
-        <input id="ep_quantity" type="number" value="1" name="quantity" required />
-        <button type="submit">Add</button>
-    </form>
+            <button class="send_button" type="submit">Use</button>
+        </form>
 
-    <p data-th-if="${ep_success} == true">SUCCESS!</p>
-    <p data-th-if="${ep_success} == false">ERROR!</p>
+            <h3 data-th-text="${producedProduct.name} + ' elkészítése'"></h3>
+
+        <form data-th-action="@{/ep_workstation/{id}(id=${bomlist.id})}" data-th-object="${endproduct}" method="post">
+            <table>
+                <tr>
+                    <th><label for="serialNumber">Serial Number</label></th>
+                </tr>
+                <tr>
+                    <td><input type="number" placeholder="Serial number" id="serialNumber" data-th-field="*{serialNumber}" required/></td>
+                </tr>
+            </table>
+
+            <label for="ep_quantity"></label>
+            <input id="ep_quantity" type="hidden" value="1" name="quantity" />
+
+            <h4 data-th-if="${ep_success} == true">SUCCESS!</h4>
+            <h4 data-th-if="${ep_success} == false">ERROR!</h4>
+
+            <button type="submit" class="send_button" style="float: right">Finish</button>
+        </form>
+
     </div>
 </div>
 </body>

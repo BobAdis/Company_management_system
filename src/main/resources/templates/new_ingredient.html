@@ -28,17 +28,15 @@
 
         <form class="form" data-th-action="@{/newingredient}" data-th-object="${ingredient}" method="post">
           <label for="name">Name</label>
-          <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+          <input id="name" placeholder="name" type="text" data-th-field="*{name}" autofocus required/>
           <label for="unit">Unit</label>
-          <input id="unit" placeholder="unit" type="text" data-th-field="*{unit}"/>
+          <input id="unit" placeholder="unit" type="text" data-th-field="*{unit}" required/>
           <label for="description">Description</label>
-          <textarea id="description" placeholder="description" rows="4" cols="50" data-th-field="*{description}"></textarea>
-          <button class="send_button">Create</button>
+          <textarea id="description" placeholder="description" rows="4" cols="50" data-th-field="*{description}" required></textarea>
+          <button type="submit" class="send_button">Create</button>
         </form>
       </div>
-      <button class="send_button">
-        <a data-th-href="@{/ingredients}">Back to ingredients</a>
-      </button>
+      <a data-th-href="@{/ingredients}"><button class="send_button">Back to ingredients</button></a>
     </div>
   </div>
 

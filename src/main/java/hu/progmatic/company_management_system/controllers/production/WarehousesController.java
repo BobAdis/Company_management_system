@@ -24,16 +24,10 @@ public class WarehousesController {
     @GetMapping(value = {"/warehouses"})
     public String getWarehousesPage(Model model) {
         List<RawMaterial> inbound = rawMaterialService.getRawMaterialByWarehouse(Warehouse.INBOUND);
-        List<RawMaterial> outbound = rawMaterialService.getRawMaterialByWarehouse(Warehouse.OUTBOUND);
-        List<RawMaterial> workstations = rawMaterialService.getRawMaterialByWarehouse(Warehouse.WORKSTATIONS);
-        List<RawMaterial> reject = rawMaterialService.getRawMaterialByWarehouse(Warehouse.REJECT);
 
         model.addAttribute("warehouses", Warehouse.values());
 
-        model.addAttribute("inbound", inbound);
-        model.addAttribute("outbound", outbound);
-        model.addAttribute("workstations", workstations);
-        model.addAttribute("reject", reject);
+        model.addAttribute("rawMaterials", inbound);
 
         //CSS-hez th:class
         model.addAttribute("selectedLocation", "Warehouses");
@@ -43,16 +37,6 @@ public class WarehousesController {
     @PostMapping("/warehouses")
     public String getWarehousePage(@RequestParam(name = "warehouse") Warehouse warehouse, Model model) {
         List<RawMaterial> rawMaterials = rawMaterialService.getAllRawMaterialbySARZSbyWarehouse(warehouse);
-
-        List<RawMaterial> inbound = rawMaterialService.getRawMaterialByWarehouse(Warehouse.INBOUND);
-        List<RawMaterial> outbound = rawMaterialService.getRawMaterialByWarehouse(Warehouse.OUTBOUND);
-        List<RawMaterial> workstations = rawMaterialService.getRawMaterialByWarehouse(Warehouse.WORKSTATIONS);
-        List<RawMaterial> reject = rawMaterialService.getRawMaterialByWarehouse(Warehouse.REJECT);
-
-        model.addAttribute("inbound", inbound);
-        model.addAttribute("outbound", outbound);
-        model.addAttribute("workstations", workstations);
-        model.addAttribute("reject", reject);
 
         model.addAttribute("warehouses", Warehouse.values());
         model.addAttribute("rawMaterials", rawMaterials);

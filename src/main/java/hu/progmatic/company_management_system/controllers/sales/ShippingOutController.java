@@ -104,6 +104,6 @@ public class ShippingOutController {
 
         shippingOutService.saveShippingOut(shippingOut);
 
-        return "redirect:/addrawmaterial/" + shippingOut.getId();
+        return "redirect:/addendproduct/" + shippingOut.getId();
     }
 }

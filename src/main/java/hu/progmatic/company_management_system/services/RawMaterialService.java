@@ -115,4 +115,8 @@ public class RawMaterialService {
     public List<RawMaterial> getRawMaterialByWarehouse(Warehouse warehouse) {
         return rawMaterialRepo.getRawMaterialByWarehouse(warehouse);
     }
+
+    public void save(RawMaterial rawMaterial) {
+        rawMaterialRepo.save(rawMaterial);
+    }
 }

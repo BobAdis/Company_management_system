@@ -55,8 +55,9 @@
           <tr data-th-each="endProduct: ${endProducts}">
             <td data-th-text="${endProduct.producedProduct.name}"></td>
             <td data-th-text="${endProduct.serialNumber}"></td>
-            <td data-th-text="${endProduct.shippingOut.localDate}"></td>
+            <td data-th-if="${endProduct.shippingOut} != null" data-th-text="${endProduct.shippingOut.localDate}"></td>
             <td data-th-text="${endProduct.unitPrice}"></td>
+            <td data-th-if="${endProduct.unitPrice} == null"></td>
             <td data-th-text="${endProduct.quantity}"></td>
           </tr>
         </table>

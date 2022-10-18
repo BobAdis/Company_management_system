@@ -45,12 +45,7 @@ public class EndProductService {
         return endProductRepo.getEndProductByShippingOutNull();
     }
 
-    public boolean addEndproduct(Long endProductId, int quantity) {
-        EndProduct endProduct = getById(endProductId);
-        int currentQuantity = endProduct.getQuantity();
-
-        endProduct.setQuantity(currentQuantity + quantity);
+    public void save(EndProduct endProduct) {
         endProductRepo.save(endProduct);
-        return true;
     }
 }

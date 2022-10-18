@@ -28,11 +28,11 @@
 
                 <form class="form" data-th-action="@{/newproduct}" data-th-object="${producedProduct}" method="post">
                     <label for="name">Name</label>
-                    <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
+                    <input id="name" placeholder="name" type="text" data-th-field="*{name}" autofocus required/>
                     <label for="serialnumber">Serial number</label>
-                    <input id="serialnumber" placeholder="serial number" type="number" data-th-field="*{serialNumber}"/>
+                    <input id="serialnumber" placeholder="serial number" type="number" data-th-field="*{serialNumber}" required/>
                     <label for="unitprice">Unit Price</label>
-                    <input id="unitprice" placeholder="unit price" type="number" data-th-field="*{Price}"/>
+                    <input id="unitprice" placeholder="unit price" type="number" data-th-field="*{Price}" required/>
                     <label >Description</label>
                     <textarea placeholder="description" rows="4" cols="50" data-th-field="*{bomList.name}"></textarea>
                    <!-- <select style="display: none" data-th-field="*{productCondition}">

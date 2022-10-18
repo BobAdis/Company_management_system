@@ -28,13 +28,11 @@
 
         <form class="form" data-th-action="@{/newproducedproduct}" data-th-object="${producedProduct}" method="post">
           <label for="name">Name</label>
-          <input id="name" placeholder="name" type="text" data-th-field="*{name}"/>
-        </select>
+          <input id="name" placeholder="name" type="text" data-th-field="*{name}" autofocus required/>
+          <button type="submit" class="send_button">Create</button>
         </form>
       </div>
-      <button class="send_button">
-        <a data-th-href="@{/producedproducts}">Back to ProducedProducts</a>
-      </button>
+      <a data-th-href="@{/producedproducts}"><button class="send_button">Back to ProducedProducts</button></a>
     </div>
   </div>
 

@@ -28,20 +28,18 @@
 
         <form class="form" data-th-action="@{/newshippingout}" data-th-object="${shippingout}" method="post">
           <label for="buyer">Supplier</label>
-          <select id="buyer" name="partnerId">
+          <select id="buyer" name="partnerId" required>
             <option data-th-each="partner: ${partners}"
                     data-th-value="${partner.id}"
                     data-th-text="${partner.partnerName}">
             </option>
           </select>
-          <label for="date">Name</label>
-          <input id="date" placeholder="name" type="date" data-th-field="*{localDate}"/>
+          <label for="date">Date</label>
+          <input id="date" placeholder="name" type="date" data-th-field="*{localDate}" required/>
           <button class="send_button">Create</button>
         </form>
       </div>
-      <button class="send_button">
-        <a data-th-href="@{/shippingouts}">Back to Shippingouts</a>
-      </button>
+      <a data-th-href="@{/shippingouts}"><button class="send_button">Back to Shippingouts</button></a>
     </div>
   </div>
 

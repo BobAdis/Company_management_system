@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-    <h2 data-th-text="${page}"></h2>
+    <h2 data-th-text="'Add ingredient to BomList'"></h2>
 </header>
 <div class="row">
     <div class="vertical-menu">
@@ -19,10 +19,10 @@
 
 <div class="form">
 
-    <form class="form" action="#" data-th-action="@{/addingredient}" data-th-object="${bomlist}" method="post">
+    <form data-th-if="${#lists.size(ingredients) != 0}" class="form" action="#" data-th-action="@{/addingredient}" data-th-object="${bomlist}" method="post">
         <fieldset>
             <label for="ingredient">Ingredient</label>
-            <select id="ingredient" name="ingredientId">
+            <select id="ingredient" name="ingredientId" required>
                 <option data-th-each="ingredient: ${ingredients}"
                         data-th-value="${ingredient.id}"
                         data-th-text="${ingredient.name}">
@@ -34,9 +34,12 @@
     </form>
 
     <p>BOMList current ingredients:</p>
-    <ul data-th-each="ingredient: ${bomlist.ingredients}">
-        <li data-th-text="${ingredient.name}"></li>
+    <ul>
+        <div data-th-each="ingredient: ${bomlist.ingredients}">
+            <li data-th-text="${ingredient.name}"></li>
+        </div>
     </ul>
+    <a data-th-href="@{/bomlists}"><button class="send_button">Finish</button></a>
 </div>
     </div>
 </div>

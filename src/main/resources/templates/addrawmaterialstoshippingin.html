@@ -17,27 +17,34 @@
   </div>
   <div class="right">
 
-<div class="form">
+    <div class="form">
 
-  <form class="form" action="#" data-th-action="@{/addrawmaterial}" data-th-object="${shippingIn}" method="post">
-    <fieldset>
-      <label for="rawmaterial">Rawmaterial</label>
-      <select id="rawmaterial" name="rawmaterialId">
-        <option data-th-each="rawmaterial: ${rawMaterials}"
-                data-th-value="${rawmaterial.id}"
-                data-th-text="${rawmaterial.ingredient.name}">
-        </option>
-      </select>
-    </fieldset>
-    <input style="display: none;" name="shippingInId" data-th-value="${shippingIn.id}"/>
-    <input type="submit" id="submitButton" th:value="Add">
-  </form>
+      <form class="form" action="#" data-th-action="@{/addrawmaterial}" data-th-object="${rawMaterial}" method="post">
+        <label for="ingredient">Ingredient</label>
+        <select id="ingredient" name="ingredientId" required>
+          <option data-th-each="ingredient: ${ingredients}"
+                  data-th-value="${ingredient.id}"
+                  data-th-text="${ingredient.name}">
+          </option>
+        </select>
+        <label for="sarzs">SARZS</label>
+        <input id="sarzs" placeholder="SARZS" type="number" data-th-field="*{SARZSNumber}" autofocus required>
+        <label for="unitPrice">Unit Price</label>
+        <input id="unitPrice" placeholder="Price" type="number" data-th-field="*{unitPrice}" required>
+        <label for="quantity">Quantity</label>
+        <input id="quantity" placeholder="Quantity" type="number" data-th-field="*{quantity}" required>
+        <input style="display: none;" name="shippingInId" data-th-value="${shippingIn.id}"/>
+        <button class="add_button" type="submit">Add</button>
+      </form>
 
-  <p>Shipping in current rawmaterials:</p>
-  <ul data-th-each="rawmaterial: ${shippingIn.rawMaterials}">
-    <li data-th-text="${rawmaterial.ingredient.name}"></li>
-  </ul>
-</div>
+      <p>Shipping in current rawmaterials:</p>
+      <ul>
+        <div data-th-each="rawmaterial: ${shippingIn.rawMaterials}">
+          <li data-th-text="${rawmaterial.ingredient.name}"></li>
+        </div>
+      </ul>
+      <a data-th-href="@{/shippingins}"><button class="send_button">Finish</button></a>
+    </div>
   </div>
 </div>
 </body>

@@ -2,9 +2,11 @@ package hu.progmatic.company_management_system.controllers.production;
 
 import hu.progmatic.company_management_system.models.production.BOMList;
 import hu.progmatic.company_management_system.models.production.EndProduct;
+import hu.progmatic.company_management_system.models.production.ProducedProduct;
 import hu.progmatic.company_management_system.models.production.RawMaterial;
 import hu.progmatic.company_management_system.services.BOMListService;
 import hu.progmatic.company_management_system.services.EndProductService;
+import hu.progmatic.company_management_system.services.ProducedProductService;
 import hu.progmatic.company_management_system.services.RawMaterialService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +23,13 @@ public class WorkstationController {
 
     private final EndProductService endProductService;
 
-    public WorkstationController(BOMListService bomListService, RawMaterialService rawMaterialService, EndProductService endProductService) {
+    private final ProducedProductService producedProductService;
+
+    public WorkstationController(BOMListService bomListService, RawMaterialService rawMaterialService, EndProductService endProductService, ProducedProductService producedProductService) {
         this.bomListService = bomListService;
         this.rawMaterialService = rawMaterialService;
         this.endProductService = endProductService;
+        this.producedProductService = producedProductService;
     }
 
     @GetMapping("/workstation")
@@ -46,11 +51,11 @@ public class WorkstationController {
         BOMList bomList = bomListService.getBOMListById(id);
 
         List<RawMaterial> rawMaterials = rawMaterialService.getRawMaterialWhereWarehouseIsWorkstation();
-        List<EndProduct> endProducts = endProductService.getAllEndProduct();
 
         model.addAttribute("bomlist", bomList);
         model.addAttribute("rawmaterials", rawMaterials);
-        model.addAttribute("endproducts", endProducts);
+        model.addAttribute("producedProduct", bomList.getProducedProduct());
+        model.addAttribute("endproduct", new EndProduct());
 
         //CSS-hez th:class
         model.addAttribute("selectedLocation", "Workstation");
@@ -70,37 +75,47 @@ public class WorkstationController {
 
         List<BOMList> bomLists = bomListService.getAllBOMList();
         List<RawMaterial> rawMaterials = rawMaterialService.getRawMaterialWhereWarehouseIsWorkstation();
-        List<EndProduct> endProducts = endProductService.getAllEndProduct();
 
         model.addAttribute("rm_success", isSuccess);
         model.addAttribute("rawmaterial", rawMaterial);
         model.addAttribute("bomlist", bomList);
         model.addAttribute("bomlists", bomLists);
         model.addAttribute("rawmaterials", rawMaterials);
-        model.addAttribute("endproducts", endProducts);
+        model.addAttribute("producedProduct", bomList.getProducedProduct());
+        model.addAttribute("endproduct", new EndProduct());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Workstation");
 
         return "work";
     }
 
     @PostMapping("/ep_workstation/{id}")
-    public String addEndproductWorkstation(Model model, @PathVariable Long id, @RequestParam(name = "ep_id", required = false) Long ep_id,
-                                  @RequestParam(name = "quantity") int quantity) {
+    public String addEndproductWorkstation(Model model, @PathVariable Long id,
+                                           @ModelAttribute("endproduct") EndProduct endProduct,
+                                           @RequestParam(name = "quantity") int quantity) {
 
         BOMList bomList = bomListService.getBOMListById(id);
 
-        boolean isSuccess = endProductService.addEndproduct(ep_id, quantity);
+        endProduct.setProducedProduct(bomList.getProducedProduct());
+        endProduct.setQuantity(quantity);
+        endProductService.save(endProduct);
+
+        boolean isSuccess = true;
 
         List<BOMList> bomLists = bomListService.getAllBOMList();
         List<RawMaterial> rawMaterials = rawMaterialService.getRawMaterialWhereWarehouseIsWorkstation();
-        List<EndProduct> endProducts = endProductService.getAllEndProduct();
 
         model.addAttribute("ep_success", isSuccess);
         model.addAttribute("bomlist", bomList);
         model.addAttribute("bomlists", bomLists);
         model.addAttribute("rawmaterials", rawMaterials);
-        model.addAttribute("endproducts", endProducts);
+        model.addAttribute("producedProduct", bomList.getProducedProduct());
 
-        return "work";
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Workstation");
+
+        return "redirect:/endproducts";
     }
 
 }

@@ -179,6 +179,8 @@ public class EmployeeController {
         model.addAttribute("monthlyData", monthlyData);
         model.addAttribute("e", e1);
         model.addAttribute("money", money);
+        model.addAttribute("years", Year.values());
+        model.addAttribute("months", Month.values());
 
         model.addAttribute("selectedLocation", "Payroll");
 
