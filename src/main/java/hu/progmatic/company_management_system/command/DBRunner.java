@@ -162,6 +162,12 @@ public class DBRunner implements CommandLineRunner {
         ingredientRepo.save(ingredient4);
         ingredientRepo.save(ingredient5);
         ingredientRepo.save(ingredient6);
+       /* ingredientRepo.save(ingredient7);
+        ingredientRepo.save(ingredient8);
+        ingredientRepo.save(ingredient9);
+        ingredientRepo.save(ingredient10);
+        ingredientRepo.save(ingredient11);
+        ingredientRepo.save(ingredient12);*/
         System.out.println("BOMLlists and Ingredients generated.");
 
         ShippingIn shippingIn1 = new ShippingIn(partner1, LocalDate.now(),List.of());
