@@ -2,6 +2,9 @@ package hu.progmatic.company_management_system.command;
 
 import hu.progmatic.company_management_system.models.*;
 import hu.progmatic.company_management_system.models.hr_accounting.Employee;
+import hu.progmatic.company_management_system.models.hr_accounting.Month;
+import hu.progmatic.company_management_system.models.hr_accounting.MonthlyData;
+import hu.progmatic.company_management_system.models.hr_accounting.Year;
 import hu.progmatic.company_management_system.models.production.*;
 import hu.progmatic.company_management_system.models.sales.Partner;
 import hu.progmatic.company_management_system.models.sales.PartnerType;
@@ -41,12 +44,14 @@ public class DBRunner implements CommandLineRunner {
     private final EndProductRepo endProductRepo;
     private final EmployeeRepo employeeRepo;
 
+    private final MonthlyDataRepo monthlyDataRepo;
+
     public DBRunner(UserRepository userRepository, PasswordEncoder passwordEncoder,
                     ProducedProductRepo producedProductRepo, PartnerRepo partnerRepo,
                     BOMListRepo bomListRepo, ShippingInRepo shippingInRepo,
                     ShippingOutRepo shippingOutRepo, IngredientRepo ingredientRepo,
                     RawMaterialRepo rawMaterialRepo, EndProductRepo endProductRepo,
-                    EmployeeRepo employeeRepo) {
+                    EmployeeRepo employeeRepo, MonthlyDataRepo monthlyDataRepo) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.producedProductRepo = producedProductRepo;
@@ -58,6 +63,7 @@ public class DBRunner implements CommandLineRunner {
         this.rawMaterialRepo = rawMaterialRepo;
         this.endProductRepo = endProductRepo;
         this.employeeRepo = employeeRepo;
+        this.monthlyDataRepo = monthlyDataRepo;
     }
 
     @Override
@@ -111,6 +117,13 @@ public class DBRunner implements CommandLineRunner {
         Partner partner9 = new Partner("Radiátor Mester Kft.", PartnerType.CUSTOMER, "1063 Bp., Major utca 2.",
                 "Lambert Emil", "emil.lambert@radiatormester.hu", "06702247469");
         partnerRepo.save(partner9);
+        Partner partner10 = new Partner("Barkács Expert Kft.", PartnerType.CUSTOMER, "1153 Bp., Kő utca 127.",
+                "Baranyai Márton", "marto.baranyai@barkacsexpert.hu", "06702222479");
+        partnerRepo.save(partner10);
+        Partner partner11 = new Partner("Villany2005 Kft.", PartnerType.CUSTOMER, "1171 Bp., Szabadság sugárút 118.",
+                "Nagy Orsolya ", "orsolya.nagy@villany2005.hu", "06702137465");
+        partnerRepo.save(partner11);
+
 
         System.out.println("Partners generated.");
 
@@ -215,7 +228,7 @@ public class DBRunner implements CommandLineRunner {
         endProductRepo.save(endProduct2);
         System.out.println("Shipping outs and Endproducts generated.");
 
-        employeeRepo.save(new Employee("8312378998", "Hajdú Nikolett", "Hajdú Nikolett", "023546325",
+        Employee employee1 = employeeRepo.save(new Employee("8312378998", "Hajdú Nikolett", "Hajdú Nikolett", "023546325",
                 "Eger", LocalDate.of(1980,12,13),
                 "Kiss Erika", "1022 Bp, Mogyoró u. 12.", "Alkalmazott",
                 LocalDate.of(2020,11,11), "3212", 8, 800000));
@@ -228,7 +241,7 @@ public class DBRunner implements CommandLineRunner {
                 "Kajer Anett", "1076 Bp, Péterfy Sándor utca 7.", "Alkalmazott",
                 LocalDate.of(2020,11,11), "1411", 8, 800000));
         employeeRepo.save(new Employee("8313256455", "Laub János", "Laub János", "012554265",
-                "Nyíregyháza", LocalDate.of(1971,1,6),
+                "Egerszalók", LocalDate.of(1971,1,6),
                 "Balog Zsuzsanna", "2500 Esztergom, Vidám utca 2.", "Alkalmazott",
                 LocalDate.of(2020,12,1), "3212", 8, 900000));
         employeeRepo.save(new Employee("8475000253", "Héni Péter", "Héni Péter", "093366915",
@@ -239,5 +252,30 @@ public class DBRunner implements CommandLineRunner {
                 "Budapest", LocalDate.of(1985,7,7),
                 "Kun Izabella", "1161 Bp, Csillag utca 3.", "Alkalmazott",
                 LocalDate.of(1980,1,17), "9310", 8, 500000));
+
+        monthlyDataRepo.save(new MonthlyData(Month.JANUARY, Year.YEAR_2021, 21, 1, 0,
+                0, 352450, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.FEBRUARY, Year.YEAR_2021, 12, 8, 3,
+                0, 335367, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.MARCH, Year.YEAR_2021, 20, 2, 0,
+                0, 352450, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.APRIL, Year.YEAR_2021, 21, 0, 0,
+                0, 352450, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.MAY, Year.YEAR_2021, 10, 5, 5,
+                0, 285200, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.JUNE, Year.YEAR_2021, 12, 0, 5,
+                0, 287622, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.JULY, Year.YEAR_2021, 20, 1, 0,
+                0, 352450, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.AUGUST, Year.YEAR_2021, 18, 4, 0,
+                0, 352450, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.SEPTEMBER, Year.YEAR_2021, 21, 0, 0,
+                0, 352450, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.OCTOBER, Year.YEAR_2021, 17, 2, 2,
+                1, 275390, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.NOVEMBER, Year.YEAR_2021, 19, 0, 0,
+                3, 267505, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.DECEMBER, Year.YEAR_2021, 22, 0, 0,
+                0, 352450, employee1));
     }
 }

@@ -23,6 +23,7 @@ public class MonthlyDataService {
         this.employeeRepo = employeeRepo;
     }
 
+
     public List<MonthlyData> getMonthlyData(){
       List<MonthlyData> monthlyDataList = (List<MonthlyData>) monthlyDataRepo.findAll();
       return monthlyDataList;
