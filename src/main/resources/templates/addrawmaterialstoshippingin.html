@@ -28,11 +28,11 @@
           </option>
         </select>
         <label for="sarzs">SARZS</label>
-        <input id="sarzs" placeholder="SARZS" type="number" data-th-field="*{SARZSNumber}" autofocus required>
+        <input id="sarzs" placeholder="SARZS" type="number" data-th-field="*{SARZSNumber}" autofocus required autocomplete="off">
         <label for="unitPrice">Unit Price</label>
-        <input id="unitPrice" placeholder="Price" type="number" data-th-field="*{unitPrice}" required>
+        <input id="unitPrice" placeholder="Price" type="number" data-th-field="*{unitPrice}" required autocomplete="off">
         <label for="quantity">Quantity</label>
-        <input id="quantity" placeholder="Quantity" type="number" data-th-field="*{quantity}" required>
+        <input id="quantity" placeholder="Quantity" type="number" data-th-field="*{quantity}" required autocomplete="off">
         <input style="display: none;" name="shippingInId" data-th-value="${shippingIn.id}"/>
         <button class="add_button" type="submit">Add</button>
       </form>

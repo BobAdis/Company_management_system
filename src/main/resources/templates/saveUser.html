@@ -28,11 +28,11 @@
 
                     <tr>
                         <th><label for="username">Username</label></th>
-                        <td><input id="username" type="text" data-th-field="*{username}" placeholder="username" autofocus required><a data-th-if="${employee.user} != null" data-th-text="' ' + ${employee.user.username}"></a></td>
+                        <td><input id="username" type="text" data-th-field="*{username}" placeholder="username" autofocus required autocomplete="off"><a data-th-if="${employee.user} != null" data-th-text="' ' + ${employee.user.username}"></a></td>
                     </tr>
                     <tr>
                         <th><label for="password">Password</label></th>
-                        <td><input id="password" type="password" data-th-field="*{password}" placeholder="password" required></td>
+                        <td><input id="password" type="password" data-th-field="*{password}" placeholder="password" required autocomplete="off"></td>
                     </tr>
                     <tr style="display: none">
                         <td><input type="hidden" data-th-value="${employee.taxNumber}" name="taxnumber"></td>

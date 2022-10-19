@@ -35,7 +35,7 @@
       <tr>
         <th><label for="endproductprice">Unit Price</label></th>
         <td>
-          <input placeholder="Price" id="endproductprice" type="number" name="endProductPrice" required/>
+          <input placeholder="Price" id="endproductprice" type="number" name="endProductPrice" required autocomplete="off"/>
         </td>
       </tr>
     </table>
@@ -49,6 +49,7 @@
       <li data-th-text="${endproduct.producedProduct.name}"></li>
     </div>
   </ul>
+  <a data-th-href="@{/shippingouts}"><button class="send_button">Finish</button></a>
 </div>
   </div>
 </div>

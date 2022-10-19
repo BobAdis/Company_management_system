@@ -17,8 +17,8 @@
          <div class="form-container sign-in-container">
              <form data-th-action="@{/login}" method="post">
                  <h1>Sign in</h1>
-                 <input type="text" data-th-name="username" placeholder="USERNAME" />
-                 <input type="password" data-th-name="password" placeholder="Password" />
+                 <input type="text" data-th-name="username" placeholder="USERNAME" autofocus required autocomplete="off"/>
+                 <input type="password" data-th-name="password" placeholder="Password" required autocomplete="off"/>
                  <button>Sign In</button>
              </form>
          </div>

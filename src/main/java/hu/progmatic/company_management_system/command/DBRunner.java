@@ -206,12 +206,12 @@ public class DBRunner implements CommandLineRunner {
 
         ShippingOut shippingOut1 = new ShippingOut(partner1,LocalDate.now(),List.of());
         shippingOutRepo.save(shippingOut1);
-        EndProduct endProduct1 = new EndProduct(producedProduct1, 5990075,80000,10,shippingOut1);
+        EndProduct endProduct1 = new EndProduct(producedProduct1, 5990075,80000,1,shippingOut1);
         endProductRepo.save(endProduct1);
 
         ShippingOut shippingOut2 = new ShippingOut(partner3,LocalDate.now(),List.of());
         shippingOutRepo.save(shippingOut2);
-        EndProduct endProduct2 = new EndProduct(producedProduct3, 5997789,100000,10,shippingOut2);
+        EndProduct endProduct2 = new EndProduct(producedProduct3, 5997789,100000,1,shippingOut2);
         endProductRepo.save(endProduct2);
         System.out.println("Shipping outs and Endproducts generated.");
 
