@@ -41,6 +41,9 @@ public class PartnerController {
         model.addAttribute("partners", partners);
         model.addAttribute("page", "Suppliers List");
         model.addAttribute("form", form);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Suppliers");
         return "suppliers";
     }
 
@@ -63,6 +66,9 @@ public class PartnerController {
         model.addAttribute("partners", partners);
         model.addAttribute("page", "Customer List");
         model.addAttribute("form", form);
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Customers");
         return "customers";
     }
 
@@ -72,6 +78,8 @@ public class PartnerController {
         model.addAttribute("partner", partner);
         model.addAttribute("partnerType", PartnerType.SUPPLIER);
 
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Suppliers");
         return "newsupplier";
     }
     @PostMapping("/newsupplier")
@@ -87,6 +95,8 @@ public class PartnerController {
         model.addAttribute("partner", partner);
         model.addAttribute("partnerType", PartnerType.CUSTOMER);
 
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Customers");
         return "newcustomer";
     }
     @PostMapping("/newcustomer")
