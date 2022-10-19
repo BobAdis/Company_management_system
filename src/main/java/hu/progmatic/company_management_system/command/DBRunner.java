@@ -232,50 +232,83 @@ public class DBRunner implements CommandLineRunner {
                 "Eger", LocalDate.of(1980,12,13),
                 "Kiss Erika", "1022 Bp, Mogyoró u. 12.", "Alkalmazott",
                 LocalDate.of(2020,11,11), "3212", 8, 800000));
-        employeeRepo.save(new Employee("8456987558", "Magyar Sándor", "Magyar Sándor", "312855423",
+        Employee employee2 = employeeRepo.save(new Employee("8456987558", "Magyar Sándor", "Magyar Sándor", "312855423",
                 "Budapest", LocalDate.of(1993,10,3),
                 "Major Kinga", "1035 Bp, Vörösvári út 7.", "Alkalmazott",
                 LocalDate.of(2021,4,5), "9310", 8, 500000));
-        employeeRepo.save(new Employee("8369754421", "Kecskés Brigitta", "Nagy Brigitta", "045897645",
+        Employee employee3 = employeeRepo.save(new Employee("8369754421", "Kecskés Brigitta", "Nagy Brigitta", "045897645",
                 "Miskolc", LocalDate.of(1979,10,5),
                 "Kajer Anett", "1076 Bp, Péterfy Sándor utca 7.", "Alkalmazott",
                 LocalDate.of(2020,11,11), "1411", 8, 800000));
-        employeeRepo.save(new Employee("8313256455", "Laub János", "Laub János", "012554265",
+        Employee employee4 = employeeRepo.save(new Employee("8313256455", "Laub János", "Laub János", "012554265",
                 "Egerszalók", LocalDate.of(1971,1,6),
                 "Balog Zsuzsanna", "2500 Esztergom, Vidám utca 2.", "Alkalmazott",
                 LocalDate.of(2020,12,1), "3212", 8, 900000));
-        employeeRepo.save(new Employee("8475000253", "Héni Péter", "Héni Péter", "093366915",
+        Employee employee5 = employeeRepo.save(new Employee("8475000253", "Héni Péter", "Héni Péter", "093366915",
                 "Székesfehérvár", LocalDate.of(1988,2,23),
                 "Ilik Marianna", "2360 Gyál, Táncsics Mihály utca 163.", "Alkalmazott",
                 LocalDate.of(2021,5,12), "9310", 6, 400000));
-        employeeRepo.save(new Employee("8459658733", "Molnár Ödön", "Molnár Ödön", "022868276",
+        Employee employee6 = employeeRepo.save(new Employee("8459658733", "Molnár Ödön", "Molnár Ödön", "022868276",
                 "Budapest", LocalDate.of(1985,7,7),
                 "Kun Izabella", "1161 Bp, Csillag utca 3.", "Alkalmazott",
                 LocalDate.of(1980,1,17), "9310", 8, 500000));
 
-        monthlyDataRepo.save(new MonthlyData(Month.JANUARY, Year.YEAR_2021, 21, 1, 0,
-                0, 352450, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.FEBRUARY, Year.YEAR_2021, 12, 8, 3,
-                0, 335367, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.MARCH, Year.YEAR_2021, 20, 2, 0,
-                0, 352450, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.APRIL, Year.YEAR_2021, 21, 0, 0,
-                0, 352450, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.MAY, Year.YEAR_2021, 10, 5, 5,
-                0, 285200, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.JUNE, Year.YEAR_2021, 12, 0, 5,
-                0, 287622, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.JULY, Year.YEAR_2021, 20, 1, 0,
-                0, 352450, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.AUGUST, Year.YEAR_2021, 18, 4, 0,
-                0, 352450, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.SEPTEMBER, Year.YEAR_2021, 21, 0, 0,
-                0, 352450, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.OCTOBER, Year.YEAR_2021, 17, 2, 2,
-                1, 275390, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.NOVEMBER, Year.YEAR_2021, 19, 0, 0,
-                3, 267505, employee1));
-        monthlyDataRepo.save(new MonthlyData(Month.DECEMBER, Year.YEAR_2021, 22, 0, 0,
-                0, 352450, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.JANUARY, Year.YEAR_2022, 21, 1, 0,
+                0, 532000, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.FEBRUARY, Year.YEAR_2022, 12, 8, 3,
+                0, 552030, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.MARCH, Year.YEAR_2022, 20, 2, 0,
+                0, 532000, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.APRIL, Year.YEAR_2022, 21, 0, 0,
+                0, 532000, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.MAY, Year.YEAR_2022, 10, 5, 5,
+                0, 446940, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.JUNE, Year.YEAR_2022, 12, 0, 5,
+                0, 369520, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.JULY, Year.YEAR_2022, 20, 1, 0,
+                0, 532000, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.AUGUST, Year.YEAR_2022, 18, 4, 0,
+                0, 532000, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.SEPTEMBER, Year.YEAR_2022, 21, 0, 0,
+                0, 532000, employee1));
+        monthlyDataRepo.save(new MonthlyData(Month.OCTOBER, Year.YEAR_2022, 17, 2, 2,
+                1, 514254, employee1));
+
+        monthlyDataRepo.save(new MonthlyData(Month.JANUARY, Year.YEAR_2022, 21, 1, 0,
+                0, 332500, employee2));
+        monthlyDataRepo.save(new MonthlyData(Month.FEBRUARY, Year.YEAR_2022, 22, 0, 0,
+                0, 332500, employee2));
+        monthlyDataRepo.save(new MonthlyData(Month.MARCH, Year.YEAR_2022, 15, 0, 5,
+                0, 279175, employee2));
+
+        monthlyDataRepo.save(new MonthlyData(Month.JANUARY, Year.YEAR_2022, 12, 10, 0,
+                0, 532000, employee3));
+        monthlyDataRepo.save(new MonthlyData(Month.FEBRUARY, Year.YEAR_2022, 15, 5, 1,
+                0, 528090, employee3));
+        monthlyDataRepo.save(new MonthlyData(Month.MARCH, Year.YEAR_2022, 22, 0, 0,
+                0, 532000, employee3));
+
+        monthlyDataRepo.save(new MonthlyData(Month.JANUARY, Year.YEAR_2022, 18, 4, 0,
+                0, 598500, employee4));
+        monthlyDataRepo.save(new MonthlyData(Month.FEBRUARY, Year.YEAR_2022, 15, 6, 0,
+                0, 598500, employee4));
+        monthlyDataRepo.save(new MonthlyData(Month.MARCH, Year.YEAR_2022, 10, 11, 0,
+                0, 598500, employee4));
+
+
+        monthlyDataRepo.save(new MonthlyData(Month.JANUARY, Year.YEAR_2022, 18, 0, 4,
+                0, 256194, employee5));
+        monthlyDataRepo.save(new MonthlyData(Month.FEBRUARY, Year.YEAR_2022, 15, 0, 6,
+                0, 229450, employee5));
+        monthlyDataRepo.save(new MonthlyData(Month.MARCH, Year.YEAR_2022, 10, 5, 3,
+                3, 211500, employee5));
+
+        monthlyDataRepo.save(new MonthlyData(Month.JANUARY, Year.YEAR_2022, 22, 0, 0,
+                0, 332500, employee6));
+        monthlyDataRepo.save(new MonthlyData(Month.FEBRUARY, Year.YEAR_2022, 15, 3, 3,
+                0, 312267, employee6));
+        monthlyDataRepo.save(new MonthlyData(Month.MARCH, Year.YEAR_2022, 0, 15, 6,
+                3, 286490, employee6));
+
     }
 }
