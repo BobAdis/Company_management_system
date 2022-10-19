@@ -29,6 +29,18 @@ public class MonthlyData {
     public MonthlyData() {
     }
 
+    public MonthlyData(Month month, Year year, int workingDays, int paidLeave,
+                       int sickLeave, int illnessBenefit, int netSalary, Employee employee) {
+        this.month = month;
+        this.year = year;
+        this.workingDays = workingDays;
+        this.paidLeave = paidLeave;
+        this.sickLeave = sickLeave;
+        this.illnessBenefit = illnessBenefit;
+        this.netSalary = netSalary;
+        this.employee = employee;
+    }
+
     public Long getId() {
         return id;
     }
