@@ -92,11 +92,17 @@ public class ShippingOutController {
     }
 
     @PostMapping(value = {"/addendproduct"})
-    public String addEndProductsToShippingOut(@RequestParam(name = "shippingOutId") long shippingOutId, @RequestParam(name = "endproductId") long endproductId) {
+    public String addEndProductsToShippingOut(@RequestParam(name = "shippingOutId") long shippingOutId,
+                                              @RequestParam(name = "endproductId") long endproductId,
+                                              @RequestParam(name = "endProductPrice") int endProductPrice) {
+
         ShippingOut shippingOut = shippingOutService.getById(shippingOutId);
 
         List<EndProduct> endProducts = new ArrayList<>();
+
         EndProduct endProduct = endProductService.getById(endproductId);
+        endProduct.setUnitPrice(endProductPrice);
+
         endProducts.add(endProduct);
 
         shippingOut.setEndProducts(endProducts);

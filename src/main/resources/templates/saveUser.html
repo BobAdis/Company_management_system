@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title data-th-text="${employee.user} != null ? 'Modify':'Register'">Register</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
     <header>
-        <h2 data-th-text="'Register user account for ' + ${employee.name}"></h2>
+        <h2 data-th-text="${employee.user} != null ? 'Modify user account for ' + ${employee.name}:'Register user account for ' + ${employee.name}"></h2>
 
     </header>
 

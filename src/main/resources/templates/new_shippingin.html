@@ -28,7 +28,7 @@
           <table>
             <tr>
              <th><label for="seller">Supplier</label></th>
-             <td><select id="seller" name="partnerId">
+             <td><select id="seller" name="partnerId" required>
                  <option data-th-each="partner: ${partners}"
                     data-th-value="${partner.id}"
                     data-th-text="${partner.partnerName}">
@@ -37,7 +37,7 @@
             </tr>
             <tr>
               <th><label for="date">Date</label></th>
-              <td><input id="date" placeholder="date" type="date" data-th-field="*{localDate}"/></td>
+              <td><input id="date" placeholder="date" type="date" data-th-field="*{localDate}" required/></td>
             </tr>
           </table>
           <button class="send_button">Create</button>

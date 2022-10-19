@@ -115,7 +115,7 @@ public class WorkstationController {
         //CSS-hez th:class
         model.addAttribute("selectedLocation", "Workstation");
 
-        return "redirect:/endproducts";
+        return "redirect:/workstation";
     }
 
 }

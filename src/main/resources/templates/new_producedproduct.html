@@ -28,9 +28,10 @@
           <table>
             <tr>
               <th><label for="name">Name</label></th>
-              <td><input id="name" placeholder="name" type="text" data-th-field="*{name}"/></td>
+              <td><input id="name" placeholder="name" type="text" data-th-field="*{name}" autofocus required/></td>
             </tr>
           </table>
+          <button type="submit" class="send_button">Create</button>
         </form>
         <a data-th-href="@{/producedproducts}"><button class="send_button">Back to ProducedProducts</button></a>
       </div>

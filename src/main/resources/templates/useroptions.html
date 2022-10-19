@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-    <h2>Employee data sheet</h2>
+    <h2>User options</h2>
     <h2 data-th-text="${page}"></h2>
 
 </header>
@@ -21,33 +21,31 @@
 
         <table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
             <tr>
-                <h2>Employees without user</h2>
+                <h2>Employees without user account</h2>
             </tr>
             <tr>
                 <th>Tax Number</th>
                 <th>Name</th>
-                <th>Position</th>
-                <th>Register position</th>
+                <th>Register user</th>
 
             </tr>
 
             <tr style="color: black" data-th-each="e : ${employees}">
                 <td data-th-text="${e.taxNumber}"></td>
                 <td data-th-text="${e.name}"></td>
-                <td data-th-text="${e.personnelTask}" ></td>
                 <td><a data-th-href="@{/useroptions/{taxnumber}(taxnumber=${e.taxNumber})}"><button class="send_button" >Register</button></a></td>
             </tr>
         </table>
 
         <table style="table-layout: fixed; word-wrap: break-word; overflow-wrap: break-word;">
             <tr>
-                <h2>Employees with user</h2>
+                <h2>Employees with user account</h2>
             </tr>
             <tr>
                 <th>Tax Number</th>
                 <th>Name</th>
                 <th>Position</th>
-                <th>Modify position</th>
+                <th>Modify user</th>
 
             </tr>
 

@@ -19,11 +19,13 @@
         </div>
     </div>
     <div class="right">
+        <h1>Bill of Materials</h1>
+
         <ul>
-        <div data-th-each="bl : ${bomlists}">
-            <a class="box1" data-th-href="@{/workstation/{id}(id=${bl.id})}" data-th-text="${bl.name}"></a>
-        </div>
-    </ul>
+            <div data-th-each="bl : ${bomlists}">
+                <a class="box1" data-th-href="@{/workstation/{id}(id=${bl.id})}" data-th-text="${bl.name}"></a>
+            </div>
+        </ul>
 
   <!--<script th:inline="javascript">
       /*<![CDATA[*/

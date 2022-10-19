@@ -27,15 +27,15 @@
           <table>
             <tr>
               <th><label for="name">Name</label></th>
-              <td><input id="name" placeholder="name" type="text" data-th-field="*{name}"/></td>
+              <td><input id="name" placeholder="name" type="text" data-th-field="*{name}" autofocus required/></td>
             </tr>
             <tr>
               <th><label for="description">Description</label></th>
-              <td><textarea id="description" data-th-field="*{description}"></textarea></td>
+              <td><textarea id="description" data-th-field="*{description}" required></textarea></td>
             </tr>
             <tr>
               <th><label for="producedproduct">Produced product</label></th>
-              <td><select id="producedproduct" name="productId">
+              <td><select id="producedproduct" name="productId" required>
                   <option data-th-each="product: ${producedProducts}"
                          data-th-value="${product.id}"
                           data-th-text="${product.name}">
