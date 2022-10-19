@@ -7,10 +7,9 @@ public enum Position implements GrantedAuthority{
 
     WAREHOUSEWORKER,
     PRODUCTIONMANAGER,
-    ACCOUNTANT,
     ADMIN,
     CEO,
-    FINANCE_STAFF,
+    HR_MANAGER,
     TRADE_MANAGER,
     MACHINE_OPERATOR;
 

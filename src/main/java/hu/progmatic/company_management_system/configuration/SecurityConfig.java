@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .hasAnyRole("WAREHOUSEWORKER", "ADMIN", "CEO")
 
                 .antMatchers("/finance", "/employees", "/payroll")
-                .hasAnyRole("FINANCE_STAFF", "ADMIN", "CEO")
+                .hasAnyRole("HR_MANAGER", "ADMIN", "CEO")
 
                 .antMatchers("/rawmaterials", "/producedproducts", "/ingredients", "/bomlists", "/endproducts")
                 .hasAnyRole("PRODUCTIONMANAGER", "ADMIN", "CEO");

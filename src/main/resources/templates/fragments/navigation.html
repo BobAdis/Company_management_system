@@ -52,9 +52,9 @@
             </ul>
             <span th:classappend="${selectedLocation == 'Employees' || selectedLocation == 'Finance' || selectedLocation == 'Payroll' || selectedLocation == 'Useroptions'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')" class="highlights">HR</span>
             <ul>
-                <a th:class="${selectedLocation == 'Payroll'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
+                <a th:class="${selectedLocation == 'Payroll'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_HR_MANAGER')"
                    data-th-href="@{/payroll}">Payroll</a>
-                <a th:class="${selectedLocation == 'Employees'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')"
+                <a th:class="${selectedLocation == 'Employees'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_HR_MANAGER')"
                    data-th-href="@{/employees}">Employees</a>
                 <a th:class="${selectedLocation == 'Useroptions'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN')"
                    data-th-href="@{/useroptions}">User options</a>

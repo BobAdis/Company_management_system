@@ -99,8 +99,8 @@ public class User implements UserDetails{
             SimpleGrantedAuthority auth4 = new SimpleGrantedAuthority("ROLE_CEO");
             auths.add(auth4);
 
-        } else if (Position.FINANCE_STAFF == position) {
-            SimpleGrantedAuthority auth5 = new SimpleGrantedAuthority("ROLE_FINANCE_STAFF");
+        } else if (Position.HR_MANAGER == position) {
+            SimpleGrantedAuthority auth5 = new SimpleGrantedAuthority("ROLE_HR_MANAGER");
             auths.add(auth5);
 
         } else if (Position.TRADE_MANAGER == position) {

@@ -78,7 +78,7 @@ public class DBRunner implements CommandLineRunner {
         userRepository.save(new User("Gabi", passwordEncoder.encode("password"), Position.TRADE_MANAGER, false));
         System.out.println("Trade-manager user generated.");
 
-        userRepository.save(new User("Zita", passwordEncoder.encode("password"), Position.FINANCE_STAFF, false));
+        userRepository.save(new User("Zita", passwordEncoder.encode("password"), Position.HR_MANAGER, false));
         System.out.println("Finance-staff user generated.");
 
         userRepository.save(new User("Gyuri", passwordEncoder.encode("password"), Position.PRODUCTIONMANAGER, false));
