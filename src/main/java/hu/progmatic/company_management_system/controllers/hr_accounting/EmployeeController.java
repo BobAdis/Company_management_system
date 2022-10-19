@@ -101,11 +101,12 @@ public class EmployeeController {
         model.addAttribute("monthlyDataList", monthlyDataList);
         System.out.println(monthlyDataList);
 
-        //CSS-hez th:class
-        model.addAttribute("selectedLocation", "Netsalary");
         model.addAttribute("form", new NetSalarySearchForm());
         model.addAttribute("years", Year.values());
         model.addAttribute("months", Month.values());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Payroll");
         return "netsalary";
     }
 
@@ -116,6 +117,9 @@ public class EmployeeController {
        model.addAttribute("form", form);
        model.addAttribute("years", Year.values());
        model.addAttribute("months", Month.values());
+
+        //CSS-hez th:class
+        model.addAttribute("selectedLocation", "Payroll");
         return "netsalary";
     }
 
