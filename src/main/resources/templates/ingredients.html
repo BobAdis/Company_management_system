@@ -53,8 +53,6 @@
                     <td data-th-text="${ingredient.description}"></td>
                     <td data-th-if="${ingredient.bomList} != null" data-th-text="${ingredient.bomList.name}"></td>
                     <td data-th-if="${ingredient.bomList} == null"></td>
-                    <td data-th-if="${ #lists.size(ingredient.rawMaterial) == 0}"></td>
-                    <td data-th-if="${ #lists.size(ingredient.rawMaterial) == 0}"></td>
                     <td data-th-text="${ingredient.unit}"></td>
                 </tr>
             </table>
