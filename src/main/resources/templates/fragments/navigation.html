@@ -11,7 +11,7 @@
 <div th:fragment="navigation">
     <div class="vertical-menu">
         <ul>
-            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_MACHINE_OPERATOR', 'ROLE_FINANCE_STAFF')"
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER', 'ROLE_TRADE_MANAGER', 'ROLE_WAREHOUSEWORKER', 'ROLE_MACHINE_OPERATOR', 'ROLE_HR_MANAGER')"
                class="active" data-th-href="@{/main}">Home</a>
             <br />
             <span th:classappend="${selectedLocation == 'Warehouses' || selectedLocation == 'Rawmaterials' || selectedLocation == 'Endproducts' || selectedLocation == 'Transfer' ||
@@ -50,7 +50,7 @@
                 <a th:class="${selectedLocation == 'Shippingouts'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')"
                        data-th-href="@{/shippingouts}">Shipping Outs</a>
             </ul>
-            <span th:classappend="${selectedLocation == 'Employees' || selectedLocation == 'Finance' || selectedLocation == 'Payroll' || selectedLocation == 'Useroptions'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_FINANCE_STAFF')" class="highlights">HR</span>
+            <span th:classappend="${selectedLocation == 'Employees' || selectedLocation == 'Finance' || selectedLocation == 'Payroll' || selectedLocation == 'Useroptions'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_HR_MANAGER')" class="highlights">HR</span>
             <ul>
                 <a th:class="${selectedLocation == 'Payroll'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_HR_MANAGER')"
                    data-th-href="@{/payroll}">Payroll</a>
