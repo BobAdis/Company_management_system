@@ -34,7 +34,6 @@
                 data-th-href="@{/rawmaterials}">Raw materials</a>
                 <a th:class="${selectedLocation == 'Endproducts'}? 'selected' " sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_PRODUCTIONMANAGER')"
                 data-th-href="@{/endproducts}">End products</a>
-
             </ul>
             <span th:classappend="${selectedLocation == 'Suppliers' || selectedLocation == 'Customers'}? 'selected' " class="highlights" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CEO', 'ROLE_TRADE_MANAGER')">Partners</span>
             <ul>
