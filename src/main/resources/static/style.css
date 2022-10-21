@@ -245,16 +245,16 @@ li {
     min-width: 100px;
     padding: 8px;
     font-size: 75%;
-    background-color: #4a66c3;
+    background-color: #6381CC;
     color: white;
-    border-radius: 5%;
+    border-radius: 10px;
     border-color: #a6a6a6;
     cursor: pointer;
 }
 
 .add_button:hover {
     background-color: var(--light_gray);
-    border-radius: 5%;
+    border-radius: 10px;
     color: white;
 }
 
