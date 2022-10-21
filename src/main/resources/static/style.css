@@ -73,13 +73,13 @@ h1 {
     font-size: 75%;
     background-color: #E92323;
     color: white;
-    border-radius: 5%;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 .send_button:hover {
     background-color: var(--light_gray);
-    border-radius: 5%;
+    border-radius: 10px;
     color: white;
 }
 
